@@ -33,4 +33,16 @@
         boton.Text = ""
     End Sub
 
+    Public Sub AddForm_Desktop(ByVal form As Form, ByVal Desktop As Panel)
+        form.TopLevel = False
+        form.FormBorderStyle = FormBorderStyle.None
+        form.Dock = DockStyle.Fill
+        Desktop.Controls.Add(form)
+        form.Show()
+    End Sub
+
+    Public Function Login()
+        Return MsgBox("Inicio de session")
+    End Function
+
 End Class
