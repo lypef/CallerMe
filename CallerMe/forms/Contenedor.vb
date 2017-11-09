@@ -2,7 +2,7 @@
     Dim f As New functions
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        f.SetModelForm(Me)
+        f.forms_setmodel(Me)
         f.Button_SetModel(Button_Clients, My.Resources.Btn_Clientes)
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)

@@ -1,7 +1,7 @@
 ﻿Public Class functions
 
-    Public Sub SetModelForm(ByVal form As Form)
-        form.StartPosition = 1
+    Public Sub forms_setmodel(ByVal form As Form)
+        form.StartPosition = FormStartPosition.CenterScreen
         form.Icon = System.Drawing.Icon.FromHandle(My.Resources.ico.GetHicon())
         form.FormBorderStyle = FormBorderStyle.FixedToolWindow
         form.Text = "NOMBRE DE LA EMPRESA"
@@ -41,8 +41,18 @@
         form.Show()
     End Sub
 
-    Public Function Login()
-        Return MsgBox("Inicio de session")
+    Public Function Login(ByVal form As Form)
+        Dim r = False
+
+        If r Then
+            form.Visible = False
+        End If
+
+        Return r
     End Function
+
+    Public Sub Alert(ByVal txt As String)
+        MsgBox(txt.ToUpper(), MsgBoxStyle.Information, "Titulo")
+    End Sub
 
 End Class
