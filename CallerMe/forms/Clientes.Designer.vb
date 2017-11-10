@@ -27,20 +27,20 @@ Partial Class Clientes
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(291, 135)
+        Me.Button1.Location = New System.Drawing.Point(273, 189)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Login
+        'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(607, 362)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "Login"
+        Me.Name = "Clientes"
         Me.Text = "Form2"
         Me.ResumeLayout(False)
 

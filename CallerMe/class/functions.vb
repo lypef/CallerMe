@@ -1,5 +1,8 @@
 ﻿Public Class functions
 
+    Dim Conexion As New Conexion
+    Public Shared userID As Integer
+
     Public Sub forms_setmodel(ByVal form As Form)
         form.StartPosition = FormStartPosition.CenterScreen
         form.Icon = System.Drawing.Icon.FromHandle(My.Resources.ico.GetHicon())
@@ -41,11 +44,17 @@
         form.Show()
     End Sub
 
-    Public Function Login(ByVal form As Form)
+    Public Function Login(ByVal username As TextBox, ByVal password As TextBox)
         Dim r = False
+        Dim dato = Conexion.Conultar("select * from users where username = '" + username.Text + "' and password = '" + password.Text + "' ")
 
-        If r Then
-            form.Visible = False
+        If dato.hasrows Then
+            Do While dato.Read()
+                userID = dato.GetString(0)
+                r = True
+            Loop
+        Else
+            r = False
         End If
 
         Return r
@@ -53,6 +62,10 @@
 
     Public Sub Alert(ByVal txt As String)
         MsgBox(txt.ToUpper(), MsgBoxStyle.Information, "Titulo")
+    End Sub
+
+    Public Sub OpenConfig()
+        Parametros.Show()
     End Sub
 
 End Class
