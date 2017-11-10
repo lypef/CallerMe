@@ -42,4 +42,11 @@
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
     End Sub
 
+    Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
+        f.AddForm_Desktop(Clientes, Desktop)
+    End Sub
+
+    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
+        f.AddForm_Desktop(Parametros, Desktop)
+    End Sub
 End Class

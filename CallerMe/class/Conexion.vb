@@ -3,7 +3,7 @@
 Public Class Conexion
 
     Dim Conexion = New MySqlConnection()
-    Dim Conectar = "server=127.0.0.1; user id=root; password=; database=caller_me;"
+    Dim Conectar = "server=" + My.Settings.db_servidor + "; user id=" + My.Settings.db_username + "; password=" + My.Settings.db_password + "; database=" + My.Settings.db_nameDB + "; Port=" + My.Settings.db_puerto + ";"
 
     Public Function Conultar(ByVal sql As String)
         Dim dato As MySqlDataReader

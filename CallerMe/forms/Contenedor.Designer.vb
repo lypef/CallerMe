@@ -32,27 +32,27 @@ Partial Class Contenedor
         Me.Desktop = New System.Windows.Forms.Panel()
         Me.Menu = New System.Windows.Forms.Panel()
         Me.Button_Ajustes = New System.Windows.Forms.Button()
+        Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
+        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Registros = New System.Windows.Forms.Button()
+        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Clients = New System.Windows.Forms.Button()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultarClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.Menu.SuspendLayout()
-        Me.Btn_clientes.SuspendLayout()
-        Me.Btn_registros.SuspendLayout()
-        Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_ajustes.SuspendLayout()
+        Me.Btn_vehiculos.SuspendLayout()
+        Me.Btn_registros.SuspendLayout()
+        Me.Btn_clientes.SuspendLayout()
         Me.SuspendLayout()
         '
         'ArchivoToolStripMenuItem
@@ -140,6 +140,24 @@ Partial Class Contenedor
         Me.Button_Ajustes.Text = "Button3"
         Me.Button_Ajustes.UseVisualStyleBackColor = False
         '
+        'Btn_ajustes
+        '
+        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
+        Me.Btn_ajustes.Name = "ContextMenuStrip1"
+        Me.Btn_ajustes.Size = New System.Drawing.Size(153, 70)
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem5.Text = "Ajustes"
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
+        Me.ToolStripMenuItem6.Text = "Otros ajustes"
+        '
         'Button_Vehiculo
         '
         Me.Button_Vehiculo.BackColor = System.Drawing.Color.Transparent
@@ -158,6 +176,24 @@ Partial Class Contenedor
         Me.Button_Vehiculo.Text = "Button3"
         Me.Button_Vehiculo.UseVisualStyleBackColor = False
         '
+        'Btn_vehiculos
+        '
+        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(179, 48)
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
+        Me.ToolStripMenuItem3.Text = "Agregar vehiculo"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 22)
+        Me.ToolStripMenuItem4.Text = "Consultar vehiculos"
+        '
         'Button_Registros
         '
         Me.Button_Registros.BackColor = System.Drawing.Color.Transparent
@@ -175,6 +211,24 @@ Partial Class Contenedor
         Me.Button_Registros.TabIndex = 1
         Me.Button_Registros.Text = "Button2"
         Me.Button_Registros.UseVisualStyleBackColor = False
+        '
+        'Btn_registros
+        '
+        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2})
+        Me.Btn_registros.Name = "ContextMenuStrip1"
+        Me.Btn_registros.Size = New System.Drawing.Size(174, 48)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem1.Text = "Agregar registro"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem2.Text = "Consultar registros"
         '
         'Button_Clients
         '
@@ -213,61 +267,7 @@ Partial Class Contenedor
         Me.ConsultarClientesToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.ConsultarClientesToolStripMenuItem.Text = "Consultar clientes"
         '
-        'Btn_registros
-        '
-        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2})
-        Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(174, 48)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(173, 22)
-        Me.ToolStripMenuItem1.Text = "Agregar registro"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(173, 22)
-        Me.ToolStripMenuItem2.Text = "Consultar registros"
-        '
-        'Btn_vehiculos
-        '
-        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
-        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(179, 48)
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem3.Text = "Agregar vehiculo"
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem4.Text = "Consultar vehiculos"
-        '
-        'Btn_ajustes
-        '
-        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
-        Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(143, 48)
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(142, 22)
-        Me.ToolStripMenuItem5.Text = "Ajustes"
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
-        Me.ToolStripMenuItem6.Text = "Otros ajustes"
-        '
-        'Form1
+        'Contenedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -275,14 +275,14 @@ Partial Class Contenedor
         Me.ClientSize = New System.Drawing.Size(916, 531)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "Form1"
+        Me.Name = "Contenedor"
         Me.Text = "FORM"
         Me.Panel1.ResumeLayout(False)
         Me.Menu.ResumeLayout(False)
-        Me.Btn_clientes.ResumeLayout(False)
-        Me.Btn_registros.ResumeLayout(False)
-        Me.Btn_vehiculos.ResumeLayout(False)
         Me.Btn_ajustes.ResumeLayout(False)
+        Me.Btn_vehiculos.ResumeLayout(False)
+        Me.Btn_registros.ResumeLayout(False)
+        Me.Btn_clientes.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

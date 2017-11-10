@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,12 @@ Partial Class Login
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TxtUsername = New System.Windows.Forms.TextBox()
         Me.TxtPassword = New System.Windows.Forms.TextBox()
+        Me.CheckBoxCred = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -60,6 +61,16 @@ Partial Class Login
         Me.TxtPassword.TabIndex = 2
         Me.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'CheckBoxCred
+        '
+        Me.CheckBoxCred.AutoSize = True
+        Me.CheckBoxCred.Location = New System.Drawing.Point(340, 12)
+        Me.CheckBoxCred.Name = "CheckBoxCred"
+        Me.CheckBoxCred.Size = New System.Drawing.Size(127, 17)
+        Me.CheckBoxCred.TabIndex = 3
+        Me.CheckBoxCred.Text = "Guardar credenciales"
+        Me.CheckBoxCred.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -67,6 +78,7 @@ Partial Class Login
         Me.BackgroundImage = Global.CallerMe.My.Resources.Resources.Login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(479, 240)
+        Me.Controls.Add(Me.CheckBoxCred)
         Me.Controls.Add(Me.TxtPassword)
         Me.Controls.Add(Me.TxtUsername)
         Me.Controls.Add(Me.Button1)
@@ -80,4 +92,5 @@ Partial Class Login
     Friend WithEvents Button1 As Button
     Friend WithEvents TxtUsername As TextBox
     Friend WithEvents TxtPassword As TextBox
+    Friend WithEvents CheckBoxCred As CheckBox
 End Class

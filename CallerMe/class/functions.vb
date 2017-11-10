@@ -37,6 +37,8 @@
     End Sub
 
     Public Sub AddForm_Desktop(ByVal form As Form, ByVal Desktop As Panel)
+        Desktop.Controls.Clear()
+        Desktop.BorderStyle = BorderStyle.None
         form.TopLevel = False
         form.FormBorderStyle = FormBorderStyle.None
         form.Dock = DockStyle.Fill
@@ -68,4 +70,11 @@
         Parametros.Show()
     End Sub
 
+    Public Function IsFormOpen(ByVal frm As Form) As Boolean
+        If Application.OpenForms.OfType(Of Form).Contains(frm) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class
