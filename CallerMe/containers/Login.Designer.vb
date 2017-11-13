@@ -36,7 +36,7 @@ Partial Class Login
         Me.Button1.Location = New System.Drawing.Point(165, 169)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(302, 59)
-        Me.Button1.TabIndex = 0
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "INICIAR"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -67,7 +67,7 @@ Partial Class Login
         Me.CheckBoxCred.Location = New System.Drawing.Point(340, 12)
         Me.CheckBoxCred.Name = "CheckBoxCred"
         Me.CheckBoxCred.Size = New System.Drawing.Size(127, 17)
-        Me.CheckBoxCred.TabIndex = 3
+        Me.CheckBoxCred.TabIndex = 4
         Me.CheckBoxCred.Text = "Guardar credenciales"
         Me.CheckBoxCred.UseVisualStyleBackColor = True
         '
@@ -83,6 +83,7 @@ Partial Class Login
         Me.Controls.Add(Me.TxtUsername)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Login"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()

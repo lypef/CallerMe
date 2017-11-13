@@ -11,7 +11,7 @@ Public Class Parametros
         Txt_DB_DB.Text = My.Settings.db_nameDB
         Txt_DB_Puerto.Text = My.Settings.db_puerto
 
-        If f.IsFormOpen(Contenedor) Then
+        If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
         End If
     End Sub

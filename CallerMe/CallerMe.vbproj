@@ -137,11 +137,11 @@
     <Compile Include="forms\Parametros.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Contenedor.vb">
+    <Compile Include="containers\Control.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Contenedor.Designer.vb">
-      <DependentUpon>Contenedor.vb</DependentUpon>
+    <Compile Include="containers\Control.Designer.vb">
+      <DependentUpon>Control.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="class\functions.vb" />
@@ -151,10 +151,10 @@
     <Compile Include="forms\Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Login.Designer.vb">
+    <Compile Include="containers\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Login.vb">
+    <Compile Include="containers\Login.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -175,13 +175,13 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="forms\Contenedor.resx">
-      <DependentUpon>Contenedor.vb</DependentUpon>
+    <EmbeddedResource Include="containers\Control.resx">
+      <DependentUpon>Control.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Login.resx">
+    <EmbeddedResource Include="containers\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Parametros.resx">
@@ -195,7 +195,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="CallerMe_ClaveTemporal.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

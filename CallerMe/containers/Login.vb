@@ -14,7 +14,6 @@
         Else
             TxtUsername.Focus()
         End If
-
     End Sub
 
     Private Sub TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtPassword.KeyDown
@@ -38,7 +37,7 @@
             End If
 
             Me.Visible = False
-                Contenedor.Show()
+                control.Show()
             Else
                 f.Alert("Datos erroneos")
         End If

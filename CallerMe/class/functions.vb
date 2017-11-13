@@ -4,10 +4,11 @@
     Public Shared userID As Integer
 
     Public Sub forms_setmodel(ByVal form As Form)
-        form.StartPosition = FormStartPosition.CenterScreen
+        form.Text = "NOMBRE DE LA EMPRESA - USUARIO: " + ReturnNameID(userID)
         form.Icon = System.Drawing.Icon.FromHandle(My.Resources.ico.GetHicon())
-        form.FormBorderStyle = FormBorderStyle.FixedToolWindow
-        form.Text = "NOMBRE DE LA EMPRESA"
+        form.FormBorderStyle = FormBorderStyle.Sizable
+        form.MaximizeBox = False
+        form.StartPosition = FormStartPosition.CenterScreen
     End Sub
 
     Public Sub Button_SetModel(ByVal boton As Button, ByVal imagen As Bitmap)
@@ -77,4 +78,18 @@
             Return False
         End If
     End Function
+
+    Public Function ReturnNameID(ByVal id As String)
+        Dim r = ""
+        If (id > 0) Then
+
+            Dim dato = Conexion.Conultar("select name from users where id =  '" + id + "'  ")
+
+            If dato.Read() Then
+                r = dato.GetString(0)
+            End If
+        End If
+        Return r.ToUpper()
+    End Function
+
 End Class
