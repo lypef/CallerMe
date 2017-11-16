@@ -33,7 +33,6 @@ Partial Class control
         Me.Menu = New System.Windows.Forms.Panel()
         Me.Button_Ajustes = New System.Windows.Forms.Button()
         Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -46,7 +45,7 @@ Partial Class control
         Me.Button_Clients = New System.Windows.Forms.Button()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultarClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.Menu.SuspendLayout()
         Me.Btn_ajustes.SuspendLayout()
@@ -81,7 +80,7 @@ Partial Class control
         '
         'Panel1
         '
-        Me.Panel1.BackgroundImage = Global.CallerMe.My.Resources.Resources.background
+        Me.Panel1.BackgroundImage = Global.Calls.My.Resources.Resources.background
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Desktop)
         Me.Panel1.Controls.Add(Me.Menu)
@@ -93,7 +92,7 @@ Partial Class control
         '
         'Panel4
         '
-        Me.Panel4.BackgroundImage = Global.CallerMe.My.Resources.Resources.separador
+        Me.Panel4.BackgroundImage = Global.Calls.My.Resources.Resources.separador
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel4.Location = New System.Drawing.Point(0, 96)
         Me.Panel4.Name = "Panel4"
@@ -125,7 +124,7 @@ Partial Class control
         'Button_Ajustes
         '
         Me.Button_Ajustes.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Ajustes.BackgroundImage = Global.CallerMe.My.Resources.Resources.Btn_ajustes
+        Me.Button_Ajustes.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_ajustes
         Me.Button_Ajustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button_Ajustes.ContextMenuStrip = Me.Btn_ajustes
         Me.Button_Ajustes.FlatAppearance.BorderSize = 0
@@ -142,26 +141,20 @@ Partial Class control
         '
         'Btn_ajustes
         '
-        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
+        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.SalirToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
         Me.Btn_ajustes.Size = New System.Drawing.Size(143, 48)
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(142, 22)
-        Me.ToolStripMenuItem5.Text = "Ajustes"
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem6.Text = "Otros ajustes"
         '
         'Button_Vehiculo
         '
         Me.Button_Vehiculo.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Vehiculo.BackgroundImage = Global.CallerMe.My.Resources.Resources.Btn_vehiculos
+        Me.Button_Vehiculo.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_vehiculos
         Me.Button_Vehiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button_Vehiculo.ContextMenuStrip = Me.Btn_vehiculos
         Me.Button_Vehiculo.FlatAppearance.BorderSize = 0
@@ -197,7 +190,7 @@ Partial Class control
         'Button_Registros
         '
         Me.Button_Registros.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Registros.BackgroundImage = Global.CallerMe.My.Resources.Resources.Btn_registros
+        Me.Button_Registros.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_registros
         Me.Button_Registros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button_Registros.ContextMenuStrip = Me.Btn_registros
         Me.Button_Registros.FlatAppearance.BorderSize = 0
@@ -233,7 +226,7 @@ Partial Class control
         'Button_Clients
         '
         Me.Button_Clients.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Clients.BackgroundImage = Global.CallerMe.My.Resources.Resources.Btn_Clientes
+        Me.Button_Clients.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_Clientes
         Me.Button_Clients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.Button_Clients.ContextMenuStrip = Me.Btn_clientes
         Me.Button_Clients.FlatAppearance.BorderSize = 0
@@ -251,30 +244,30 @@ Partial Class control
         'Btn_clientes
         '
         Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarClienteToolStripMenuItem, Me.ConsultarClientesToolStripMenuItem})
+        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarClienteToolStripMenuItem})
         Me.Btn_clientes.Name = "Btn_clientes"
-        Me.Btn_clientes.Size = New System.Drawing.Size(169, 48)
+        Me.Btn_clientes.Size = New System.Drawing.Size(155, 26)
         '
         'AgregarClienteToolStripMenuItem
         '
         Me.AgregarClienteToolStripMenuItem.Name = "AgregarClienteToolStripMenuItem"
-        Me.AgregarClienteToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.AgregarClienteToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.AgregarClienteToolStripMenuItem.Text = "Agregar cliente"
         '
-        'ConsultarClientesToolStripMenuItem
+        'SalirToolStripMenuItem
         '
-        Me.ConsultarClientesToolStripMenuItem.Name = "ConsultarClientesToolStripMenuItem"
-        Me.ConsultarClientesToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
-        Me.ConsultarClientesToolStripMenuItem.Text = "Consultar clientes"
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
-        'Contenedor
+        'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(916, 531)
         Me.Controls.Add(Me.Panel1)
-        Me.Name = "Contenedor"
+        Me.Name = "control"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FORM"
         Me.Panel1.ResumeLayout(False)
@@ -300,7 +293,6 @@ Partial Class control
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Btn_clientes As ContextMenuStrip
     Friend WithEvents AgregarClienteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ConsultarClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Btn_registros As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
@@ -308,6 +300,6 @@ Partial Class control
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents Btn_ajustes As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
+    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
 End Class

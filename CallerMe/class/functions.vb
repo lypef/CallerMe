@@ -1,7 +1,23 @@
 ﻿Public Class functions
 
     Dim Conexion As New Conexion
-    Public Shared userID As Integer
+    Public Shared userID As String
+
+    'Mensajes de alerta
+    Public ReadOnly Alert_NoPermitido = "No permitido"
+
+    'Numeros de alerta
+    Public ReadOnly Alert_NumberInformacion = 64
+    Public ReadOnly Alert_NumberCritical = 16
+    Public ReadOnly Alert_NumberExclamacion = 48
+
+    'Variables permisos de usuario
+    Public ReadOnly Permission_Access_Clients = "acces_clients"
+    Public ReadOnly Permission_Access_registros = "acces_registros"
+    Public ReadOnly Permission_Access_vehiculos = "acces_vehiculos"
+    Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
+    Public ReadOnly Permission_Clients_add = "clients_add"
+
 
     Public Sub forms_setmodel(ByVal form As Form)
         form.Text = "NOMBRE DE LA EMPRESA - USUARIO: " + ReturnNameID(userID)
@@ -63,8 +79,8 @@
         Return r
     End Function
 
-    Public Sub Alert(ByVal txt As String)
-        MsgBox(txt.ToUpper(), MsgBoxStyle.Information, "Titulo")
+    Public Sub Alert(ByVal txt As String, ByVal style As Integer)
+        MsgBox(txt.ToUpper(), style, "Titulo")
     End Sub
 
     Public Sub OpenConfig()
@@ -91,5 +107,24 @@
         End If
         Return r.ToUpper()
     End Function
+
+    Public Function ReturnPermission(ByVal campo As String)
+        Dim r = False
+        Dim dato = Conexion.Conultar("select " + campo + " from permissions where user_id =  '" + userID + "'  ")
+
+        If dato.Read() Then
+            r = dato.GetBoolean(0)
+        End If
+
+        Return r
+    End Function
+
+    Public Sub PictureBox_SetImagen(ByVal img As PictureBox)
+        Dim file As New OpenFileDialog()
+        file.Filter = "Archivo JPG|*.jpg"
+        If file.ShowDialog() = DialogResult.OK Then
+            img.Image = Image.FromFile(file.FileName)
+        End If
+    End Sub
 
 End Class

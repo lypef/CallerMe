@@ -31,7 +31,7 @@ Partial Class Login
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Image = Global.CallerMe.My.Resources.Resources.login_ico
+        Me.Button1.Image = Global.Calls.My.Resources.Resources.login_ico
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(165, 169)
         Me.Button1.Name = "Button1"
@@ -75,7 +75,7 @@ Partial Class Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.CallerMe.My.Resources.Resources.Login
+        Me.BackgroundImage = Global.Calls.My.Resources.Resources.Login
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(479, 240)
         Me.Controls.Add(Me.CheckBoxCred)

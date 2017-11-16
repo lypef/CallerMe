@@ -1,4 +1,4 @@
-﻿Public Class Clientes
+﻿Public Class Clients
     Dim f As New functions
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

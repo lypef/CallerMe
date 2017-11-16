@@ -39,7 +39,7 @@
             Me.Visible = False
                 control.Show()
             Else
-                f.Alert("Datos erroneos")
+            f.Alert("Datos erroneos", f.Alert_NumberCritical)
         End If
     End Sub
 
@@ -54,4 +54,7 @@
         End If
     End Sub
 
+    Private Sub Login_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
+    End Sub
 End Class

@@ -7,7 +7,19 @@
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
-        f.AddForm_Desktop(Clientes, Desktop)
+        f.AddForm_Desktop(Clients, Desktop)
+        If (f.ReturnPermission(f.Permission_Access_Clients)) = False Then
+            Button_Clients.Enabled = False
+        End If
+
+        If (f.ReturnPermission(f.Permission_Access_registros)) = False Then
+            Button_Registros.Enabled = False
+        End If
+
+        If (f.ReturnPermission(f.Permission_Access_vehiculos)) = False Then
+            Button_Vehiculo.Enabled = False
+        End If
+
     End Sub
 
     Private Sub Button_Clients_MouseEnter(sender As Object, e As EventArgs) Handles Button_Clients.MouseEnter
@@ -43,10 +55,30 @@
     End Sub
 
     Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
-        f.AddForm_Desktop(Clientes, Desktop)
+        f.AddForm_Desktop(Clients, Desktop)
     End Sub
 
-    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
+    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs)
         f.AddForm_Desktop(Parametros, Desktop)
+    End Sub
+
+    Private Sub Button_Ajustes_Click(sender As Object, e As EventArgs) Handles Button_Ajustes.Click
+        f.AddForm_Desktop(Parametros, Desktop)
+    End Sub
+
+    Private Sub AgregarClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarClienteToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Clients_add) Then
+            f.AddForm_Desktop(Clients_add, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub control_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
     End Sub
 End Class

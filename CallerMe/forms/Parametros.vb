@@ -28,7 +28,7 @@ Public Class Parametros
         My.Settings.db_nameDB = Txt_DB_DB.Text
         My.Settings.db_puerto = Txt_DB_Puerto.Text
 
-        f.Alert("Configuracion actualizada")
+        f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
         Application.Restart()
     End Sub
@@ -51,7 +51,11 @@ Public Class Parametros
         My.Settings.login_username = ""
         My.Settings.login_password = ""
 
-        f.Alert("Credencial eliminada")
+        f.Alert("Credencial eliminada", f.Alert_NumberInformacion)
         Application.Restart()
+    End Sub
+
+    Private Sub Parametros_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
     End Sub
 End Class
