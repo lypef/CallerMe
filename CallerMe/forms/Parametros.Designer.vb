@@ -37,7 +37,12 @@ Partial Class Parametros
         Me.TxtGuardar = New System.Windows.Forms.Button()
         Me.TxtSalir = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TxtUrlData = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -182,11 +187,50 @@ Partial Class Parametros
         Me.Button2.Text = "Eliminar credencial guardada"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.TxtUrlData)
+        Me.GroupBox2.Location = New System.Drawing.Point(201, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 263)
+        Me.GroupBox2.TabIndex = 9
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Data"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(6, 67)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(241, 33)
+        Me.Button3.TabIndex = 1
+        Me.Button3.Text = "Seleccionar carpeta"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 20)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(140, 13)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Donde se guardan los datos"
+        '
+        'TxtUrlData
+        '
+        Me.TxtUrlData.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUrlData.Location = New System.Drawing.Point(6, 35)
+        Me.TxtUrlData.Name = "TxtUrlData"
+        Me.TxtUrlData.Size = New System.Drawing.Size(241, 26)
+        Me.TxtUrlData.TabIndex = 1
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.TxtSalir)
         Me.Controls.Add(Me.TxtGuardar)
@@ -195,6 +239,8 @@ Partial Class Parametros
         Me.Text = "config"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -214,4 +260,8 @@ Partial Class Parametros
     Friend WithEvents TxtGuardar As Button
     Friend WithEvents TxtSalir As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TxtUrlData As TextBox
 End Class

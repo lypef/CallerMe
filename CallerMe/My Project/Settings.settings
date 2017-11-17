@@ -23,5 +23,8 @@
     <Setting Name="login_password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="data_url" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Caller Enterprise Data</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

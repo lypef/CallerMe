@@ -30,10 +30,11 @@ Partial Class control
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Desktop = New System.Windows.Forms.Panel()
-        Me.Menu = New System.Windows.Forms.Panel()
+        Me.MenuPanel = New System.Windows.Forms.Panel()
         Me.Button_Ajustes = New System.Windows.Forms.Button()
         Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,9 +46,8 @@ Partial Class control
         Me.Button_Clients = New System.Windows.Forms.Button()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
-        Me.Menu.SuspendLayout()
+        Me.MenuPanel.SuspendLayout()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -83,7 +83,7 @@ Partial Class control
         Me.Panel1.BackgroundImage = Global.Calls.My.Resources.Resources.background
         Me.Panel1.Controls.Add(Me.Panel4)
         Me.Panel1.Controls.Add(Me.Desktop)
-        Me.Panel1.Controls.Add(Me.Menu)
+        Me.Panel1.Controls.Add(Me.MenuPanel)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
@@ -108,18 +108,18 @@ Partial Class control
         Me.Desktop.Size = New System.Drawing.Size(916, 432)
         Me.Desktop.TabIndex = 4
         '
-        'Menu
+        'MenuPanel
         '
-        Me.Menu.BackColor = System.Drawing.Color.Transparent
-        Me.Menu.Controls.Add(Me.Button_Ajustes)
-        Me.Menu.Controls.Add(Me.Button_Vehiculo)
-        Me.Menu.Controls.Add(Me.Button_Registros)
-        Me.Menu.Controls.Add(Me.Button_Clients)
-        Me.Menu.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Menu.Location = New System.Drawing.Point(0, 0)
-        Me.Menu.Name = "Menu"
-        Me.Menu.Size = New System.Drawing.Size(916, 96)
-        Me.Menu.TabIndex = 3
+        Me.MenuPanel.BackColor = System.Drawing.Color.Transparent
+        Me.MenuPanel.Controls.Add(Me.Button_Ajustes)
+        Me.MenuPanel.Controls.Add(Me.Button_Vehiculo)
+        Me.MenuPanel.Controls.Add(Me.Button_Registros)
+        Me.MenuPanel.Controls.Add(Me.Button_Clients)
+        Me.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.MenuPanel.Location = New System.Drawing.Point(0, 0)
+        Me.MenuPanel.Name = "MenuPanel"
+        Me.MenuPanel.Size = New System.Drawing.Size(916, 96)
+        Me.MenuPanel.TabIndex = 3
         '
         'Button_Ajustes
         '
@@ -148,8 +148,14 @@ Partial Class control
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
         Me.ToolStripMenuItem6.Text = "Otros ajustes"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'Button_Vehiculo
         '
@@ -254,12 +260,6 @@ Partial Class control
         Me.AgregarClienteToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.AgregarClienteToolStripMenuItem.Text = "Agregar cliente"
         '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,7 +271,7 @@ Partial Class control
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FORM"
         Me.Panel1.ResumeLayout(False)
-        Me.Menu.ResumeLayout(False)
+        Me.MenuPanel.ResumeLayout(False)
         Me.Btn_ajustes.ResumeLayout(False)
         Me.Btn_vehiculos.ResumeLayout(False)
         Me.Btn_registros.ResumeLayout(False)
@@ -287,7 +287,7 @@ Partial Class control
     Friend WithEvents Button_Clients As Button
     Friend WithEvents Button_Vehiculo As Button
     Friend WithEvents Button_Registros As Button
-    Friend WithEvents Menu As Panel
+    Friend WithEvents MenuPanel As Panel
     Friend WithEvents Button_Ajustes As Button
     Friend WithEvents Desktop As Panel
     Friend WithEvents Panel4 As Panel

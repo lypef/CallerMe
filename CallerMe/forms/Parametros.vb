@@ -10,6 +10,7 @@ Public Class Parametros
         Txt_DB_Password.Text = My.Settings.db_password
         Txt_DB_DB.Text = My.Settings.db_nameDB
         Txt_DB_Puerto.Text = My.Settings.db_puerto
+        TxtUrlData.Text = My.Settings.data_url
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -27,7 +28,7 @@ Public Class Parametros
         My.Settings.db_password = Txt_DB_Password.Text
         My.Settings.db_nameDB = Txt_DB_DB.Text
         My.Settings.db_puerto = Txt_DB_Puerto.Text
-
+        My.Settings.data_url = TxtUrlData.Text
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
         Application.Restart()
@@ -57,5 +58,9 @@ Public Class Parametros
 
     Private Sub Parametros_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        f.RutaDataGET(TxtUrlData)
     End Sub
 End Class

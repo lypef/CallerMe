@@ -1,4 +1,6 @@
-﻿Public Class Login
+﻿Imports System.IO
+
+Public Class Login
     Dim f As New functions
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -6,6 +8,18 @@
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Directory.Exists(My.Settings.data_url) = False Then
+            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url)
+        End If
+
+        If Directory.Exists(My.Settings.data_url + "\clients") = False Then
+            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + "\clients")
+        End If
+
+        If Directory.Exists(My.Settings.data_url + "\reports") = False Then
+            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + "\reports")
+        End If
+
         f.forms_setmodel(Me)
         TxtUsername.Text = My.Settings.login_username
         TxtPassword.Text = My.Settings.login_password
@@ -31,14 +45,14 @@
     Private Sub login_action()
         If (f.Login(TxtUsername, TxtPassword)) Then
 
-            If CheckBoxCred.checked Then
+            If CheckBoxCred.Checked Then
                 My.Settings.login_username = TxtUsername.Text
                 My.Settings.login_password = TxtPassword.Text
             End If
 
             Me.Visible = False
-                control.Show()
-            Else
+            control.Show()
+        Else
             f.Alert("Datos erroneos", f.Alert_NumberCritical)
         End If
     End Sub
