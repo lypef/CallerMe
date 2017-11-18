@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.IO
+Imports MySql.Data.MySqlClient
 
 Public Class functions
 
@@ -22,12 +23,17 @@ Public Class functions
     Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
     Public ReadOnly Permission_Clients_add = "clients_add"
 
+    'Otras variables
+    Public Shared ReadOnly Data_clients = "\clients"
+    Public Shared ReadOnly Data_reports = "\reports"
 
     Public Sub forms_setmodel(ByVal form As Form)
         form.Text = "NOMBRE DE LA EMPRESA - USUARIO: " + ReturnNameID(userID)
         form.Icon = System.Drawing.Icon.FromHandle(My.Resources.ico.GetHicon())
         form.FormBorderStyle = FormBorderStyle.Sizable
         form.MaximizeBox = False
+        form.MaximumSize = New Size(form.Width, form.Height)
+        form.MinimumSize = New Size(form.Width, form.Height)
         form.StartPosition = FormStartPosition.CenterScreen
     End Sub
 
@@ -147,7 +153,17 @@ Public Class functions
     End Sub
 
     Public Shared Function Clients_add(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox) As Boolean
-        Return Db_shared.Ejecutar("INSERT INTO clients (nombre, fecha_nacimiento, direccion, referencia, correo_electronico, foto, razon_social, rfc) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + TxtDireccion.Text.ToUpper + "', '" + TxtReferencia.Text.ToUpper + "', '" + TxtCorreoElectronico.Text.ToUpper + "', '" + TxtFoto.Text.ToUpper + "', '" + TxtRazonSocial.Text.ToUpper + "', '" + TxtRfc.Text.ToUpper + "')")
+        Dim ruta As String
+        ruta = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+        ruta = ruta.Replace("\", "/")
+
+        Try
+            My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + ruta)
+        Catch ex As Exception
+
+        End Try
+
+        Return Db_shared.Ejecutar("INSERT INTO clients (nombre, fecha_nacimiento, direccion, referencia, correo_electronico, foto, razon_social, rfc) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + TxtDireccion.Text.ToUpper + "', '" + TxtReferencia.Text.ToUpper + "', '" + TxtCorreoElectronico.Text.ToUpper + "', '" + ruta + "', '" + TxtRazonSocial.Text.ToUpper + "', '" + TxtRfc.Text.ToUpper + "')")
     End Function
 
     Public Shared Sub TextBox_clean(ByVal txt As TextBox)

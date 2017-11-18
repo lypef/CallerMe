@@ -33,7 +33,7 @@ Partial Class Clients_add
         Me.TxtCorreoElectronico = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtFoto = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnFoto = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtRfc = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -42,6 +42,8 @@ Partial Class Clients_add
         Me.Foto = New System.Windows.Forms.PictureBox()
         Me.FechaNaci = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.CheckImagen = New System.Windows.Forms.CheckBox()
+        Me.CheckCamara = New System.Windows.Forms.CheckBox()
         CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Foto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -145,14 +147,14 @@ Partial Class Clients_add
         Me.TxtFoto.Size = New System.Drawing.Size(335, 29)
         Me.TxtFoto.TabIndex = 10
         '
-        'Button2
+        'BtnFoto
         '
-        Me.Button2.Location = New System.Drawing.Point(797, 166)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 29)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Examinar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BtnFoto.Location = New System.Drawing.Point(797, 166)
+        Me.BtnFoto.Name = "BtnFoto"
+        Me.BtnFoto.Size = New System.Drawing.Size(75, 29)
+        Me.BtnFoto.TabIndex = 6
+        Me.BtnFoto.Text = "Examinar"
+        Me.BtnFoto.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -227,11 +229,33 @@ Partial Class Clients_add
         Me.Label8.TabIndex = 103
         Me.Label8.Text = "Fecha de nacimiento"
         '
+        'CheckImagen
+        '
+        Me.CheckImagen.AutoSize = True
+        Me.CheckImagen.Location = New System.Drawing.Point(730, 144)
+        Me.CheckImagen.Name = "CheckImagen"
+        Me.CheckImagen.Size = New System.Drawing.Size(61, 17)
+        Me.CheckImagen.TabIndex = 104
+        Me.CheckImagen.Text = "Imagen"
+        Me.CheckImagen.UseVisualStyleBackColor = True
+        '
+        'CheckCamara
+        '
+        Me.CheckCamara.AutoSize = True
+        Me.CheckCamara.Location = New System.Drawing.Point(810, 144)
+        Me.CheckCamara.Name = "CheckCamara"
+        Me.CheckCamara.Size = New System.Drawing.Size(62, 17)
+        Me.CheckCamara.TabIndex = 105
+        Me.CheckCamara.Text = "Camara"
+        Me.CheckCamara.UseVisualStyleBackColor = True
+        '
         'Clients_add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.Controls.Add(Me.CheckCamara)
+        Me.Controls.Add(Me.CheckImagen)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.FechaNaci)
         Me.Controls.Add(Me.Loader)
@@ -239,7 +263,7 @@ Partial Class Clients_add
         Me.Controls.Add(Me.TxtRfc)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TxtRazonSocial)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.BtnFoto)
         Me.Controls.Add(Me.Foto)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.TxtFoto)
@@ -273,7 +297,7 @@ Partial Class Clients_add
     Friend WithEvents Label5 As Label
     Friend WithEvents TxtFoto As TextBox
     Friend WithEvents Foto As PictureBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents BtnFoto As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents TxtRfc As TextBox
     Friend WithEvents Label7 As Label
@@ -281,4 +305,6 @@ Partial Class Clients_add
     Friend WithEvents Loader As PictureBox
     Friend WithEvents FechaNaci As DateTimePicker
     Friend WithEvents Label8 As Label
+    Friend WithEvents CheckImagen As CheckBox
+    Friend WithEvents CheckCamara As CheckBox
 End Class
