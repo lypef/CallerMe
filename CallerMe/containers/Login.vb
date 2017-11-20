@@ -12,12 +12,12 @@ Public Class Login
             My.Computer.FileSystem.CreateDirectory(My.Settings.data_url)
         End If
 
-        If Directory.Exists(My.Settings.data_url + f.Data_clients) = False Then
-            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + f.Data_clients)
+        If Directory.Exists(My.Settings.data_url + functions.Data_clients) = False Then
+            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_clients)
         End If
 
-        If Directory.Exists(My.Settings.data_url + f.Data_reports) = False Then
-            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + f.Data_reports)
+        If Directory.Exists(My.Settings.data_url + functions.Data_reports) = False Then
+            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_reports)
         End If
 
         f.forms_setmodel(Me)

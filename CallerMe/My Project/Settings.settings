@@ -26,5 +26,17 @@
     <Setting Name="data_url" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Caller Enterprise Data</Value>
     </Setting>
+    <Setting Name="datagridview_height" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="datagridview_color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SteelBlue</Value>
+    </Setting>
+    <Setting Name="datagridview_selectrow" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">DarkGray</Value>
+    </Setting>
+    <Setting Name="datagridview_font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif, 9pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -7,9 +7,13 @@ Public Class functions
     Shared Db_shared As New Conexion
 
     Public Shared userID As String
+    Public Shared Client As String
 
     'Mensajes de alerta
-    Public ReadOnly Alert_NoPermitido = "No permitido"
+    Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
+    Public ReadOnly Alert_ProcesoFinalizadoOK = "Proceso finalizado con exito"
+    Public ReadOnly Alert_ProcesoFinalizadoNO = "Proceso finalizado SIN exito"
+    Public ReadOnly Alert_Verifique_proceso = "Verifique el proceso"
 
     'Numeros de alerta
     Public ReadOnly Alert_NumberInformacion = 64
@@ -22,6 +26,8 @@ Public Class functions
     Public ReadOnly Permission_Access_vehiculos = "acces_vehiculos"
     Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
     Public ReadOnly Permission_Clients_add = "clients_add"
+    Public ReadOnly Permission_Clients_edit = "clients_edit"
+    Public ReadOnly Permission_Clients_delete = "clients_delete"
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -129,6 +135,17 @@ Public Class functions
         Return r
     End Function
 
+    Public Function ReturnNameClient()
+        Dim r = ""
+        Dim dato = Db.Consult("select nombre from clients where id =  " + Client + "  ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
+
 
 
     Public Shared Function OpenFileSetPictureBox(ByVal Img As PictureBox, ByVal loader As PictureBox)
@@ -176,4 +193,43 @@ Public Class functions
             txt.Text = folder.SelectedPath
         End If
     End Sub
+
+    Public Sub DataGridView_Model(ByVal d As DataGridView)
+        d.RowHeadersVisible = False
+        d.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        d.AlternatingRowsDefaultCellStyle.BackColor = My.Settings.datagridview_color
+        d.DefaultCellStyle.SelectionBackColor = My.Settings.datagridview_selectrow
+        d.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        d.RowTemplate.Height = My.Settings.datagridview_height
+        d.DefaultCellStyle.Font = My.Settings.datagridview_font
+        d.AllowUserToResizeRows = False
+        d.ReadOnly = True
+    End Sub
+
+    Public Sub Clients_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("nombre", "Nombre")
+        t.Columns.Add("	fecha_nacimiento", "Cumpleaños")
+        t.Columns.Add("	direccion", "Direccion")
+        t.Columns.Add("	referencia", "Referencia")
+        t.Columns.Add("	correo_electronico", "Correo electronico")
+        t.Columns.Add("	razon_social", "R. social")
+        t.Columns.Add("	rfc", "Rfc")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(7), dato.GetString(8))
+            Loop
+        End If
+
+    End Sub
+
+    Public Shared Function Clients_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    End Function
 End Class

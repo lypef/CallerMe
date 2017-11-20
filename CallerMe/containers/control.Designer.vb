@@ -27,31 +27,37 @@ Partial Class control
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PapelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DireccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Desktop = New System.Windows.Forms.Panel()
         Me.MenuPanel = New System.Windows.Forms.Panel()
         Me.Button_Ajustes = New System.Windows.Forms.Button()
-        Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
-        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Registros = New System.Windows.Forms.Button()
-        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1.SuspendLayout()
-        Me.MenuPanel.SuspendLayout()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
         Me.Btn_clientes.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.MenuPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'ArchivoToolStripMenuItem
@@ -78,6 +84,96 @@ Partial Class control
         Me.PapelToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.PapelToolStripMenuItem.Text = "Papel"
         '
+        'Btn_ajustes
+        '
+        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.SalirToolStripMenuItem})
+        Me.Btn_ajustes.Name = "ContextMenuStrip1"
+        Me.Btn_ajustes.Size = New System.Drawing.Size(143, 48)
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
+        Me.ToolStripMenuItem6.Text = "Otros ajustes"
+        '
+        'SalirToolStripMenuItem
+        '
+        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.SalirToolStripMenuItem.Text = "Salir"
+        '
+        'Btn_vehiculos
+        '
+        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(179, 48)
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
+        Me.ToolStripMenuItem3.Text = "Agregar vehiculo"
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 22)
+        Me.ToolStripMenuItem4.Text = "Consultar vehiculos"
+        '
+        'Btn_registros
+        '
+        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2})
+        Me.Btn_registros.Name = "ContextMenuStrip1"
+        Me.Btn_registros.Size = New System.Drawing.Size(174, 48)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem1.Text = "Agregar registro"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(173, 22)
+        Me.ToolStripMenuItem2.Text = "Consultar registros"
+        '
+        'Btn_clientes
+        '
+        Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarClienteToolStripMenuItem, Me.DireccionesToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem})
+        Me.Btn_clientes.Name = "Btn_clientes"
+        Me.Btn_clientes.Size = New System.Drawing.Size(157, 114)
+        '
+        'AgregarClienteToolStripMenuItem
+        '
+        Me.AgregarClienteToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.AgregarClienteToolStripMenuItem.Name = "AgregarClienteToolStripMenuItem"
+        Me.AgregarClienteToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.AgregarClienteToolStripMenuItem.Text = "Nuevo"
+        '
+        'DireccionesToolStripMenuItem
+        '
+        Me.DireccionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GestionarToolStripMenuItem, Me.BuscarToolStripMenuItem1})
+        Me.DireccionesToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.directiones_24
+        Me.DireccionesToolStripMenuItem.Name = "DireccionesToolStripMenuItem"
+        Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.DireccionesToolStripMenuItem.Text = "Direcciones"
+        '
+        'BuscarToolStripMenuItem
+        '
+        Me.BuscarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.BuscarToolStripMenuItem.Text = "Buscar"
+        '
+        'GenerarReporteToolStripMenuItem
+        '
+        Me.GenerarReporteToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem.Name = "GenerarReporteToolStripMenuItem"
+        Me.GenerarReporteToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.GenerarReporteToolStripMenuItem.Text = "Generar reporte"
+        '
         'Panel1
         '
         Me.Panel1.BackgroundImage = Global.Calls.My.Resources.Resources.background
@@ -87,7 +183,7 @@ Partial Class control
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(916, 531)
+        Me.Panel1.Size = New System.Drawing.Size(916, 550)
         Me.Panel1.TabIndex = 2
         '
         'Panel4
@@ -105,7 +201,7 @@ Partial Class control
         Me.Desktop.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Desktop.Location = New System.Drawing.Point(0, 99)
         Me.Desktop.Name = "Desktop"
-        Me.Desktop.Size = New System.Drawing.Size(916, 432)
+        Me.Desktop.Size = New System.Drawing.Size(916, 451)
         Me.Desktop.TabIndex = 4
         '
         'MenuPanel
@@ -139,24 +235,6 @@ Partial Class control
         Me.Button_Ajustes.Text = "Button3"
         Me.Button_Ajustes.UseVisualStyleBackColor = False
         '
-        'Btn_ajustes
-        '
-        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.SalirToolStripMenuItem})
-        Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(143, 48)
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(142, 22)
-        Me.ToolStripMenuItem6.Text = "Otros ajustes"
-        '
-        'SalirToolStripMenuItem
-        '
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.SalirToolStripMenuItem.Text = "Salir"
-        '
         'Button_Vehiculo
         '
         Me.Button_Vehiculo.BackColor = System.Drawing.Color.Transparent
@@ -174,24 +252,6 @@ Partial Class control
         Me.Button_Vehiculo.TabIndex = 2
         Me.Button_Vehiculo.Text = "Button3"
         Me.Button_Vehiculo.UseVisualStyleBackColor = False
-        '
-        'Btn_vehiculos
-        '
-        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
-        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(179, 48)
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem3.Text = "Agregar vehiculo"
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem4.Text = "Consultar vehiculos"
         '
         'Button_Registros
         '
@@ -211,24 +271,6 @@ Partial Class control
         Me.Button_Registros.Text = "Button2"
         Me.Button_Registros.UseVisualStyleBackColor = False
         '
-        'Btn_registros
-        '
-        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2})
-        Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(174, 48)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(173, 22)
-        Me.ToolStripMenuItem1.Text = "Agregar registro"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(173, 22)
-        Me.ToolStripMenuItem2.Text = "Consultar registros"
-        '
         'Button_Clients
         '
         Me.Button_Clients.BackColor = System.Drawing.Color.Transparent
@@ -247,35 +289,43 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
-        'Btn_clientes
+        'NuevoToolStripMenuItem
         '
-        Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarClienteToolStripMenuItem})
-        Me.Btn_clientes.Name = "Btn_clientes"
-        Me.Btn_clientes.Size = New System.Drawing.Size(155, 26)
+        Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
-        'AgregarClienteToolStripMenuItem
+        'BuscarToolStripMenuItem1
         '
-        Me.AgregarClienteToolStripMenuItem.Name = "AgregarClienteToolStripMenuItem"
-        Me.AgregarClienteToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.AgregarClienteToolStripMenuItem.Text = "Agregar cliente"
+        Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
+        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BuscarToolStripMenuItem1.Text = "Buscar"
+        '
+        'GestionarToolStripMenuItem
+        '
+        Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.manager_48
+        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
+        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GestionarToolStripMenuItem.Text = "Gestionar"
         '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(916, 531)
+        Me.ClientSize = New System.Drawing.Size(916, 550)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "control"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FORM"
-        Me.Panel1.ResumeLayout(False)
-        Me.MenuPanel.ResumeLayout(False)
         Me.Btn_ajustes.ResumeLayout(False)
         Me.Btn_vehiculos.ResumeLayout(False)
         Me.Btn_registros.ResumeLayout(False)
         Me.Btn_clientes.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.MenuPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -302,4 +352,10 @@ Partial Class control
     Friend WithEvents Btn_ajustes As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarReporteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DireccionesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GestionarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem1 As ToolStripMenuItem
 End Class

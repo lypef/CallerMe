@@ -55,6 +55,7 @@
     End Sub
 
     Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
+        Clients.LoadClientes()
         f.AddForm_Desktop(Clients, Desktop)
     End Sub
 
@@ -81,4 +82,10 @@
     Private Sub control_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
     End Sub
+
+    Private Sub BuscarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem.Click
+        Clients.SearchClientes(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
+        f.AddForm_Desktop(Clients, Desktop)
+    End Sub
+
 End Class

@@ -33,7 +33,7 @@
         If CheckImagen.Checked Then
             TxtFoto.Text = functions.OpenFileSetPictureBox(Foto, Loader)
         ElseIf CheckCamara.Checked Then
-            MsgBox("Tomar foto")
+            MsgBox("Tomar foto Con camara No listo")
         End If
     End Sub
 

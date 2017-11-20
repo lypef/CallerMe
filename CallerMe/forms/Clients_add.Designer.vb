@@ -68,11 +68,14 @@ Partial Class Clients_add
         '
         'BtnAdd
         '
-        Me.BtnAdd.Location = New System.Drawing.Point(750, 329)
+        Me.BtnAdd.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAdd.Location = New System.Drawing.Point(770, 329)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(122, 52)
-        Me.BtnAdd.TabIndex = 9
+        Me.BtnAdd.Size = New System.Drawing.Size(102, 52)
+        Me.BtnAdd.TabIndex = 11
         Me.BtnAdd.Text = "Agregar"
+        Me.BtnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnAdd.UseVisualStyleBackColor = True
         '
         'Label2
@@ -152,7 +155,7 @@ Partial Class Clients_add
         Me.BtnFoto.Location = New System.Drawing.Point(797, 166)
         Me.BtnFoto.Name = "BtnFoto"
         Me.BtnFoto.Size = New System.Drawing.Size(75, 29)
-        Me.BtnFoto.TabIndex = 6
+        Me.BtnFoto.TabIndex = 8
         Me.BtnFoto.Text = "Examinar"
         Me.BtnFoto.UseVisualStyleBackColor = True
         '
@@ -172,7 +175,7 @@ Partial Class Clients_add
         Me.TxtRfc.Location = New System.Drawing.Point(456, 284)
         Me.TxtRfc.Name = "TxtRfc"
         Me.TxtRfc.Size = New System.Drawing.Size(416, 29)
-        Me.TxtRfc.TabIndex = 8
+        Me.TxtRfc.TabIndex = 10
         '
         'Label7
         '
@@ -190,7 +193,7 @@ Partial Class Clients_add
         Me.TxtRazonSocial.Location = New System.Drawing.Point(456, 225)
         Me.TxtRazonSocial.Name = "TxtRazonSocial"
         Me.TxtRazonSocial.Size = New System.Drawing.Size(416, 29)
-        Me.TxtRazonSocial.TabIndex = 7
+        Me.TxtRazonSocial.TabIndex = 9
         '
         'Loader
         '
@@ -235,7 +238,7 @@ Partial Class Clients_add
         Me.CheckImagen.Location = New System.Drawing.Point(730, 144)
         Me.CheckImagen.Name = "CheckImagen"
         Me.CheckImagen.Size = New System.Drawing.Size(61, 17)
-        Me.CheckImagen.TabIndex = 104
+        Me.CheckImagen.TabIndex = 6
         Me.CheckImagen.Text = "Imagen"
         Me.CheckImagen.UseVisualStyleBackColor = True
         '
@@ -245,7 +248,7 @@ Partial Class Clients_add
         Me.CheckCamara.Location = New System.Drawing.Point(810, 144)
         Me.CheckCamara.Name = "CheckCamara"
         Me.CheckCamara.Size = New System.Drawing.Size(62, 17)
-        Me.CheckCamara.TabIndex = 105
+        Me.CheckCamara.TabIndex = 7
         Me.CheckCamara.Text = "Camara"
         Me.CheckCamara.UseVisualStyleBackColor = True
         '

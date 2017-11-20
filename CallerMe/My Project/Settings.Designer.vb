@@ -149,6 +149,54 @@ Namespace My
                 Me("data_url") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("24")>  _
+        Public Property datagridview_height() As Integer
+            Get
+                Return CType(Me("datagridview_height"),Integer)
+            End Get
+            Set
+                Me("datagridview_height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("SteelBlue")>  _
+        Public Property datagridview_color() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("datagridview_color"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("datagridview_color") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("DarkGray")>  _
+        Public Property datagridview_selectrow() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("datagridview_selectrow"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("datagridview_selectrow") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 9pt")>  _
+        Public Property datagridview_font() As Global.System.Drawing.Font
+            Get
+                Return CType(Me("datagridview_font"),Global.System.Drawing.Font)
+            End Get
+            Set
+                Me("datagridview_font") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
