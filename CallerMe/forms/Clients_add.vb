@@ -31,7 +31,10 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnFoto.Click
         If CheckImagen.Checked Then
-            TxtFoto.Text = functions.OpenFileSetPictureBox(Foto, Loader)
+            Dim tmp = functions.OpenFileSetPictureBox(Foto, Loader)
+            If String.IsNullOrEmpty(tmp) = False Then
+                TxtFoto.Text = tmp
+            End If
         ElseIf CheckCamara.Checked Then
             MsgBox("Tomar foto Con camara No listo")
         End If

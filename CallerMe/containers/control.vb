@@ -88,4 +88,11 @@
         f.AddForm_Desktop(Clients, Desktop)
     End Sub
 
+    Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Adresses_add) Then
+            f.AddForm_Desktop(addresses_add, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
 End Class

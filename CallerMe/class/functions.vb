@@ -28,10 +28,15 @@ Public Class functions
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
     Public ReadOnly Permission_Clients_delete = "clients_delete"
+    Public ReadOnly Permission_Adresses_add = "adresses_add"
+    Public ReadOnly Permission_Adresses_edit = "adresses_edit"
+    Public ReadOnly Permission_Adresses_delete = "adresses_delete"
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
     Public Shared ReadOnly Data_reports = "\reports"
+    Public Shared ReadOnly Clients_ImgDefault = "\Default.jpg"
+
 
     Public Sub forms_setmodel(ByVal form As Form)
         form.Text = "NOMBRE DE LA EMPRESA - USUARIO: " + ReturnNameID(userID)
@@ -232,4 +237,51 @@ Public Class functions
     Public Shared Function Clients_delete() As Boolean
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
     End Function
+
+    Public Function Client_LoadUpdate(ByVal nombre As TextBox, ByVal f_nacimiento As DateTimePicker, ByVal direccion As TextBox, ByVal referencia As TextBox, ByVal Correo_electronico As TextBox, ByVal url_foto As TextBox, ByVal Razon_social As TextBox, ByVal Rfc As TextBox, ByVal foto As PictureBox)
+        Dim url_FotoActual As String
+        url_FotoActual = ""
+        Dim dato = Db.Consult("select * from clients where id =  '" + Client + "'  ")
+
+        If dato.Read() Then
+            nombre.Text = dato.GetString(1)
+            f_nacimiento.Value = dato.GetString(2)
+            direccion.Text = dato.GetString(3)
+            referencia.Text = dato.GetString(4)
+            Correo_electronico.Text = dato.GetString(5)
+            url_foto.Text = dato.GetString(6)
+            foto.SizeMode = PictureBoxSizeMode.Zoom
+
+            If File.Exists(My.Settings.data_url + Data_clients + dato.GetString(6)) Then
+                url_FotoActual = My.Settings.data_url + Data_clients + dato.GetString(6)
+                foto.Image = Image.FromFile(url_FotoActual)
+            Else
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+            End If
+
+            Razon_social.Text = dato.GetString(7)
+            Rfc.Text = dato.GetString(8)
+        End If
+        Return url_FotoActual
+    End Function
+
+    Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
+        Dim foto_tmp As String = FotoActual
+        If FotoActual <> TxtFoto.Text Then
+            foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+            foto_tmp = foto_tmp.Replace("\", "/")
+
+            Try
+                My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                My.Computer.FileSystem.DeleteFile(My.Settings.data_url + Data_clients + FotoActual)
+            Catch ex As Exception
+
+            End Try
+        End If
+
+        Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "' , direccion = '" + TxtDireccion.Text.ToUpper + "', referencia = '" + TxtReferencia.Text.ToUpper + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+    End Function
+
+
+
 End Class

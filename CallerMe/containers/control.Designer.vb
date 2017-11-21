@@ -39,6 +39,9 @@ Partial Class control
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DireccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -49,9 +52,6 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BuscarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -159,6 +159,27 @@ Partial Class control
         Me.DireccionesToolStripMenuItem.Name = "DireccionesToolStripMenuItem"
         Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.DireccionesToolStripMenuItem.Text = "Direcciones"
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem
+        '
+        Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.manager_48
+        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
+        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GestionarToolStripMenuItem.Text = "Gestionar"
+        '
+        'BuscarToolStripMenuItem1
+        '
+        Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
+        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.BuscarToolStripMenuItem1.Text = "Buscar"
         '
         'BuscarToolStripMenuItem
         '
@@ -288,27 +309,6 @@ Partial Class control
         Me.Button_Clients.TabIndex = 0
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
-        '
-        'NuevoToolStripMenuItem
-        '
-        Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'BuscarToolStripMenuItem1
-        '
-        Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
-        Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
-        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.BuscarToolStripMenuItem1.Text = "Buscar"
-        '
-        'GestionarToolStripMenuItem
-        '
-        Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.manager_48
-        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
-        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.GestionarToolStripMenuItem.Text = "Gestionar"
         '
         'control
         '
