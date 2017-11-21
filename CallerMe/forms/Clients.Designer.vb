@@ -25,9 +25,10 @@ Partial Class Clients
         Me.components = New System.ComponentModel.Container()
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.VerMovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VerMovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -46,14 +47,11 @@ Partial Class Clients
         Me.TxtFoto = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TxtCorreoElectronico = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TxtReferencia = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtDireccion = New System.Windows.Forms.TextBox()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.ViewNumbers = New System.Windows.Forms.DataGridView()
         Me.Loader = New System.Windows.Forms.PictureBox()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -62,6 +60,8 @@ Partial Class Clients
         Me.TabPage2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Foto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.ViewNumbers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,30 +77,35 @@ Partial Class Clients
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.VerMovimientosToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerMovimientosToolStripMenuItem, Me.ToolStripSeparator1, Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(145, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(124, 76)
+        '
+        'VerMovimientosToolStripMenuItem
+        '
+        Me.VerMovimientosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
+        Me.VerMovimientosToolStripMenuItem.Name = "VerMovimientosToolStripMenuItem"
+        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.VerMovimientosToolStripMenuItem.Text = "Numeros"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(120, 6)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
-        '
-        'VerMovimientosToolStripMenuItem
-        '
-        Me.VerMovimientosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.movements_24
-        Me.VerMovimientosToolStripMenuItem.Name = "VerMovimientosToolStripMenuItem"
-        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.VerMovimientosToolStripMenuItem.Text = "Movimientos"
         '
         'TabControl1
         '
@@ -126,6 +131,7 @@ Partial Class Clients
         '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage2.Controls.Add(Me.CheckCamara)
         Me.TabPage2.Controls.Add(Me.CheckImagen)
         Me.TabPage2.Controls.Add(Me.Label8)
@@ -141,10 +147,6 @@ Partial Class Clients
         Me.TabPage2.Controls.Add(Me.TxtFoto)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.TxtCorreoElectronico)
-        Me.TabPage2.Controls.Add(Me.Label3)
-        Me.TabPage2.Controls.Add(Me.TxtReferencia)
-        Me.TabPage2.Controls.Add(Me.Label2)
-        Me.TabPage2.Controls.Add(Me.TxtDireccion)
         Me.TabPage2.Controls.Add(Me.BtnAdd)
         Me.TabPage2.Controls.Add(Me.Label1)
         Me.TabPage2.Controls.Add(Me.TxtNombre)
@@ -154,12 +156,11 @@ Partial Class Clients
         Me.TabPage2.Size = New System.Drawing.Size(887, 341)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'CheckCamara
         '
         Me.CheckCamara.AutoSize = True
-        Me.CheckCamara.Location = New System.Drawing.Point(803, 153)
+        Me.CheckCamara.Location = New System.Drawing.Point(803, 38)
         Me.CheckCamara.Name = "CheckCamara"
         Me.CheckCamara.Size = New System.Drawing.Size(62, 17)
         Me.CheckCamara.TabIndex = 113
@@ -169,7 +170,7 @@ Partial Class Clients
         'CheckImagen
         '
         Me.CheckImagen.AutoSize = True
-        Me.CheckImagen.Location = New System.Drawing.Point(723, 153)
+        Me.CheckImagen.Location = New System.Drawing.Point(723, 38)
         Me.CheckImagen.Name = "CheckImagen"
         Me.CheckImagen.Size = New System.Drawing.Size(61, 17)
         Me.CheckImagen.TabIndex = 111
@@ -208,7 +209,7 @@ Partial Class Clients
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(445, 268)
+        Me.Label6.Location = New System.Drawing.Point(445, 164)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 20)
         Me.Label6.TabIndex = 123
@@ -217,7 +218,7 @@ Partial Class Clients
         'TxtRfc
         '
         Me.TxtRfc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRfc.Location = New System.Drawing.Point(449, 293)
+        Me.TxtRfc.Location = New System.Drawing.Point(449, 189)
         Me.TxtRfc.Name = "TxtRfc"
         Me.TxtRfc.Size = New System.Drawing.Size(416, 29)
         Me.TxtRfc.TabIndex = 119
@@ -226,7 +227,7 @@ Partial Class Clients
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(449, 209)
+        Me.Label7.Location = New System.Drawing.Point(449, 97)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(100, 20)
         Me.Label7.TabIndex = 122
@@ -235,14 +236,14 @@ Partial Class Clients
         'TxtRazonSocial
         '
         Me.TxtRazonSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRazonSocial.Location = New System.Drawing.Point(449, 234)
+        Me.TxtRazonSocial.Location = New System.Drawing.Point(449, 122)
         Me.TxtRazonSocial.Name = "TxtRazonSocial"
         Me.TxtRazonSocial.Size = New System.Drawing.Size(416, 29)
         Me.TxtRazonSocial.TabIndex = 116
         '
         'BtnFoto
         '
-        Me.BtnFoto.Location = New System.Drawing.Point(790, 175)
+        Me.BtnFoto.Location = New System.Drawing.Point(790, 60)
         Me.BtnFoto.Name = "BtnFoto"
         Me.BtnFoto.Size = New System.Drawing.Size(75, 29)
         Me.BtnFoto.TabIndex = 115
@@ -262,7 +263,7 @@ Partial Class Clients
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(449, 150)
+        Me.Label5.Location = New System.Drawing.Point(449, 35)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(108, 20)
         Me.Label5.TabIndex = 117
@@ -271,7 +272,7 @@ Partial Class Clients
         'TxtFoto
         '
         Me.TxtFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFoto.Location = New System.Drawing.Point(449, 175)
+        Me.TxtFoto.Location = New System.Drawing.Point(449, 60)
         Me.TxtFoto.Name = "TxtFoto"
         Me.TxtFoto.Size = New System.Drawing.Size(335, 29)
         Me.TxtFoto.TabIndex = 118
@@ -280,7 +281,7 @@ Partial Class Clients
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(449, 91)
+        Me.Label4.Location = New System.Drawing.Point(12, 164)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(138, 20)
         Me.Label4.TabIndex = 114
@@ -289,53 +290,17 @@ Partial Class Clients
         'TxtCorreoElectronico
         '
         Me.TxtCorreoElectronico.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCorreoElectronico.Location = New System.Drawing.Point(449, 116)
+        Me.TxtCorreoElectronico.Location = New System.Drawing.Point(12, 189)
         Me.TxtCorreoElectronico.Name = "TxtCorreoElectronico"
         Me.TxtCorreoElectronico.Size = New System.Drawing.Size(416, 29)
         Me.TxtCorreoElectronico.TabIndex = 110
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(449, 32)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 20)
-        Me.Label3.TabIndex = 112
-        Me.Label3.Text = "Referencia"
-        '
-        'TxtReferencia
-        '
-        Me.TxtReferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReferencia.Location = New System.Drawing.Point(449, 57)
-        Me.TxtReferencia.Name = "TxtReferencia"
-        Me.TxtReferencia.Size = New System.Drawing.Size(416, 29)
-        Me.TxtReferencia.TabIndex = 109
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(12, 159)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 20)
-        Me.Label2.TabIndex = 108
-        Me.Label2.Text = "Direccion"
-        '
-        'TxtDireccion
-        '
-        Me.TxtDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDireccion.Location = New System.Drawing.Point(12, 187)
-        Me.TxtDireccion.Name = "TxtDireccion"
-        Me.TxtDireccion.Size = New System.Drawing.Size(416, 29)
-        Me.TxtDireccion.TabIndex = 107
-        '
         'BtnAdd
         '
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(787, 26)
+        Me.BtnAdd.Location = New System.Drawing.Point(755, 238)
         Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Size = New System.Drawing.Size(78, 25)
+        Me.BtnAdd.Size = New System.Drawing.Size(110, 48)
         Me.BtnAdd.TabIndex = 120
         Me.BtnAdd.Text = "Actualizar"
         Me.BtnAdd.UseVisualStyleBackColor = True
@@ -360,13 +325,23 @@ Partial Class Clients
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.ViewNumbers)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(887, 341)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Movimientos"
+        Me.TabPage3.Text = "Numeros"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ViewNumbers
+        '
+        Me.ViewNumbers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ViewNumbers.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ViewNumbers.Location = New System.Drawing.Point(3, 3)
+        Me.ViewNumbers.Name = "ViewNumbers"
+        Me.ViewNumbers.Size = New System.Drawing.Size(881, 335)
+        Me.ViewNumbers.TabIndex = 0
         '
         'Loader
         '
@@ -395,6 +370,8 @@ Partial Class Clients
         Me.TabPage2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Foto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        CType(Me.ViewNumbers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Loader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -425,11 +402,9 @@ Partial Class Clients
     Friend WithEvents TxtFoto As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TxtCorreoElectronico As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TxtReferencia As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TxtDireccion As TextBox
     Friend WithEvents BtnAdd As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtNombre As TextBox
+    Friend WithEvents ViewNumbers As DataGridView
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
 End Class

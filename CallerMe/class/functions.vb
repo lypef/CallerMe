@@ -8,6 +8,7 @@ Public Class functions
 
     Public Shared userID As String
     Public Shared Client As String
+    Public Shared Number_id As String
 
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
@@ -31,6 +32,11 @@ Public Class functions
     Public ReadOnly Permission_Adresses_add = "adresses_add"
     Public ReadOnly Permission_Adresses_edit = "adresses_edit"
     Public ReadOnly Permission_Adresses_delete = "adresses_delete"
+    Public ReadOnly Permission_Telephone_add = "telephone_add"
+    Public ReadOnly Permission_Telephone_edit = "telephone_edit"
+    Public ReadOnly Permission_Telephone_delete = "telephone_delete"
+    Public ReadOnly Permission_Telephone_Access = "acces_numbersTelephone"
+
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -174,7 +180,7 @@ Public Class functions
         img.Image = Nothing
     End Sub
 
-    Public Shared Function Clients_add(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox) As Boolean
+    Public Shared Function Clients_add(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox) As Boolean
         Dim ruta As String
         ruta = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
         ruta = ruta.Replace("\", "/")
@@ -185,7 +191,7 @@ Public Class functions
 
         End Try
 
-        Return Db_shared.Ejecutar("INSERT INTO clients (nombre, fecha_nacimiento, direccion, referencia, correo_electronico, foto, razon_social, rfc) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + TxtDireccion.Text.ToUpper + "', '" + TxtReferencia.Text.ToUpper + "', '" + TxtCorreoElectronico.Text.ToUpper + "', '" + ruta + "', '" + TxtRazonSocial.Text.ToUpper + "', '" + TxtRfc.Text.ToUpper + "')")
+        Return Db_shared.Ejecutar("INSERT INTO clients (nombre, fecha_nacimiento, correo_electronico, foto, razon_social, rfc) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + TxtCorreoElectronico.Text.ToUpper + "', '" + ruta + "', '" + TxtRazonSocial.Text.ToUpper + "', '" + TxtRfc.Text.ToUpper + "')")
     End Function
 
     Public Shared Sub TextBox_clean(ByVal txt As TextBox)
@@ -220,15 +226,13 @@ Public Class functions
         t.Columns.Add("id", "ID")
         t.Columns.Add("nombre", "Nombre")
         t.Columns.Add("	fecha_nacimiento", "Cumpleaños")
-        t.Columns.Add("	direccion", "Direccion")
-        t.Columns.Add("	referencia", "Referencia")
         t.Columns.Add("	correo_electronico", "Correo electronico")
         t.Columns.Add("	razon_social", "R. social")
         t.Columns.Add("	rfc", "Rfc")
 
         If dato.HasRows Then
             Do While dato.Read()
-                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(7), dato.GetString(8))
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(5), dato.GetString(6))
             Loop
         End If
 
@@ -238,7 +242,11 @@ Public Class functions
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
     End Function
 
-    Public Function Client_LoadUpdate(ByVal nombre As TextBox, ByVal f_nacimiento As DateTimePicker, ByVal direccion As TextBox, ByVal referencia As TextBox, ByVal Correo_electronico As TextBox, ByVal url_foto As TextBox, ByVal Razon_social As TextBox, ByVal Rfc As TextBox, ByVal foto As PictureBox)
+    Public Shared Function Clients_NumberDelete(ByVal id_number As String) As Boolean
+        Return Db_shared.Ejecutar("delete from telephone_numbers where id = " + id_number + " ")
+    End Function
+
+    Public Function Client_LoadUpdate(ByVal nombre As TextBox, ByVal f_nacimiento As DateTimePicker, ByVal Correo_electronico As TextBox, ByVal url_foto As TextBox, ByVal Razon_social As TextBox, ByVal Rfc As TextBox, ByVal foto As PictureBox)
         Dim url_FotoActual As String
         url_FotoActual = ""
         Dim dato = Db.Consult("select * from clients where id =  '" + Client + "'  ")
@@ -246,26 +254,24 @@ Public Class functions
         If dato.Read() Then
             nombre.Text = dato.GetString(1)
             f_nacimiento.Value = dato.GetString(2)
-            direccion.Text = dato.GetString(3)
-            referencia.Text = dato.GetString(4)
-            Correo_electronico.Text = dato.GetString(5)
-            url_foto.Text = dato.GetString(6)
+            Correo_electronico.Text = dato.GetString(3)
+            url_foto.Text = dato.GetString(4)
             foto.SizeMode = PictureBoxSizeMode.Zoom
 
-            If File.Exists(My.Settings.data_url + Data_clients + dato.GetString(6)) Then
-                url_FotoActual = My.Settings.data_url + Data_clients + dato.GetString(6)
+            If File.Exists(My.Settings.data_url + Data_clients + dato.GetString(4)) Then
+                url_FotoActual = My.Settings.data_url + Data_clients + dato.GetString(4)
                 foto.Image = Image.FromFile(url_FotoActual)
             Else
                 foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
             End If
 
-            Razon_social.Text = dato.GetString(7)
-            Rfc.Text = dato.GetString(8)
+            Razon_social.Text = dato.GetString(5)
+            Rfc.Text = dato.GetString(6)
         End If
         Return url_FotoActual
     End Function
 
-    Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
+    Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
         Dim foto_tmp As String = FotoActual
         If FotoActual <> TxtFoto.Text Then
             foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
@@ -279,9 +285,52 @@ Public Class functions
             End Try
         End If
 
-        Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "' , direccion = '" + TxtDireccion.Text.ToUpper + "', referencia = '" + TxtReferencia.Text.ToUpper + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+        Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
     End Function
 
+    Public Shared Function Clients_NumberADD(ByVal TxtNumero As TextBox, ByVal TxtCompañia As TextBox, ByVal TxtMovil As RadioButton, ByVal Txtfijo As RadioButton, ByVal TxtRef As TextBox) As Boolean
+        If TxtMovil.Checked Then
+            Return Db_shared.Ejecutar("INSERT INTO telephone_numbers (client, numero, compañia, fijo, movil, ref_note) VALUES (" + Client + ", '" + TxtNumero.Text + "', '" + TxtCompañia.Text.ToUpper + "', '0', '1', '" + TxtRef.Text.ToUpper + "' )")
+        Else
+            Return Db_shared.Ejecutar("INSERT INTO telephone_numbers (client, numero, compañia, fijo, movil, ref_note) VALUES (" + Client + ", '" + TxtNumero.Text + "', '" + TxtCompañia.Text.ToUpper + "', '1', '0', '" + TxtRef.Text.ToUpper + "' )")
+        End If
+    End Function
 
+    Public Sub Clients_Datagridview_Numbers(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("client", "Cliente")
+        t.Columns.Add("number", "Numero")
+        t.Columns.Add("company", "Compañia")
+        t.Columns.Add("Type", "Tipo linea")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                If dato.GetBoolean(4) Then
+                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), "Fija")
+                Else
+                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), "Movil")
+                End If
+
+            Loop
+        End If
+
+    End Sub
+
+    Public Sub Client_NumberLoadUpdate(ByVal numero As TextBox, ByVal compañia As TextBox, ByVal ref As TextBox, ByVal movil As RadioButton, ByVal fijo As RadioButton, ByVal t As DataGridView)
+        Dim dato = Db.Consult("SELECT * FROM telephone_numbers where id = '" + Number_id + "' ")
+
+        If dato.Read() Then
+            numero.Text = dato.GetString(2)
+            compañia.Text = dato.GetString(3)
+            ref.Text = dato.GetString(4)
+            fijo.Checked = dato.GetBoolean(5)
+            movil.Checked = dato.GetBoolean(6)
+        End If
+    End Sub
 
 End Class

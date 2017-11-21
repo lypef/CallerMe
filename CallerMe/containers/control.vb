@@ -7,19 +7,6 @@
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
-        f.AddForm_Desktop(Clients, Desktop)
-        If (f.ReturnPermission(f.Permission_Access_Clients)) = False Then
-            Button_Clients.Enabled = False
-        End If
-
-        If (f.ReturnPermission(f.Permission_Access_registros)) = False Then
-            Button_Registros.Enabled = False
-        End If
-
-        If (f.ReturnPermission(f.Permission_Access_vehiculos)) = False Then
-            Button_Vehiculo.Enabled = False
-        End If
-
     End Sub
 
     Private Sub Button_Clients_MouseEnter(sender As Object, e As EventArgs) Handles Button_Clients.MouseEnter
@@ -55,8 +42,12 @@
     End Sub
 
     Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
-        Clients.LoadClientes()
-        f.AddForm_Desktop(Clients, Desktop)
+        If f.ReturnPermission(f.Permission_Access_Clients) Then
+            Clients.LoadClientes()
+            f.AddForm_Desktop(Clients, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs)
@@ -67,12 +58,8 @@
         f.AddForm_Desktop(Parametros, Desktop)
     End Sub
 
-    Private Sub AgregarClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarClienteToolStripMenuItem.Click
-        If f.ReturnPermission(f.Permission_Clients_add) Then
-            f.AddForm_Desktop(Clients_add, Desktop)
-        Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        End If
+    Private Sub AgregarClienteToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
@@ -83,16 +70,76 @@
         Application.Exit()
     End Sub
 
-    Private Sub BuscarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem.Click
-        Clients.SearchClientes(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-        f.AddForm_Desktop(Clients, Desktop)
+    Private Sub BuscarToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If f.ReturnPermission(f.Permission_Adresses_add) Then
-            f.AddForm_Desktop(addresses_add, Desktop)
+            'f.AddForm_Desktop(Telephone_numbers, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub NumerosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NumerosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub AgregarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Telephone_add) Then
+            Number_telephoneADD.Loader()
+            f.AddForm_Desktop(Number_telephoneADD, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem1.Click
+        If f.ReturnPermission(f.Permission_Clients_add) Then
+            f.AddForm_Desktop(Clients_add, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub BuscarToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem3.Click
+        If f.ReturnPermission(f.Permission_Access_Clients) Then
+            Clients.SearchClientes(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
+            f.AddForm_Desktop(Clients, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem2.Click
+        If f.ReturnPermission(f.Permission_Access_Clients) Then
+            Clients.LoadClientes()
+            f.AddForm_Desktop(Clients, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem1.Click
+        If f.ReturnPermission(f.Permission_Telephone_Access) Then
+            Number_telephone.LoadClientes()
+            f.AddForm_Desktop(Number_telephone, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub BuscarToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem2.Click
+        If f.ReturnPermission(f.Permission_Telephone_Access) Then
+            Number_telephone.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
+            f.AddForm_Desktop(Number_telephone, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem1.Click
+
     End Sub
 End Class

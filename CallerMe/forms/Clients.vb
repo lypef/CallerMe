@@ -4,6 +4,7 @@
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.DataGridView_Model(Table)
+        f.DataGridView_Model(ViewNumbers)
         TabControl1.Width = Me.Width
         TabControl1.Height = Me.Height - Loader.Height
         LoadClientes()
@@ -19,7 +20,7 @@
     End Sub
 
     Public Sub SearchClientes(ByVal txt As String)
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + txt + "%' or direccion LIKE '%" + txt + "%' or correo_electronico LIKE '%" + txt + "%' or rfc LIKE '%" + txt + "%' OR razon_social LIKE '%" + txt + "%' ORDER by nombre asc", Table)
+        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + txt + "%' or correo_electronico LIKE '%" + txt + "%' or rfc LIKE '%" + txt + "%' OR razon_social LIKE '%" + txt + "%' ORDER by nombre asc", Table)
         TabControl1.SelectedIndex = 0
         functions.Client = 0
     End Sub
@@ -31,16 +32,10 @@
         Else
             f.Alert(f.Alert_Verifique_proceso, f.Alert_NumberCritical)
         End If
-
     End Sub
 
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
-        If f.ReturnPermission(f.Permission_Clients_edit) Then
-            foto_actualStatic = f.Client_LoadUpdate(TxtNombre, FechaNaci, TxtDireccion, TxtReferencia, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc, Foto)
-            TabControl1.SelectedIndex = 1
-        Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        End If
+        TabControl1.SelectedIndex = 1
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
@@ -50,7 +45,9 @@
 
         If TabControl1.SelectedIndex = 1 Then
             If f.ReturnPermission(f.Permission_Clients_edit) Then
-                If functions.Client <= 0 Then
+                If functions.Client > 0 Then
+                    foto_actualStatic = f.Client_LoadUpdate(TxtNombre, FechaNaci, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc, Foto)
+                Else
                     TabControl1.SelectedIndex = 0
                 End If
             Else
@@ -61,7 +58,7 @@
 
         If TabControl1.SelectedIndex = 2 Then
             If functions.Client > 0 Then
-                MsgBox("Cargar Movimientos")
+                f.Clients_Datagridview_Numbers("SELECT n.id, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id and n.client = " + functions.Client + " ORDER by n.id desc", ViewNumbers)
             Else
                 TabControl1.SelectedIndex = 0
             End If
@@ -132,11 +129,9 @@
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         If String.IsNullOrEmpty(TxtNombre.Text) = False Then
             functions.OnLoader(Loader)
-            If functions.Client_Update(TxtNombre, FechaNaci, TxtDireccion, TxtReferencia, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc, foto_actualStatic) Then
+            If functions.Client_Update(TxtNombre, FechaNaci, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc, foto_actualStatic) Then
                 f.Alert("Cliente actualizado con exito", f.Alert_NumberInformacion)
                 functions.TextBox_clean(TxtNombre)
-                functions.TextBox_clean(TxtDireccion)
-                functions.TextBox_clean(TxtReferencia)
                 functions.TextBox_clean(TxtCorreoElectronico)
                 functions.TextBox_clean(TxtFoto)
                 functions.TextBox_clean(TxtRazonSocial)

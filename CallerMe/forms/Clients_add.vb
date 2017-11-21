@@ -10,11 +10,9 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         If String.IsNullOrEmpty(TxtNombre.Text) = False Then
             functions.OnLoader(Loader)
-            If functions.Clients_add(TxtNombre, FechaNaci, TxtDireccion, TxtReferencia, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc) Then
+            If functions.Clients_add(TxtNombre, FechaNaci, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc) Then
                 f.Alert("Cliente agregado con exito", f.Alert_NumberInformacion)
                 functions.TextBox_clean(TxtNombre)
-                functions.TextBox_clean(TxtDireccion)
-                functions.TextBox_clean(TxtReferencia)
                 functions.TextBox_clean(TxtCorreoElectronico)
                 functions.TextBox_clean(TxtFoto)
                 functions.TextBox_clean(TxtRazonSocial)
@@ -44,11 +42,11 @@
 
     End Sub
 
-    Private Sub TxtReferencia_TextChanged(sender As Object, e As EventArgs) Handles TxtReferencia.TextChanged
+    Private Sub TxtReferencia_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
 
     End Sub
 
