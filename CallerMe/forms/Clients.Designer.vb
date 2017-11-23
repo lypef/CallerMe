@@ -53,6 +53,7 @@ Partial Class Clients
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ViewNumbers = New System.Windows.Forms.DataGridView()
         Me.Loader = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -132,6 +133,7 @@ Partial Class Clients
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage2.Controls.Add(Me.Button1)
         Me.TabPage2.Controls.Add(Me.CheckCamara)
         Me.TabPage2.Controls.Add(Me.CheckImagen)
         Me.TabPage2.Controls.Add(Me.Label8)
@@ -243,7 +245,7 @@ Partial Class Clients
         '
         'BtnFoto
         '
-        Me.BtnFoto.Location = New System.Drawing.Point(790, 60)
+        Me.BtnFoto.Location = New System.Drawing.Point(807, 60)
         Me.BtnFoto.Name = "BtnFoto"
         Me.BtnFoto.Size = New System.Drawing.Size(75, 29)
         Me.BtnFoto.TabIndex = 115
@@ -274,7 +276,7 @@ Partial Class Clients
         Me.TxtFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtFoto.Location = New System.Drawing.Point(449, 60)
         Me.TxtFoto.Name = "TxtFoto"
-        Me.TxtFoto.Size = New System.Drawing.Size(335, 29)
+        Me.TxtFoto.Size = New System.Drawing.Size(273, 29)
         Me.TxtFoto.TabIndex = 118
         '
         'Label4
@@ -353,6 +355,15 @@ Partial Class Clients
         Me.Loader.TabIndex = 102
         Me.Loader.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(728, 60)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 29)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "Ninguna"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Clients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -407,4 +418,5 @@ Partial Class Clients
     Friend WithEvents TxtNombre As TextBox
     Friend WithEvents ViewNumbers As DataGridView
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents Button1 As Button
 End Class

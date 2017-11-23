@@ -76,7 +76,8 @@
 
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If f.ReturnPermission(f.Permission_Adresses_add) Then
-            'f.AddForm_Desktop(Telephone_numbers, Desktop)
+            AdressesADD.Loader()
+            f.AddForm_Desktop(AdressesADD, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -141,5 +142,14 @@
 
     Private Sub GenerarReporteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem1.Click
 
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Access_adress) Then
+            Adresses.Loader()
+            f.AddForm_Desktop(Adresses, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

@@ -197,6 +197,18 @@ Namespace My
                 Me("datagridview_font") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property form_ShowBorder() As Boolean
+            Get
+                Return CType(Me("form_ShowBorder"),Boolean)
+            End Get
+            Set
+                Me("form_ShowBorder") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

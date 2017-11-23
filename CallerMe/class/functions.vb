@@ -26,6 +26,8 @@ Public Class functions
     Public ReadOnly Permission_Access_registros = "acces_registros"
     Public ReadOnly Permission_Access_vehiculos = "acces_vehiculos"
     Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
+    Public ReadOnly Permission_Access_adress = "acces_adresses"
+
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
     Public ReadOnly Permission_Clients_delete = "clients_delete"
@@ -85,7 +87,11 @@ Public Class functions
         Desktop.BorderStyle = BorderStyle.None
         form.TopLevel = False
         form.FormBorderStyle = FormBorderStyle.None
-        form.Dock = DockStyle.Fill
+
+        If My.Settings.form_ShowBorder = False Then
+            form.Dock = DockStyle.Fill
+        End If
+
         Desktop.Controls.Add(form)
         form.Show()
     End Sub
@@ -284,7 +290,9 @@ Public Class functions
                 foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
                 foto_tmp = foto_tmp.Replace("\", "/")
 
-                My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                If My.Computer.FileSystem.FileExists(TxtFoto.Text) Then
+                    My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                End If
                 Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
             Catch ex As Exception
                 MsgBox(ex.Message, 16)
@@ -296,7 +304,9 @@ Public Class functions
                     foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
                     foto_tmp = foto_tmp.Replace("\", "/")
 
-                    My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                    If TxtFoto.Text <> "/Ninguna" Then
+                        My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                    End If
                     My.Computer.FileSystem.DeleteFile(FotoActual)
                     Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
                 Catch ex As Exception
@@ -368,6 +378,18 @@ Public Class functions
         Else
             Return Db_shared.Ejecutar("UPDATE telephone_numbers SET client = '" + Client + "', numero = '" + TxtNumero.Text.ToUpper + "', compañia = '" + TxtCompañia.Text.ToUpper + "', ref_note = '" + TxtRef.Text.ToUpper + "', fijo = '1', movil = '0' WHERE id = " + Number_id + " ")
         End If
+    End Function
+
+    Public Shared Function Clients_AdressADD(ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtKilometros As TextBox) As Boolean
+        Return Db_shared.Ejecutar("INSERT INTO adresses (client, direccion, referencia, kms) VALUES (" + Client + ", '" + TxtDireccion.Text.ToUpper + "', '" + TxtReferencia.Text.ToUpper + "', " + TxtKilometros.Text + ")")
+    End Function
+
+    Public Function IsDecimal(ByVal numero As TextBox) As Boolean
+        Try
+            Return Decimal.Parse(numero.Text)
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 
 End Class

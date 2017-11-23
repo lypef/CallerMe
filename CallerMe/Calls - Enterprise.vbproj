@@ -140,6 +140,18 @@
     <Compile Include="containers\AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Adresses.Designer.vb">
+      <DependentUpon>Adresses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Adresses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AdressesADD.Designer.vb">
+      <DependentUpon>AdressesADD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\AdressesADD.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Clients_add.Designer.vb">
       <DependentUpon>Clients_add.vb</DependentUpon>
     </Compile>
@@ -206,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Adresses.resx">
+      <DependentUpon>Adresses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\AdressesADD.resx">
+      <DependentUpon>AdressesADD.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Clients.resx">
       <DependentUpon>Clients.vb</DependentUpon>

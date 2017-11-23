@@ -236,21 +236,21 @@ Partial Class control
         '
         Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
         Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NuevoToolStripMenuItem.Text = "Nuevo"
         '
         'GestionarToolStripMenuItem
         '
         Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.manager_48
         Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
-        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GestionarToolStripMenuItem.Text = "Gestionar"
         '
         'BuscarToolStripMenuItem1
         '
         Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
         Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
-        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(124, 22)
+        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.BuscarToolStripMenuItem1.Text = "Buscar"
         '
         'Panel1

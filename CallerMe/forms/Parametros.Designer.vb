@@ -42,17 +42,20 @@ Partial Class Parametros
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TxtUrlData = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Tablas_Height = New System.Windows.Forms.NumericUpDown()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Form_ShowBorder = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -204,7 +207,7 @@ Partial Class Parametros
         Me.GroupBox2.Controls.Add(Me.TxtUrlData)
         Me.GroupBox2.Location = New System.Drawing.Point(201, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 263)
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 124)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Data"
@@ -249,6 +252,24 @@ Partial Class Parametros
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Tablas"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(157, 19)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(123, 34)
+        Me.Button6.TabIndex = 5
+        Me.Button6.Text = "Color de seleccion"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(17, 60)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(135, 34)
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "Tipo de letra"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Button4
         '
         Me.Button4.Location = New System.Drawing.Point(17, 20)
@@ -274,29 +295,32 @@ Partial Class Parametros
         Me.Tablas_Height.Size = New System.Drawing.Size(57, 20)
         Me.Tablas_Height.TabIndex = 0
         '
-        'Button5
+        'GroupBox4
         '
-        Me.Button5.Location = New System.Drawing.Point(17, 60)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(135, 34)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "Tipo de letra"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.GroupBox4.Controls.Add(Me.Form_ShowBorder)
+        Me.GroupBox4.Location = New System.Drawing.Point(201, 142)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(253, 133)
+        Me.GroupBox4.TabIndex = 10
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Ventanas"
         '
-        'Button6
+        'Form_ShowBorder
         '
-        Me.Button6.Location = New System.Drawing.Point(157, 19)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(123, 34)
-        Me.Button6.TabIndex = 5
-        Me.Button6.Text = "Color de seleccion"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.Form_ShowBorder.AutoSize = True
+        Me.Form_ShowBorder.Location = New System.Drawing.Point(9, 22)
+        Me.Form_ShowBorder.Name = "Form_ShowBorder"
+        Me.Form_ShowBorder.Size = New System.Drawing.Size(151, 17)
+        Me.Form_ShowBorder.TabIndex = 2
+        Me.Form_ShowBorder.Text = "Mostrar border de ventana"
+        Me.Form_ShowBorder.UseVisualStyleBackColor = True
         '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button2)
@@ -312,6 +336,8 @@ Partial Class Parametros
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -343,4 +369,6 @@ Partial Class Parametros
     Friend WithEvents FontDialog1 As FontDialog
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents Form_ShowBorder As CheckBox
 End Class
