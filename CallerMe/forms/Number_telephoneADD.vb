@@ -20,20 +20,24 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If String.IsNullOrEmpty(TxtNumber.Text) = False Then
-            functions.Client = DataGridView1.SelectedCells(0).Value
-            functions.OnLoader(PictureBox1)
-            If functions.Clients_NumberADD(TxtNumber, TxtCompañia, TxtMovil, TxtFijo, TxtRef) Then
-                f.Alert("Numero agregado con exito", f.Alert_NumberInformacion)
-                functions.TextBox_clean(TxtNumber)
-                functions.TextBox_clean(TxtCompañia)
-                functions.Client = 0
+        Try
+            If String.IsNullOrEmpty(TxtNumber.Text) = False Then
+                functions.Client = DataGridView1.SelectedCells(0).Value
+                functions.OnLoader(PictureBox1)
+                If functions.Clients_NumberADD(TxtNumber, TxtCompañia, TxtMovil, TxtFijo, TxtRef) Then
+                    f.Alert("Numero agregado con exito", f.Alert_NumberInformacion)
+                    functions.TextBox_clean(TxtNumber)
+                    functions.TextBox_clean(TxtCompañia)
+                    functions.Client = 0
+                Else
+                    f.Alert("Error, verifique sus datos, es posible que el numero ya exista", f.Alert_NumberCritical)
+                End If
+                functions.OffLoader(PictureBox1)
             Else
-                f.Alert("Error, verifique sus datos, es posible que el numero ya exista", f.Alert_NumberCritical)
+                f.Alert("Ingrese al menos un nombre", f.Alert_NumberCritical)
             End If
-            functions.OffLoader(PictureBox1)
-        Else
-            f.Alert("Ingrese al menos un nombre", f.Alert_NumberCritical)
-        End If
+        Catch ex As Exception
+            f.Alert(ex.Message, f.Alert_NumberCritical)
+        End Try
     End Sub
 End Class

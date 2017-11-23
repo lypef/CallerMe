@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿Imports system.io
 Imports MySql.Data.MySqlClient
 
 Public Class functions
@@ -164,8 +164,10 @@ Public Class functions
         Dim file As New OpenFileDialog()
         file.Filter = "Archivo JPG|*.jpg"
         If file.ShowDialog() = DialogResult.OK Then
-            Img.Image = Image.FromFile(file.FileName)
+            Dim fs As FileStream = New System.IO.FileStream(file.FileName, FileMode.Open, FileAccess.Read)
+            Img.Image = Image.FromStream(fs)
             Img.SizeMode = PictureBoxSizeMode.Zoom
+            fs.Close()
         End If
         OffLoader(loader)
         Return file.FileName.Replace("\", "/")
@@ -215,6 +217,8 @@ Public Class functions
         d.DefaultCellStyle.Font = My.Settings.datagridview_font
         d.AllowUserToResizeRows = False
         d.ReadOnly = True
+        d.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        d.DefaultCellStyle.WrapMode = DataGridViewTriState.True
     End Sub
 
     Public Sub Clients_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
@@ -260,7 +264,9 @@ Public Class functions
 
             If File.Exists(My.Settings.data_url + Data_clients + dato.GetString(4)) Then
                 url_FotoActual = My.Settings.data_url + Data_clients + dato.GetString(4)
-                foto.Image = Image.FromFile(url_FotoActual)
+                Dim fs As FileStream = New System.IO.FileStream(url_FotoActual, FileMode.Open, FileAccess.Read)
+                foto.Image = Image.FromStream(fs)
+                fs.Close()
             Else
                 foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
             End If
@@ -273,19 +279,34 @@ Public Class functions
 
     Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
         Dim foto_tmp As String = FotoActual
-        If FotoActual <> TxtFoto.Text Then
-            foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
-            foto_tmp = foto_tmp.Replace("\", "/")
-
+        If My.Computer.FileSystem.FileExists(FotoActual) = False Then
             Try
+                foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+                foto_tmp = foto_tmp.Replace("\", "/")
+
                 My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
-                My.Computer.FileSystem.DeleteFile(My.Settings.data_url + Data_clients + FotoActual)
+                Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
             Catch ex As Exception
-
+                MsgBox(ex.Message, 16)
+                Return False
             End Try
-        End If
+        Else
+            If foto_tmp <> My.Settings.data_url + Data_clients + TxtFoto.Text Then
+                Try
+                    foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+                    foto_tmp = foto_tmp.Replace("\", "/")
 
-        Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+                    My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_clients + foto_tmp)
+                    My.Computer.FileSystem.DeleteFile(FotoActual)
+                    Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+                Catch ex As Exception
+                    MsgBox(ex.Message, 16)
+                    Return False
+                End Try
+            Else
+                Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+            End If
+        End If
     End Function
 
     Public Shared Function Clients_NumberADD(ByVal TxtNumero As TextBox, ByVal TxtCompañia As TextBox, ByVal TxtMovil As RadioButton, ByVal Txtfijo As RadioButton, ByVal TxtRef As TextBox) As Boolean
@@ -302,7 +323,8 @@ Public Class functions
 
         Dim dato = Db.Consult(sql)
 
-        t.Columns.Add("id", "ID")
+        t.Columns.Add("id", "ID_Numero")
+        t.Columns.Add("id", "ID_Cliente")
         t.Columns.Add("client", "Cliente")
         t.Columns.Add("number", "Numero")
         t.Columns.Add("company", "Compañia")
@@ -310,10 +332,10 @@ Public Class functions
 
         If dato.HasRows Then
             Do While dato.Read()
-                If dato.GetBoolean(4) Then
-                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), "Fija")
+                If dato.GetBoolean(5) Then
+                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), "Fija")
                 Else
-                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), "Movil")
+                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), "Movil")
                 End If
 
             Loop
@@ -330,7 +352,22 @@ Public Class functions
             ref.Text = dato.GetString(4)
             fijo.Checked = dato.GetBoolean(5)
             movil.Checked = dato.GetBoolean(6)
+
+            For Each row As DataGridViewRow In t.Rows
+                If t.Item(0, row.Index).Value = Client Then
+                    t.CurrentCell = t.Rows(row.Index).Cells(0)
+                End If
+            Next
+
         End If
     End Sub
+
+    Public Shared Function Clients_NumberUPDATE(ByVal TxtNumero As TextBox, ByVal TxtCompañia As TextBox, ByVal TxtMovil As RadioButton, ByVal Txtfijo As RadioButton, ByVal TxtRef As TextBox) As Boolean
+        If TxtMovil.Checked Then
+            Return Db_shared.Ejecutar("UPDATE telephone_numbers SET client = '" + Client + "',  numero = '" + TxtNumero.Text.ToUpper + "', compañia = '" + TxtCompañia.Text.ToUpper + "', ref_note = '" + TxtRef.Text.ToUpper + "', fijo = '0', movil = '1' WHERE id = " + Number_id + " ")
+        Else
+            Return Db_shared.Ejecutar("UPDATE telephone_numbers SET client = '" + Client + "', numero = '" + TxtNumero.Text.ToUpper + "', compañia = '" + TxtCompañia.Text.ToUpper + "', ref_note = '" + TxtRef.Text.ToUpper + "', fijo = '1', movil = '0' WHERE id = " + Number_id + " ")
+        End If
+    End Function
 
 End Class
