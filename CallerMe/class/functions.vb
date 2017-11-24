@@ -88,11 +88,6 @@ Public Class functions
         Desktop.BorderStyle = BorderStyle.None
         form.TopLevel = False
         form.FormBorderStyle = FormBorderStyle.None
-
-        If My.Settings.form_ShowBorder = False Then
-            form.Dock = DockStyle.Fill
-        End If
-
         Desktop.Controls.Add(form)
         form.Show()
     End Sub

@@ -20,7 +20,7 @@ Public Class Parametros
         Button6.BackColor = My.Settings.datagridview_selectrow
         tipo_font = My.Settings.datagridview_font
         colorselect = My.Settings.datagridview_selectrow
-        Form_ShowBorder.Checked = My.Settings.form_ShowBorder
+
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -43,7 +43,6 @@ Public Class Parametros
         My.Settings.datagridview_color = colorfondo
         My.Settings.datagridview_font = tipo_font
         My.Settings.datagridview_selectrow = colorselect
-        My.Settings.form_ShowBorder = Form_ShowBorder.Checked
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
