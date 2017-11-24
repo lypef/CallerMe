@@ -152,4 +152,17 @@
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
+
+    Private Sub BuscarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem1.Click
+        If f.ReturnPermission(f.Permission_Access_adress) Then
+            Adresses.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
+            f.AddForm_Desktop(Adresses, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem5_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
+
+    End Sub
 End Class

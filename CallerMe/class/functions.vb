@@ -9,6 +9,7 @@ Public Class functions
     Public Shared userID As String
     Public Shared Client As String
     Public Shared Number_id As String
+    Public Shared Adress_id As String
 
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
@@ -248,8 +249,32 @@ Public Class functions
 
     End Sub
 
+    Public Sub Clients_AdresesDataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID direccion")
+        t.Columns.Add("id", "ID cliente")
+        t.Columns.Add("client", "Cliente")
+        t.Columns.Add("direccion", "Direccion")
+        t.Columns.Add("ref", "Referencia")
+        t.Columns.Add("kms", "Kilometros")
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+
+    End Sub
+
     Public Shared Function Clients_delete() As Boolean
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    End Function
+
+    Public Shared Function Clients_AdressDELETE() As Boolean
+        Return Db_shared.Ejecutar("delete from adresses where id = " + Adress_id + " ")
     End Function
 
     Public Shared Function Clients_NumberDelete(ByVal id_number As String) As Boolean
