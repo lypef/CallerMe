@@ -149,7 +149,7 @@ Partial Class AdressesADD
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 42)
         Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "Agregar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'PictureBox1

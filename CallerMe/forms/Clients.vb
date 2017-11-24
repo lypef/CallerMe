@@ -58,7 +58,7 @@
 
         If TabControl1.SelectedIndex = 2 Then
             If functions.Client > 0 Then
-                f.Clients_Datagridview_Numbers("SELECT n.id, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id and n.client = " + functions.Client + " ORDER by n.id desc", ViewNumbers)
+                f.Clients_Datagridview_Numbers("SELECT n.id, c.id, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id and n.client = " + functions.Client + " ORDER by n.id desc", ViewNumbers)
             Else
                 TabControl1.SelectedIndex = 0
             End If

@@ -31,12 +31,28 @@ Partial Class control
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConductoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Desktop = New System.Windows.Forms.Panel()
+        Me.MenuPanel = New System.Windows.Forms.Panel()
+        Me.Button_Ajustes = New System.Windows.Forms.Button()
+        Me.Button_Vehiculo = New System.Windows.Forms.Button()
+        Me.Button_Registros = New System.Windows.Forms.Button()
+        Me.Button_Clients = New System.Windows.Forms.Button()
+        Me.VehiculosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarReporteToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarReporteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,14 +67,6 @@ Partial Class control
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Desktop = New System.Windows.Forms.Panel()
-        Me.MenuPanel = New System.Windows.Forms.Panel()
-        Me.Button_Ajustes = New System.Windows.Forms.Button()
-        Me.Button_Vehiculo = New System.Windows.Forms.Button()
-        Me.Button_Registros = New System.Windows.Forms.Button()
-        Me.Button_Clients = New System.Windows.Forms.Button()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
@@ -112,21 +120,17 @@ Partial Class control
         '
         'Btn_vehiculos
         '
-        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VehiculosToolStripMenuItem, Me.ConductoresToolStripMenuItem})
         Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(179, 48)
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(143, 48)
         '
-        'ToolStripMenuItem3
+        'ConductoresToolStripMenuItem
         '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem3.Text = "Agregar vehiculo"
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(178, 22)
-        Me.ToolStripMenuItem4.Text = "Consultar vehiculos"
+        Me.ConductoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem2, Me.GestionarToolStripMenuItem3, Me.BuscarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem2})
+        Me.ConductoresToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.steering_48
+        Me.ConductoresToolStripMenuItem.Name = "ConductoresToolStripMenuItem"
+        Me.ConductoresToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ConductoresToolStripMenuItem.Text = "Conductores"
         '
         'Btn_registros
         '
@@ -151,108 +155,7 @@ Partial Class control
         Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.NumerosToolStripMenuItem, Me.DireccionesToolStripMenuItem})
         Me.Btn_clientes.Name = "Btn_clientes"
-        Me.Btn_clientes.Size = New System.Drawing.Size(153, 92)
-        '
-        'ClientesToolStripMenuItem1
-        '
-        Me.ClientesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.GestionarToolStripMenuItem2, Me.BuscarToolStripMenuItem3, Me.GenerarReporteToolStripMenuItem1})
-        Me.ClientesToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.clients_48
-        Me.ClientesToolStripMenuItem1.Name = "ClientesToolStripMenuItem1"
-        Me.ClientesToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ClientesToolStripMenuItem1.Text = "Clientes"
-        '
-        'NuevoToolStripMenuItem1
-        '
-        Me.NuevoToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.new_48
-        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
-        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
-        '
-        'GestionarToolStripMenuItem2
-        '
-        Me.GestionarToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.Gestionar_32
-        Me.GestionarToolStripMenuItem2.Name = "GestionarToolStripMenuItem2"
-        Me.GestionarToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
-        Me.GestionarToolStripMenuItem2.Text = "Gestionar"
-        '
-        'BuscarToolStripMenuItem3
-        '
-        Me.BuscarToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.search_48
-        Me.BuscarToolStripMenuItem3.Name = "BuscarToolStripMenuItem3"
-        Me.BuscarToolStripMenuItem3.Size = New System.Drawing.Size(156, 22)
-        Me.BuscarToolStripMenuItem3.Text = "Buscar"
-        '
-        'GenerarReporteToolStripMenuItem1
-        '
-        Me.GenerarReporteToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.report_48
-        Me.GenerarReporteToolStripMenuItem1.Name = "GenerarReporteToolStripMenuItem1"
-        Me.GenerarReporteToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
-        Me.GenerarReporteToolStripMenuItem1.Text = "Generar reporte"
-        '
-        'NumerosToolStripMenuItem
-        '
-        Me.NumerosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GestionarToolStripMenuItem1, Me.BuscarToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem})
-        Me.NumerosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
-        Me.NumerosToolStripMenuItem.Name = "NumerosToolStripMenuItem"
-        Me.NumerosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.NumerosToolStripMenuItem.Text = "Numeros"
-        '
-        'AgregarToolStripMenuItem
-        '
-        Me.AgregarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
-        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
-        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
-        Me.AgregarToolStripMenuItem.Text = "Nuevo"
-        '
-        'GestionarToolStripMenuItem1
-        '
-        Me.GestionarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.Gestionar_32
-        Me.GestionarToolStripMenuItem1.Name = "GestionarToolStripMenuItem1"
-        Me.GestionarToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
-        Me.GestionarToolStripMenuItem1.Text = "Gestionar"
-        '
-        'BuscarToolStripMenuItem2
-        '
-        Me.BuscarToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.search_48
-        Me.BuscarToolStripMenuItem2.Name = "BuscarToolStripMenuItem2"
-        Me.BuscarToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
-        Me.BuscarToolStripMenuItem2.Text = "Buscar"
-        '
-        'GenerarReporteToolStripMenuItem
-        '
-        Me.GenerarReporteToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.report_48
-        Me.GenerarReporteToolStripMenuItem.Name = "GenerarReporteToolStripMenuItem"
-        Me.GenerarReporteToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
-        Me.GenerarReporteToolStripMenuItem.Text = "Generar reporte"
-        '
-        'DireccionesToolStripMenuItem
-        '
-        Me.DireccionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GestionarToolStripMenuItem, Me.BuscarToolStripMenuItem1, Me.ToolStripMenuItem5})
-        Me.DireccionesToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.directiones_24
-        Me.DireccionesToolStripMenuItem.Name = "DireccionesToolStripMenuItem"
-        Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DireccionesToolStripMenuItem.Text = "Direcciones"
-        '
-        'NuevoToolStripMenuItem
-        '
-        Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
-        '
-        'GestionarToolStripMenuItem
-        '
-        Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.Gestionar_32
-        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
-        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
-        Me.GestionarToolStripMenuItem.Text = "Gestionar"
-        '
-        'BuscarToolStripMenuItem1
-        '
-        Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
-        Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
-        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
-        Me.BuscarToolStripMenuItem1.Text = "Buscar"
+        Me.Btn_clientes.Size = New System.Drawing.Size(136, 70)
         '
         'Panel1
         '
@@ -369,6 +272,171 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
+        'VehiculosToolStripMenuItem
+        '
+        Me.VehiculosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem3, Me.GestionarToolStripMenuItem4, Me.ConsultarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem3})
+        Me.VehiculosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.vehicle_48
+        Me.VehiculosToolStripMenuItem.Name = "VehiculosToolStripMenuItem"
+        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.VehiculosToolStripMenuItem.Text = "Vehiculos"
+        '
+        'NuevoToolStripMenuItem3
+        '
+        Me.NuevoToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem3.Name = "NuevoToolStripMenuItem3"
+        Me.NuevoToolStripMenuItem3.Size = New System.Drawing.Size(156, 22)
+        Me.NuevoToolStripMenuItem3.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem4
+        '
+        Me.GestionarToolStripMenuItem4.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem4.Name = "GestionarToolStripMenuItem4"
+        Me.GestionarToolStripMenuItem4.Size = New System.Drawing.Size(156, 22)
+        Me.GestionarToolStripMenuItem4.Text = "Gestionar"
+        '
+        'ConsultarToolStripMenuItem
+        '
+        Me.ConsultarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.ConsultarToolStripMenuItem.Text = "Consultar"
+        '
+        'GenerarReporteToolStripMenuItem3
+        '
+        Me.GenerarReporteToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem3.Name = "GenerarReporteToolStripMenuItem3"
+        Me.GenerarReporteToolStripMenuItem3.Size = New System.Drawing.Size(156, 22)
+        Me.GenerarReporteToolStripMenuItem3.Text = "Generar reporte"
+        '
+        'NuevoToolStripMenuItem2
+        '
+        Me.NuevoToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem2.Name = "NuevoToolStripMenuItem2"
+        Me.NuevoToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
+        Me.NuevoToolStripMenuItem2.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem3
+        '
+        Me.GestionarToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem3.Name = "GestionarToolStripMenuItem3"
+        Me.GestionarToolStripMenuItem3.Size = New System.Drawing.Size(156, 22)
+        Me.GestionarToolStripMenuItem3.Text = "Gestionar"
+        '
+        'BuscarToolStripMenuItem
+        '
+        Me.BuscarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
+        Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.BuscarToolStripMenuItem.Text = "Buscar"
+        '
+        'GenerarReporteToolStripMenuItem2
+        '
+        Me.GenerarReporteToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem2.Name = "GenerarReporteToolStripMenuItem2"
+        Me.GenerarReporteToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
+        Me.GenerarReporteToolStripMenuItem2.Text = "Generar reporte"
+        '
+        'ClientesToolStripMenuItem1
+        '
+        Me.ClientesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.GestionarToolStripMenuItem2, Me.BuscarToolStripMenuItem3, Me.GenerarReporteToolStripMenuItem1})
+        Me.ClientesToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.clients_48
+        Me.ClientesToolStripMenuItem1.Name = "ClientesToolStripMenuItem1"
+        Me.ClientesToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
+        Me.ClientesToolStripMenuItem1.Text = "Clientes"
+        '
+        'NuevoToolStripMenuItem1
+        '
+        Me.NuevoToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
+        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem2
+        '
+        Me.GestionarToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem2.Name = "GestionarToolStripMenuItem2"
+        Me.GestionarToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
+        Me.GestionarToolStripMenuItem2.Text = "Gestionar"
+        '
+        'BuscarToolStripMenuItem3
+        '
+        Me.BuscarToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem3.Name = "BuscarToolStripMenuItem3"
+        Me.BuscarToolStripMenuItem3.Size = New System.Drawing.Size(156, 22)
+        Me.BuscarToolStripMenuItem3.Text = "Buscar"
+        '
+        'GenerarReporteToolStripMenuItem1
+        '
+        Me.GenerarReporteToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem1.Name = "GenerarReporteToolStripMenuItem1"
+        Me.GenerarReporteToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
+        Me.GenerarReporteToolStripMenuItem1.Text = "Generar reporte"
+        '
+        'NumerosToolStripMenuItem
+        '
+        Me.NumerosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GestionarToolStripMenuItem1, Me.BuscarToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem})
+        Me.NumerosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
+        Me.NumerosToolStripMenuItem.Name = "NumerosToolStripMenuItem"
+        Me.NumerosToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.NumerosToolStripMenuItem.Text = "Numeros"
+        '
+        'AgregarToolStripMenuItem
+        '
+        Me.AgregarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
+        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.AgregarToolStripMenuItem.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem1
+        '
+        Me.GestionarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem1.Name = "GestionarToolStripMenuItem1"
+        Me.GestionarToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
+        Me.GestionarToolStripMenuItem1.Text = "Gestionar"
+        '
+        'BuscarToolStripMenuItem2
+        '
+        Me.BuscarToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem2.Name = "BuscarToolStripMenuItem2"
+        Me.BuscarToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
+        Me.BuscarToolStripMenuItem2.Text = "Buscar"
+        '
+        'GenerarReporteToolStripMenuItem
+        '
+        Me.GenerarReporteToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem.Name = "GenerarReporteToolStripMenuItem"
+        Me.GenerarReporteToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.GenerarReporteToolStripMenuItem.Text = "Generar reporte"
+        '
+        'DireccionesToolStripMenuItem
+        '
+        Me.DireccionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GestionarToolStripMenuItem, Me.BuscarToolStripMenuItem1, Me.ToolStripMenuItem5})
+        Me.DireccionesToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.directiones_24
+        Me.DireccionesToolStripMenuItem.Name = "DireccionesToolStripMenuItem"
+        Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.DireccionesToolStripMenuItem.Text = "Direcciones"
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'GestionarToolStripMenuItem
+        '
+        Me.GestionarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem.Name = "GestionarToolStripMenuItem"
+        Me.GestionarToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.GestionarToolStripMenuItem.Text = "Gestionar"
+        '
+        'BuscarToolStripMenuItem1
+        '
+        Me.BuscarToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.search_48
+        Me.BuscarToolStripMenuItem1.Name = "BuscarToolStripMenuItem1"
+        Me.BuscarToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
+        Me.BuscarToolStripMenuItem1.Text = "Buscar"
+        '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.report_48
@@ -412,8 +480,6 @@ Partial Class control
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents Btn_vehiculos As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents Btn_ajustes As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
@@ -432,4 +498,14 @@ Partial Class control
     Friend WithEvents GestionarToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents GenerarReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents ConductoresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VehiculosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuevoToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents GestionarToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ConsultarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarReporteToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents NuevoToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents GestionarToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GenerarReporteToolStripMenuItem2 As ToolStripMenuItem
 End Class
