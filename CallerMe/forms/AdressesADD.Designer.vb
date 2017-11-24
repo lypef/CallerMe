@@ -46,7 +46,7 @@ Partial Class AdressesADD
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Left
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 412)
+        Me.DataGridView1.Size = New System.Drawing.Size(557, 457)
         Me.DataGridView1.TabIndex = 100
         '
         'Panel1
@@ -57,7 +57,7 @@ Partial Class AdressesADD
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(557, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(343, 75)
+        Me.Panel1.Size = New System.Drawing.Size(370, 75)
         Me.Panel1.TabIndex = 10
         '
         'Button2
@@ -90,7 +90,7 @@ Partial Class AdressesADD
         'TxtNombre
         '
         Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNombre.Location = New System.Drawing.Point(571, 110)
+        Me.TxtNombre.Location = New System.Drawing.Point(585, 131)
         Me.TxtNombre.Multiline = True
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(317, 66)
@@ -100,7 +100,7 @@ Partial Class AdressesADD
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(569, 87)
+        Me.Label1.Location = New System.Drawing.Point(583, 108)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 20)
         Me.Label1.TabIndex = 12
@@ -110,7 +110,7 @@ Partial Class AdressesADD
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(569, 179)
+        Me.Label2.Location = New System.Drawing.Point(583, 200)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(87, 20)
         Me.Label2.TabIndex = 14
@@ -119,7 +119,7 @@ Partial Class AdressesADD
         'TxtKilometros
         '
         Me.TxtKilometros.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtKilometros.Location = New System.Drawing.Point(571, 303)
+        Me.TxtKilometros.Location = New System.Drawing.Point(585, 324)
         Me.TxtKilometros.Name = "TxtKilometros"
         Me.TxtKilometros.Size = New System.Drawing.Size(317, 29)
         Me.TxtKilometros.TabIndex = 3
@@ -128,7 +128,7 @@ Partial Class AdressesADD
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(573, 280)
+        Me.Label4.Location = New System.Drawing.Point(587, 301)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 20)
         Me.Label4.TabIndex = 16
@@ -137,7 +137,7 @@ Partial Class AdressesADD
         'TxtReferencia
         '
         Me.TxtReferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReferencia.Location = New System.Drawing.Point(571, 202)
+        Me.TxtReferencia.Location = New System.Drawing.Point(585, 223)
         Me.TxtReferencia.Multiline = True
         Me.TxtReferencia.Name = "TxtReferencia"
         Me.TxtReferencia.Size = New System.Drawing.Size(317, 66)
@@ -145,7 +145,7 @@ Partial Class AdressesADD
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(786, 340)
+        Me.Button1.Location = New System.Drawing.Point(800, 361)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 42)
         Me.Button1.TabIndex = 4
@@ -155,9 +155,9 @@ Partial Class AdressesADD
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(557, 394)
+        Me.PictureBox1.Location = New System.Drawing.Point(557, 439)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(343, 18)
+        Me.PictureBox1.Size = New System.Drawing.Size(370, 18)
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
@@ -165,7 +165,7 @@ Partial Class AdressesADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 412)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TxtReferencia)

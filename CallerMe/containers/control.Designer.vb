@@ -338,25 +338,25 @@ Partial Class control
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(900, 491)
+        Me.Panel1.Size = New System.Drawing.Size(926, 531)
         Me.Panel1.TabIndex = 2
         '
         'Panel4
         '
         Me.Panel4.BackgroundImage = Global.Calls.My.Resources.Resources.separador
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(-16, 96)
+        Me.Panel4.Location = New System.Drawing.Point(0, 96)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(916, 6)
+        Me.Panel4.Size = New System.Drawing.Size(926, 3)
         Me.Panel4.TabIndex = 5
         '
         'Desktop
         '
         Me.Desktop.BackColor = System.Drawing.Color.Transparent
         Me.Desktop.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Desktop.Location = New System.Drawing.Point(0, 102)
+        Me.Desktop.Location = New System.Drawing.Point(0, 99)
         Me.Desktop.Name = "Desktop"
-        Me.Desktop.Size = New System.Drawing.Size(900, 389)
+        Me.Desktop.Size = New System.Drawing.Size(926, 432)
         Me.Desktop.TabIndex = 4
         '
         'MenuPanel
@@ -369,7 +369,7 @@ Partial Class control
         Me.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.MenuPanel.Location = New System.Drawing.Point(0, 0)
         Me.MenuPanel.Name = "MenuPanel"
-        Me.MenuPanel.Size = New System.Drawing.Size(900, 96)
+        Me.MenuPanel.Size = New System.Drawing.Size(926, 96)
         Me.MenuPanel.TabIndex = 3
         '
         'Button_Ajustes
@@ -449,7 +449,7 @@ Partial Class control
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(900, 491)
+        Me.ClientSize = New System.Drawing.Size(926, 531)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "control"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

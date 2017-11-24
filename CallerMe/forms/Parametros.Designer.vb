@@ -172,7 +172,7 @@ Partial Class Parametros
         '
         'TxtGuardar
         '
-        Me.TxtGuardar.Location = New System.Drawing.Point(795, 309)
+        Me.TxtGuardar.Location = New System.Drawing.Point(812, 373)
         Me.TxtGuardar.Name = "TxtGuardar"
         Me.TxtGuardar.Size = New System.Drawing.Size(93, 33)
         Me.TxtGuardar.TabIndex = 100
@@ -181,7 +181,7 @@ Partial Class Parametros
         '
         'TxtSalir
         '
-        Me.TxtSalir.Location = New System.Drawing.Point(712, 309)
+        Me.TxtSalir.Location = New System.Drawing.Point(729, 373)
         Me.TxtSalir.Name = "TxtSalir"
         Me.TxtSalir.Size = New System.Drawing.Size(77, 33)
         Me.TxtSalir.TabIndex = 99
@@ -190,7 +190,7 @@ Partial Class Parametros
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(712, 348)
+        Me.Button2.Location = New System.Drawing.Point(729, 412)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(176, 33)
         Me.Button2.TabIndex = 101
@@ -296,7 +296,7 @@ Partial Class Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button2)

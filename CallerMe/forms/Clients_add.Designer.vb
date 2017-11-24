@@ -47,7 +47,7 @@ Partial Class Clients_add
         'TxtNombre
         '
         Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNombre.Location = New System.Drawing.Point(13, 51)
+        Me.TxtNombre.Location = New System.Drawing.Point(34, 54)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(416, 29)
         Me.TxtNombre.TabIndex = 1
@@ -56,7 +56,7 @@ Partial Class Clients_add
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 23)
+        Me.Label1.Location = New System.Drawing.Point(34, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 20)
         Me.Label1.TabIndex = 1
@@ -66,7 +66,7 @@ Partial Class Clients_add
         '
         Me.BtnAdd.Image = Global.Calls.My.Resources.Resources.new_48
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(765, 226)
+        Me.BtnAdd.Location = New System.Drawing.Point(786, 229)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Size = New System.Drawing.Size(102, 52)
         Me.BtnAdd.TabIndex = 11
@@ -78,7 +78,7 @@ Partial Class Clients_add
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(13, 156)
+        Me.Label4.Location = New System.Drawing.Point(34, 159)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(138, 20)
         Me.Label4.TabIndex = 8
@@ -87,7 +87,7 @@ Partial Class Clients_add
         'TxtCorreoElectronico
         '
         Me.TxtCorreoElectronico.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCorreoElectronico.Location = New System.Drawing.Point(13, 181)
+        Me.TxtCorreoElectronico.Location = New System.Drawing.Point(34, 184)
         Me.TxtCorreoElectronico.Name = "TxtCorreoElectronico"
         Me.TxtCorreoElectronico.Size = New System.Drawing.Size(416, 29)
         Me.TxtCorreoElectronico.TabIndex = 5
@@ -96,7 +96,7 @@ Partial Class Clients_add
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(451, 29)
+        Me.Label5.Location = New System.Drawing.Point(472, 32)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(108, 20)
         Me.Label5.TabIndex = 10
@@ -105,14 +105,14 @@ Partial Class Clients_add
         'TxtFoto
         '
         Me.TxtFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFoto.Location = New System.Drawing.Point(451, 54)
+        Me.TxtFoto.Location = New System.Drawing.Point(472, 57)
         Me.TxtFoto.Name = "TxtFoto"
         Me.TxtFoto.Size = New System.Drawing.Size(335, 29)
         Me.TxtFoto.TabIndex = 10
         '
         'BtnFoto
         '
-        Me.BtnFoto.Location = New System.Drawing.Point(792, 54)
+        Me.BtnFoto.Location = New System.Drawing.Point(813, 57)
         Me.BtnFoto.Name = "BtnFoto"
         Me.BtnFoto.Size = New System.Drawing.Size(75, 29)
         Me.BtnFoto.TabIndex = 8
@@ -123,7 +123,7 @@ Partial Class Clients_add
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(447, 156)
+        Me.Label6.Location = New System.Drawing.Point(468, 159)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 20)
         Me.Label6.TabIndex = 16
@@ -132,7 +132,7 @@ Partial Class Clients_add
         'TxtRfc
         '
         Me.TxtRfc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRfc.Location = New System.Drawing.Point(451, 181)
+        Me.TxtRfc.Location = New System.Drawing.Point(472, 184)
         Me.TxtRfc.Name = "TxtRfc"
         Me.TxtRfc.Size = New System.Drawing.Size(416, 29)
         Me.TxtRfc.TabIndex = 10
@@ -141,7 +141,7 @@ Partial Class Clients_add
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(451, 91)
+        Me.Label7.Location = New System.Drawing.Point(472, 94)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(100, 20)
         Me.Label7.TabIndex = 14
@@ -150,7 +150,7 @@ Partial Class Clients_add
         'TxtRazonSocial
         '
         Me.TxtRazonSocial.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRazonSocial.Location = New System.Drawing.Point(451, 116)
+        Me.TxtRazonSocial.Location = New System.Drawing.Point(472, 119)
         Me.TxtRazonSocial.Name = "TxtRazonSocial"
         Me.TxtRazonSocial.Size = New System.Drawing.Size(416, 29)
         Me.TxtRazonSocial.TabIndex = 9
@@ -161,23 +161,23 @@ Partial Class Clients_add
         Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
         Me.Loader.Location = New System.Drawing.Point(0, 0)
         Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(900, 18)
+        Me.Loader.Size = New System.Drawing.Size(927, 18)
         Me.Loader.TabIndex = 101
         Me.Loader.TabStop = False
         '
         'Foto
         '
         Me.Foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Foto.Location = New System.Drawing.Point(12, 216)
+        Me.Foto.Location = New System.Drawing.Point(33, 219)
         Me.Foto.Name = "Foto"
-        Me.Foto.Size = New System.Drawing.Size(416, 165)
+        Me.Foto.Size = New System.Drawing.Size(416, 229)
         Me.Foto.TabIndex = 11
         Me.Foto.TabStop = False
         '
         'FechaNaci
         '
         Me.FechaNaci.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.FechaNaci.Location = New System.Drawing.Point(13, 116)
+        Me.FechaNaci.Location = New System.Drawing.Point(34, 119)
         Me.FechaNaci.Name = "FechaNaci"
         Me.FechaNaci.Size = New System.Drawing.Size(416, 29)
         Me.FechaNaci.TabIndex = 2
@@ -186,7 +186,7 @@ Partial Class Clients_add
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(13, 88)
+        Me.Label8.Location = New System.Drawing.Point(34, 91)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(157, 20)
         Me.Label8.TabIndex = 103
@@ -195,7 +195,7 @@ Partial Class Clients_add
         'CheckImagen
         '
         Me.CheckImagen.AutoSize = True
-        Me.CheckImagen.Location = New System.Drawing.Point(725, 32)
+        Me.CheckImagen.Location = New System.Drawing.Point(746, 35)
         Me.CheckImagen.Name = "CheckImagen"
         Me.CheckImagen.Size = New System.Drawing.Size(61, 17)
         Me.CheckImagen.TabIndex = 6
@@ -205,7 +205,7 @@ Partial Class Clients_add
         'CheckCamara
         '
         Me.CheckCamara.AutoSize = True
-        Me.CheckCamara.Location = New System.Drawing.Point(805, 32)
+        Me.CheckCamara.Location = New System.Drawing.Point(826, 35)
         Me.CheckCamara.Name = "CheckCamara"
         Me.CheckCamara.Size = New System.Drawing.Size(62, 17)
         Me.CheckCamara.TabIndex = 7
@@ -216,7 +216,7 @@ Partial Class Clients_add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.CheckCamara)
         Me.Controls.Add(Me.CheckImagen)
         Me.Controls.Add(Me.Label8)

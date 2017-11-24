@@ -66,7 +66,10 @@
     End Sub
 
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
-        TabControl1.SelectedIndex = 1
+        If f.ReturnPermission(f.Permission_Telephone_edit) Then
+            TabControl1.SelectedIndex = 1
+        End If
+
     End Sub
 
     Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
@@ -78,7 +81,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If String.IsNullOrEmpty(TxtNumber.Text) = False Then
+        If String.IsNullOrEmpty(TxtNumber.Text) = False And f.ReturnPermission(f.Permission_Telephone_edit) Then
             functions.OnLoader(LoaderEdit)
             functions.Client = Table_EditClients.SelectedCells(0).Value
             If functions.Clients_NumberUPDATE(TxtNumber, TxtCompañia, TxtMovil, TxtFijo, TxtRef) Then
@@ -89,7 +92,7 @@
             End If
             functions.OffLoader(LoaderEdit)
         Else
-            f.Alert("Ingrese al menos un numero", f.Alert_NumberCritical)
+            f.Alert("Ingrese al menos un numero | No tiene permiso parea editar numeros", f.Alert_NumberCritical)
         End If
     End Sub
 End Class

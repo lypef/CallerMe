@@ -32,6 +32,7 @@ Partial Class Clients
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.CheckCamara = New System.Windows.Forms.CheckBox()
         Me.CheckImagen = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -53,7 +54,6 @@ Partial Class Clients
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ViewNumbers = New System.Windows.Forms.DataGridView()
         Me.Loader = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -73,7 +73,7 @@ Partial Class Clients
         Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(881, 335)
+        Me.Table.Size = New System.Drawing.Size(911, 399)
         Me.Table.TabIndex = 0
         '
         'ContextMenuStrip1
@@ -116,7 +116,7 @@ Partial Class Clients
         Me.TabControl1.Location = New System.Drawing.Point(2, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(895, 367)
+        Me.TabControl1.Size = New System.Drawing.Size(925, 431)
         Me.TabControl1.TabIndex = 1
         '
         'TabPage1
@@ -125,7 +125,7 @@ Partial Class Clients
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(887, 341)
+        Me.TabPage1.Size = New System.Drawing.Size(917, 405)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Clientes"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -158,6 +158,15 @@ Partial Class Clients
         Me.TabPage2.Size = New System.Drawing.Size(887, 341)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(728, 60)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 29)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "Ninguna"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'CheckCamara
         '
@@ -351,24 +360,15 @@ Partial Class Clients
         Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
         Me.Loader.Location = New System.Drawing.Point(0, 0)
         Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(900, 18)
+        Me.Loader.Size = New System.Drawing.Size(927, 18)
         Me.Loader.TabIndex = 102
         Me.Loader.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(728, 60)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 29)
-        Me.Button1.TabIndex = 126
-        Me.Button1.Text = "Ninguna"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Clients
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 412)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.Loader)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Clients"

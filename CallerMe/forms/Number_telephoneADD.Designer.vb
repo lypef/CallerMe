@@ -48,14 +48,14 @@ Partial Class Number_telephoneADD
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Left
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 393)
+        Me.DataGridView1.Size = New System.Drawing.Size(557, 457)
         Me.DataGridView1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(563, 86)
+        Me.Label1.Location = New System.Drawing.Point(579, 117)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 20)
         Me.Label1.TabIndex = 2
@@ -64,7 +64,7 @@ Partial Class Number_telephoneADD
         'TxtNumber
         '
         Me.TxtNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumber.Location = New System.Drawing.Point(567, 109)
+        Me.TxtNumber.Location = New System.Drawing.Point(583, 140)
         Me.TxtNumber.Name = "TxtNumber"
         Me.TxtNumber.Size = New System.Drawing.Size(321, 29)
         Me.TxtNumber.TabIndex = 1
@@ -72,7 +72,7 @@ Partial Class Number_telephoneADD
         'TxtCompañia
         '
         Me.TxtCompañia.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCompañia.Location = New System.Drawing.Point(567, 174)
+        Me.TxtCompañia.Location = New System.Drawing.Point(583, 205)
         Me.TxtCompañia.Name = "TxtCompañia"
         Me.TxtCompañia.Size = New System.Drawing.Size(321, 29)
         Me.TxtCompañia.TabIndex = 2
@@ -81,7 +81,7 @@ Partial Class Number_telephoneADD
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(563, 151)
+        Me.Label2.Location = New System.Drawing.Point(579, 182)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(81, 20)
         Me.Label2.TabIndex = 4
@@ -91,7 +91,7 @@ Partial Class Number_telephoneADD
         '
         Me.TxtMovil.AutoSize = True
         Me.TxtMovil.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtMovil.Location = New System.Drawing.Point(768, 297)
+        Me.TxtMovil.Location = New System.Drawing.Point(784, 328)
         Me.TxtMovil.Name = "TxtMovil"
         Me.TxtMovil.Size = New System.Drawing.Size(62, 24)
         Me.TxtMovil.TabIndex = 4
@@ -103,7 +103,7 @@ Partial Class Number_telephoneADD
         '
         Me.TxtFijo.AutoSize = True
         Me.TxtFijo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtFijo.Location = New System.Drawing.Point(836, 297)
+        Me.TxtFijo.Location = New System.Drawing.Point(852, 328)
         Me.TxtFijo.Name = "TxtFijo"
         Me.TxtFijo.Size = New System.Drawing.Size(52, 24)
         Me.TxtFijo.TabIndex = 5
@@ -113,7 +113,7 @@ Partial Class Number_telephoneADD
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(768, 327)
+        Me.Button1.Location = New System.Drawing.Point(784, 358)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 37)
         Me.Button1.TabIndex = 6
@@ -128,7 +128,7 @@ Partial Class Number_telephoneADD
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(557, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(343, 75)
+        Me.Panel1.Size = New System.Drawing.Size(370, 75)
         Me.Panel1.TabIndex = 9
         '
         'Button2
@@ -161,16 +161,16 @@ Partial Class Number_telephoneADD
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(557, 375)
+        Me.PictureBox1.Location = New System.Drawing.Point(557, 439)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(343, 18)
+        Me.PictureBox1.Size = New System.Drawing.Size(370, 18)
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
         '
         'TxtRef
         '
         Me.TxtRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRef.Location = New System.Drawing.Point(567, 229)
+        Me.TxtRef.Location = New System.Drawing.Point(583, 260)
         Me.TxtRef.Multiline = True
         Me.TxtRef.Name = "TxtRef"
         Me.TxtRef.Size = New System.Drawing.Size(321, 62)
@@ -180,7 +180,7 @@ Partial Class Number_telephoneADD
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(563, 206)
+        Me.Label4.Location = New System.Drawing.Point(579, 237)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(133, 20)
         Me.Label4.TabIndex = 11
@@ -190,7 +190,7 @@ Partial Class Number_telephoneADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 393)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.TxtRef)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.PictureBox1)

@@ -63,7 +63,7 @@ Partial Class Number_telephone
         Me.Tabla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tabla.Location = New System.Drawing.Point(3, 3)
         Me.Tabla.Name = "Tabla"
-        Me.Tabla.Size = New System.Drawing.Size(886, 356)
+        Me.Tabla.Size = New System.Drawing.Size(913, 402)
         Me.Tabla.TabIndex = 0
         '
         'ContextMenuStrip1
@@ -91,7 +91,7 @@ Partial Class Number_telephone
         Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
         Me.Loader.Location = New System.Drawing.Point(0, 0)
         Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(900, 18)
+        Me.Loader.Size = New System.Drawing.Size(927, 18)
         Me.Loader.TabIndex = 2
         Me.Loader.TabStop = False
         '
@@ -102,7 +102,7 @@ Partial Class Number_telephone
         Me.TabControl1.Location = New System.Drawing.Point(0, 20)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(900, 388)
+        Me.TabControl1.Size = New System.Drawing.Size(927, 434)
         Me.TabControl1.TabIndex = 3
         '
         'TabPage1
@@ -111,7 +111,7 @@ Partial Class Number_telephone
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(892, 362)
+        Me.TabPage1.Size = New System.Drawing.Size(919, 408)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Numeros"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -134,14 +134,14 @@ Partial Class Number_telephone
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(892, 362)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 408)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
         'TxtRef
         '
         Me.TxtRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRef.Location = New System.Drawing.Point(528, 242)
+        Me.TxtRef.Location = New System.Drawing.Point(543, 248)
         Me.TxtRef.Multiline = True
         Me.TxtRef.Name = "TxtRef"
         Me.TxtRef.Size = New System.Drawing.Size(356, 36)
@@ -151,7 +151,7 @@ Partial Class Number_telephone
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(530, 217)
+        Me.Label4.Location = New System.Drawing.Point(545, 223)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(133, 20)
         Me.Label4.TabIndex = 23
@@ -160,9 +160,9 @@ Partial Class Number_telephone
         'LoaderEdit
         '
         Me.LoaderEdit.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.LoaderEdit.Location = New System.Drawing.Point(522, 341)
+        Me.LoaderEdit.Location = New System.Drawing.Point(522, 387)
         Me.LoaderEdit.Name = "LoaderEdit"
-        Me.LoaderEdit.Size = New System.Drawing.Size(367, 18)
+        Me.LoaderEdit.Size = New System.Drawing.Size(394, 18)
         Me.LoaderEdit.TabIndex = 22
         Me.LoaderEdit.TabStop = False
         '
@@ -174,7 +174,7 @@ Partial Class Number_telephone
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(522, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(367, 75)
+        Me.Panel1.Size = New System.Drawing.Size(394, 75)
         Me.Panel1.TabIndex = 21
         '
         'Button2
@@ -206,7 +206,7 @@ Partial Class Number_telephone
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(764, 284)
+        Me.Button1.Location = New System.Drawing.Point(779, 290)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 37)
         Me.Button1.TabIndex = 8
@@ -217,7 +217,7 @@ Partial Class Number_telephone
         '
         Me.TxtFijo.AutoSize = True
         Me.TxtFijo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtFijo.Location = New System.Drawing.Point(706, 289)
+        Me.TxtFijo.Location = New System.Drawing.Point(721, 295)
         Me.TxtFijo.Name = "TxtFijo"
         Me.TxtFijo.Size = New System.Drawing.Size(52, 24)
         Me.TxtFijo.TabIndex = 7
@@ -229,7 +229,7 @@ Partial Class Number_telephone
         '
         Me.TxtMovil.AutoSize = True
         Me.TxtMovil.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.TxtMovil.Location = New System.Drawing.Point(638, 289)
+        Me.TxtMovil.Location = New System.Drawing.Point(653, 295)
         Me.TxtMovil.Name = "TxtMovil"
         Me.TxtMovil.Size = New System.Drawing.Size(62, 24)
         Me.TxtMovil.TabIndex = 6
@@ -240,7 +240,7 @@ Partial Class Number_telephone
         'TxtCompañia
         '
         Me.TxtCompañia.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCompañia.Location = New System.Drawing.Point(528, 183)
+        Me.TxtCompañia.Location = New System.Drawing.Point(543, 189)
         Me.TxtCompañia.Name = "TxtCompañia"
         Me.TxtCompañia.Size = New System.Drawing.Size(356, 29)
         Me.TxtCompañia.TabIndex = 4
@@ -249,7 +249,7 @@ Partial Class Number_telephone
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(530, 158)
+        Me.Label2.Location = New System.Drawing.Point(545, 164)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(81, 20)
         Me.Label2.TabIndex = 18
@@ -258,7 +258,7 @@ Partial Class Number_telephone
         'TxtNumber
         '
         Me.TxtNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumber.Location = New System.Drawing.Point(528, 124)
+        Me.TxtNumber.Location = New System.Drawing.Point(543, 130)
         Me.TxtNumber.Name = "TxtNumber"
         Me.TxtNumber.Size = New System.Drawing.Size(356, 29)
         Me.TxtNumber.TabIndex = 3
@@ -267,7 +267,7 @@ Partial Class Number_telephone
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(530, 99)
+        Me.Label1.Location = New System.Drawing.Point(545, 105)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 20)
         Me.Label1.TabIndex = 15
@@ -279,14 +279,14 @@ Partial Class Number_telephone
         Me.Table_EditClients.Dock = System.Windows.Forms.DockStyle.Left
         Me.Table_EditClients.Location = New System.Drawing.Point(3, 3)
         Me.Table_EditClients.Name = "Table_EditClients"
-        Me.Table_EditClients.Size = New System.Drawing.Size(519, 356)
+        Me.Table_EditClients.Size = New System.Drawing.Size(519, 402)
         Me.Table_EditClients.TabIndex = 12
         '
         'Number_telephone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(900, 412)
+        Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Loader)
         Me.Name = "Number_telephone"
