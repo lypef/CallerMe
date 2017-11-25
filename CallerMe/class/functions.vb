@@ -555,4 +555,21 @@ Public Class functions
         End Try
     End Function
 
+    Public Sub GenReport(ByVal t As DataGridView)
+        Dim dt As New DataTable
+        dt.Columns.Add("Code")
+        dt.Columns.Add("Nombre")
+        dt.Rows.Add("item1", "nombre1")
+        dt.Rows.Add("item1", "nombre1")
+        dt.Rows.Add("item1", "nombre1")
+        dt.Rows.Add("item1", "nombre1")
+        dt.Rows.Add("item1", "nombre1")
+
+        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
+        rptDoc = New CrystalReport1
+        rptDoc.SetDataSource(dt)
+
+        Reports.CrystalReportViewer1.ReportSource = rptDoc
+        Reports.Show()
+    End Sub
 End Class

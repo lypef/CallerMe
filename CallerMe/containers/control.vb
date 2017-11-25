@@ -141,7 +141,13 @@
     End Sub
 
     Private Sub GenerarReporteToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem1.Click
-
+        If f.ReturnPermission(f.Permission_Access_Clients) Then
+            Dim d As New DataGridView
+            f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", d)
+            f.GenReport(d)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 
     Private Sub GestionarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem.Click
