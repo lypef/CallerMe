@@ -10,6 +10,7 @@ Public Class functions
     Public Shared Client As String
     Public Shared Number_id As String
     Public Shared Adress_id As String
+    Public Shared Driver_id As String
 
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
@@ -28,6 +29,8 @@ Public Class functions
     Public ReadOnly Permission_Access_vehiculos = "acces_vehiculos"
     Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
     Public ReadOnly Permission_Access_adress = "acces_adresses"
+    Public ReadOnly Permission_Access_drivers = "acces_drivers"
+    Public ReadOnly Permission_Access_vehicle = "acces_vehicles"
 
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
@@ -39,11 +42,18 @@ Public Class functions
     Public ReadOnly Permission_Telephone_edit = "telephone_edit"
     Public ReadOnly Permission_Telephone_delete = "telephone_delete"
     Public ReadOnly Permission_Telephone_Access = "acces_numbersTelephone"
+    Public ReadOnly Permission_Drivers_ADD = "drivers_add"
+    Public ReadOnly Permission_Drivers_EDIT = "drivers_edit"
+    Public ReadOnly Permission_Drivers_DELETE = "drivers_delete"
+    Public ReadOnly Permission_Vehicle_ADD = "vehicles_add"
+    Public ReadOnly Permission_Vehicle_EDIT = "vehicles_edit"
+    Public ReadOnly Permission_Vehicle_DELETE = "vehicles_delete"
 
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
     Public Shared ReadOnly Data_reports = "\reports"
+    Public Shared ReadOnly Data_drivers = "\drivers"
     Public Shared ReadOnly Clients_ImgDefault = "\Default.jpg"
 
 
@@ -159,6 +169,16 @@ Public Class functions
         Return r
     End Function
 
+    Public Function ReturnNameDriver()
+        Dim r = ""
+        Dim dato = Db.Consult("select nombre from drivers where id =  " + Driver_id + "  ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
 
 
     Public Shared Function OpenFileSetPictureBox(ByVal Img As PictureBox, ByVal loader As PictureBox)
@@ -196,6 +216,20 @@ Public Class functions
         End Try
 
         Return Db_shared.Ejecutar("INSERT INTO clients (nombre, fecha_nacimiento, correo_electronico, foto, razon_social, rfc) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + TxtCorreoElectronico.Text.ToUpper + "', '" + ruta + "', '" + TxtRazonSocial.Text.ToUpper + "', '" + TxtRfc.Text.ToUpper + "')")
+    End Function
+
+    Public Shared Function Drivers_add(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal Lic_Conducir As TextBox, ByVal TxtTelefono As TextBox) As Boolean
+        Dim ruta As String
+        ruta = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+        ruta = ruta.Replace("\", "/")
+
+        Try
+            My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_drivers + ruta)
+        Catch ex As Exception
+
+        End Try
+
+        Return Db_shared.Ejecutar("INSERT INTO drivers (nombre, fecha_nacimiento, licencia_conducir, correl_electronico, foto, movil) VALUES ('" + TxtNombre.Text.ToUpper + "', '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', '" + Lic_Conducir.Text.ToUpper + "', '" + TxtCorreoElectronico.Text + "', '" + ruta + "', '" + TxtTelefono.Text.ToUpper + "' )")
     End Function
 
     Public Shared Sub TextBox_clean(ByVal txt As TextBox)
@@ -244,6 +278,27 @@ Public Class functions
 
     End Sub
 
+    Public Sub Drivers_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("nombre", "Nombre")
+        t.Columns.Add("	fecha_nacimiento", "Fecha de nacimiento")
+        t.Columns.Add("licencia_conducir", "Licencia")
+        t.Columns.Add("movil", "Telefono")
+        t.Columns.Add("correl_electronico", "Correo electronico")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(6), dato.GetString(4))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Clients_AdresesDataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -266,6 +321,10 @@ Public Class functions
 
     Public Shared Function Clients_delete() As Boolean
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    End Function
+
+    Public Shared Function Driver_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from drivers where id = " + Driver_id + " ")
     End Function
 
     Public Shared Function Clients_AdressDELETE() As Boolean
@@ -303,6 +362,32 @@ Public Class functions
         Return url_FotoActual
     End Function
 
+    Public Function Driver_LoadUpdate(ByVal nombre As TextBox, ByVal f_nacimiento As DateTimePicker, ByVal Correo_electronico As TextBox, ByVal url_foto As TextBox, ByVal TxtLicConducir As TextBox, ByVal foto As PictureBox, ByVal TxtTelefono As TextBox)
+        Dim url_FotoActual As String
+        url_FotoActual = ""
+        Dim dato = Db.Consult("select * from drivers where id =  '" + Driver_id + "'  ")
+
+        If dato.Read() Then
+            nombre.Text = dato.GetString(1)
+            f_nacimiento.Value = dato.GetString(2)
+            TxtLicConducir.Text = dato.GetString(3)
+            Correo_electronico.Text = dato.GetString(4)
+            url_foto.Text = dato.GetString(5)
+            foto.SizeMode = PictureBoxSizeMode.Zoom
+
+            If File.Exists(My.Settings.data_url + Data_drivers + dato.GetString(5)) Then
+                url_FotoActual = My.Settings.data_url + Data_drivers + dato.GetString(5)
+                Dim fs As FileStream = New System.IO.FileStream(url_FotoActual, FileMode.Open, FileAccess.Read)
+                foto.Image = Image.FromStream(fs)
+                fs.Close()
+            Else
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+            End If
+            TxtTelefono.Text = dato.GetString(6)
+        End If
+        Return url_FotoActual
+    End Function
+
     Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
         Dim foto_tmp As String = FotoActual
         If My.Computer.FileSystem.FileExists(FotoActual) = False Then
@@ -335,6 +420,43 @@ Public Class functions
                 End Try
             Else
                 Return Db_shared.Ejecutar("UPDATE clients SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correo_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', razon_social = '" + TxtRazonSocial.Text.ToUpper + "', rfc = '" + TxtRfc.Text.ToUpper + "' WHERE id =  " + Client + " ")
+            End If
+        End If
+    End Function
+
+    Public Shared Function Driver_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtlicConductor As TextBox, ByVal FotoActual As String, ByVal TxtTelefono As TextBox) As Boolean
+        Dim foto_tmp As String = FotoActual
+
+        If My.Computer.FileSystem.FileExists(FotoActual) = False Then
+            Try
+                foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+                foto_tmp = foto_tmp.Replace("\", "/")
+
+                If My.Computer.FileSystem.FileExists(TxtFoto.Text) Then
+                    My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_drivers + foto_tmp)
+                End If
+                Return Db_shared.Ejecutar("UPDATE drivers SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correl_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', licencia_conducir = '" + TxtlicConductor.Text.ToUpper + "', movil = '" + TxtTelefono.Text.ToUpper + "' WHERE id =  " + Driver_id + " ")
+            Catch ex As Exception
+                MsgBox(ex.Message, 16)
+                Return False
+            End Try
+        Else
+            If foto_tmp <> My.Settings.data_url + Data_drivers + TxtFoto.Text Then
+                Try
+                    foto_tmp = "/" + userID + DateTime.Now.ToString().Replace("/", "").Replace(".", "").Replace(":", "").Replace(" ", "") + Path.GetExtension(TxtFoto.Text)
+                    foto_tmp = foto_tmp.Replace("\", "/")
+
+                    If TxtFoto.Text <> "/Ninguna" Then
+                        My.Computer.FileSystem.CopyFile(TxtFoto.Text, My.Settings.data_url + Data_drivers + foto_tmp)
+                    End If
+                    My.Computer.FileSystem.DeleteFile(FotoActual)
+                    Return Db_shared.Ejecutar("UPDATE drivers SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correl_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', foto = '" + foto_tmp + "', licencia_conducir = '" + TxtlicConductor.Text.ToUpper + "', movil = '" + TxtTelefono.Text.ToUpper + "' WHERE id =  " + Driver_id + " ")
+                Catch ex As Exception
+                    MsgBox(ex.Message, 16)
+                    Return False
+                End Try
+            Else
+                Return Db_shared.Ejecutar("UPDATE drivers SET nombre = '" + TxtNombre.Text.ToUpper + "' , fecha_nacimiento = '" + (FechaNacimiento.Value.Year).ToString + "-" + (FechaNacimiento.Value.Month).ToString + "-" + (FechaNacimiento.Value.Day).ToString + "', correl_electronico = '" + TxtCorreoElectronico.Text.ToUpper + "', licencia_conducir = '" + TxtlicConductor.Text.ToUpper + "', movil = '" + TxtTelefono.Text.ToUpper + "' WHERE id =  " + Driver_id + " ")
             End If
         End If
     End Function

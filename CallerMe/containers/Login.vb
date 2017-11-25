@@ -8,17 +8,25 @@ Public Class Login
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Directory.Exists(My.Settings.data_url) = False Then
-            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url)
-        End If
+        Try
+            If Directory.Exists(My.Settings.data_url) = False Then
+                My.Computer.FileSystem.CreateDirectory(My.Settings.data_url)
+            End If
 
-        If Directory.Exists(My.Settings.data_url + functions.Data_clients) = False Then
-            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_clients)
-        End If
+            If Directory.Exists(My.Settings.data_url + functions.Data_clients) = False Then
+                My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_clients)
+            End If
 
-        If Directory.Exists(My.Settings.data_url + functions.Data_reports) = False Then
-            My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_reports)
-        End If
+            If Directory.Exists(My.Settings.data_url + functions.Data_reports) = False Then
+                My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_reports)
+            End If
+
+            If Directory.Exists(My.Settings.data_url + functions.Data_drivers) = False Then
+                My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_drivers)
+            End If
+        Catch ex As Exception
+            f.Alert(ex.Message, f.Alert_NumberCritical)
+        End Try
 
         f.forms_setmodel(Me)
         TxtUsername.Text = My.Settings.login_username

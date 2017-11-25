@@ -35,7 +35,9 @@
     End Sub
 
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
-        TabControl1.SelectedIndex = 1
+        If f.ReturnPermission(f.Permission_Clients_edit) Then
+            TabControl1.SelectedIndex = 1
+        End If
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged

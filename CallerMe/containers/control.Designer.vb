@@ -122,14 +122,14 @@ Partial Class control
         '
         Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VehiculosToolStripMenuItem, Me.ConductoresToolStripMenuItem})
         Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(143, 48)
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(153, 70)
         '
         'VehiculosToolStripMenuItem
         '
         Me.VehiculosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem3, Me.GestionarToolStripMenuItem4, Me.ConsultarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem3})
         Me.VehiculosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.vehicle_48
         Me.VehiculosToolStripMenuItem.Name = "VehiculosToolStripMenuItem"
-        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.VehiculosToolStripMenuItem.Text = "Vehiculos"
         '
         'NuevoToolStripMenuItem3
@@ -165,7 +165,7 @@ Partial Class control
         Me.ConductoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem2, Me.GestionarToolStripMenuItem3, Me.BuscarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem2})
         Me.ConductoresToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.steering_48
         Me.ConductoresToolStripMenuItem.Name = "ConductoresToolStripMenuItem"
-        Me.ConductoresToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ConductoresToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConductoresToolStripMenuItem.Text = "Conductores"
         '
         'NuevoToolStripMenuItem2

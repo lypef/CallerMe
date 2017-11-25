@@ -170,7 +170,7 @@ Partial Class Clients_add
         Me.Foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Foto.Location = New System.Drawing.Point(33, 219)
         Me.Foto.Name = "Foto"
-        Me.Foto.Size = New System.Drawing.Size(416, 229)
+        Me.Foto.Size = New System.Drawing.Size(416, 226)
         Me.Foto.TabIndex = 11
         Me.Foto.TabStop = False
         '
