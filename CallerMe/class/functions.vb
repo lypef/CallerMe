@@ -49,6 +49,10 @@ Public Class functions
     Public ReadOnly Permission_Vehicle_EDIT = "vehicles_edit"
     Public ReadOnly Permission_Vehicle_DELETE = "vehicles_delete"
 
+    'Variables permisos de usuario
+    Public ReadOnly GenReportClients = 1
+    Public ReadOnly GenReportClients_NUMEROS = 2
+    Public ReadOnly GenReportClients_DIRECCIONES = 3
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -555,21 +559,27 @@ Public Class functions
         End Try
     End Function
 
-    Public Sub GenReport(ByVal t As DataGridView)
+    Public Sub GenReport(ByVal t As DataGridView, ByVal NumReport As Integer)
         Dim dt As New DataTable
-        dt.Columns.Add("Code")
-        dt.Columns.Add("Nombre")
-        dt.Rows.Add("item1", "nombre1")
-        dt.Rows.Add("item1", "nombre1")
-        dt.Rows.Add("item1", "nombre1")
-        dt.Rows.Add("item1", "nombre1")
-        dt.Rows.Add("item1", "nombre1")
+        Dim report As CrystalDecisions.CrystalReports.Engine.ReportDocument
 
-        Dim rptDoc As CrystalDecisions.CrystalReports.Engine.ReportDocument
-        rptDoc = New CrystalReport1
-        rptDoc.SetDataSource(dt)
+        If NumReport = Me.GenReportClients Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("nombre")
+            dt.Columns.Add("f_nacimiento")
+            dt.Columns.Add("correo_electronico")
+            dt.Columns.Add("r_social")
+            dt.Columns.Add("rfc")
 
-        Reports.CrystalReportViewer1.ReportSource = rptDoc
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
+            Next
+
+            report = New R_clients
+            report.SetDataSource(dt)
+        End If
+
+        Reports.CrystalReportViewer1.ReportSource = report
         Reports.Show()
     End Sub
 End Class

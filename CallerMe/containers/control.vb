@@ -144,7 +144,7 @@
         If f.ReturnPermission(f.Permission_Access_Clients) Then
             Dim d As New DataGridView
             f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", d)
-            f.GenReport(d)
+            f.GenReport(d, f.GenReportClients)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
