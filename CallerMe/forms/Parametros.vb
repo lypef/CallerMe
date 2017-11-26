@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.IO
+Imports MySql.Data.MySqlClient
 
 Public Class Parametros
     Dim f As New functions
@@ -20,7 +21,7 @@ Public Class Parametros
         Button6.BackColor = My.Settings.datagridview_selectrow
         tipo_font = My.Settings.datagridview_font
         colorselect = My.Settings.datagridview_selectrow
-
+        TxtLogoReport.Text = My.Settings.report_image
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -43,6 +44,7 @@ Public Class Parametros
         My.Settings.datagridview_color = colorfondo
         My.Settings.datagridview_font = tipo_font
         My.Settings.datagridview_selectrow = colorselect
+        My.Settings.report_image = TxtLogoReport.Text
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
@@ -105,4 +107,13 @@ Public Class Parametros
         End If
     End Sub
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim file As New OpenFileDialog()
+        file.Filter = "Archivo JPG|*.jpg"
+        If file.ShowDialog() = DialogResult.OK Then
+            Dim fs As FileStream = New System.IO.FileStream(file.FileName, FileMode.Open, FileAccess.Read)
+            TxtLogoReport.Text = file.FileName.Replace("\", "/")
+            fs.Close()
+        End If
+    End Sub
 End Class

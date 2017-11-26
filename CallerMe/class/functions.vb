@@ -59,6 +59,7 @@ Public Class functions
     Public Shared ReadOnly Data_reports = "\reports"
     Public Shared ReadOnly Data_drivers = "\drivers"
     Public Shared ReadOnly Clients_ImgDefault = "\Default.jpg"
+    Public Shared ReadOnly Report_ImgDefault = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & "img119x119.jpg"
 
 
     Public Sub forms_setmodel(ByVal form As Form)
@@ -165,6 +166,17 @@ Public Class functions
     Public Function ReturnNameClient()
         Dim r = ""
         Dim dato = Db.Consult("select nombre from clients where id =  " + Client + "  ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
+
+    Public Function ReturnUsername()
+        Dim r = ""
+        Dim dato = Db.Consult("select name from users where id =  " + userID + "  ")
 
         If dato.Read() Then
             r = dato.GetString(0)
@@ -575,10 +587,50 @@ Public Class functions
                 dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
             Next
 
-            report = New R_clients
+            report = New Report_clientes
             report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE CLIENTES: NOMBRE DE LA EMPRESA")
+
+        ElseIf NumReport = Me.GenReportClients_NUMEROS Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("cliente")
+            dt.Columns.Add("numero")
+            dt.Columns.Add("compañia")
+            dt.Columns.Add("tipo_linea")
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
+            Next
+
+            report = New Report_numbers
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE NUMEROS: NOMBRE DE LA EMPRESA")
+
+        ElseIf NumReport = Me.GenReportClients_DIRECCIONES Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("cliente")
+            dt.Columns.Add("direccion")
+            dt.Columns.Add("km")
+
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(5).Value)
+            Next
+
+            report = New Report_adresses
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE DIRECCIONES: NOMBRE DE LA EMPRESA")
+        Else
+            report = Nothing
         End If
 
+        If My.Computer.FileSystem.FileExists(My.Settings.report_image) Then
+            report.SetParameterValue("image", My.Settings.report_image)
+        Else
+            report.SetParameterValue("image", Report_ImgDefault)
+        End If
+
+        report.SetParameterValue("rfc", "AEDF9201245G3")
+        report.SetParameterValue("direccion", "DIRECCION DE LA EMPRESA")
+        report.SetParameterValue("USERNAME", ReturnUsername)
         Reports.CrystalReportViewer1.ReportSource = report
         Reports.Show()
     End Sub

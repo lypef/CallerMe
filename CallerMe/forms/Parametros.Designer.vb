@@ -49,6 +49,9 @@ Partial Class Parametros
         Me.Tablas_Height = New System.Windows.Forms.NumericUpDown()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TxtLogoReport = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -199,6 +202,9 @@ Partial Class Parametros
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button7)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.TxtLogoReport)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.TxtUrlData)
@@ -292,6 +298,32 @@ Partial Class Parametros
         Me.Tablas_Height.Size = New System.Drawing.Size(57, 20)
         Me.Tablas_Height.TabIndex = 0
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(6, 195)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(241, 33)
+        Me.Button7.TabIndex = 2
+        Me.Button7.Text = "Seleccionar carpeta"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 148)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(72, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Logo reportes"
+        '
+        'TxtLogoReport
+        '
+        Me.TxtLogoReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtLogoReport.Location = New System.Drawing.Point(6, 163)
+        Me.TxtLogoReport.Name = "TxtLogoReport"
+        Me.TxtLogoReport.Size = New System.Drawing.Size(241, 26)
+        Me.TxtLogoReport.TabIndex = 4
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -343,4 +375,7 @@ Partial Class Parametros
     Friend WithEvents FontDialog1 As FontDialog
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TxtLogoReport As TextBox
 End Class

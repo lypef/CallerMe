@@ -169,7 +169,13 @@
     End Sub
 
     Private Sub ToolStripMenuItem5_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
-
+        If f.ReturnPermission(f.Permission_Access_adress) Then
+            Dim d As New DataGridView
+            f.Clients_AdresesDataGridViewSet("SELECT a.id, c.id, c.nombre, a.direccion, a.referencia, a.kms FROM adresses a, clients c where a.client = c.id order by a.id desc", d)
+            f.GenReport(d, f.GenReportClients_DIRECCIONES)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 
     Private Sub NuevoToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem2.Click
@@ -201,6 +207,16 @@
         If f.ReturnPermission(f.Permission_Access_drivers) Then
             Drivers.SearchDrivers(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
             f.AddForm_Desktop(Drivers, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Telephone_Access) Then
+            Dim d As New DataGridView
+            f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id ORDER by n.id desc", d)
+            f.GenReport(d, f.GenReportClients_NUMEROS)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If

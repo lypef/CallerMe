@@ -197,6 +197,18 @@ Namespace My
                 Me("datagridview_font") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property report_image() As String
+            Get
+                Return CType(Me("report_image"),String)
+            End Get
+            Set
+                Me("report_image") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
