@@ -38,6 +38,9 @@ Partial Class Parametros
         Me.TxtSalir = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TxtLogoReport = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TxtUrlData = New System.Windows.Forms.TextBox()
@@ -49,9 +52,6 @@ Partial Class Parametros
         Me.Tablas_Height = New System.Windows.Forms.NumericUpDown()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TxtLogoReport = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -175,7 +175,7 @@ Partial Class Parametros
         '
         'TxtGuardar
         '
-        Me.TxtGuardar.Location = New System.Drawing.Point(812, 373)
+        Me.TxtGuardar.Location = New System.Drawing.Point(822, 303)
         Me.TxtGuardar.Name = "TxtGuardar"
         Me.TxtGuardar.Size = New System.Drawing.Size(93, 33)
         Me.TxtGuardar.TabIndex = 100
@@ -184,7 +184,7 @@ Partial Class Parametros
         '
         'TxtSalir
         '
-        Me.TxtSalir.Location = New System.Drawing.Point(729, 373)
+        Me.TxtSalir.Location = New System.Drawing.Point(739, 303)
         Me.TxtSalir.Name = "TxtSalir"
         Me.TxtSalir.Size = New System.Drawing.Size(77, 33)
         Me.TxtSalir.TabIndex = 99
@@ -193,7 +193,7 @@ Partial Class Parametros
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(729, 412)
+        Me.Button2.Location = New System.Drawing.Point(739, 342)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(176, 33)
         Me.Button2.TabIndex = 101
@@ -214,6 +214,32 @@ Partial Class Parametros
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Data"
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(6, 195)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(241, 33)
+        Me.Button7.TabIndex = 2
+        Me.Button7.Text = "Seleccionar carpeta"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 148)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(72, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Logo reportes"
+        '
+        'TxtLogoReport
+        '
+        Me.TxtLogoReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtLogoReport.Location = New System.Drawing.Point(6, 163)
+        Me.TxtLogoReport.Name = "TxtLogoReport"
+        Me.TxtLogoReport.Size = New System.Drawing.Size(241, 26)
+        Me.TxtLogoReport.TabIndex = 4
         '
         'Button3
         '
@@ -297,32 +323,6 @@ Partial Class Parametros
         Me.Tablas_Height.Name = "Tablas_Height"
         Me.Tablas_Height.Size = New System.Drawing.Size(57, 20)
         Me.Tablas_Height.TabIndex = 0
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(6, 195)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(241, 33)
-        Me.Button7.TabIndex = 2
-        Me.Button7.Text = "Seleccionar carpeta"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 148)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(72, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Logo reportes"
-        '
-        'TxtLogoReport
-        '
-        Me.TxtLogoReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtLogoReport.Location = New System.Drawing.Point(6, 163)
-        Me.TxtLogoReport.Name = "TxtLogoReport"
-        Me.TxtLogoReport.Size = New System.Drawing.Size(241, 26)
-        Me.TxtLogoReport.TabIndex = 4
         '
         'Parametros
         '

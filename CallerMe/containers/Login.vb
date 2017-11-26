@@ -24,6 +24,7 @@ Public Class Login
             If Directory.Exists(My.Settings.data_url + functions.Data_drivers) = False Then
                 My.Computer.FileSystem.CreateDirectory(My.Settings.data_url + functions.Data_drivers)
             End If
+
         Catch ex As Exception
             f.Alert(ex.Message, f.Alert_NumberCritical)
         End Try

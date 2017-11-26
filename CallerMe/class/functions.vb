@@ -59,7 +59,6 @@ Public Class functions
     Public Shared ReadOnly Data_reports = "\reports"
     Public Shared ReadOnly Data_drivers = "\drivers"
     Public Shared ReadOnly Clients_ImgDefault = "\Default.jpg"
-    Public Shared ReadOnly Report_ImgDefault = System.IO.Path.GetFullPath(Application.StartupPath & "\..\..\Resources\") & "img119x119.jpg"
 
 
     Public Sub forms_setmodel(ByVal form As Form)
@@ -622,12 +621,7 @@ Public Class functions
             report = Nothing
         End If
 
-        If My.Computer.FileSystem.FileExists(My.Settings.report_image) Then
-            report.SetParameterValue("image", My.Settings.report_image)
-        Else
-            report.SetParameterValue("image", Report_ImgDefault)
-        End If
-
+        report.SetParameterValue("image", My.Settings.report_image.Replace("/", "\"))
         report.SetParameterValue("rfc", "AEDF9201245G3")
         report.SetParameterValue("direccion", "DIRECCION DE LA EMPRESA")
         report.SetParameterValue("USERNAME", ReturnUsername)

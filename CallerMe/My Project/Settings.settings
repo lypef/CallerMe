@@ -39,7 +39,7 @@
       <Value Profile="(Default)">Microsoft Sans Serif, 9pt</Value>
     </Setting>
     <Setting Name="report_image" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\Caller Enterprise Data\logo.jpg</Value>
     </Setting>
   </Settings>
 </SettingsFile>

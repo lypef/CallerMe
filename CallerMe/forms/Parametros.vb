@@ -109,7 +109,7 @@ Public Class Parametros
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Dim file As New OpenFileDialog()
-        file.Filter = "Archivo JPG|*.jpg"
+        file.Filter = "Logo |*.jpg;*.jpeg;*.png;*.gif;*.tif;"
         If file.ShowDialog() = DialogResult.OK Then
             Dim fs As FileStream = New System.IO.FileStream(file.FileName, FileMode.Open, FileAccess.Read)
             TxtLogoReport.Text = file.FileName.Replace("\", "/")
