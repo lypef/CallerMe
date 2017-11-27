@@ -122,14 +122,14 @@ Partial Class control
         '
         Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VehiculosToolStripMenuItem, Me.ConductoresToolStripMenuItem})
         Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(143, 48)
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(153, 70)
         '
         'VehiculosToolStripMenuItem
         '
         Me.VehiculosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem3, Me.GestionarToolStripMenuItem4, Me.ConsultarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem3})
         Me.VehiculosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.vehicle_48
         Me.VehiculosToolStripMenuItem.Name = "VehiculosToolStripMenuItem"
-        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.VehiculosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.VehiculosToolStripMenuItem.Text = "Vehiculos"
         '
         'NuevoToolStripMenuItem3
@@ -165,7 +165,7 @@ Partial Class control
         Me.ConductoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem2, Me.GestionarToolStripMenuItem3, Me.BuscarToolStripMenuItem, Me.GenerarReporteToolStripMenuItem2})
         Me.ConductoresToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.steering_48
         Me.ConductoresToolStripMenuItem.Name = "ConductoresToolStripMenuItem"
-        Me.ConductoresToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ConductoresToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConductoresToolStripMenuItem.Text = "Conductores"
         '
         'NuevoToolStripMenuItem2
@@ -219,14 +219,14 @@ Partial Class control
         Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.NumerosToolStripMenuItem, Me.DireccionesToolStripMenuItem})
         Me.Btn_clientes.Name = "Btn_clientes"
-        Me.Btn_clientes.Size = New System.Drawing.Size(153, 92)
+        Me.Btn_clientes.Size = New System.Drawing.Size(136, 70)
         '
         'ClientesToolStripMenuItem1
         '
         Me.ClientesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.GestionarToolStripMenuItem2, Me.BuscarToolStripMenuItem3, Me.GenerarReporteToolStripMenuItem1})
         Me.ClientesToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.clients_48
         Me.ClientesToolStripMenuItem1.Name = "ClientesToolStripMenuItem1"
-        Me.ClientesToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ClientesToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
         Me.ClientesToolStripMenuItem1.Text = "Clientes"
         '
         'NuevoToolStripMenuItem1
@@ -262,7 +262,7 @@ Partial Class control
         Me.NumerosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GestionarToolStripMenuItem1, Me.BuscarToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem})
         Me.NumerosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
         Me.NumerosToolStripMenuItem.Name = "NumerosToolStripMenuItem"
-        Me.NumerosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NumerosToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.NumerosToolStripMenuItem.Text = "Numeros"
         '
         'AgregarToolStripMenuItem
@@ -298,7 +298,7 @@ Partial Class control
         Me.DireccionesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.GestionarToolStripMenuItem, Me.BuscarToolStripMenuItem1, Me.ToolStripMenuItem5})
         Me.DireccionesToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.directiones_24
         Me.DireccionesToolStripMenuItem.Name = "DireccionesToolStripMenuItem"
-        Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DireccionesToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.DireccionesToolStripMenuItem.Text = "Direcciones"
         '
         'NuevoToolStripMenuItem

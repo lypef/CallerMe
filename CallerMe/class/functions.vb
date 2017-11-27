@@ -53,6 +53,7 @@ Public Class functions
     Public ReadOnly GenReportClients = 1
     Public ReadOnly GenReportClients_NUMEROS = 2
     Public ReadOnly GenReportClients_DIRECCIONES = 3
+    Public ReadOnly GenReportClients_DRIVERS = 4
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -617,6 +618,22 @@ Public Class functions
             report = New Report_adresses
             report.SetDataSource(dt)
             report.SetParameterValue("title", "REPORTE DIRECCIONES: NOMBRE DE LA EMPRESA")
+
+        ElseIf NumReport = Me.GenReportClients_DRIVERS Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("nombre")
+            dt.Columns.Add("fecha")
+            dt.Columns.Add("licencia")
+            dt.Columns.Add("telefono")
+            dt.Columns.Add("correo")
+
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
+            Next
+
+            report = New report_drivers
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE CONDUCTORES: NOMBRE DE LA EMPRESA")
         Else
             report = Nothing
         End If

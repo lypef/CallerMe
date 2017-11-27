@@ -221,4 +221,14 @@
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem2.Click
+        If f.ReturnPermission(f.Permission_Access_drivers) Then
+            Dim d As New DataGridView
+            f.Drivers_DataGridViewSet("SELECT * FROM drivers ORDER by nombre asc", d)
+            f.GenReport(d, f.GenReportClients_DRIVERS)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
 End Class
