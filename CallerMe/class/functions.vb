@@ -11,6 +11,7 @@ Public Class functions
     Public Shared Number_id As String
     Public Shared Adress_id As String
     Public Shared Driver_id As String
+    Public Shared Vehicle_id As String
 
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
@@ -54,6 +55,7 @@ Public Class functions
     Public ReadOnly GenReportClients_NUMEROS = 2
     Public ReadOnly GenReportClients_DIRECCIONES = 3
     Public ReadOnly GenReportClients_DRIVERS = 4
+    Public ReadOnly GenReportDrivers_Vehicle = 5
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -315,6 +317,27 @@ Public Class functions
 
     End Sub
 
+    Public Sub Vehicles_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("modelo", "Modelo")
+        t.Columns.Add("placa", "Matricula")
+        t.Columns.Add("conductor", "Conductor")
+        t.Columns.Add("Numero", "Numero")
+        t.Columns.Add("caracteristica", "Caracteristica")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Clients_AdresesDataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -337,6 +360,10 @@ Public Class functions
 
     Public Shared Function Clients_delete() As Boolean
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    End Function
+
+    Public Shared Function Vehicle_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from vehicles where id = " + Vehicle_id + " ")
     End Function
 
     Public Shared Function Driver_delete() As Boolean
@@ -403,6 +430,25 @@ Public Class functions
         End If
         Return url_FotoActual
     End Function
+
+    Public Sub Vehicle_LoadUpdate(ByVal TxtModelo As TextBox, ByVal TxtMatricula As TextBox, ByVal TxtNumeroUnidad As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal t As DataGridView)
+        Dim dato = Db.Consult("select * from vehicles where id =  '" + Vehicle_id + "'  ")
+
+        If dato.Read() Then
+            TxtModelo.Text = dato.GetString(1)
+            TxtMatricula.Text = dato.GetString(2)
+            Driver_id = dato.GetString(3)
+            TxtNumeroUnidad.Text = dato.GetString(4)
+            TxtCaracteristicas.Text = dato.GetString(5)
+
+            For Each row As DataGridViewRow In t.Rows
+                If t.Item(0, row.Index).Value = Driver_id Then
+                    t.CurrentCell = t.Rows(row.Index).Cells(0)
+                End If
+            Next
+
+        End If
+    End Sub
 
     Public Shared Function Client_Update(ByVal TxtNombre As TextBox, ByVal FechaNacimiento As DateTimePicker, ByVal TxtCorreoElectronico As TextBox, ByVal TxtFoto As TextBox, ByVal TxtRazonSocial As TextBox, ByVal TxtRfc As TextBox, ByVal FotoActual As String) As Boolean
         Dim foto_tmp As String = FotoActual
@@ -481,12 +527,20 @@ Public Class functions
         Return Db_shared.Ejecutar("UPDATE adresses SET client = " + Client + ", direccion = '" + TxtDireccion.Text.ToUpper + "', referencia = '" + TxtReferencia.Text.ToUpper + "', kms = " + TxtKm.Text + " WHERE id = " + Adress_id + " ")
     End Function
 
+    Public Shared Function Vehicle_UPDATE(ByVal TxtModelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox) As Boolean
+        Return Db_shared.Ejecutar("UPDATE vehicles SET modelo = '" + TxtModelo.Text.ToUpper + "', placas = '" + TxtPlaca.Text.ToUpper + "', driver = " + Driver_id + ", numero = '" + TxtNumero.Text.ToUpper + "', caracteristicas = '" + TxtCaracteristicas.Text.ToUpper + "' WHERE id = " + Vehicle_id + "  ")
+    End Function
+
     Public Shared Function Clients_NumberADD(ByVal TxtNumero As TextBox, ByVal TxtCompañia As TextBox, ByVal TxtMovil As RadioButton, ByVal Txtfijo As RadioButton, ByVal TxtRef As TextBox) As Boolean
         If TxtMovil.Checked Then
             Return Db_shared.Ejecutar("INSERT INTO telephone_numbers (client, numero, compañia, fijo, movil, ref_note) VALUES (" + Client + ", '" + TxtNumero.Text.Replace(" ", "") + "', '" + TxtCompañia.Text.ToUpper + "', '0', '1', '" + TxtRef.Text.ToUpper + "' )")
         Else
             Return Db_shared.Ejecutar("INSERT INTO telephone_numbers (client, numero, compañia, fijo, movil, ref_note) VALUES (" + Client + ", '" + TxtNumero.Text.Replace(" ", "") + "', '" + TxtCompañia.Text.ToUpper + "', '1', '0', '" + TxtRef.Text.ToUpper + "' )")
         End If
+    End Function
+
+    Public Shared Function Drivers_ADD(ByVal Txtmodelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox) As Boolean
+        Return Db_shared.Ejecutar("INSERT INTO vehicles (modelo, placas, driver, numero, caracteristicas) VALUES ('" + Txtmodelo.Text.ToUpper + "', '" + TxtPlaca.Text.ToUpper + "', " + Driver_id + ", '" + TxtNumero.Text.ToUpper + "', '" + TxtCaracteristicas.Text.ToUpper + "')")
     End Function
 
     Public Sub Clients_Datagridview_Numbers(ByVal sql As String, ByVal t As DataGridView)
@@ -634,6 +688,22 @@ Public Class functions
             report = New report_drivers
             report.SetDataSource(dt)
             report.SetParameterValue("title", "REPORTE CONDUCTORES: NOMBRE DE LA EMPRESA")
+
+        ElseIf NumReport = Me.GenReportDrivers_Vehicle Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("modelo")
+            dt.Columns.Add("placas")
+            dt.Columns.Add("conductor")
+            dt.Columns.Add("numero")
+            dt.Columns.Add("caracteristicas")
+
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
+            Next
+
+            report = New Report_vehicles
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE VEHICULOS: NOMBRE DE LA EMPRESA")
         Else
             report = Nothing
         End If

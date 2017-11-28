@@ -187,7 +187,7 @@
     End Sub
 
     Private Sub NuevoToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem3.Click
-        If f.ReturnPermission(f.Permission_Access_vehicle) Then
+        If f.ReturnPermission(f.Permission_Vehicle_ADD) Then
             f.AddForm_Desktop(VehicleADD, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
@@ -227,6 +227,43 @@
             Dim d As New DataGridView
             f.Drivers_DataGridViewSet("SELECT * FROM drivers ORDER by nombre asc", d)
             f.GenReport(d, f.GenReportClients_DRIVERS)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem4.Click
+        If f.ReturnPermission(f.Permission_Access_vehicle) Then
+            Vehicles.LoadVehicles()
+            f.AddForm_Desktop(Vehicles, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub Button_Vehiculo_Click(sender As Object, e As EventArgs) Handles Button_Vehiculo.Click
+        If f.ReturnPermission(f.Permission_Access_vehicle) Then
+            Vehicles.LoadVehicles()
+            f.AddForm_Desktop(Vehicles, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Access_vehicle) Then
+            Vehicles.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
+            f.AddForm_Desktop(Vehicles, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem3.Click
+        If f.ReturnPermission(f.Permission_Access_vehicle) Then
+            Dim d As New DataGridView
+            f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc", d)
+            f.GenReport(d, f.GenReportDrivers_Vehicle)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
