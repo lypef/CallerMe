@@ -101,7 +101,7 @@ Partial Class Adresses
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(890, 360)
+        Me.TabPage2.Size = New System.Drawing.Size(918, 406)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -173,9 +173,9 @@ Partial Class Adresses
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(560, 339)
+        Me.PictureBox1.Location = New System.Drawing.Point(560, 385)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(327, 18)
+        Me.PictureBox1.Size = New System.Drawing.Size(355, 18)
         Me.PictureBox1.TabIndex = 103
         Me.PictureBox1.TabStop = False
         '
@@ -187,7 +187,7 @@ Partial Class Adresses
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(560, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(327, 75)
+        Me.Panel1.Size = New System.Drawing.Size(355, 75)
         Me.Panel1.TabIndex = 102
         '
         'Button2
@@ -223,7 +223,7 @@ Partial Class Adresses
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Left
         Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(557, 354)
+        Me.DataGridView1.Size = New System.Drawing.Size(557, 400)
         Me.DataGridView1.TabIndex = 101
         '
         'ContextMenuStrip1

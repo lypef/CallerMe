@@ -83,4 +83,8 @@
             TxtFoto.Text = ""
         End If
     End Sub
+
+    Private Sub Clients_add_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class

@@ -1,4 +1,5 @@
-﻿Public NotInheritable Class AboutBox1
+﻿Public NotInheritable Class About
+    Dim f As New functions
 
     Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Establezca el título del formulario.
@@ -16,7 +17,7 @@
         Me.LabelVersion.Text = String.Format("Versión {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        Me.TextBoxDescription.Text = My.Application.Info.Description.Replace("%name_enterprise%", f.ReturnEmpresa_Parametros(f.Empresa_Nombre)).Replace("%direccion%", f.ReturnEmpresa_Parametros(f.Empresa_Direccion)).Replace("%rfc%", f.ReturnEmpresa_Parametros(f.Empresa_Rfc))
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click

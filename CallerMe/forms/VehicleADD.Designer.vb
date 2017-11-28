@@ -49,7 +49,7 @@ Partial Class VehicleADD
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(557, 457)
-        Me.DataGridView1.TabIndex = 1
+        Me.DataGridView1.TabIndex = 100
         '
         'Panel1
         '

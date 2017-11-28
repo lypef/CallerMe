@@ -68,6 +68,8 @@
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
         If f.ReturnPermission(f.Permission_Telephone_edit) Then
             TabControl1.SelectedIndex = 1
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
 
     End Sub
@@ -94,5 +96,9 @@
         Else
             f.Alert("Ingrese al menos un numero | No tiene permiso parea editar numeros", f.Alert_NumberCritical)
         End If
+    End Sub
+
+    Private Sub Number_telephone_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
     End Sub
 End Class

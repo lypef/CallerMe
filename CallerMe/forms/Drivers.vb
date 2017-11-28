@@ -115,4 +115,8 @@
             f.Alert("Ingrese al menos un nombre", f.Alert_NumberCritical)
         End If
     End Sub
+
+    Private Sub Drivers_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class

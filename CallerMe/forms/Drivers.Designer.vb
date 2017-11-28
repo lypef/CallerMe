@@ -27,6 +27,8 @@ Partial Class Drivers
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TxtTelefono = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CheckCamara = New System.Windows.Forms.CheckBox()
         Me.CheckImagen = New System.Windows.Forms.CheckBox()
@@ -47,8 +49,6 @@ Partial Class Drivers
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtTelefono = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,6 +116,24 @@ Partial Class Drivers
         Me.TabPage2.Size = New System.Drawing.Size(917, 405)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(465, 145)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(71, 20)
+        Me.Label2.TabIndex = 140
+        Me.Label2.Text = "Telefono"
+        '
+        'TxtTelefono
+        '
+        Me.TxtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTelefono.Location = New System.Drawing.Point(465, 172)
+        Me.TxtTelefono.Name = "TxtTelefono"
+        Me.TxtTelefono.Size = New System.Drawing.Size(416, 29)
+        Me.TxtTelefono.TabIndex = 10
         '
         'Button1
         '
@@ -293,24 +311,6 @@ Partial Class Drivers
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(465, 145)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 20)
-        Me.Label2.TabIndex = 140
-        Me.Label2.Text = "Telefono"
-        '
-        'TxtTelefono
-        '
-        Me.TxtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTelefono.Location = New System.Drawing.Point(465, 172)
-        Me.TxtTelefono.Name = "TxtTelefono"
-        Me.TxtTelefono.Size = New System.Drawing.Size(416, 29)
-        Me.TxtTelefono.TabIndex = 10
         '
         'Drivers
         '

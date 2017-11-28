@@ -158,4 +158,8 @@
         Foto.SizeMode = PictureBoxSizeMode.Zoom
         TxtFoto.Text = "/Ninguna"
     End Sub
+
+    Private Sub Clients_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class

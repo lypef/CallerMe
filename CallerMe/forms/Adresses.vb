@@ -108,4 +108,8 @@
             f.Alert(ex.Message, f.Alert_NumberCritical)
         End Try
     End Sub
+
+    Private Sub Adresses_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class

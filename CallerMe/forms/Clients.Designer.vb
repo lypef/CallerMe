@@ -155,7 +155,7 @@ Partial Class Clients
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(887, 341)
+        Me.TabPage2.Size = New System.Drawing.Size(917, 405)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -212,7 +212,7 @@ Partial Class Clients
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(881, 18)
+        Me.PictureBox1.Size = New System.Drawing.Size(911, 18)
         Me.PictureBox1.TabIndex = 124
         Me.PictureBox1.TabStop = False
         '
@@ -340,7 +340,7 @@ Partial Class Clients
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(887, 341)
+        Me.TabPage3.Size = New System.Drawing.Size(917, 405)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Numeros"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -351,7 +351,7 @@ Partial Class Clients
         Me.ViewNumbers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewNumbers.Location = New System.Drawing.Point(3, 3)
         Me.ViewNumbers.Name = "ViewNumbers"
-        Me.ViewNumbers.Size = New System.Drawing.Size(881, 335)
+        Me.ViewNumbers.Size = New System.Drawing.Size(911, 399)
         Me.ViewNumbers.TabIndex = 0
         '
         'Loader

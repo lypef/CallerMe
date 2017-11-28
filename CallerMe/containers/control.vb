@@ -268,4 +268,17 @@
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
+
+    Private Sub ToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem6.Click
+        If f.ReturnPermission(f.Permission_Access_properties) Then
+            Properties.LoadParameters()
+            f.AddForm_Desktop(Properties, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub AcercaDeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem.Click
+        About.Show()
+    End Sub
 End Class

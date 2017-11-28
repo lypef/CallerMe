@@ -13,6 +13,11 @@ Public Class functions
     Public Shared Driver_id As String
     Public Shared Vehicle_id As String
 
+    'Propiedades parametros
+    Public ReadOnly Empresa_Nombre = "name_enterprise"
+    Public ReadOnly Empresa_Direccion = "direccion"
+    Public ReadOnly Empresa_Rfc = "rfc"
+
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
     Public ReadOnly Alert_ProcesoFinalizadoOK = "Proceso finalizado con exito"
@@ -32,6 +37,7 @@ Public Class functions
     Public ReadOnly Permission_Access_adress = "acces_adresses"
     Public ReadOnly Permission_Access_drivers = "acces_drivers"
     Public ReadOnly Permission_Access_vehicle = "acces_vehicles"
+    Public ReadOnly Permission_Access_properties = "properties"
 
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
@@ -163,6 +169,17 @@ Public Class functions
         End If
 
         Return r
+    End Function
+
+    Public Function ReturnEmpresa_Parametros(ByVal t As String)
+        Dim r = ""
+        Dim dato = Db.Consult("select " + t + " from properties where id =  1 ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r.ToUpper
     End Function
 
     Public Function ReturnNameClient()
@@ -523,6 +540,10 @@ Public Class functions
         End If
     End Function
 
+    Public Shared Function Parameters_Update(ByVal TxtNombre As TextBox, ByVal TxtDireccion As TextBox, ByVal TxtRFC As TextBox) As Boolean
+        Return Db_shared.Ejecutar("UPDATE properties SET name_enterprise = '" + TxtNombre.Text.ToUpper + "' , direccion = '" + TxtDireccion.Text.ToUpper + "', rfc = '" + TxtRFC.Text.ToUpper + "' WHERE id =  1 ")
+    End Function
+
     Public Shared Function Client_AdressUPDATE(ByVal TxtDireccion As TextBox, ByVal TxtReferencia As TextBox, ByVal TxtKm As TextBox) As Boolean
         Return Db_shared.Ejecutar("UPDATE adresses SET client = " + Client + ", direccion = '" + TxtDireccion.Text.ToUpper + "', referencia = '" + TxtReferencia.Text.ToUpper + "', kms = " + TxtKm.Text + " WHERE id = " + Adress_id + " ")
     End Function
@@ -643,7 +664,7 @@ Public Class functions
 
             report = New Report_clientes
             report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE CLIENTES: NOMBRE DE LA EMPRESA")
+            report.SetParameterValue("title", "REPORTE CLIENTES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
 
         ElseIf NumReport = Me.GenReportClients_NUMEROS Then
             dt.Columns.Add("id")
@@ -657,7 +678,7 @@ Public Class functions
 
             report = New Report_numbers
             report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE NUMEROS: NOMBRE DE LA EMPRESA")
+            report.SetParameterValue("title", "REPORTE NUMEROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
 
         ElseIf NumReport = Me.GenReportClients_DIRECCIONES Then
             dt.Columns.Add("id")
@@ -671,7 +692,7 @@ Public Class functions
 
             report = New Report_adresses
             report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE DIRECCIONES: NOMBRE DE LA EMPRESA")
+            report.SetParameterValue("title", "REPORTE DIRECCIONES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
 
         ElseIf NumReport = Me.GenReportClients_DRIVERS Then
             dt.Columns.Add("id")
@@ -687,7 +708,7 @@ Public Class functions
 
             report = New report_drivers
             report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE CONDUCTORES: NOMBRE DE LA EMPRESA")
+            report.SetParameterValue("title", "REPORTE CONDUCTORES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
 
         ElseIf NumReport = Me.GenReportDrivers_Vehicle Then
             dt.Columns.Add("id")
@@ -703,14 +724,14 @@ Public Class functions
 
             report = New Report_vehicles
             report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE VEHICULOS: NOMBRE DE LA EMPRESA")
+            report.SetParameterValue("title", "REPORTE VEHICULOS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
         Else
             report = Nothing
         End If
 
         report.SetParameterValue("image", My.Settings.report_image.Replace("/", "\"))
-        report.SetParameterValue("rfc", "AEDF9201245G3")
-        report.SetParameterValue("direccion", "DIRECCION DE LA EMPRESA")
+        report.SetParameterValue("rfc", ReturnEmpresa_Parametros(Me.Empresa_Rfc))
+        report.SetParameterValue("direccion", ReturnEmpresa_Parametros(Me.Empresa_Direccion))
         report.SetParameterValue("USERNAME", ReturnUsername)
         Reports.CrystalReportViewer1.ReportSource = report
         Reports.Show()

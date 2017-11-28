@@ -37,4 +37,7 @@
         End If
     End Sub
 
+    Private Sub DriversADD_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class

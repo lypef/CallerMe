@@ -40,4 +40,8 @@
             f.Alert(ex.Message, f.Alert_NumberCritical)
         End Try
     End Sub
+
+    Private Sub Number_telephoneADD_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Visible = False
+    End Sub
 End Class
