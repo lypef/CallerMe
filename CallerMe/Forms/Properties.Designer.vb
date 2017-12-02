@@ -36,7 +36,7 @@ Partial Class Properties
         Me.Button1.Location = New System.Drawing.Point(807, 198)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(102, 42)
-        Me.Button1.TabIndex = 18
+        Me.Button1.TabIndex = 4
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -46,7 +46,7 @@ Partial Class Properties
         Me.TxtNombre.Location = New System.Drawing.Point(12, 34)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(897, 29)
-        Me.TxtNombre.TabIndex = 17
+        Me.TxtNombre.TabIndex = 1
         '
         'Label4
         '
@@ -64,7 +64,7 @@ Partial Class Properties
         Me.TxtDireccion.Location = New System.Drawing.Point(12, 99)
         Me.TxtDireccion.Name = "TxtDireccion"
         Me.TxtDireccion.Size = New System.Drawing.Size(897, 29)
-        Me.TxtDireccion.TabIndex = 20
+        Me.TxtDireccion.TabIndex = 2
         '
         'Label1
         '
@@ -82,7 +82,7 @@ Partial Class Properties
         Me.TxtRFC.Location = New System.Drawing.Point(12, 163)
         Me.TxtRFC.Name = "TxtRFC"
         Me.TxtRFC.Size = New System.Drawing.Size(897, 29)
-        Me.TxtRFC.TabIndex = 22
+        Me.TxtRFC.TabIndex = 3
         '
         'Label2
         '

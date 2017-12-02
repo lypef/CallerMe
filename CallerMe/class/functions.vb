@@ -12,6 +12,7 @@ Public Class functions
     Public Shared Adress_id As String
     Public Shared Driver_id As String
     Public Shared Vehicle_id As String
+    Public Shared llamada_NumeroEntrante As String
 
     'Propiedades parametros
     Public ReadOnly Empresa_Nombre = "name_enterprise"
@@ -38,6 +39,7 @@ Public Class functions
     Public ReadOnly Permission_Access_drivers = "acces_drivers"
     Public ReadOnly Permission_Access_vehicle = "acces_vehicles"
     Public ReadOnly Permission_Access_properties = "properties"
+    Public ReadOnly Permission_Access_LOGS = "acces_logs"
 
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
@@ -55,6 +57,9 @@ Public Class functions
     Public ReadOnly Permission_Vehicle_ADD = "vehicles_add"
     Public ReadOnly Permission_Vehicle_EDIT = "vehicles_edit"
     Public ReadOnly Permission_Vehicle_DELETE = "vehicles_delete"
+    Public ReadOnly Permission_Logs_ADD = "logs_add"
+    Public ReadOnly Permission_Logs_EDIT = "logs_edit"
+    Public ReadOnly Permission_Logs_DELETE = "logs_delete"
 
     'Variables permisos de usuario
     Public ReadOnly GenReportClients = 1
@@ -736,4 +741,56 @@ Public Class functions
         Reports.CrystalReportViewer1.ReportSource = report
         Reports.Show()
     End Sub
+
+    Public Sub ComboBox_SetNumeros_Client(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT * FROM telephone_numbers where client = " + Client + " ")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(2))
+            Loop
+        End If
+    End Sub
+
+    Public Sub ComboBox_SetUsers(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT id, name FROM users")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(1))
+            Loop
+        End If
+    End Sub
+
+    Public Sub ComboBox_SetVehiculos(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT id, modelo FROM vehicles")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(1))
+            Loop
+        End If
+    End Sub
+
+    Public Sub Picturebox_SetImageClient(ByVal p As PictureBox)
+
+        Dim dato = Db.Consult("select foto from clients where id =  " + Client + "  ")
+
+        If dato.Read() Then
+            Try
+                If My.Computer.FileSystem.FileExists(My.Settings.data_url + Data_clients + dato.GetString(0)) Then
+                    p.Image = Image.FromFile(My.Settings.data_url + Data_clients + dato.GetString(0))
+                Else
+                    p.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+                End If
+            Catch ex As Exception
+                Alert(ex.Message, Alert_NumberCritical)
+            End Try
+        End If
+        p.SizeMode = PictureBoxSizeMode.Zoom
+    End Sub
+
 End Class
