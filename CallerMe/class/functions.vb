@@ -12,7 +12,13 @@ Public Class functions
     Public Shared Adress_id As String
     Public Shared Driver_id As String
     Public Shared Vehicle_id As String
-    Public Shared llamada_NumeroEntrante As String
+    Public Shared log_id As String
+    'Listas 
+    Dim ListNumeros As New List(Of Integer)
+    Dim ListUsuarios As New List(Of Integer)
+    Dim ListDireccion As New List(Of Integer)
+    Dim ListVehiculos As New List(Of Integer)
+    Dim ListConductor As New List(Of Integer)
 
     'Propiedades parametros
     Public ReadOnly Empresa_Nombre = "name_enterprise"
@@ -67,6 +73,7 @@ Public Class functions
     Public ReadOnly GenReportClients_DIRECCIONES = 3
     Public ReadOnly GenReportClients_DRIVERS = 4
     Public ReadOnly GenReportDrivers_Vehicle = 5
+    Public ReadOnly GenReportLOGS = 6
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -76,7 +83,7 @@ Public Class functions
 
 
     Public Sub forms_setmodel(ByVal form As Form)
-        form.Text = "NOMBRE DE LA EMPRESA - USUARIO: " + ReturnNameID(userID)
+        form.Text = ReturnEmpresa_Parametros(Empresa_Nombre) + " - USUARIO: " + ReturnNameID(userID)
         form.Icon = System.Drawing.Icon.FromHandle(My.Resources.ico.GetHicon())
         form.FormBorderStyle = FormBorderStyle.Sizable
         form.MaximizeBox = False
@@ -137,7 +144,7 @@ Public Class functions
     End Function
 
     Public Sub Alert(ByVal txt As String, ByVal style As Integer)
-        MsgBox(txt.ToUpper(), style, "Titulo")
+        MsgBox(txt.ToUpper(), style, ReturnEmpresa_Parametros(Empresa_Nombre))
     End Sub
 
     Public Sub OpenConfig()
@@ -318,6 +325,32 @@ Public Class functions
 
     End Sub
 
+    Public Sub Logs_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("client", "Cliente")
+        t.Columns.Add("numero", "Numero")
+        t.Columns.Add("direccion", "Direccion")
+        t.Columns.Add("atendio", "Atendio")
+        t.Columns.Add("modelo", "Vehiculo")
+        t.Columns.Add("driver", "Conductor")
+        t.Columns.Add("hour_llamada", "Fecha llamada")
+        t.Columns.Add("hour_atencion", "Llamada atendida")
+        t.Columns.Add("hour_finaliza", "Llamada finalizada")
+
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6), dato.GetString(7), dato.GetString(8), dato.GetString(9))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Drivers_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -382,6 +415,10 @@ Public Class functions
 
     Public Shared Function Clients_delete() As Boolean
         Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    End Function
+
+    Public Shared Function Logs_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from registros where id = " + log_id + " ")
     End Function
 
     Public Shared Function Vehicle_delete() As Boolean
@@ -730,6 +767,26 @@ Public Class functions
             report = New Report_vehicles
             report.SetDataSource(dt)
             report.SetParameterValue("title", "REPORTE VEHICULOS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
+
+        ElseIf NumReport = Me.GenReportLOGS Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("cliente")
+            dt.Columns.Add("numero")
+            dt.Columns.Add("direccion")
+            dt.Columns.Add("Atendio")
+            dt.Columns.Add("Vehiculo")
+            dt.Columns.Add("Conductor")
+            dt.Columns.Add("Fecha llamada")
+            dt.Columns.Add("Llamada atendida")
+            dt.Columns.Add("Llamada finalizada")
+
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value, row.Cells(6).Value, row.Cells(7).Value, row.Cells(8).Value, row.Cells(9).Value)
+            Next
+
+            report = New Report_Logs
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE REGISTROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
         Else
             report = Nothing
         End If
@@ -745,34 +802,71 @@ Public Class functions
     Public Sub ComboBox_SetNumeros_Client(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT * FROM telephone_numbers where client = " + Client + " ")
-
+        c.Items.Add("Numeros de telefono")
+        ListNumeros.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(2))
+                ListNumeros.Add(dato.GetString(0))
             Loop
         End If
+        c.SelectedIndex = 0
+    End Sub
+
+    Public Sub ComboBox_SetDireccion_Client(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT * FROM adresses where client = " + Client + " ")
+        c.Items.Add("Direcciones")
+        ListDireccion.Add(0)
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(2))
+                ListDireccion.Add(dato.GetString(0))
+            Loop
+        End If
+        c.SelectedIndex = 0
+    End Sub
+
+    Public Sub ComboBox_SetDrivers(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT * FROM drivers")
+        c.Items.Add("Conductores")
+        ListConductor.Add(0)
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(1))
+                ListConductor.Add(dato.GetString(0))
+            Loop
+        End If
+        c.SelectedIndex = 0
     End Sub
 
     Public Sub ComboBox_SetUsers(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT id, name FROM users")
-
+        c.Items.Add("Usuarios")
+        ListUsuarios.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(1))
+                ListUsuarios.Add(dato.GetString(0))
             Loop
         End If
+        c.SelectedIndex = 0
     End Sub
 
     Public Sub ComboBox_SetVehiculos(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT id, modelo FROM vehicles")
-
+        c.Items.Add("Vehiculos")
+        ListVehiculos.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(1))
+                ListVehiculos.Add(dato.GetString(0))
             Loop
         End If
+        c.SelectedIndex = 0
     End Sub
 
     Public Sub Picturebox_SetImageClient(ByVal p As PictureBox)
@@ -793,4 +887,7 @@ Public Class functions
         p.SizeMode = PictureBoxSizeMode.Zoom
     End Sub
 
+    Public Function save_registroMANUAL(ByVal telefono As ComboBox, ByVal usuario As ComboBox, ByVal direccion As ComboBox, ByVal vehiculo As ComboBox, ByVal driver As ComboBox, ByVal fecha As DateTimePicker)
+        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + Client + ", " + ListNumeros.Item(telefono.SelectedIndex).ToString + ", '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', " + ListUsuarios.Item(usuario.SelectedIndex).ToString + ", " + ListDireccion.Item(direccion.SelectedIndex).ToString + ", " + ListVehiculos.Item(vehiculo.SelectedIndex).ToString + ", " + ListConductor.Item(driver.SelectedIndex).ToString + ")")
+    End Function
 End Class

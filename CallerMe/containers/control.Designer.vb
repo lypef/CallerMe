@@ -45,7 +45,9 @@ Partial Class control
         Me.GenerarReporteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerarReporteToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,8 +72,6 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GenerarReporteToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -227,12 +227,26 @@ Partial Class control
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(159, 22)
         Me.ToolStripMenuItem1.Text = "Agregar registro"
         '
+        'GestionarToolStripMenuItem5
+        '
+        Me.GestionarToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.Gestionar_32
+        Me.GestionarToolStripMenuItem5.Name = "GestionarToolStripMenuItem5"
+        Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(159, 22)
+        Me.GestionarToolStripMenuItem5.Text = "Gestionar"
+        '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.search_48
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(159, 22)
         Me.ToolStripMenuItem2.Text = "Buscar"
+        '
+        'GenerarReporteToolStripMenuItem4
+        '
+        Me.GenerarReporteToolStripMenuItem4.Image = Global.Calls.My.Resources.Resources.report_48
+        Me.GenerarReporteToolStripMenuItem4.Name = "GenerarReporteToolStripMenuItem4"
+        Me.GenerarReporteToolStripMenuItem4.Size = New System.Drawing.Size(159, 22)
+        Me.GenerarReporteToolStripMenuItem4.Text = "Generar reporte"
         '
         'Btn_clientes
         '
@@ -463,20 +477,6 @@ Partial Class control
         Me.Button_Clients.TabIndex = 0
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
-        '
-        'GestionarToolStripMenuItem5
-        '
-        Me.GestionarToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.Gestionar_32
-        Me.GestionarToolStripMenuItem5.Name = "GestionarToolStripMenuItem5"
-        Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(159, 22)
-        Me.GestionarToolStripMenuItem5.Text = "Gestionar"
-        '
-        'GenerarReporteToolStripMenuItem4
-        '
-        Me.GenerarReporteToolStripMenuItem4.Image = Global.Calls.My.Resources.Resources.report_48
-        Me.GenerarReporteToolStripMenuItem4.Name = "GenerarReporteToolStripMenuItem4"
-        Me.GenerarReporteToolStripMenuItem4.Size = New System.Drawing.Size(159, 22)
-        Me.GenerarReporteToolStripMenuItem4.Text = "Generar reporte"
         '
         'control
         '

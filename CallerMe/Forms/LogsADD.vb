@@ -2,17 +2,18 @@
     Dim f As New functions
 
     Public Sub LoadIni()
-        'functions.llamada_NumeroEntrante = "9231200505"
-
-        If String.IsNullOrEmpty(functions.llamada_NumeroEntrante) Then
-            'Numero vacio
-            f.DataGridView_Model(Table_Clients)
-            f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table_Clients)
-            f.ComboBox_SetUsers(Combo_Users)
-            f.ComboBox_SetVehiculos(ComboVehiculos)
-        Else
-            'Existe numero
-        End If
+        f.DataGridView_Model(Table_Clients)
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table_Clients)
+        f.ComboBox_SetUsers(Combo_Users)
+        f.ComboBox_SetVehiculos(ComboVehiculos)
+        Combo_Telefonos.Items.Add("Numeros de telefono")
+        Combo_direcciones.Items.Add("Direcciones")
+        Combo_Driver.Items.Add("Conductores")
+        Combo_Telefonos.SelectedIndex = 0
+        Combo_direcciones.SelectedIndex = 0
+        Combo_Driver.SelectedIndex = 0
+        Image.Image = Nothing
+        Table_Clients.ClearSelection()
     End Sub
 
     Private Sub LogsADD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -34,6 +35,8 @@
         If String.IsNullOrEmpty(Table_Clients.SelectedCells(0).Value) = False Then
             functions.Client = Table_Clients.SelectedCells(0).Value
             f.ComboBox_SetNumeros_Client(Combo_Telefonos)
+            f.ComboBox_SetDireccion_Client(Combo_direcciones)
+            f.ComboBox_SetDrivers(Combo_Driver)
             f.Picturebox_SetImageClient(Image)
         End If
     End Sub
@@ -42,6 +45,33 @@
         If String.IsNullOrEmpty(Table_Clients.SelectedCells(0).Value) = False Then
             functions.Client = Table_Clients.SelectedCells(0).Value
             f.ComboBox_SetNumeros_Client(Combo_Telefonos)
+            f.ComboBox_SetDireccion_Client(Combo_direcciones)
+            f.ComboBox_SetDrivers(Combo_Driver)
+            f.Picturebox_SetImageClient(Image)
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If Combo_Telefonos.SelectedIndex > 0 And Combo_Users.SelectedIndex > 0 And Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
+            If f.save_registroMANUAL(Combo_Telefonos, Combo_Users, Combo_direcciones, ComboVehiculos, Combo_Driver, Fecha) Then
+                functions.Client = 0
+                f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                LoadIni()
+            Else
+                f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+            End If
+        Else
+            f.Alert("Verifique su informacion", f.Alert_NumberCritical)
+        End If
+
+    End Sub
+
+    Private Sub Table_Clients_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Table_Clients.KeyPress
+        If String.IsNullOrEmpty(Table_Clients.SelectedCells(0).Value) = False Then
+            functions.Client = Table_Clients.SelectedCells(0).Value
+            f.ComboBox_SetNumeros_Client(Combo_Telefonos)
+            f.ComboBox_SetDireccion_Client(Combo_direcciones)
+            f.ComboBox_SetDrivers(Combo_Driver)
             f.Picturebox_SetImageClient(Image)
         End If
     End Sub
