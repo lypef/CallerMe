@@ -4,6 +4,7 @@
     Private Sub users_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
         f.DataGridView_Model(Table_users)
+        Panel1.BackColor = My.Settings.datagridview_color
     End Sub
 
     Private Sub users_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -13,6 +14,7 @@
     Public Sub LoadINI()
         f.Users_DataGridViewSet("SELECT * FROM users ORDER by name asc", Table_users)
         functions.user_select = Nothing
+        ChecketAll(False)
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
@@ -22,22 +24,81 @@
 
         If TabControl1.SelectedIndex = 1 Then
             If f.ReturnPermission(f.Permission_users_EDIT) And String.IsNullOrEmpty(functions.user_select) = False Then
-                MsgBox("editar")
+                f.values_permisos(
+                TxtUsername,
+                TxtPassword,
+                TxtName,
+                acces_clients,
+                acces_numbersTelephone,
+                acces_adresses,
+                acces_drivers,
+                acces_vehicles,
+                acces_logs,
+                clients_add,
+                clients_edit,
+                clients_delete,
+                adresses_add,
+                adresses_edit,
+                adresses_delete,
+                telephone_add,
+                telephone_edit,
+                telephone_delete,
+                drivers_add,
+                drivers_edit,
+                drivers_delete,
+                vehicles_add,
+                vehicles_edit,
+                vehicles_delete,
+                properties,
+                logs_add,
+                logs_delete,
+                logs_clean,
+                user_access,
+                user_add,
+                user_edit,
+                user_delete,
+                user_permisos)
+                If f.ReturnPermission(f.Permission_users_PERMISOS) = False Then
+                    f.Alert("No puede editar los permisos", f.Alert_NumberExclamacion)
+                End If
             Else
                 TabControl1.SelectedIndex = 0
                 f.Alert(f.Alert_NoPermitido + "| Seleccione un usuario", f.Alert_NumberCritical)
             End If
         End If
+    End Sub
 
-        If TabControl1.SelectedIndex = 2 Then
-            If f.ReturnPermission(f.Permission_users_PERMISOS) And String.IsNullOrEmpty(functions.user_select) = False Then
-                MsgBox("permisos")
-            Else
-                TabControl1.SelectedIndex = 0
-                f.Alert(f.Alert_NoPermitido + "| Seleccione un usuario", f.Alert_NumberCritical)
-            End If
-        End If
-
+    Private Sub ChecketAll(v As Boolean)
+        acces_clients.Checked = v
+        acces_numbersTelephone.Checked = v
+        acces_adresses.Checked = v
+        acces_drivers.Checked = v
+        acces_vehicles.Checked = v
+        acces_logs.Checked = v
+        clients_add.Checked = v
+        clients_edit.Checked = v
+        clients_delete.Checked = v
+        adresses_add.Checked = v
+        adresses_edit.Checked = v
+        adresses_delete.Checked = v
+        telephone_add.Checked = v
+        telephone_edit.Checked = v
+        telephone_delete.Checked = v
+        drivers_add.Checked = v
+        drivers_edit.Checked = v
+        drivers_delete.Checked = v
+        vehicles_add.Checked = v
+        vehicles_edit.Checked = v
+        vehicles_delete.Checked = v
+        properties.Checked = v
+        logs_add.Checked = v
+        logs_delete.Checked = v
+        logs_clean.Checked = v
+        user_access.Checked = v
+        user_add.Checked = v
+        user_edit.Checked = v
+        user_delete.Checked = v
+        user_permisos.Checked = v
     End Sub
 
     Private Sub Table_users_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Table_users.CellDoubleClick
@@ -57,7 +118,7 @@
         End If
     End Sub
 
-    Private Sub PermisosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PermisosToolStripMenuItem.Click
+    Private Sub PermisosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         If f.ReturnPermission(f.Permission_users_PERMISOS) Then
             TabControl1.SelectedIndex = 2
         Else
@@ -77,6 +138,80 @@
             End If
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If f.ReturnPermission(f.Permission_users_PERMISOS) Then
+            ChecketAll(True)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberCritical)
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If f.ReturnPermission(f.Permission_users_PERMISOS) Then
+            ChecketAll(False)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberCritical)
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If String.IsNullOrEmpty(TxtUsername.Text) = False And String.IsNullOrEmpty(TxtPassword.Text) = False Then
+            If f.ReturnPermission(f.Permission_users_PERMISOS) Then
+                'Datos y permisos
+                If f.User_Update_Values(TxtUsername, TxtPassword, TxtName) Then
+                    If f.User_Update_Permisos(
+                        acces_clients,
+                        acces_numbersTelephone,
+                        acces_adresses,
+                        acces_drivers,
+                        acces_vehicles,
+                        acces_logs,
+                        clients_add,
+                        clients_edit,
+                        clients_delete,
+                        adresses_add,
+                        adresses_edit,
+                        adresses_delete,
+                        telephone_add,
+                        telephone_edit,
+                        telephone_delete,
+                        drivers_add,
+                        drivers_edit,
+                        drivers_delete,
+                        vehicles_add,
+                        vehicles_edit,
+                        vehicles_delete,
+                        properties,
+                        logs_add,
+                        logs_delete,
+                        logs_clean,
+                        user_access,
+                        user_add,
+                        user_edit,
+                        user_delete,
+                        user_permisos) Then
+                        f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                        TabControl1.SelectedIndex = 0
+                    Else
+                        f.Alert("No se actualizron los permisos", f.Alert_NumberCritical)
+                    End If
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                End If
+            Else
+                'Solo datos
+                If f.User_Update_Values(TxtUsername, TxtPassword, TxtName) Then
+                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                    TabControl1.SelectedIndex = 0
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                End If
+            End If
+        Else
+            f.Alert("Ingrese al menos un nombre de usuario", f.Alert_NumberCritical)
         End If
     End Sub
 End Class

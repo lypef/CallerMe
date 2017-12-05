@@ -22,56 +22,56 @@ Partial Class usersADD
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TxtNombre = New System.Windows.Forms.TextBox()
+        Me.TxtUsername = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TxtPassword = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TxtName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox11 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox13 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox15 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox16 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox17 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox18 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox19 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox20 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox21 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox23 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox24 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox25 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox26 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox27 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox28 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox29 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox30 = New System.Windows.Forms.CheckBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.user_edit = New System.Windows.Forms.CheckBox()
+        Me.user_delete = New System.Windows.Forms.CheckBox()
+        Me.user_permisos = New System.Windows.Forms.CheckBox()
+        Me.vehicles_delete = New System.Windows.Forms.CheckBox()
+        Me.properties = New System.Windows.Forms.CheckBox()
+        Me.user_access = New System.Windows.Forms.CheckBox()
+        Me.adresses_delete = New System.Windows.Forms.CheckBox()
+        Me.user_add = New System.Windows.Forms.CheckBox()
+        Me.vehicles_edit = New System.Windows.Forms.CheckBox()
+        Me.logs_clean = New System.Windows.Forms.CheckBox()
+        Me.drivers_delete = New System.Windows.Forms.CheckBox()
+        Me.adresses_edit = New System.Windows.Forms.CheckBox()
+        Me.telephone_delete = New System.Windows.Forms.CheckBox()
+        Me.vehicles_add = New System.Windows.Forms.CheckBox()
+        Me.logs_delete = New System.Windows.Forms.CheckBox()
+        Me.drivers_edit = New System.Windows.Forms.CheckBox()
+        Me.adresses_add = New System.Windows.Forms.CheckBox()
+        Me.telephone_edit = New System.Windows.Forms.CheckBox()
+        Me.clients_edit = New System.Windows.Forms.CheckBox()
+        Me.logs_add = New System.Windows.Forms.CheckBox()
+        Me.drivers_add = New System.Windows.Forms.CheckBox()
+        Me.telephone_add = New System.Windows.Forms.CheckBox()
+        Me.clients_delete = New System.Windows.Forms.CheckBox()
+        Me.clients_add = New System.Windows.Forms.CheckBox()
+        Me.acces_logs = New System.Windows.Forms.CheckBox()
+        Me.acces_vehicles = New System.Windows.Forms.CheckBox()
+        Me.acces_drivers = New System.Windows.Forms.CheckBox()
+        Me.acces_adresses = New System.Windows.Forms.CheckBox()
+        Me.acces_numbersTelephone = New System.Windows.Forms.CheckBox()
+        Me.acces_clients = New System.Windows.Forms.CheckBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TxtNombre
+        'TxtUsername
         '
-        Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNombre.Location = New System.Drawing.Point(12, 139)
-        Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(317, 29)
-        Me.TxtNombre.TabIndex = 13
+        Me.TxtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUsername.Location = New System.Drawing.Point(12, 139)
+        Me.TxtUsername.Name = "TxtUsername"
+        Me.TxtUsername.Size = New System.Drawing.Size(317, 29)
+        Me.TxtUsername.TabIndex = 2
         '
         'Label1
         '
@@ -83,13 +83,14 @@ Partial Class usersADD
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Username"
         '
-        'TextBox1
+        'TxtPassword
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 202)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(317, 29)
-        Me.TextBox1.TabIndex = 15
+        Me.TxtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtPassword.Location = New System.Drawing.Point(12, 202)
+        Me.TxtPassword.Name = "TxtPassword"
+        Me.TxtPassword.Size = New System.Drawing.Size(317, 29)
+        Me.TxtPassword.TabIndex = 3
+        Me.TxtPassword.UseSystemPasswordChar = True
         '
         'Label2
         '
@@ -101,13 +102,13 @@ Partial Class usersADD
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Contraseña"
         '
-        'TextBox2
+        'TxtName
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(12, 76)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(317, 29)
-        Me.TextBox2.TabIndex = 17
+        Me.TxtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtName.Location = New System.Drawing.Point(12, 76)
+        Me.TxtName.Name = "TxtName"
+        Me.TxtName.Size = New System.Drawing.Size(317, 29)
+        Me.TxtName.TabIndex = 1
         '
         'Label3
         '
@@ -123,368 +124,368 @@ Partial Class usersADD
         '
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Button2)
-        Me.Panel1.Controls.Add(Me.CheckBox26)
-        Me.Panel1.Controls.Add(Me.CheckBox27)
-        Me.Panel1.Controls.Add(Me.CheckBox28)
-        Me.Panel1.Controls.Add(Me.CheckBox29)
-        Me.Panel1.Controls.Add(Me.CheckBox30)
-        Me.Panel1.Controls.Add(Me.CheckBox21)
-        Me.Panel1.Controls.Add(Me.CheckBox22)
-        Me.Panel1.Controls.Add(Me.CheckBox23)
-        Me.Panel1.Controls.Add(Me.CheckBox24)
-        Me.Panel1.Controls.Add(Me.CheckBox25)
-        Me.Panel1.Controls.Add(Me.CheckBox16)
-        Me.Panel1.Controls.Add(Me.CheckBox17)
-        Me.Panel1.Controls.Add(Me.CheckBox18)
-        Me.Panel1.Controls.Add(Me.CheckBox19)
-        Me.Panel1.Controls.Add(Me.CheckBox20)
-        Me.Panel1.Controls.Add(Me.CheckBox11)
-        Me.Panel1.Controls.Add(Me.CheckBox12)
-        Me.Panel1.Controls.Add(Me.CheckBox13)
-        Me.Panel1.Controls.Add(Me.CheckBox14)
-        Me.Panel1.Controls.Add(Me.CheckBox15)
-        Me.Panel1.Controls.Add(Me.CheckBox6)
-        Me.Panel1.Controls.Add(Me.CheckBox7)
-        Me.Panel1.Controls.Add(Me.CheckBox8)
-        Me.Panel1.Controls.Add(Me.CheckBox9)
-        Me.Panel1.Controls.Add(Me.CheckBox10)
-        Me.Panel1.Controls.Add(Me.CheckBox5)
-        Me.Panel1.Controls.Add(Me.CheckBox4)
-        Me.Panel1.Controls.Add(Me.CheckBox3)
-        Me.Panel1.Controls.Add(Me.CheckBox2)
-        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.user_edit)
+        Me.Panel1.Controls.Add(Me.user_delete)
+        Me.Panel1.Controls.Add(Me.user_permisos)
+        Me.Panel1.Controls.Add(Me.vehicles_delete)
+        Me.Panel1.Controls.Add(Me.properties)
+        Me.Panel1.Controls.Add(Me.user_access)
+        Me.Panel1.Controls.Add(Me.adresses_delete)
+        Me.Panel1.Controls.Add(Me.user_add)
+        Me.Panel1.Controls.Add(Me.vehicles_edit)
+        Me.Panel1.Controls.Add(Me.logs_clean)
+        Me.Panel1.Controls.Add(Me.drivers_delete)
+        Me.Panel1.Controls.Add(Me.adresses_edit)
+        Me.Panel1.Controls.Add(Me.telephone_delete)
+        Me.Panel1.Controls.Add(Me.vehicles_add)
+        Me.Panel1.Controls.Add(Me.logs_delete)
+        Me.Panel1.Controls.Add(Me.drivers_edit)
+        Me.Panel1.Controls.Add(Me.adresses_add)
+        Me.Panel1.Controls.Add(Me.telephone_edit)
+        Me.Panel1.Controls.Add(Me.clients_edit)
+        Me.Panel1.Controls.Add(Me.logs_add)
+        Me.Panel1.Controls.Add(Me.drivers_add)
+        Me.Panel1.Controls.Add(Me.telephone_add)
+        Me.Panel1.Controls.Add(Me.clients_delete)
+        Me.Panel1.Controls.Add(Me.clients_add)
+        Me.Panel1.Controls.Add(Me.acces_logs)
+        Me.Panel1.Controls.Add(Me.acces_vehicles)
+        Me.Panel1.Controls.Add(Me.acces_drivers)
+        Me.Panel1.Controls.Add(Me.acces_adresses)
+        Me.Panel1.Controls.Add(Me.acces_numbersTelephone)
+        Me.Panel1.Controls.Add(Me.acces_clients)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(335, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(592, 457)
-        Me.Panel1.TabIndex = 19
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(184, 238)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(144, 38)
-        Me.Button1.TabIndex = 20
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(13, 76)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 0
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(100, 75)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox2.TabIndex = 1
-        Me.CheckBox2.Text = "CheckBox2"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(187, 76)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox3.TabIndex = 2
-        Me.CheckBox3.Text = "CheckBox3"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(274, 76)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox4.TabIndex = 3
-        Me.CheckBox4.Text = "CheckBox4"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(361, 75)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox5.TabIndex = 4
-        Me.CheckBox5.Text = "CheckBox5"
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'CheckBox6
-        '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(361, 101)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox6.TabIndex = 9
-        Me.CheckBox6.Text = "CheckBox6"
-        Me.CheckBox6.UseVisualStyleBackColor = True
-        '
-        'CheckBox7
-        '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(274, 102)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox7.TabIndex = 8
-        Me.CheckBox7.Text = "CheckBox7"
-        Me.CheckBox7.UseVisualStyleBackColor = True
-        '
-        'CheckBox8
-        '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Location = New System.Drawing.Point(187, 102)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox8.TabIndex = 7
-        Me.CheckBox8.Text = "CheckBox8"
-        Me.CheckBox8.UseVisualStyleBackColor = True
-        '
-        'CheckBox9
-        '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Location = New System.Drawing.Point(100, 101)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox9.TabIndex = 6
-        Me.CheckBox9.Text = "CheckBox9"
-        Me.CheckBox9.UseVisualStyleBackColor = True
-        '
-        'CheckBox10
-        '
-        Me.CheckBox10.AutoSize = True
-        Me.CheckBox10.Location = New System.Drawing.Point(13, 102)
-        Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox10.TabIndex = 5
-        Me.CheckBox10.Text = "CheckBox10"
-        Me.CheckBox10.UseVisualStyleBackColor = True
-        '
-        'CheckBox11
-        '
-        Me.CheckBox11.AutoSize = True
-        Me.CheckBox11.Location = New System.Drawing.Point(361, 127)
-        Me.CheckBox11.Name = "CheckBox11"
-        Me.CheckBox11.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox11.TabIndex = 14
-        Me.CheckBox11.Text = "CheckBox11"
-        Me.CheckBox11.UseVisualStyleBackColor = True
-        '
-        'CheckBox12
-        '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.Location = New System.Drawing.Point(274, 128)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox12.TabIndex = 13
-        Me.CheckBox12.Text = "CheckBox12"
-        Me.CheckBox12.UseVisualStyleBackColor = True
-        '
-        'CheckBox13
-        '
-        Me.CheckBox13.AutoSize = True
-        Me.CheckBox13.Location = New System.Drawing.Point(187, 128)
-        Me.CheckBox13.Name = "CheckBox13"
-        Me.CheckBox13.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox13.TabIndex = 12
-        Me.CheckBox13.Text = "CheckBox13"
-        Me.CheckBox13.UseVisualStyleBackColor = True
-        '
-        'CheckBox14
-        '
-        Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Location = New System.Drawing.Point(100, 127)
-        Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox14.TabIndex = 11
-        Me.CheckBox14.Text = "CheckBox14"
-        Me.CheckBox14.UseVisualStyleBackColor = True
-        '
-        'CheckBox15
-        '
-        Me.CheckBox15.AutoSize = True
-        Me.CheckBox15.Location = New System.Drawing.Point(13, 128)
-        Me.CheckBox15.Name = "CheckBox15"
-        Me.CheckBox15.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox15.TabIndex = 10
-        Me.CheckBox15.Text = "CheckBox15"
-        Me.CheckBox15.UseVisualStyleBackColor = True
-        '
-        'CheckBox16
-        '
-        Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(361, 153)
-        Me.CheckBox16.Name = "CheckBox16"
-        Me.CheckBox16.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox16.TabIndex = 19
-        Me.CheckBox16.Text = "CheckBox16"
-        Me.CheckBox16.UseVisualStyleBackColor = True
-        '
-        'CheckBox17
-        '
-        Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(274, 154)
-        Me.CheckBox17.Name = "CheckBox17"
-        Me.CheckBox17.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox17.TabIndex = 18
-        Me.CheckBox17.Text = "CheckBox17"
-        Me.CheckBox17.UseVisualStyleBackColor = True
-        '
-        'CheckBox18
-        '
-        Me.CheckBox18.AutoSize = True
-        Me.CheckBox18.Location = New System.Drawing.Point(187, 154)
-        Me.CheckBox18.Name = "CheckBox18"
-        Me.CheckBox18.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox18.TabIndex = 17
-        Me.CheckBox18.Text = "CheckBox18"
-        Me.CheckBox18.UseVisualStyleBackColor = True
-        '
-        'CheckBox19
-        '
-        Me.CheckBox19.AutoSize = True
-        Me.CheckBox19.Location = New System.Drawing.Point(100, 153)
-        Me.CheckBox19.Name = "CheckBox19"
-        Me.CheckBox19.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox19.TabIndex = 16
-        Me.CheckBox19.Text = "CheckBox19"
-        Me.CheckBox19.UseVisualStyleBackColor = True
-        '
-        'CheckBox20
-        '
-        Me.CheckBox20.AutoSize = True
-        Me.CheckBox20.Location = New System.Drawing.Point(13, 154)
-        Me.CheckBox20.Name = "CheckBox20"
-        Me.CheckBox20.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox20.TabIndex = 15
-        Me.CheckBox20.Text = "CheckBox20"
-        Me.CheckBox20.UseVisualStyleBackColor = True
-        '
-        'CheckBox21
-        '
-        Me.CheckBox21.AutoSize = True
-        Me.CheckBox21.Location = New System.Drawing.Point(361, 179)
-        Me.CheckBox21.Name = "CheckBox21"
-        Me.CheckBox21.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox21.TabIndex = 24
-        Me.CheckBox21.Text = "CheckBox21"
-        Me.CheckBox21.UseVisualStyleBackColor = True
-        '
-        'CheckBox22
-        '
-        Me.CheckBox22.AutoSize = True
-        Me.CheckBox22.Location = New System.Drawing.Point(274, 180)
-        Me.CheckBox22.Name = "CheckBox22"
-        Me.CheckBox22.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox22.TabIndex = 23
-        Me.CheckBox22.Text = "CheckBox22"
-        Me.CheckBox22.UseVisualStyleBackColor = True
-        '
-        'CheckBox23
-        '
-        Me.CheckBox23.AutoSize = True
-        Me.CheckBox23.Location = New System.Drawing.Point(187, 180)
-        Me.CheckBox23.Name = "CheckBox23"
-        Me.CheckBox23.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox23.TabIndex = 22
-        Me.CheckBox23.Text = "CheckBox23"
-        Me.CheckBox23.UseVisualStyleBackColor = True
-        '
-        'CheckBox24
-        '
-        Me.CheckBox24.AutoSize = True
-        Me.CheckBox24.Location = New System.Drawing.Point(100, 179)
-        Me.CheckBox24.Name = "CheckBox24"
-        Me.CheckBox24.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox24.TabIndex = 21
-        Me.CheckBox24.Text = "CheckBox24"
-        Me.CheckBox24.UseVisualStyleBackColor = True
-        '
-        'CheckBox25
-        '
-        Me.CheckBox25.AutoSize = True
-        Me.CheckBox25.Location = New System.Drawing.Point(13, 180)
-        Me.CheckBox25.Name = "CheckBox25"
-        Me.CheckBox25.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox25.TabIndex = 20
-        Me.CheckBox25.Text = "CheckBox25"
-        Me.CheckBox25.UseVisualStyleBackColor = True
-        '
-        'CheckBox26
-        '
-        Me.CheckBox26.AutoSize = True
-        Me.CheckBox26.Location = New System.Drawing.Point(361, 205)
-        Me.CheckBox26.Name = "CheckBox26"
-        Me.CheckBox26.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox26.TabIndex = 29
-        Me.CheckBox26.Text = "CheckBox26"
-        Me.CheckBox26.UseVisualStyleBackColor = True
-        '
-        'CheckBox27
-        '
-        Me.CheckBox27.AutoSize = True
-        Me.CheckBox27.Location = New System.Drawing.Point(274, 206)
-        Me.CheckBox27.Name = "CheckBox27"
-        Me.CheckBox27.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox27.TabIndex = 28
-        Me.CheckBox27.Text = "CheckBox27"
-        Me.CheckBox27.UseVisualStyleBackColor = True
-        '
-        'CheckBox28
-        '
-        Me.CheckBox28.AutoSize = True
-        Me.CheckBox28.Location = New System.Drawing.Point(187, 206)
-        Me.CheckBox28.Name = "CheckBox28"
-        Me.CheckBox28.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox28.TabIndex = 27
-        Me.CheckBox28.Text = "CheckBox28"
-        Me.CheckBox28.UseVisualStyleBackColor = True
-        '
-        'CheckBox29
-        '
-        Me.CheckBox29.AutoSize = True
-        Me.CheckBox29.Location = New System.Drawing.Point(100, 205)
-        Me.CheckBox29.Name = "CheckBox29"
-        Me.CheckBox29.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox29.TabIndex = 26
-        Me.CheckBox29.Text = "CheckBox29"
-        Me.CheckBox29.UseVisualStyleBackColor = True
-        '
-        'CheckBox30
-        '
-        Me.CheckBox30.AutoSize = True
-        Me.CheckBox30.Location = New System.Drawing.Point(13, 206)
-        Me.CheckBox30.Name = "CheckBox30"
-        Me.CheckBox30.Size = New System.Drawing.Size(87, 17)
-        Me.CheckBox30.TabIndex = 25
-        Me.CheckBox30.Text = "CheckBox30"
-        Me.CheckBox30.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(13, 12)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(144, 38)
-        Me.Button2.TabIndex = 21
-        Me.Button2.Text = "Todos"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Panel1.TabIndex = 100
         '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(163, 12)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(144, 38)
-        Me.Button3.TabIndex = 30
+        Me.Button3.TabIndex = 5
         Me.Button3.Text = "Ninguno"
         Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(13, 12)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(144, 38)
+        Me.Button2.TabIndex = 4
+        Me.Button2.Text = "Todos"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'user_edit
+        '
+        Me.user_edit.AutoSize = True
+        Me.user_edit.Location = New System.Drawing.Point(302, 248)
+        Me.user_edit.Name = "user_edit"
+        Me.user_edit.Size = New System.Drawing.Size(53, 17)
+        Me.user_edit.TabIndex = 29
+        Me.user_edit.Text = "Editar"
+        Me.user_edit.UseVisualStyleBackColor = True
+        '
+        'user_delete
+        '
+        Me.user_delete.AutoSize = True
+        Me.user_delete.Location = New System.Drawing.Point(302, 294)
+        Me.user_delete.Name = "user_delete"
+        Me.user_delete.Size = New System.Drawing.Size(62, 17)
+        Me.user_delete.TabIndex = 28
+        Me.user_delete.Text = "Eliminar"
+        Me.user_delete.UseVisualStyleBackColor = True
+        '
+        'user_permisos
+        '
+        Me.user_permisos.AutoSize = True
+        Me.user_permisos.Location = New System.Drawing.Point(302, 271)
+        Me.user_permisos.Name = "user_permisos"
+        Me.user_permisos.Size = New System.Drawing.Size(97, 17)
+        Me.user_permisos.TabIndex = 27
+        Me.user_permisos.Text = "Editar permisos"
+        Me.user_permisos.UseVisualStyleBackColor = True
+        '
+        'vehicles_delete
+        '
+        Me.vehicles_delete.AutoSize = True
+        Me.vehicles_delete.Location = New System.Drawing.Point(124, 277)
+        Me.vehicles_delete.Name = "vehicles_delete"
+        Me.vehicles_delete.Size = New System.Drawing.Size(62, 17)
+        Me.vehicles_delete.TabIndex = 26
+        Me.vehicles_delete.Text = "Eliminar"
+        Me.vehicles_delete.UseVisualStyleBackColor = True
+        '
+        'properties
+        '
+        Me.properties.AutoSize = True
+        Me.properties.Location = New System.Drawing.Point(441, 202)
+        Me.properties.Name = "properties"
+        Me.properties.Size = New System.Drawing.Size(123, 17)
+        Me.properties.TabIndex = 25
+        Me.properties.Text = "Acceso propiedades"
+        Me.properties.UseVisualStyleBackColor = True
+        '
+        'user_access
+        '
+        Me.user_access.AutoSize = True
+        Me.user_access.Location = New System.Drawing.Point(302, 202)
+        Me.user_access.Name = "user_access"
+        Me.user_access.Size = New System.Drawing.Size(104, 17)
+        Me.user_access.TabIndex = 24
+        Me.user_access.Text = "Acceso usuarios"
+        Me.user_access.UseVisualStyleBackColor = True
+        '
+        'adresses_delete
+        '
+        Me.adresses_delete.AutoSize = True
+        Me.adresses_delete.Location = New System.Drawing.Point(302, 148)
+        Me.adresses_delete.Name = "adresses_delete"
+        Me.adresses_delete.Size = New System.Drawing.Size(62, 17)
+        Me.adresses_delete.TabIndex = 23
+        Me.adresses_delete.Text = "Eliminar"
+        Me.adresses_delete.UseVisualStyleBackColor = True
+        '
+        'user_add
+        '
+        Me.user_add.AutoSize = True
+        Me.user_add.Location = New System.Drawing.Point(302, 225)
+        Me.user_add.Name = "user_add"
+        Me.user_add.Size = New System.Drawing.Size(63, 17)
+        Me.user_add.TabIndex = 22
+        Me.user_add.Text = "Agregar"
+        Me.user_add.UseVisualStyleBackColor = True
+        '
+        'vehicles_edit
+        '
+        Me.vehicles_edit.AutoSize = True
+        Me.vehicles_edit.Location = New System.Drawing.Point(124, 252)
+        Me.vehicles_edit.Name = "vehicles_edit"
+        Me.vehicles_edit.Size = New System.Drawing.Size(53, 17)
+        Me.vehicles_edit.TabIndex = 21
+        Me.vehicles_edit.Text = "Editar"
+        Me.vehicles_edit.UseVisualStyleBackColor = True
+        '
+        'logs_clean
+        '
+        Me.logs_clean.AutoSize = True
+        Me.logs_clean.Location = New System.Drawing.Point(13, 274)
+        Me.logs_clean.Name = "logs_clean"
+        Me.logs_clean.Size = New System.Drawing.Size(77, 17)
+        Me.logs_clean.TabIndex = 20
+        Me.logs_clean.Text = "Limpiar DB"
+        Me.logs_clean.UseVisualStyleBackColor = True
+        '
+        'drivers_delete
+        '
+        Me.drivers_delete.AutoSize = True
+        Me.drivers_delete.Location = New System.Drawing.Point(441, 151)
+        Me.drivers_delete.Name = "drivers_delete"
+        Me.drivers_delete.Size = New System.Drawing.Size(62, 17)
+        Me.drivers_delete.TabIndex = 19
+        Me.drivers_delete.Text = "Eliminar"
+        Me.drivers_delete.UseVisualStyleBackColor = True
+        '
+        'adresses_edit
+        '
+        Me.adresses_edit.AutoSize = True
+        Me.adresses_edit.Location = New System.Drawing.Point(302, 124)
+        Me.adresses_edit.Name = "adresses_edit"
+        Me.adresses_edit.Size = New System.Drawing.Size(53, 17)
+        Me.adresses_edit.TabIndex = 18
+        Me.adresses_edit.Text = "Editar"
+        Me.adresses_edit.UseVisualStyleBackColor = True
+        '
+        'telephone_delete
+        '
+        Me.telephone_delete.AutoSize = True
+        Me.telephone_delete.Location = New System.Drawing.Point(124, 145)
+        Me.telephone_delete.Name = "telephone_delete"
+        Me.telephone_delete.Size = New System.Drawing.Size(62, 17)
+        Me.telephone_delete.TabIndex = 17
+        Me.telephone_delete.Text = "Eliminar"
+        Me.telephone_delete.UseVisualStyleBackColor = True
+        '
+        'vehicles_add
+        '
+        Me.vehicles_add.AutoSize = True
+        Me.vehicles_add.Location = New System.Drawing.Point(124, 227)
+        Me.vehicles_add.Name = "vehicles_add"
+        Me.vehicles_add.Size = New System.Drawing.Size(63, 17)
+        Me.vehicles_add.TabIndex = 16
+        Me.vehicles_add.Text = "Agregar"
+        Me.vehicles_add.UseVisualStyleBackColor = True
+        '
+        'logs_delete
+        '
+        Me.logs_delete.AutoSize = True
+        Me.logs_delete.Location = New System.Drawing.Point(13, 250)
+        Me.logs_delete.Name = "logs_delete"
+        Me.logs_delete.Size = New System.Drawing.Size(62, 17)
+        Me.logs_delete.TabIndex = 15
+        Me.logs_delete.Text = "Eliminar"
+        Me.logs_delete.UseVisualStyleBackColor = True
+        '
+        'drivers_edit
+        '
+        Me.drivers_edit.AutoSize = True
+        Me.drivers_edit.Location = New System.Drawing.Point(441, 126)
+        Me.drivers_edit.Name = "drivers_edit"
+        Me.drivers_edit.Size = New System.Drawing.Size(53, 17)
+        Me.drivers_edit.TabIndex = 14
+        Me.drivers_edit.Text = "Editar"
+        Me.drivers_edit.UseVisualStyleBackColor = True
+        '
+        'adresses_add
+        '
+        Me.adresses_add.AutoSize = True
+        Me.adresses_add.Location = New System.Drawing.Point(302, 100)
+        Me.adresses_add.Name = "adresses_add"
+        Me.adresses_add.Size = New System.Drawing.Size(63, 17)
+        Me.adresses_add.TabIndex = 13
+        Me.adresses_add.Text = "Agregar"
+        Me.adresses_add.UseVisualStyleBackColor = True
+        '
+        'telephone_edit
+        '
+        Me.telephone_edit.AutoSize = True
+        Me.telephone_edit.Location = New System.Drawing.Point(124, 122)
+        Me.telephone_edit.Name = "telephone_edit"
+        Me.telephone_edit.Size = New System.Drawing.Size(53, 17)
+        Me.telephone_edit.TabIndex = 12
+        Me.telephone_edit.Text = "Editar"
+        Me.telephone_edit.UseVisualStyleBackColor = True
+        '
+        'clients_edit
+        '
+        Me.clients_edit.AutoSize = True
+        Me.clients_edit.Location = New System.Drawing.Point(13, 122)
+        Me.clients_edit.Name = "clients_edit"
+        Me.clients_edit.Size = New System.Drawing.Size(53, 17)
+        Me.clients_edit.TabIndex = 11
+        Me.clients_edit.Text = "Editar"
+        Me.clients_edit.UseVisualStyleBackColor = True
+        '
+        'logs_add
+        '
+        Me.logs_add.AutoSize = True
+        Me.logs_add.Location = New System.Drawing.Point(13, 226)
+        Me.logs_add.Name = "logs_add"
+        Me.logs_add.Size = New System.Drawing.Size(63, 17)
+        Me.logs_add.TabIndex = 10
+        Me.logs_add.Text = "Agregar"
+        Me.logs_add.UseVisualStyleBackColor = True
+        '
+        'drivers_add
+        '
+        Me.drivers_add.AutoSize = True
+        Me.drivers_add.Location = New System.Drawing.Point(441, 101)
+        Me.drivers_add.Name = "drivers_add"
+        Me.drivers_add.Size = New System.Drawing.Size(63, 17)
+        Me.drivers_add.TabIndex = 9
+        Me.drivers_add.Text = "Agregar"
+        Me.drivers_add.UseVisualStyleBackColor = True
+        '
+        'telephone_add
+        '
+        Me.telephone_add.AutoSize = True
+        Me.telephone_add.Location = New System.Drawing.Point(124, 99)
+        Me.telephone_add.Name = "telephone_add"
+        Me.telephone_add.Size = New System.Drawing.Size(63, 17)
+        Me.telephone_add.TabIndex = 8
+        Me.telephone_add.Text = "Agregar"
+        Me.telephone_add.UseVisualStyleBackColor = True
+        '
+        'clients_delete
+        '
+        Me.clients_delete.AutoSize = True
+        Me.clients_delete.Location = New System.Drawing.Point(13, 145)
+        Me.clients_delete.Name = "clients_delete"
+        Me.clients_delete.Size = New System.Drawing.Size(62, 17)
+        Me.clients_delete.TabIndex = 7
+        Me.clients_delete.Text = "Eliminar"
+        Me.clients_delete.UseVisualStyleBackColor = True
+        '
+        'clients_add
+        '
+        Me.clients_add.AutoSize = True
+        Me.clients_add.Location = New System.Drawing.Point(13, 99)
+        Me.clients_add.Name = "clients_add"
+        Me.clients_add.Size = New System.Drawing.Size(63, 17)
+        Me.clients_add.TabIndex = 6
+        Me.clients_add.Text = "Agregar"
+        Me.clients_add.UseVisualStyleBackColor = True
+        '
+        'acces_logs
+        '
+        Me.acces_logs.AutoSize = True
+        Me.acces_logs.Location = New System.Drawing.Point(13, 202)
+        Me.acces_logs.Name = "acces_logs"
+        Me.acces_logs.Size = New System.Drawing.Size(104, 17)
+        Me.acces_logs.TabIndex = 5
+        Me.acces_logs.Text = "Acceso registros"
+        Me.acces_logs.UseVisualStyleBackColor = True
+        '
+        'acces_vehicles
+        '
+        Me.acces_vehicles.AutoSize = True
+        Me.acces_vehicles.Location = New System.Drawing.Point(124, 202)
+        Me.acces_vehicles.Name = "acces_vehicles"
+        Me.acces_vehicles.Size = New System.Drawing.Size(110, 17)
+        Me.acces_vehicles.TabIndex = 4
+        Me.acces_vehicles.Text = "Acceso vehiculos"
+        Me.acces_vehicles.UseVisualStyleBackColor = True
+        '
+        'acces_drivers
+        '
+        Me.acces_drivers.AutoSize = True
+        Me.acces_drivers.Location = New System.Drawing.Point(441, 76)
+        Me.acces_drivers.Name = "acces_drivers"
+        Me.acces_drivers.Size = New System.Drawing.Size(124, 17)
+        Me.acces_drivers.TabIndex = 3
+        Me.acces_drivers.Text = "Acceso conductores"
+        Me.acces_drivers.UseVisualStyleBackColor = True
+        '
+        'acces_adresses
+        '
+        Me.acces_adresses.AutoSize = True
+        Me.acces_adresses.Location = New System.Drawing.Point(302, 76)
+        Me.acces_adresses.Name = "acces_adresses"
+        Me.acces_adresses.Size = New System.Drawing.Size(119, 17)
+        Me.acces_adresses.TabIndex = 2
+        Me.acces_adresses.Text = "Acceso direcciones"
+        Me.acces_adresses.UseVisualStyleBackColor = True
+        '
+        'acces_numbersTelephone
+        '
+        Me.acces_numbersTelephone.AutoSize = True
+        Me.acces_numbersTelephone.Location = New System.Drawing.Point(124, 76)
+        Me.acces_numbersTelephone.Name = "acces_numbersTelephone"
+        Me.acces_numbersTelephone.Size = New System.Drawing.Size(167, 17)
+        Me.acces_numbersTelephone.TabIndex = 1
+        Me.acces_numbersTelephone.Text = "Accceso numeros de telefono"
+        Me.acces_numbersTelephone.UseVisualStyleBackColor = True
+        '
+        'acces_clients
+        '
+        Me.acces_clients.AutoSize = True
+        Me.acces_clients.Location = New System.Drawing.Point(13, 76)
+        Me.acces_clients.Name = "acces_clients"
+        Me.acces_clients.Size = New System.Drawing.Size(101, 17)
+        Me.acces_clients.TabIndex = 0
+        Me.acces_clients.Text = "Acceso clientes"
+        Me.acces_clients.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(184, 238)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(144, 38)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Agregar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'usersADD
         '
@@ -493,11 +494,11 @@ Partial Class usersADD
         Me.ClientSize = New System.Drawing.Size(927, 457)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TxtName)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TxtPassword)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TxtNombre)
+        Me.Controls.Add(Me.TxtUsername)
         Me.Controls.Add(Me.Label1)
         Me.Name = "usersADD"
         Me.Text = "usersADD"
@@ -508,44 +509,44 @@ Partial Class usersADD
 
     End Sub
 
-    Friend WithEvents TxtNombre As TextBox
+    Friend WithEvents TxtUsername As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TxtPassword As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TxtName As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents CheckBox26 As CheckBox
-    Friend WithEvents CheckBox27 As CheckBox
-    Friend WithEvents CheckBox28 As CheckBox
-    Friend WithEvents CheckBox29 As CheckBox
-    Friend WithEvents CheckBox30 As CheckBox
-    Friend WithEvents CheckBox21 As CheckBox
-    Friend WithEvents CheckBox22 As CheckBox
-    Friend WithEvents CheckBox23 As CheckBox
-    Friend WithEvents CheckBox24 As CheckBox
-    Friend WithEvents CheckBox25 As CheckBox
-    Friend WithEvents CheckBox16 As CheckBox
-    Friend WithEvents CheckBox17 As CheckBox
-    Friend WithEvents CheckBox18 As CheckBox
-    Friend WithEvents CheckBox19 As CheckBox
-    Friend WithEvents CheckBox20 As CheckBox
-    Friend WithEvents CheckBox11 As CheckBox
-    Friend WithEvents CheckBox12 As CheckBox
-    Friend WithEvents CheckBox13 As CheckBox
-    Friend WithEvents CheckBox14 As CheckBox
-    Friend WithEvents CheckBox15 As CheckBox
-    Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents CheckBox7 As CheckBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents CheckBox9 As CheckBox
-    Friend WithEvents CheckBox10 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents user_edit As CheckBox
+    Friend WithEvents user_delete As CheckBox
+    Friend WithEvents user_permisos As CheckBox
+    Friend WithEvents vehicles_delete As CheckBox
+    Friend WithEvents properties As CheckBox
+    Friend WithEvents user_access As CheckBox
+    Friend WithEvents adresses_delete As CheckBox
+    Friend WithEvents user_add As CheckBox
+    Friend WithEvents vehicles_edit As CheckBox
+    Friend WithEvents logs_clean As CheckBox
+    Friend WithEvents drivers_delete As CheckBox
+    Friend WithEvents adresses_edit As CheckBox
+    Friend WithEvents telephone_delete As CheckBox
+    Friend WithEvents vehicles_add As CheckBox
+    Friend WithEvents logs_delete As CheckBox
+    Friend WithEvents drivers_edit As CheckBox
+    Friend WithEvents adresses_add As CheckBox
+    Friend WithEvents telephone_edit As CheckBox
+    Friend WithEvents clients_edit As CheckBox
+    Friend WithEvents logs_add As CheckBox
+    Friend WithEvents drivers_add As CheckBox
+    Friend WithEvents telephone_add As CheckBox
+    Friend WithEvents clients_delete As CheckBox
+    Friend WithEvents clients_add As CheckBox
+    Friend WithEvents acces_logs As CheckBox
+    Friend WithEvents acces_vehicles As CheckBox
+    Friend WithEvents acces_drivers As CheckBox
+    Friend WithEvents acces_adresses As CheckBox
+    Friend WithEvents acces_numbersTelephone As CheckBox
+    Friend WithEvents acces_clients As CheckBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
 End Class

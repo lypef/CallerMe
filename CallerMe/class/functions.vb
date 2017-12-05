@@ -30,6 +30,8 @@ Public Class functions
     'Mensajes de alerta
     Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
     Public ReadOnly Alert_ProcesoFinalizadoOK = "Proceso finalizado con exito"
+
+
     Public ReadOnly Alert_ProcesoFinalizadoNO = "Proceso finalizado SIN exito"
     Public ReadOnly Alert_Verifique_proceso = "Verifique el proceso"
 
@@ -938,4 +940,183 @@ Public Class functions
     Public Function save_registroMANUAL(ByVal telefono As ComboBox, ByVal usuario As ComboBox, ByVal direccion As ComboBox, ByVal vehiculo As ComboBox, ByVal driver As ComboBox, ByVal fecha As DateTimePicker)
         Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + Client + ", " + ListNumeros.Item(telefono.SelectedIndex).ToString + ", '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', " + ListUsuarios.Item(usuario.SelectedIndex).ToString + ", " + ListDireccion.Item(direccion.SelectedIndex).ToString + ", " + ListVehiculos.Item(vehiculo.SelectedIndex).ToString + ", " + ListConductor.Item(driver.SelectedIndex).ToString + ")")
     End Function
+
+    Public Function Users_ADD(ByVal username As TextBox, ByVal password As TextBox, ByVal name As TextBox)
+        Dim r As Boolean = Db_shared.Ejecutar("INSERT INTO users (username, password, name) VALUES ('" + username.Text + "', '" + password.Text + "', '" + name.Text.ToUpper + "')")
+        If r Then
+            Return User_MAXID()
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Function Users_ADD_Permisos(
+        ByVal user As String,
+        ByVal acces_clients As CheckBox,
+        ByVal acces_numbersTelephone As CheckBox,
+        ByVal acces_adresses As CheckBox,
+        ByVal acces_drivers As CheckBox,
+        ByVal acces_vehicles As CheckBox,
+        ByVal acces_logs As CheckBox,
+        ByVal Clients_add As CheckBox,
+        ByVal clients_edit As CheckBox,
+        ByVal Clients_DELETE As CheckBox,
+        ByVal adresses_add As CheckBox,
+        ByVal adresses_edit As CheckBox,
+        ByVal adresses_delete As CheckBox,
+        ByVal telephone_add As CheckBox,
+        ByVal telephone_edit As CheckBox,
+        ByVal telephone_delete As CheckBox,
+        ByVal Drivers_add As CheckBox,
+        ByVal drivers_edit As CheckBox,
+        ByVal drivers_delete As CheckBox,
+        ByVal vehicles_add As CheckBox,
+        ByVal vehicles_edit As CheckBox,
+        ByVal vehicles_delete As CheckBox,
+        ByVal Properties As CheckBox,
+        ByVal logs_add As CheckBox,
+        ByVal Logs_delete As CheckBox,
+        ByVal Logs_clean As CheckBox,
+        ByVal user_access As CheckBox,
+        ByVal user_add As CheckBox,
+        ByVal user_edit As CheckBox,
+        ByVal User_delete As CheckBox,
+        ByVal user_permisos As CheckBox)
+        Return Db_shared.Ejecutar("INSERT INTO `permissions` (`user_id`, `acces_clients`, `acces_numbersTelephone`, `acces_adresses`, `acces_drivers`, `acces_vehicles`, `acces_logs`, `clients_add`, `clients_edit`, `clients_delete`, `adresses_add`, `adresses_edit`, `adresses_delete`, `telephone_add`, `telephone_edit`, `telephone_delete`, `drivers_add`, `drivers_edit`, `drivers_delete`, `vehicles_add`, `vehicles_edit`, `vehicles_delete`, `properties`, `logs_add`, `logs_delete`, `logs_clean`, `user_access`, `user_add`, `user_edit`, `user_delete`, `user_permisos`) VALUES (" + user + ", " + CheckBox_RETURNSTATUS(acces_clients) + ", " + CheckBox_RETURNSTATUS(acces_numbersTelephone) + ", " + CheckBox_RETURNSTATUS(acces_adresses) + ", " + CheckBox_RETURNSTATUS(acces_drivers) + ", " + CheckBox_RETURNSTATUS(acces_vehicles) + ", " + CheckBox_RETURNSTATUS(acces_logs) + ", " + CheckBox_RETURNSTATUS(Clients_add) + ", " + CheckBox_RETURNSTATUS(clients_edit) + ", " + CheckBox_RETURNSTATUS(Clients_DELETE) + ", " + CheckBox_RETURNSTATUS(adresses_add) + ", " + CheckBox_RETURNSTATUS(adresses_edit) + ", " + CheckBox_RETURNSTATUS(adresses_delete) + ", " + CheckBox_RETURNSTATUS(telephone_add) + ", " + CheckBox_RETURNSTATUS(telephone_edit) + ", " + CheckBox_RETURNSTATUS(telephone_delete) + ", " + CheckBox_RETURNSTATUS(Drivers_add) + ", " + CheckBox_RETURNSTATUS(drivers_edit) + ", " + CheckBox_RETURNSTATUS(drivers_delete) + ", " + CheckBox_RETURNSTATUS(vehicles_add) + ", " + CheckBox_RETURNSTATUS(vehicles_edit) + ", " + CheckBox_RETURNSTATUS(vehicles_delete) + ", " + CheckBox_RETURNSTATUS(Properties) + ", " + CheckBox_RETURNSTATUS(logs_add) + ", " + CheckBox_RETURNSTATUS(Logs_delete) + ", " + CheckBox_RETURNSTATUS(Logs_clean) + ", " + CheckBox_RETURNSTATUS(user_access) + ", " + CheckBox_RETURNSTATUS(user_add) + ", " + CheckBox_RETURNSTATUS(user_edit) + ", " + CheckBox_RETURNSTATUS(User_delete) + ", " + CheckBox_RETURNSTATUS(user_permisos) + ")")
+    End Function
+
+    Private Function CheckBox_RETURNSTATUS(ByVal c As CheckBox)
+        Dim r As String
+        If c.Checked Then
+            r = 1
+        Else
+            r = 0
+        End If
+        Return r
+    End Function
+
+    Public Function User_MAXID() As Integer
+        Dim dato = Db.Consult("SELECT MAX(id) AS id FROM users")
+        If dato.Read() Then
+            Return dato.GetString(0)
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Sub values_permisos(
+        ByVal TxtUsername As TextBox,
+        ByVal TxtPassword As TextBox,
+        ByVal TxtName As TextBox,
+        ByVal acces_clients As CheckBox,
+        ByVal acces_numbersTelephone As CheckBox,
+        ByVal acces_adresses As CheckBox,
+        ByVal acces_drivers As CheckBox,
+        ByVal acces_vehicles As CheckBox,
+        ByVal acces_logs As CheckBox,
+        ByVal Clients_add As CheckBox,
+        ByVal clients_edit As CheckBox,
+        ByVal Clients_DELETE As CheckBox,
+        ByVal adresses_add As CheckBox,
+        ByVal adresses_edit As CheckBox,
+        ByVal adresses_delete As CheckBox,
+        ByVal telephone_add As CheckBox,
+        ByVal telephone_edit As CheckBox,
+        ByVal telephone_delete As CheckBox,
+        ByVal Drivers_add As CheckBox,
+        ByVal drivers_edit As CheckBox,
+        ByVal drivers_delete As CheckBox,
+        ByVal vehicles_add As CheckBox,
+        ByVal vehicles_edit As CheckBox,
+        ByVal vehicles_delete As CheckBox,
+        ByVal Properties As CheckBox,
+        ByVal logs_add As CheckBox,
+        ByVal Logs_delete As CheckBox,
+        ByVal Logs_clean As CheckBox,
+        ByVal user_access As CheckBox,
+        ByVal user_add As CheckBox,
+        ByVal user_edit As CheckBox,
+        ByVal User_delete As CheckBox,
+        ByVal user_permisos As CheckBox)
+
+        Dim d = Db.Consult("SELECT * FROM users where id = " + user_select + " ")
+        If d.Read() Then
+            TxtUsername.Text = d.GetString(1)
+            TxtPassword.Text = d.GetString(2)
+            TxtName.Text = d.GetString(3)
+        End If
+
+        Dim p = Db.Consult("SELECT * FROM permissions where user_id = " + user_select + " ")
+        If p.Read() Then
+            acces_clients.Checked = p.GetBoolean(1)
+            acces_numbersTelephone.Checked = p.GetBoolean(2)
+            acces_adresses.Checked = p.GetBoolean(3)
+            acces_drivers.Checked = p.GetBoolean(4)
+            acces_vehicles.Checked = p.GetBoolean(5)
+            acces_logs.Checked = p.GetBoolean(6)
+            Clients_add.Checked = p.GetBoolean(7)
+            clients_edit.Checked = p.GetBoolean(8)
+            Clients_DELETE.Checked = p.GetBoolean(9)
+            adresses_add.Checked = p.GetBoolean(10)
+            adresses_edit.Checked = p.GetBoolean(11)
+            adresses_delete.Checked = p.GetBoolean(12)
+            telephone_add.Checked = p.GetBoolean(13)
+            telephone_edit.Checked = p.GetBoolean(14)
+            telephone_delete.Checked = p.GetBoolean(15)
+            Drivers_add.Checked = p.GetBoolean(16)
+            drivers_edit.Checked = p.GetBoolean(17)
+            drivers_delete.Checked = p.GetBoolean(18)
+            vehicles_add.Checked = p.GetBoolean(19)
+            vehicles_edit.Checked = p.GetBoolean(20)
+            vehicles_delete.Checked = p.GetBoolean(21)
+            Properties.Checked = p.GetBoolean(22)
+            logs_add.Checked = p.GetBoolean(23)
+            Logs_delete.Checked = p.GetBoolean(24)
+            Logs_clean.Checked = p.GetBoolean(25)
+            user_access.Checked = p.GetBoolean(26)
+            user_add.Checked = p.GetBoolean(27)
+            user_edit.Checked = p.GetBoolean(28)
+            User_delete.Checked = p.GetBoolean(29)
+            user_permisos.Checked = p.GetBoolean(30)
+        End If
+    End Sub
+
+    Public Function User_Update_Values(ByVal TxtUsername As TextBox, ByVal TxtPassword As TextBox, ByVal TxtName As TextBox)
+        Return Db_shared.Ejecutar("UPDATE users SET username = '" + TxtUsername.Text + "', password = '" + TxtPassword.Text + "', name = '" + TxtName.Text.ToUpper + "' WHERE id = " + user_select + " ")
+    End Function
+
+    Public Function User_Update_Permisos(
+        ByVal acces_clients As CheckBox,
+        ByVal acces_numbersTelephone As CheckBox,
+        ByVal acces_adresses As CheckBox,
+        ByVal acces_drivers As CheckBox,
+        ByVal acces_vehicles As CheckBox,
+        ByVal acces_logs As CheckBox,
+        ByVal Clients_add As CheckBox,
+        ByVal clients_edit As CheckBox,
+        ByVal Clients_DELETE As CheckBox,
+        ByVal adresses_add As CheckBox,
+        ByVal adresses_edit As CheckBox,
+        ByVal adresses_delete As CheckBox,
+        ByVal telephone_add As CheckBox,
+        ByVal telephone_edit As CheckBox,
+        ByVal telephone_delete As CheckBox,
+        ByVal Drivers_add As CheckBox,
+        ByVal drivers_edit As CheckBox,
+        ByVal drivers_delete As CheckBox,
+        ByVal vehicles_add As CheckBox,
+        ByVal vehicles_edit As CheckBox,
+        ByVal vehicles_delete As CheckBox,
+        ByVal Properties As CheckBox,
+        ByVal logs_add As CheckBox,
+        ByVal Logs_delete As CheckBox,
+        ByVal Logs_clean As CheckBox,
+        ByVal user_access As CheckBox,
+        ByVal user_add As CheckBox,
+        ByVal user_edit As CheckBox,
+        ByVal User_delete As CheckBox,
+        ByVal user_permisos As CheckBox)
+        Return Db_shared.Ejecutar("UPDATE permissions SET acces_clients = '" + CheckBox_RETURNSTATUS(acces_clients) + "', acces_numbersTelephone = '" + CheckBox_RETURNSTATUS(acces_numbersTelephone) + "', acces_adresses = '" + CheckBox_RETURNSTATUS(acces_adresses) + "', acces_drivers = '" + CheckBox_RETURNSTATUS(acces_drivers) + "', acces_vehicles = '" + CheckBox_RETURNSTATUS(acces_vehicles) + "', acces_logs = '" + CheckBox_RETURNSTATUS(acces_logs) + "', clients_add = '" + CheckBox_RETURNSTATUS(Clients_add) + "', clients_edit = '" + CheckBox_RETURNSTATUS(clients_edit) + "', clients_delete = '" + CheckBox_RETURNSTATUS(Clients_DELETE) + "', adresses_add = '" + CheckBox_RETURNSTATUS(adresses_add) + "', adresses_edit = '" + CheckBox_RETURNSTATUS(adresses_edit) + "', adresses_delete = '" + CheckBox_RETURNSTATUS(adresses_delete) + "', telephone_add = '" + CheckBox_RETURNSTATUS(telephone_add) + "', telephone_edit = '" + CheckBox_RETURNSTATUS(telephone_edit) + "', telephone_delete = '" + CheckBox_RETURNSTATUS(telephone_delete) + "', drivers_add = '" + CheckBox_RETURNSTATUS(Drivers_add) + "', drivers_edit = '" + CheckBox_RETURNSTATUS(drivers_edit) + "', drivers_delete = '" + CheckBox_RETURNSTATUS(drivers_delete) + "', vehicles_add = '" + CheckBox_RETURNSTATUS(vehicles_add) + "', vehicles_edit = '" + CheckBox_RETURNSTATUS(vehicles_edit) + "', vehicles_delete = '" + CheckBox_RETURNSTATUS(vehicles_delete) + "', properties = '" + CheckBox_RETURNSTATUS(Properties) + "', logs_add = '" + CheckBox_RETURNSTATUS(logs_add) + "', logs_delete = '" + CheckBox_RETURNSTATUS(Logs_delete) + "', logs_clean = '" + CheckBox_RETURNSTATUS(Logs_clean) + "', user_access = '" + CheckBox_RETURNSTATUS(user_access) + "', user_add = '" + CheckBox_RETURNSTATUS(user_add) + "', user_edit = '" + CheckBox_RETURNSTATUS(user_edit) + "', user_delete = '" + CheckBox_RETURNSTATUS(User_delete) + "', user_permisos = '" + CheckBox_RETURNSTATUS(user_permisos) + "' WHERE user_id = " + user_select + " ")
+    End Function
+
 End Class
