@@ -72,23 +72,6 @@
         TabControl1.SelectedIndex = 2
     End Sub
 
-    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
-        If f.ReturnPermission(f.Permission_Clients_delete) Then
-            functions.OnLoader(Loader)
-            If (MsgBox("¿Esta seguro de eliminar el cliente # " + functions.Client + vbNewLine + "(" + f.ReturnNameClient() + ") ?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
-                If functions.Clients_delete() Then
-                    f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table)
-                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-                Else
-                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
-                End If
-            End If
-            functions.OffLoader(Loader)
-        Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        End If
-    End Sub
-
     Private Sub CheckImagen_CheckedChanged(sender As Object, e As EventArgs) Handles CheckImagen.CheckedChanged
         If CheckImagen.Checked = False Then
             CheckCamara.Checked = True
@@ -161,5 +144,20 @@
 
     Private Sub Clients_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Me.Visible = False
+    End Sub
+
+    Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Clients_delete) Then
+            If (MsgBox("¿Esta seguro de eliminar el cliente # " + functions.Client + " ?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
+                If functions.Clients_DELETE Then
+                    LoadClientes()
+                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                End If
+            End If
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

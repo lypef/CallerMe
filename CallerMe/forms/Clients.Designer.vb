@@ -80,32 +80,32 @@ Partial Class Clients
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VerMovimientosToolStripMenuItem, Me.ToolStripSeparator1, Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(124, 76)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 98)
         '
         'VerMovimientosToolStripMenuItem
         '
         Me.VerMovimientosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
         Me.VerMovimientosToolStripMenuItem.Name = "VerMovimientosToolStripMenuItem"
-        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.VerMovimientosToolStripMenuItem.Text = "Numeros"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(120, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'TabControl1

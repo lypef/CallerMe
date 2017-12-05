@@ -13,6 +13,8 @@ Public Class functions
     Public Shared Driver_id As String
     Public Shared Vehicle_id As String
     Public Shared log_id As String
+    Public Shared user_select As String
+
     'Listas 
     Dim ListNumeros As New List(Of Integer)
     Dim ListUsuarios As New List(Of Integer)
@@ -46,6 +48,7 @@ Public Class functions
     Public ReadOnly Permission_Access_vehicle = "acces_vehicles"
     Public ReadOnly Permission_Access_properties = "properties"
     Public ReadOnly Permission_Access_LOGS = "acces_logs"
+    Public ReadOnly Permission_Access_users = "user_access"
 
     Public ReadOnly Permission_Clients_add = "clients_add"
     Public ReadOnly Permission_Clients_edit = "clients_edit"
@@ -66,6 +69,12 @@ Public Class functions
     Public ReadOnly Permission_Logs_ADD = "logs_add"
     Public ReadOnly Permission_Logs_EDIT = "logs_edit"
     Public ReadOnly Permission_Logs_DELETE = "logs_delete"
+    Public ReadOnly Permission_Logs_CLEAN = "logs_clean"
+    Public ReadOnly Permission_users_ADD = "user_add"
+    Public ReadOnly Permission_users_EDIT = "user_edit"
+    Public ReadOnly Permission_users_DELETE = "user_delete"
+    Public ReadOnly Permission_users_PERMISOS = "user_permisos"
+
 
     'Variables permisos de usuario
     Public ReadOnly GenReportClients = 1
@@ -74,6 +83,7 @@ Public Class functions
     Public ReadOnly GenReportClients_DRIVERS = 4
     Public ReadOnly GenReportDrivers_Vehicle = 5
     Public ReadOnly GenReportLOGS = 6
+    Public ReadOnly GenReport_users = 7
 
     'Otras variables
     Public Shared ReadOnly Data_clients = "\clients"
@@ -325,6 +335,23 @@ Public Class functions
 
     End Sub
 
+    Public Sub Users_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("username", "Username")
+        t.Columns.Add("Nombre", "Nombre")
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Logs_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -413,8 +440,8 @@ Public Class functions
 
     End Sub
 
-    Public Shared Function Clients_delete() As Boolean
-        Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
+    Public Shared Function Logs_clean() As Boolean
+        Return Db_shared.Ejecutar("truncate registros")
     End Function
 
     Public Shared Function Logs_delete() As Boolean
@@ -429,12 +456,20 @@ Public Class functions
         Return Db_shared.Ejecutar("delete from drivers where id = " + Driver_id + " ")
     End Function
 
+    Public Shared Function User_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from users where id = " + user_select + " ")
+    End Function
+
     Public Shared Function Clients_AdressDELETE() As Boolean
         Return Db_shared.Ejecutar("delete from adresses where id = " + Adress_id + " ")
     End Function
 
     Public Shared Function Clients_NumberDelete(ByVal id_number As String) As Boolean
         Return Db_shared.Ejecutar("delete from telephone_numbers where id = " + id_number + " ")
+    End Function
+
+    Public Shared Function Clients_DELETE() As Boolean
+        Return Db_shared.Ejecutar("delete from clients where id = " + Client + " ")
     End Function
 
     Public Function Client_LoadUpdate(ByVal nombre As TextBox, ByVal f_nacimiento As DateTimePicker, ByVal Correo_electronico As TextBox, ByVal url_foto As TextBox, ByVal Razon_social As TextBox, ByVal Rfc As TextBox, ByVal foto As PictureBox)
@@ -787,6 +822,19 @@ Public Class functions
             report = New Report_Logs
             report.SetDataSource(dt)
             report.SetParameterValue("title", "REPORTE REGISTROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
+        ElseIf NumReport = Me.GenReport_users Then
+            dt.Columns.Add("id")
+            dt.Columns.Add("username")
+            dt.Columns.Add("name")
+
+
+            For Each row As DataGridViewRow In t.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value)
+            Next
+
+            report = New report_users
+            report.SetDataSource(dt)
+            report.SetParameterValue("title", "REPORTE USUARIOS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
         Else
             report = Nothing
         End If

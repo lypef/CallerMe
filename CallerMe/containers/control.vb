@@ -2,11 +2,33 @@
     Dim f As New functions
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadforms()
         f.forms_setmodel(Me)
         f.Button_SetModel(Button_Clients, My.Resources.Btn_Clientes)
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
+
+    End Sub
+
+    Private Sub loadforms()
+        f.AddForm_Desktop(Adresses, Desktop)
+        f.AddForm_Desktop(AdressesADD, Desktop)
+        f.AddForm_Desktop(Clients, Desktop)
+        f.AddForm_Desktop(Clients_add, Desktop)
+        f.AddForm_Desktop(Drivers, Desktop)
+        f.AddForm_Desktop(DriversADD, Desktop)
+        f.AddForm_Desktop(Logs, Desktop)
+        f.AddForm_Desktop(LogsADD, Desktop)
+        f.AddForm_Desktop(Number_telephone, Desktop)
+        f.AddForm_Desktop(Number_telephoneADD, Desktop)
+        f.AddForm_Desktop(Parametros, Desktop)
+        f.AddForm_Desktop(Properties, Desktop)
+        f.AddForm_Desktop(users, Desktop)
+        f.AddForm_Desktop(usersADD, Desktop)
+        f.AddForm_Desktop(VehicleADD, Desktop)
+        f.AddForm_Desktop(Vehicles, Desktop)
+        Desktop.Controls.Clear()
     End Sub
 
     Private Sub Button_Clients_MouseEnter(sender As Object, e As EventArgs) Handles Button_Clients.MouseEnter
@@ -323,6 +345,48 @@
             Dim d As New DataGridView
             f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id ORDER BY id desc", d)
             f.GenReport(d, f.GenReportLOGS)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+
+    Private Sub LimpiarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Logs_CLEAN) Then
+            If (MsgBox("¿Esta seguro de limpiar todo los registros - TODOS LOS REGISTROS SERAN ELIMINADOS ?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
+                If functions.Logs_clean() Then
+                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                End If
+            End If
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem6_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem6.Click
+        If f.ReturnPermission(f.Permission_Access_users) Then
+            users.LoadINI()
+            f.AddForm_Desktop(users, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub AgregarUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarUsuarioToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_users_ADD) Then
+            f.AddForm_Desktop(usersADD, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem5.Click
+        If f.ReturnPermission(f.Permission_Access_users) Then
+            Dim d As New DataGridView
+            f.Users_DataGridViewSet("SELECT id, username, name FROM users ORDER by name asc", d)
+            f.GenReport(d, f.GenReport_users)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
