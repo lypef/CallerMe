@@ -114,7 +114,7 @@ Partial Class control
         '
         Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.ToolStripSeparator2, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(154, 148)
+        Me.Btn_ajustes.Size = New System.Drawing.Size(154, 126)
         '
         'ToolStripMenuItem6
         '
@@ -434,6 +434,7 @@ Partial Class control
         'Desktop
         '
         Me.Desktop.BackColor = System.Drawing.Color.Transparent
+        Me.Desktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Desktop.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Desktop.Location = New System.Drawing.Point(0, 99)
         Me.Desktop.Name = "Desktop"
