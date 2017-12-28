@@ -1,5 +1,6 @@
-﻿Imports system.io
+﻿Imports System.IO
 Imports MySql.Data.MySqlClient
+Imports System.Runtime.InteropServices
 
 Public Class functions
 
@@ -23,75 +24,75 @@ Public Class functions
     Dim ListConductor As New List(Of Integer)
 
     'Propiedades parametros
-    Public ReadOnly Empresa_Nombre = "name_enterprise"
-    Public ReadOnly Empresa_Direccion = "direccion"
-    Public ReadOnly Empresa_Rfc = "rfc"
+    Public ReadOnly Empresa_Nombre As String = "name_enterprise"
+    Public ReadOnly Empresa_Direccion As String = "direccion"
+    Public ReadOnly Empresa_Rfc As String = "rfc"
 
     'Mensajes de alerta
-    Public ReadOnly Alert_NoPermitido = "Acceso No permitido"
-    Public ReadOnly Alert_ProcesoFinalizadoOK = "Proceso finalizado con exito"
+    Public ReadOnly Alert_NoPermitido As String = "Acceso No permitido"
+    Public ReadOnly Alert_ProcesoFinalizadoOK As String = "Proceso finalizado con exito"
 
 
-    Public ReadOnly Alert_ProcesoFinalizadoNO = "Proceso finalizado SIN exito"
-    Public ReadOnly Alert_Verifique_proceso = "Verifique el proceso"
+    Public ReadOnly Alert_ProcesoFinalizadoNO As String = "Proceso finalizado SIN exito"
+    Public ReadOnly Alert_Verifique_proceso As String = "Verifique el proceso"
 
     'Numeros de alerta
-    Public ReadOnly Alert_NumberInformacion = 64
-    Public ReadOnly Alert_NumberCritical = 16
-    Public ReadOnly Alert_NumberExclamacion = 48
+    Public ReadOnly Alert_NumberInformacion As Integer = 64
+    Public ReadOnly Alert_NumberCritical As Integer = 16
+    Public ReadOnly Alert_NumberExclamacion As Integer = 48
 
     'Variables permisos de usuario
-    Public ReadOnly Permission_Access_Clients = "acces_clients"
-    Public ReadOnly Permission_Access_registros = "acces_registros"
-    Public ReadOnly Permission_Access_vehiculos = "acces_vehiculos"
-    Public ReadOnly Permission_Access_ajustes = "acces_ajustes"
-    Public ReadOnly Permission_Access_adress = "acces_adresses"
-    Public ReadOnly Permission_Access_drivers = "acces_drivers"
-    Public ReadOnly Permission_Access_vehicle = "acces_vehicles"
-    Public ReadOnly Permission_Access_properties = "properties"
-    Public ReadOnly Permission_Access_LOGS = "acces_logs"
-    Public ReadOnly Permission_Access_users = "user_access"
+    Public ReadOnly Permission_Access_Clients As String = "acces_clients"
+    Public ReadOnly Permission_Access_registros As String = "acces_registros"
+    Public ReadOnly Permission_Access_vehiculos As String = "acces_vehiculos"
+    Public ReadOnly Permission_Access_ajustes As String = "acces_ajustes"
+    Public ReadOnly Permission_Access_adress As String = "acces_adresses"
+    Public ReadOnly Permission_Access_drivers As String = "acces_drivers"
+    Public ReadOnly Permission_Access_vehicle As String = "acces_vehicles"
+    Public ReadOnly Permission_Access_properties As String = "properties"
+    Public ReadOnly Permission_Access_LOGS As String = "acces_logs"
+    Public ReadOnly Permission_Access_users As String = "user_access"
 
-    Public ReadOnly Permission_Clients_add = "clients_add"
-    Public ReadOnly Permission_Clients_edit = "clients_edit"
-    Public ReadOnly Permission_Clients_delete = "clients_delete"
-    Public ReadOnly Permission_Adresses_add = "adresses_add"
-    Public ReadOnly Permission_Adresses_edit = "adresses_edit"
-    Public ReadOnly Permission_Adresses_delete = "adresses_delete"
-    Public ReadOnly Permission_Telephone_add = "telephone_add"
-    Public ReadOnly Permission_Telephone_edit = "telephone_edit"
-    Public ReadOnly Permission_Telephone_delete = "telephone_delete"
-    Public ReadOnly Permission_Telephone_Access = "acces_numbersTelephone"
-    Public ReadOnly Permission_Drivers_ADD = "drivers_add"
-    Public ReadOnly Permission_Drivers_EDIT = "drivers_edit"
-    Public ReadOnly Permission_Drivers_DELETE = "drivers_delete"
-    Public ReadOnly Permission_Vehicle_ADD = "vehicles_add"
-    Public ReadOnly Permission_Vehicle_EDIT = "vehicles_edit"
-    Public ReadOnly Permission_Vehicle_DELETE = "vehicles_delete"
-    Public ReadOnly Permission_Logs_ADD = "logs_add"
-    Public ReadOnly Permission_Logs_EDIT = "logs_edit"
-    Public ReadOnly Permission_Logs_DELETE = "logs_delete"
-    Public ReadOnly Permission_Logs_CLEAN = "logs_clean"
-    Public ReadOnly Permission_users_ADD = "user_add"
-    Public ReadOnly Permission_users_EDIT = "user_edit"
-    Public ReadOnly Permission_users_DELETE = "user_delete"
-    Public ReadOnly Permission_users_PERMISOS = "user_permisos"
+    Public ReadOnly Permission_Clients_add As String = "clients_add"
+    Public ReadOnly Permission_Clients_edit As String = "clients_edit"
+    Public ReadOnly Permission_Clients_delete As String = "clients_delete"
+    Public ReadOnly Permission_Adresses_add As String = "adresses_add"
+    Public ReadOnly Permission_Adresses_edit As String = "adresses_edit"
+    Public ReadOnly Permission_Adresses_delete As String = "adresses_delete"
+    Public ReadOnly Permission_Telephone_add As String = "telephone_add"
+    Public ReadOnly Permission_Telephone_edit As String = "telephone_edit"
+    Public ReadOnly Permission_Telephone_delete As String = "telephone_delete"
+    Public ReadOnly Permission_Telephone_Access As String = "acces_numbersTelephone"
+    Public ReadOnly Permission_Drivers_ADD As String = "drivers_add"
+    Public ReadOnly Permission_Drivers_EDIT As String = "drivers_edit"
+    Public ReadOnly Permission_Drivers_DELETE As String = "drivers_delete"
+    Public ReadOnly Permission_Vehicle_ADD As String = "vehicles_add"
+    Public ReadOnly Permission_Vehicle_EDIT As String = "vehicles_edit"
+    Public ReadOnly Permission_Vehicle_DELETE As String = "vehicles_delete"
+    Public ReadOnly Permission_Logs_ADD As String = "logs_add"
+    Public ReadOnly Permission_Logs_EDIT As String = "logs_edit"
+    Public ReadOnly Permission_Logs_DELETE As String = "logs_delete"
+    Public ReadOnly Permission_Logs_CLEAN As String = "logs_clean"
+    Public ReadOnly Permission_users_ADD As String = "user_add"
+    Public ReadOnly Permission_users_EDIT As String = "user_edit"
+    Public ReadOnly Permission_users_DELETE As String = "user_delete"
+    Public ReadOnly Permission_users_PERMISOS As String = "user_permisos"
 
 
     'Variables permisos de usuario
-    Public ReadOnly GenReportClients = 1
-    Public ReadOnly GenReportClients_NUMEROS = 2
-    Public ReadOnly GenReportClients_DIRECCIONES = 3
-    Public ReadOnly GenReportClients_DRIVERS = 4
-    Public ReadOnly GenReportDrivers_Vehicle = 5
-    Public ReadOnly GenReportLOGS = 6
-    Public ReadOnly GenReport_users = 7
+    Public ReadOnly GenReportClients As Integer = 1
+    Public ReadOnly GenReportClients_NUMEROS As Integer = 2
+    Public ReadOnly GenReportClients_DIRECCIONES As Integer = 3
+    Public ReadOnly GenReportClients_DRIVERS As Integer = 4
+    Public ReadOnly GenReportDrivers_Vehicle As Integer = 5
+    Public ReadOnly GenReportLOGS As Integer = 6
+    Public ReadOnly GenReport_users As Integer = 7
 
     'Otras variables
-    Public Shared ReadOnly Data_clients = "\clients"
-    Public Shared ReadOnly Data_reports = "\reports"
-    Public Shared ReadOnly Data_drivers = "\drivers"
-    Public Shared ReadOnly Clients_ImgDefault = "\Default.jpg"
+    Public Shared ReadOnly Data_clients As String = "\clients"
+    Public Shared ReadOnly Data_reports As String = "\reports"
+    Public Shared ReadOnly Data_drivers As String = "\drivers"
+    Public Shared ReadOnly Clients_ImgDefault As String = "\Default.jpg"
 
 
     Public Sub forms_setmodel(ByVal form As Form)
@@ -143,7 +144,9 @@ Public Class functions
         Dim r = False
         Dim dato = Db.Consult("select * from users where username = '" + username.Text + "' and password = '" + password.Text + "' ")
 
+
         If dato.hasrows Then
+
             Do While dato.Read()
                 userID = dato.GetString(0)
                 r = True
@@ -755,7 +758,7 @@ Public Class functions
                 dt.Rows.Add(row.Cells(0).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
             Next
 
-            report = New Report_numbers
+            report = New report_numbers
             report.SetDataSource(dt)
             report.SetParameterValue("title", "REPORTE NUMEROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
 
@@ -1119,4 +1122,21 @@ Public Class functions
         Return Db_shared.Ejecutar("UPDATE permissions SET acces_clients = '" + CheckBox_RETURNSTATUS(acces_clients) + "', acces_numbersTelephone = '" + CheckBox_RETURNSTATUS(acces_numbersTelephone) + "', acces_adresses = '" + CheckBox_RETURNSTATUS(acces_adresses) + "', acces_drivers = '" + CheckBox_RETURNSTATUS(acces_drivers) + "', acces_vehicles = '" + CheckBox_RETURNSTATUS(acces_vehicles) + "', acces_logs = '" + CheckBox_RETURNSTATUS(acces_logs) + "', clients_add = '" + CheckBox_RETURNSTATUS(Clients_add) + "', clients_edit = '" + CheckBox_RETURNSTATUS(clients_edit) + "', clients_delete = '" + CheckBox_RETURNSTATUS(Clients_DELETE) + "', adresses_add = '" + CheckBox_RETURNSTATUS(adresses_add) + "', adresses_edit = '" + CheckBox_RETURNSTATUS(adresses_edit) + "', adresses_delete = '" + CheckBox_RETURNSTATUS(adresses_delete) + "', telephone_add = '" + CheckBox_RETURNSTATUS(telephone_add) + "', telephone_edit = '" + CheckBox_RETURNSTATUS(telephone_edit) + "', telephone_delete = '" + CheckBox_RETURNSTATUS(telephone_delete) + "', drivers_add = '" + CheckBox_RETURNSTATUS(Drivers_add) + "', drivers_edit = '" + CheckBox_RETURNSTATUS(drivers_edit) + "', drivers_delete = '" + CheckBox_RETURNSTATUS(drivers_delete) + "', vehicles_add = '" + CheckBox_RETURNSTATUS(vehicles_add) + "', vehicles_edit = '" + CheckBox_RETURNSTATUS(vehicles_edit) + "', vehicles_delete = '" + CheckBox_RETURNSTATUS(vehicles_delete) + "', properties = '" + CheckBox_RETURNSTATUS(Properties) + "', logs_add = '" + CheckBox_RETURNSTATUS(logs_add) + "', logs_delete = '" + CheckBox_RETURNSTATUS(Logs_delete) + "', logs_clean = '" + CheckBox_RETURNSTATUS(Logs_clean) + "', user_access = '" + CheckBox_RETURNSTATUS(user_access) + "', user_add = '" + CheckBox_RETURNSTATUS(user_add) + "', user_edit = '" + CheckBox_RETURNSTATUS(user_edit) + "', user_delete = '" + CheckBox_RETURNSTATUS(User_delete) + "', user_permisos = '" + CheckBox_RETURNSTATUS(user_permisos) + "' WHERE user_id = " + user_select + " ")
     End Function
 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_InitDevice")>
+    Public Shared Function AD101_InitDevice(ByVal hWnd As Integer) As Integer
+    End Function
+
+    ' Control line connected with ad101 device to busy or idel
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetBusy")>
+    Public Shared Function AD101_SetBusy(ByVal nLine As Integer, ByVal enumLineBusy As Integer) As Integer
+    End Function
+
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetDevice")>
+    Public Shared Function AD101_GetDevice() As Integer
+    End Function
+
+    ' Control led 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetLED")>
+    Public Shared Function AD101_SetLED(ByVal nLine As Integer, ByVal enumLed As Integer) As Integer
+    End Function
 End Class

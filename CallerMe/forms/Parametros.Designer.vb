@@ -52,10 +52,13 @@ Partial Class Parametros
         Me.Tablas_Height = New System.Windows.Forms.NumericUpDown()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxLEd = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -221,7 +224,7 @@ Partial Class Parametros
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(241, 33)
         Me.Button7.TabIndex = 2
-        Me.Button7.Text = "Seleccionar carpeta"
+        Me.Button7.Text = "Seleccionar logo"
         Me.Button7.UseVisualStyleBackColor = True
         '
         'Label7
@@ -324,11 +327,33 @@ Partial Class Parametros
         Me.Tablas_Height.Size = New System.Drawing.Size(57, 20)
         Me.Tablas_Height.TabIndex = 0
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.ComboBoxLEd)
+        Me.GroupBox4.Location = New System.Drawing.Point(460, 12)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(253, 263)
+        Me.GroupBox4.TabIndex = 10
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Identificador de llamadas"
+        '
+        'ComboBoxLEd
+        '
+        Me.ComboBoxLEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxLEd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.ComboBoxLEd.FormattingEnabled = True
+        Me.ComboBoxLEd.Items.AddRange(New Object() {"MODO LUZ LED", "LED APAGADO", "ROJA SIEMPRE", "VERDE SIEMPRE", "AMARILLA SIEMPRE", "ROJA INTERMITENTE DESPACIO", "VERDE INTERMITENTE DESPACIO", "AMARILLA INTERMITENTE DESPACIO", "ROJA INTERMITENTE RAPIDO", "VERDE INTERMITENTE RAPIDO", "AMARILLA INTERMITENTE RAPIDO"})
+        Me.ComboBoxLEd.Location = New System.Drawing.Point(6, 35)
+        Me.ComboBoxLEd.Name = "ComboBoxLEd"
+        Me.ComboBoxLEd.Size = New System.Drawing.Size(238, 28)
+        Me.ComboBoxLEd.TabIndex = 4
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button2)
@@ -344,6 +369,7 @@ Partial Class Parametros
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -378,4 +404,6 @@ Partial Class Parametros
     Friend WithEvents Button7 As Button
     Friend WithEvents Label7 As Label
     Friend WithEvents TxtLogoReport As TextBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents ComboBoxLEd As ComboBox
 End Class

@@ -209,6 +209,18 @@ Namespace My
                 Me("report_image") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property caller_luz() As Integer
+            Get
+                Return CType(Me("caller_luz"),Integer)
+            End Get
+            Set
+                Me("caller_luz") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

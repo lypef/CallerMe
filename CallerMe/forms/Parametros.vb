@@ -22,6 +22,7 @@ Public Class Parametros
         tipo_font = My.Settings.datagridview_font
         colorselect = My.Settings.datagridview_selectrow
         TxtLogoReport.Text = My.Settings.report_image
+        ComboBoxLEd.SelectedIndex = My.Settings.caller_luz
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -45,6 +46,7 @@ Public Class Parametros
         My.Settings.datagridview_font = tipo_font
         My.Settings.datagridview_selectrow = colorselect
         My.Settings.report_image = TxtLogoReport.Text
+        My.Settings.caller_luz = ComboBoxLEd.SelectedIndex
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 

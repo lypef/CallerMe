@@ -1,4 +1,6 @@
-﻿Public Class control
+﻿Imports System.Runtime.InteropServices
+
+Public Class control
     Dim f As New functions
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -8,7 +10,20 @@
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
+        Try
+            If f.AD101_InitDevice(Handle.ToInt32()) = 0 Then
+                Return
+            End If
+        Catch ex As Exception
+            f.Alert(ex.Message, f.Alert_NumberExclamacion)
+        End Try
 
+        f.AD101_GetDevice()
+
+        f.AD101_SetLED(0, My.Settings.caller_luz)
+        f.AD101_SetLED(1, My.Settings.caller_luz)
+        f.AD101_SetLED(2, My.Settings.caller_luz)
+        f.AD101_SetLED(3, My.Settings.caller_luz)
     End Sub
 
     Private Sub loadforms()
@@ -390,5 +405,14 @@
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+
+    Private Sub BusyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusyToolStripMenuItem.Click
+        f.AD101_SetBusy(0, 0)
+    End Sub
+
+    Private Sub FreeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FreeToolStripMenuItem.Click
+        f.AD101_SetBusy(0, 1)
     End Sub
 End Class
