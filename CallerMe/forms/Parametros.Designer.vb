@@ -53,12 +53,19 @@ Partial Class Parametros
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.ComboBoxLEd = New System.Windows.Forms.ComboBox()
+        Me.TimerInterval = New System.Windows.Forms.NumericUpDown()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.FontDialog2 = New System.Windows.Forms.FontDialog()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
+        CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -329,7 +336,9 @@ Partial Class Parametros
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.Controls.Add(Me.ComboBoxLEd)
+        Me.GroupBox4.Controls.Add(Me.TimerInterval)
         Me.GroupBox4.Location = New System.Drawing.Point(460, 12)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(253, 263)
@@ -337,22 +346,59 @@ Partial Class Parametros
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Identificador de llamadas"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(7, 80)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(187, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Intervalo de comprobacion de llamada"
+        '
         'ComboBoxLEd
         '
         Me.ComboBoxLEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxLEd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ComboBoxLEd.FormattingEnabled = True
         Me.ComboBoxLEd.Items.AddRange(New Object() {"MODO LUZ LED", "LED APAGADO", "ROJA SIEMPRE", "VERDE SIEMPRE", "AMARILLA SIEMPRE", "ROJA INTERMITENTE DESPACIO", "VERDE INTERMITENTE DESPACIO", "AMARILLA INTERMITENTE DESPACIO", "ROJA INTERMITENTE RAPIDO", "VERDE INTERMITENTE RAPIDO", "AMARILLA INTERMITENTE RAPIDO"})
-        Me.ComboBoxLEd.Location = New System.Drawing.Point(6, 35)
+        Me.ComboBoxLEd.Location = New System.Drawing.Point(10, 35)
         Me.ComboBoxLEd.Name = "ComboBoxLEd"
         Me.ComboBoxLEd.Size = New System.Drawing.Size(238, 28)
         Me.ComboBoxLEd.TabIndex = 4
+        '
+        'TimerInterval
+        '
+        Me.TimerInterval.Location = New System.Drawing.Point(10, 98)
+        Me.TimerInterval.Name = "TimerInterval"
+        Me.TimerInterval.Size = New System.Drawing.Size(238, 20)
+        Me.TimerInterval.TabIndex = 6
+        Me.TimerInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(6, 22)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(176, 34)
+        Me.Button8.TabIndex = 6
+        Me.Button8.Text = "Tipo de letra alertas"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.Button8)
+        Me.GroupBox5.Location = New System.Drawing.Point(310, 281)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(403, 100)
+        Me.GroupBox5.TabIndex = 102
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Otros"
         '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -370,6 +416,9 @@ Partial Class Parametros
         Me.GroupBox3.PerformLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
+        CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -406,4 +455,9 @@ Partial Class Parametros
     Friend WithEvents TxtLogoReport As TextBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents ComboBoxLEd As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents TimerInterval As NumericUpDown
+    Friend WithEvents Button8 As Button
+    Friend WithEvents FontDialog2 As FontDialog
+    Friend WithEvents GroupBox5 As GroupBox
 End Class

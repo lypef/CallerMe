@@ -24,6 +24,12 @@ Public Class control
         f.AD101_SetLED(1, My.Settings.caller_luz)
         f.AD101_SetLED(2, My.Settings.caller_luz)
         f.AD101_SetLED(3, My.Settings.caller_luz)
+        loadTimer()
+    End Sub
+
+    Private Sub loadTimer()
+        Timer.Interval = My.Settings.timer_intervalo
+        Timer.Start()
     End Sub
 
     Private Sub loadforms()
@@ -415,4 +421,12 @@ Public Class control
     Private Sub FreeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FreeToolStripMenuItem.Click
         f.AD101_SetBusy(0, 1)
     End Sub
+
+    Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
+        f.ComprobarLlamada(0)
+        f.ComprobarLlamada(1)
+        f.ComprobarLlamada(2)
+        f.ComprobarLlamada(3)
+    End Sub
+
 End Class

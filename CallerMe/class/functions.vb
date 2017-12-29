@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports MySql.Data.MySqlClient
 Imports System.Runtime.InteropServices
+Imports System.Text
 
 Public Class functions
 
@@ -159,7 +160,9 @@ Public Class functions
     End Function
 
     Public Sub Alert(ByVal txt As String, ByVal style As Integer)
-        MsgBox(txt.ToUpper(), style, ReturnEmpresa_Parametros(Empresa_Nombre))
+        AlertContainer.Show()
+        AlertContainer.style(style)
+        AlertContainer.TextBoxMensaje.Text = txt.ToUpper()
     End Sub
 
     Public Sub OpenConfig()
@@ -187,7 +190,7 @@ Public Class functions
         Return r.ToUpper()
     End Function
 
-    Public Function ReturnPermission(ByVal campo As String)
+    Public Function ReturnPermission(ByVal campo As String) As Boolean
         Dim r = False
         Dim dato = Db.Consult("select " + campo + " from permissions where user_id =  '" + userID + "'  ")
 
@@ -198,7 +201,7 @@ Public Class functions
         Return r
     End Function
 
-    Public Function ReturnEmpresa_Parametros(ByVal t As String)
+    Public Function ReturnEmpresa_Parametros(ByVal t As String) As String
         Dim r = ""
         Dim dato = Db.Consult("select " + t + " from properties where id =  1 ")
 
@@ -1122,21 +1125,138 @@ Public Class functions
         Return Db_shared.Ejecutar("UPDATE permissions SET acces_clients = '" + CheckBox_RETURNSTATUS(acces_clients) + "', acces_numbersTelephone = '" + CheckBox_RETURNSTATUS(acces_numbersTelephone) + "', acces_adresses = '" + CheckBox_RETURNSTATUS(acces_adresses) + "', acces_drivers = '" + CheckBox_RETURNSTATUS(acces_drivers) + "', acces_vehicles = '" + CheckBox_RETURNSTATUS(acces_vehicles) + "', acces_logs = '" + CheckBox_RETURNSTATUS(acces_logs) + "', clients_add = '" + CheckBox_RETURNSTATUS(Clients_add) + "', clients_edit = '" + CheckBox_RETURNSTATUS(clients_edit) + "', clients_delete = '" + CheckBox_RETURNSTATUS(Clients_DELETE) + "', adresses_add = '" + CheckBox_RETURNSTATUS(adresses_add) + "', adresses_edit = '" + CheckBox_RETURNSTATUS(adresses_edit) + "', adresses_delete = '" + CheckBox_RETURNSTATUS(adresses_delete) + "', telephone_add = '" + CheckBox_RETURNSTATUS(telephone_add) + "', telephone_edit = '" + CheckBox_RETURNSTATUS(telephone_edit) + "', telephone_delete = '" + CheckBox_RETURNSTATUS(telephone_delete) + "', drivers_add = '" + CheckBox_RETURNSTATUS(Drivers_add) + "', drivers_edit = '" + CheckBox_RETURNSTATUS(drivers_edit) + "', drivers_delete = '" + CheckBox_RETURNSTATUS(drivers_delete) + "', vehicles_add = '" + CheckBox_RETURNSTATUS(vehicles_add) + "', vehicles_edit = '" + CheckBox_RETURNSTATUS(vehicles_edit) + "', vehicles_delete = '" + CheckBox_RETURNSTATUS(vehicles_delete) + "', properties = '" + CheckBox_RETURNSTATUS(Properties) + "', logs_add = '" + CheckBox_RETURNSTATUS(logs_add) + "', logs_delete = '" + CheckBox_RETURNSTATUS(Logs_delete) + "', logs_clean = '" + CheckBox_RETURNSTATUS(Logs_clean) + "', user_access = '" + CheckBox_RETURNSTATUS(user_access) + "', user_add = '" + CheckBox_RETURNSTATUS(user_add) + "', user_edit = '" + CheckBox_RETURNSTATUS(user_edit) + "', user_delete = '" + CheckBox_RETURNSTATUS(User_delete) + "', user_permisos = '" + CheckBox_RETURNSTATUS(user_permisos) + "' WHERE user_id = " + user_select + " ")
     End Function
 
+    'Caller id
+    Public Structure AD101DEVICEPARAMETER
+        Public nRingOn As Integer
+        Public nRingOff As Integer
+        Public nHookOn As Integer
+        Public nHookOff As Integer
+        Public nStopCID As Integer
+        Public nNoLine As Integer
+        ' Add this parameter in new AD101(MCU Version is 6.0)
+    End Structure
+
     <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_InitDevice")>
     Public Shared Function AD101_InitDevice(ByVal hWnd As Integer) As Integer
-    End Function
-
-    ' Control line connected with ad101 device to busy or idel
-    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetBusy")>
-    Public Shared Function AD101_SetBusy(ByVal nLine As Integer, ByVal enumLineBusy As Integer) As Integer
     End Function
 
     <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetDevice")>
     Public Shared Function AD101_GetDevice() As Integer
     End Function
 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetCPUVersion", CharSet:=CharSet.Ansi)>
+    Public Shared Function AD101_GetCPUVersion(ByVal nLine As Integer, ByVal szCPUVersion As StringBuilder) As Integer
+    End Function
+
+    ' Start reading cpu id of device 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_ReadCPUID")>
+    Public Shared Function AD101_ReadCPUID(ByVal nLine As Integer) As Integer
+    End Function
+
+    ' Get readed cpu id of device 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetCPUID", CharSet:=CharSet.Ansi)>
+    Public Shared Function AD101_GetCPUID(ByVal nLine As Integer, ByVal szCPUID As StringBuilder) As Integer
+    End Function
+
+
+
+    ' Get caller id number  
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetCallerID", CharSet:=CharSet.Ansi)>
+    Public Shared Function AD101_GetCallerID(ByVal nLine As Integer, ByVal szCallerIDBuffer As StringBuilder, ByVal szName As StringBuilder, ByVal szTime As StringBuilder) As Integer
+    End Function
+
+    ' Get dialed number 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetDialDigit", CharSet:=CharSet.Ansi)>
+    Public Shared Function AD101_GetDialDigit(ByVal nLine As Integer, ByVal szDialDigitBuffer As StringBuilder) As Integer
+    End Function
+
+
+    ' Get collateral phone dialed number 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetCollateralDialDigit", CharSet:=CharSet.Ansi)>
+    Public Shared Function AD101_GetCollateralDialDigit(ByVal nLine As Integer, ByVal szDialDigitBuffer As StringBuilder) As Integer
+    End Function
+
+
+
+    ' Get last line state 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetState")>
+    Public Shared Function AD101_GetState(ByVal nLine As Integer) As Integer
+    End Function
+
+    ' Get ring count
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetRingIndex")>
+    Public Shared Function AD101_GetRingIndex(ByVal nLine As Integer) As Integer
+    End Function
+
+    ' Get talking time
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetTalkTime")>
+    Public Shared Function AD101_GetTalkTime(ByVal nLine As Integer) As Integer
+    End Function
+
+
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetParameter")>
+    Public Shared Function AD101_GetParameter(ByVal nLine As Integer, ByRef tagParameter As AD101DEVICEPARAMETER) As Integer
+    End Function
+
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_ReadParameter")>
+    Public Shared Function AD101_ReadParameter(ByVal nLine As Integer) As Integer
+    End Function
+
+    ' Set systematic parameter  
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetParameter")>
+    Public Shared Function AD101_SetParameter(ByVal nLine As Integer, ByRef tagParameter As AD101DEVICEPARAMETER) As Integer
+    End Function
+
+    ' Free devices 
+
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_FreeDevice")>
+    Public Shared Sub AD101_FreeDevice()
+    End Sub
+
+    ' Get current AD101 device count
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_GetCurDevCount")>
+    Public Shared Function AD101_GetCurDevCount() As Integer
+    End Function
+
+    ' Change handle of window that uses to receive message
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_ChangeWindowHandle")>
+    Public Shared Function AD101_ChangeWindowHandle(ByVal hWnd As Integer) As Integer
+    End Function
+
+    ' Show or don't show collateral phone dialed number
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_ShowCollateralPhoneDialed")>
+    Public Shared Sub AD101_ShowCollateralPhoneDialed(ByVal bShow As Boolean)
+    End Sub
+
     ' Control led 
     <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetLED")>
     Public Shared Function AD101_SetLED(ByVal nLine As Integer, ByVal enumLed As Integer) As Integer
+    End Function
+
+
+    ' Control line connected with ad101 device to busy or idel
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetBusy")>
+    Public Shared Function AD101_SetBusy(ByVal nLine As Integer, ByVal enumLineBusy As Integer) As Integer
+    End Function
+
+    ' Set line to start talking than start timer
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetLineStartTalk")>
+    Public Shared Function AD101_SetLineStartTalk(ByVal nLine As Integer) As Integer
+    End Function
+
+
+    ' Set time to start talking after dialed number 
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetDialOutStartTalkingTime")>
+    Public Shared Function AD101_SetDialOutStartTalkingTime(ByVal nSecond As Integer) As Integer
+    End Function
+
+
+    ' Set ring end time
+    <DllImport("C:\AD101Device.dll", EntryPoint:="AD101_SetRingOffTime")>
+    Public Shared Function AD101_SetRingOffTime(ByVal nSecond As Integer) As Integer
+    End Function
+
+    Public Function ComprobarLlamada(ByVal Device As Integer) As Boolean
+        Return True
     End Function
 End Class

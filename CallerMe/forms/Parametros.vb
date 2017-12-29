@@ -6,6 +6,7 @@ Public Class Parametros
     Dim colorfondo As Color
     Dim colorselect As Color
     Dim tipo_font As Font
+    Dim tipo_font_alert As Font
 
     Private Sub Parametros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
@@ -17,12 +18,22 @@ Public Class Parametros
         TxtUrlData.Text = My.Settings.data_url
         Tablas_Height.Value = My.Settings.datagridview_height
         Button4.BackColor = My.Settings.datagridview_color
+
         Button5.Font = My.Settings.datagridview_font
+        FontDialog1.Font = My.Settings.datagridview_font
+
+        Button8.Font = My.Settings.font_alertas
+        FontDialog2.Font = My.Settings.font_alertas
+
         Button6.BackColor = My.Settings.datagridview_selectrow
         tipo_font = My.Settings.datagridview_font
+        tipo_font_alert = My.Settings.font_alertas
         colorselect = My.Settings.datagridview_selectrow
         TxtLogoReport.Text = My.Settings.report_image
         ComboBoxLEd.SelectedIndex = My.Settings.caller_luz
+        TimerInterval.Minimum = 250
+        TimerInterval.Maximum = 2000
+        TimerInterval.Value = My.Settings.timer_intervalo
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -41,12 +52,14 @@ Public Class Parametros
         My.Settings.db_nameDB = Txt_DB_DB.Text
         My.Settings.db_puerto = Txt_DB_Puerto.Text
         My.Settings.data_url = TxtUrlData.Text
-        My.Settings.datagridview_height = Tablas_Height.Value
+        My.Settings.datagridview_height = CInt(Tablas_Height.Value)
         My.Settings.datagridview_color = colorfondo
         My.Settings.datagridview_font = tipo_font
+        My.Settings.font_alertas = tipo_font_alert
         My.Settings.datagridview_selectrow = colorselect
         My.Settings.report_image = TxtLogoReport.Text
         My.Settings.caller_luz = ComboBoxLEd.SelectedIndex
+        My.Settings.timer_intervalo = CInt(TimerInterval.Value)
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
@@ -116,6 +129,13 @@ Public Class Parametros
             Dim fs As FileStream = New System.IO.FileStream(file.FileName, FileMode.Open, FileAccess.Read)
             TxtLogoReport.Text = file.FileName.Replace("\", "/")
             fs.Close()
+        End If
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        If FontDialog2.ShowDialog() = DialogResult.OK Then
+            tipo_font_alert = FontDialog2.Font
+            Button8.Font = FontDialog2.Font
         End If
     End Sub
 End Class

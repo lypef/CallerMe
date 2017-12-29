@@ -221,6 +221,30 @@ Namespace My
                 Me("caller_luz") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("750")>  _
+        Public Property timer_intervalo() As Integer
+            Get
+                Return CType(Me("timer_intervalo"),Integer)
+            End Get
+            Set
+                Me("timer_intervalo") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 9.75pt, style=Bold")>  _
+        Public Property font_alertas() As Global.System.Drawing.Font
+            Get
+                Return CType(Me("font_alertas"),Global.System.Drawing.Font)
+            End Get
+            Set
+                Me("font_alertas") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
