@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Text
 
 Public Class control
     Dim f As New functions
@@ -10,6 +11,44 @@ Public Class control
         f.Button_SetModel(Button_Registros, My.Resources.Btn_registros)
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
+
+        If (String.IsNullOrEmpty(My.Settings.caller_0_number) = False) Then
+            MenuLine0.Text = My.Settings.caller_0_number
+        End If
+
+
+        If (String.IsNullOrEmpty(My.Settings.caller_1_number) = False) Then
+            MenuLine1.Text = My.Settings.caller_1_number
+        End If
+
+        If (String.IsNullOrEmpty(My.Settings.caller_2_number) = False) Then
+            MenuLine2.Text = My.Settings.caller_2_number
+        End If
+
+        If (String.IsNullOrEmpty(My.Settings.caller_3_number) = False) Then
+            MenuLine3.Text = My.Settings.caller_3_number
+        End If
+
+        If (My.Settings.caller_0 = False) Then
+            MenuLine0.Enabled = False
+        End If
+
+        If (My.Settings.caller_1 = False) Then
+            MenuLine1.Enabled = False
+        End If
+
+        If (My.Settings.caller_2 = False) Then
+            MenuLine2.Enabled = False
+        End If
+
+        If (My.Settings.caller_3 = False) Then
+            MenuLine3.Enabled = False
+        End If
+
+        f.AD101_SetBusy(0, 1)
+        f.AD101_SetBusy(1, 1)
+        f.AD101_SetBusy(2, 1)
+        f.AD101_SetBusy(3, 1)
         Try
             If f.AD101_InitDevice(Handle.ToInt32()) = 0 Then
                 Return
@@ -28,8 +67,12 @@ Public Class control
     End Sub
 
     Private Sub loadTimer()
-        Timer.Interval = My.Settings.timer_intervalo
-        Timer.Start()
+        Timer0.Stop()
+
+        If (My.Settings.caller_0) Then
+            Timer0.Interval = My.Settings.timer_intervalo
+            Timer0.Start()
+        End If
     End Sub
 
     Private Sub loadforms()
@@ -413,20 +456,50 @@ Public Class control
         End If
     End Sub
 
+    Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles Timer0.Tick
+        Dim Device0 = f.ComprobarLlamada(0).ToString
+        If (String.IsNullOrEmpty(Device0) = False) Then
+            Timer0.Stop()
+            LlamadaEntrante.Numero.Text = Device0
+            LlamadaEntrante.caller = 0
+            LlamadaEntrante.LoadNumber()
+            LlamadaEntrante.Show()
+        End If
+    End Sub
 
-    Private Sub BusyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BusyToolStripMenuItem.Click
+    Private Sub OcupadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OcupadaToolStripMenuItem.Click
         f.AD101_SetBusy(0, 0)
     End Sub
 
-    Private Sub FreeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FreeToolStripMenuItem.Click
+    Private Sub OcupadaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles OcupadaToolStripMenuItem1.Click
+        f.AD101_SetBusy(1, 0)
+    End Sub
+
+    Private Sub OcupadaToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles OcupadaToolStripMenuItem2.Click
+        f.AD101_SetBusy(2, 0)
+    End Sub
+
+    Private Sub OcupadaToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles OcupadaToolStripMenuItem3.Click
+        f.AD101_SetBusy(3, 0)
+    End Sub
+
+    Private Sub DisponibleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DisponibleToolStripMenuItem.Click
         f.AD101_SetBusy(0, 1)
+        loadTimer()
     End Sub
 
-    Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        f.ComprobarLlamada(0)
-        f.ComprobarLlamada(1)
-        f.ComprobarLlamada(2)
-        f.ComprobarLlamada(3)
+    Private Sub DisponibleToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DisponibleToolStripMenuItem1.Click
+        f.AD101_SetBusy(1, 1)
+        loadTimer()
     End Sub
 
+    Private Sub DisponibleToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DisponibleToolStripMenuItem2.Click
+        f.AD101_SetBusy(2, 1)
+        loadTimer()
+    End Sub
+
+    Private Sub DisponibleToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DisponibleToolStripMenuItem3.Click
+        f.AD101_SetBusy(3, 1)
+        loadTimer()
+    End Sub
 End Class

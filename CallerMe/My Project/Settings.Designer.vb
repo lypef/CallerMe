@@ -245,6 +245,102 @@ Namespace My
                 Me("font_alertas") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property caller_0() As Boolean
+            Get
+                Return CType(Me("caller_0"),Boolean)
+            End Get
+            Set
+                Me("caller_0") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_1() As Boolean
+            Get
+                Return CType(Me("caller_1"),Boolean)
+            End Get
+            Set
+                Me("caller_1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_2() As Boolean
+            Get
+                Return CType(Me("caller_2"),Boolean)
+            End Get
+            Set
+                Me("caller_2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_3() As Boolean
+            Get
+                Return CType(Me("caller_3"),Boolean)
+            End Get
+            Set
+                Me("caller_3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property caller_0_number() As String
+            Get
+                Return CType(Me("caller_0_number"),String)
+            End Get
+            Set
+                Me("caller_0_number") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property caller_1_number() As String
+            Get
+                Return CType(Me("caller_1_number"),String)
+            End Get
+            Set
+                Me("caller_1_number") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property caller_2_number() As String
+            Get
+                Return CType(Me("caller_2_number"),String)
+            End Get
+            Set
+                Me("caller_2_number") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property caller_3_number() As String
+            Get
+                Return CType(Me("caller_3_number"),String)
+            End Get
+            Set
+                Me("caller_3_number") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

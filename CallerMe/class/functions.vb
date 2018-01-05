@@ -93,7 +93,7 @@ Public Class functions
     Public Shared ReadOnly Data_clients As String = "\clients"
     Public Shared ReadOnly Data_reports As String = "\reports"
     Public Shared ReadOnly Data_drivers As String = "\drivers"
-    Public Shared ReadOnly Clients_ImgDefault As String = "\Default.jpg"
+    Public Shared ReadOnly Clients_ImgDefault As String = "\default.png"
 
 
     Public Sub forms_setmodel(ByVal form As Form)
@@ -1256,7 +1256,42 @@ Public Class functions
     Public Shared Function AD101_SetRingOffTime(ByVal nSecond As Integer) As Integer
     End Function
 
-    Public Function ComprobarLlamada(ByVal Device As Integer) As Boolean
-        Return True
+    Public Function ComprobarLlamada(ByVal Device As Integer) As StringBuilder
+        Dim szCallerID As New StringBuilder(128)
+        Dim szName As New StringBuilder(128)
+        Dim szTime As New StringBuilder(128)
+        AD101_GetCallerID(Device, szCallerID, szName, szTime)
+        Return szCallerID
     End Function
+
+    Public Function LoadNumber(ByVal number As Label, ByVal company As Label, ByVal client As Label, ByVal type As Label, ByVal ref As Label, ByVal foto As PictureBox) As String
+        Dim result = ""
+        Dim r = Db.Consult("SELECT t.id, t.compañia, c.nombre, t.ref_note, t.fijo, t.movil, c.foto FROM telephone_numbers t, clients c where t.client = c.id and  numero = " + number.Text + " ")
+        If r.Read() Then
+            company.Text = "Compañia: " + r.GetString(1)
+            result = r.GetString(2)
+
+            If (r.Getboolean(4)) Then
+                type.Text = "Telefono fijo"
+            End If
+
+            If (r.Getboolean(5)) Then
+                type.Text = "Telefono movil"
+            End If
+
+            ref.Text = "Observacion: " + r.GetString(3)
+
+            foto.SizeMode = PictureBoxSizeMode.Zoom
+            If My.Computer.FileSystem.FileExists(My.Settings.data_url + Data_clients + r.GetString(6)) Then
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + r.GetString(6))
+            Else
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+            End If
+
+        Else
+            result = "Desconocido"
+        End If
+        Return result
+    End Function
+
 End Class

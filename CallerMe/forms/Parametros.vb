@@ -34,6 +34,15 @@ Public Class Parametros
         TimerInterval.Minimum = 250
         TimerInterval.Maximum = 2000
         TimerInterval.Value = My.Settings.timer_intervalo
+        Caller_0.Checked = My.Settings.caller_0
+        Caller_1.Checked = My.Settings.caller_1
+        caller_2.Checked = My.Settings.caller_2
+        caller_3.Checked = My.Settings.caller_3
+
+        Caler0_number.Text = My.Settings.caller_0_number
+        Caler1_number.Text = My.Settings.caller_1_number
+        Caler2_number.Text = My.Settings.caller_2_number
+        Caler3_number.Text = My.Settings.caller_3_number
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -60,6 +69,15 @@ Public Class Parametros
         My.Settings.report_image = TxtLogoReport.Text
         My.Settings.caller_luz = ComboBoxLEd.SelectedIndex
         My.Settings.timer_intervalo = CInt(TimerInterval.Value)
+        My.Settings.caller_0 = Caller_0.Checked
+        My.Settings.caller_1 = Caller_1.Checked
+        My.Settings.caller_2 = caller_2.Checked
+        My.Settings.caller_3 = caller_3.Checked
+
+        My.Settings.caller_0_number = Caler0_number.Text
+        My.Settings.caller_1_number = Caler1_number.Text
+        My.Settings.caller_2_number = Caler2_number.Text
+        My.Settings.caller_3_number = Caler3_number.Text
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 

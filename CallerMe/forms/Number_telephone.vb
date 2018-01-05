@@ -16,7 +16,7 @@
     End Sub
 
     Public Sub Search(ByVal txt As String)
-        f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id and c.nombre LIKE '%" + txt + "%' or n.client = c.id and n.compañia LIKE '%" + txt + "%' or n.client = c.id and n.numero LIKE '%" + txt + "' ORDER by n.id desc", Tabla)
+        f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id and c.nombre LIKE '%" + txt + "%' or n.client = c.id and n.compañia LIKE '%" + txt + "%' or n.client = c.id and n.numero LIKE '%" + txt + "%' ORDER by n.id desc", Tabla)
         functions.Number_id = 0
         functions.Client = 0
         TabControl1.SelectedIndex = 0
