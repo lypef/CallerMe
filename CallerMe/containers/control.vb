@@ -67,11 +67,29 @@ Public Class control
     End Sub
 
     Private Sub loadTimer()
-        Timer0.Stop()
+        TimerCero.Stop()
+        TimerUno.Stop()
+        TimerDOS.Stop()
+        TimerTres.Stop()
 
         If (My.Settings.caller_0) Then
-            Timer0.Interval = My.Settings.timer_intervalo
-            Timer0.Start()
+            TimerCero.Interval = My.Settings.timer_intervalo
+            TimerCero.Start()
+        End If
+
+        If (My.Settings.caller_1) Then
+            TimerUno.Interval = My.Settings.timer_intervalo
+            TimerUno.Start()
+        End If
+
+        If (My.Settings.caller_2) Then
+            TimerDOS.Interval = My.Settings.timer_intervalo
+            TimerDOS.Start()
+        End If
+
+        If (My.Settings.caller_3) Then
+            TimerTres.Interval = My.Settings.timer_intervalo
+            TimerTres.Start()
         End If
     End Sub
 
@@ -128,12 +146,13 @@ Public Class control
     End Sub
 
     Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
-        If f.ReturnPermission(f.Permission_Access_Clients) Then
-            Clients.LoadClientes()
-            f.AddForm_Desktop(Clients, Desktop)
-        Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        End If
+        f.AddForm_Desktop(gps, Desktop)
+        'If f.ReturnPermission(f.Permission_Access_Clients) Then
+        'Clients.LoadClientes()
+        'f.AddForm_Desktop(Clients, Desktop)
+        'Else
+        'f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        'End If
     End Sub
 
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs)
@@ -456,14 +475,16 @@ Public Class control
         End If
     End Sub
 
-    Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles Timer0.Tick
+    Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles TimerCero.Tick
         Dim Device0 = f.ComprobarLlamada(0).ToString
         If (String.IsNullOrEmpty(Device0) = False) Then
-            Timer0.Stop()
-            LlamadaEntrante.Numero.Text = Device0
-            LlamadaEntrante.caller = 0
-            LlamadaEntrante.LoadNumber()
-            LlamadaEntrante.Show()
+            TimerCero.Stop()
+            Dim form As New LlamadaEntrante
+            form.Numero.Text = Device0
+            form.caller = 0
+            form.f_llamada = DateTime.Now
+            form.LoadNumber()
+            form.Show()
         End If
     End Sub
 
@@ -501,5 +522,47 @@ Public Class control
     Private Sub DisponibleToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles DisponibleToolStripMenuItem3.Click
         f.AD101_SetBusy(3, 1)
         loadTimer()
+    End Sub
+
+    Private Sub TimerUno_Tick(sender As Object, e As EventArgs) Handles TimerUno.Tick
+        Dim Caller = 1
+        Dim Device0 = f.ComprobarLlamada(Caller).ToString
+        If (String.IsNullOrEmpty(Device0) = False) Then
+            TimerUno.Stop()
+            Dim form As New LlamadaEntrante
+            form.Numero.Text = Device0
+            form.caller = Caller
+            form.f_llamada = DateTime.Now
+            form.LoadNumber()
+            form.Show()
+        End If
+    End Sub
+
+    Private Sub TimerDOS_Tick(sender As Object, e As EventArgs) Handles TimerDOS.Tick
+        Dim Caller = 2
+        Dim Device0 = f.ComprobarLlamada(Caller).ToString
+        If (String.IsNullOrEmpty(Device0) = False) Then
+            TimerDOS.Stop()
+            Dim form As New LlamadaEntrante
+            form.Numero.Text = Device0
+            form.caller = Caller
+            form.f_llamada = DateTime.Now
+            form.LoadNumber()
+            form.Show()
+        End If
+    End Sub
+
+    Private Sub TimerTres_Tick(sender As Object, e As EventArgs) Handles TimerTres.Tick
+        Dim Caller = 3
+        Dim Device0 = f.ComprobarLlamada(Caller).ToString
+        If (String.IsNullOrEmpty(Device0) = False) Then
+            TimerTres.Stop()
+            Dim form As New LlamadaEntrante
+            form.Numero.Text = Device0
+            form.caller = Caller
+            form.f_llamada = DateTime.Now
+            form.LoadNumber()
+            form.Show()
+        End If
     End Sub
 End Class

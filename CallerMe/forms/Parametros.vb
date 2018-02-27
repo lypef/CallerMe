@@ -43,6 +43,7 @@ Public Class Parametros
         Caler1_number.Text = My.Settings.caller_1_number
         Caler2_number.Text = My.Settings.caller_2_number
         Caler3_number.Text = My.Settings.caller_3_number
+        P_generalID.Text = My.Settings.pg_id
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -78,6 +79,7 @@ Public Class Parametros
         My.Settings.caller_1_number = Caler1_number.Text
         My.Settings.caller_2_number = Caler2_number.Text
         My.Settings.caller_3_number = Caler3_number.Text
+        My.Settings.pg_id = P_generalID.Text
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 

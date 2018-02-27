@@ -63,16 +63,22 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="caller_0_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Caller 1</Value>
     </Setting>
     <Setting Name="caller_1_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Caller 2</Value>
     </Setting>
     <Setting Name="caller_2_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Caller 3</Value>
     </Setting>
     <Setting Name="caller_3_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Caller 4</Value>
+    </Setting>
+    <Setting Name="pg_id" Type="System.String" Scope="User">
+      <Value Profile="(Default)">01800</Value>
+    </Setting>
+    <Setting Name="valid" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

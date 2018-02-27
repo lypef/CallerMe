@@ -52,17 +52,23 @@ Public Class Login
     End Sub
 
     Private Sub login_action()
-        If (f.Login(TxtUsername, TxtPassword)) Then
+        If (My.Settings.valid) Then
+            If (f.Login(TxtUsername, TxtPassword)) Then
 
-            If CheckBoxCred.Checked Then
-                My.Settings.login_username = TxtUsername.Text
-                My.Settings.login_password = TxtPassword.Text
+                If CheckBoxCred.Checked Then
+                    My.Settings.login_username = TxtUsername.Text
+                    My.Settings.login_password = TxtPassword.Text
+                End If
+
+                Me.Visible = False
+                control.Show()
+            Else
+                f.Alert("Datos erroneos", f.Alert_NumberCritical)
             End If
-
-            Me.Visible = False
-            control.Show()
         Else
-            f.Alert("Datos erroneos", f.Alert_NumberCritical)
+            Me.Visible = False
+            Dim form As New validate
+            form.Show()
         End If
     End Sub
 

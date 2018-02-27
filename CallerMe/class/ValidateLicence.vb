@@ -1,9 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Conexion
+Public Class validateLicence
 
     Dim Conexion = New MySqlConnection()
-    Dim Conectar = "server=" + My.Settings.db_servidor + "; user id=" + My.Settings.db_username + "; password=" + My.Settings.db_password + "; database=" + My.Settings.db_nameDB + "; Port=" + My.Settings.db_puerto + ";"
+    Dim Conectar = "server=1a.ncomputers.org; user id=clta290513_root; password=tqNUx!L9; database=clta290513_licence; Port=3306;"
 
     Public Function Consult(ByVal sql As String)
         Dim dato As MySqlDataReader

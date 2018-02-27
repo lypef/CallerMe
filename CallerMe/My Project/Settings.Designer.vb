@@ -296,7 +296,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Caller 1")>  _
         Public Property caller_0_number() As String
             Get
                 Return CType(Me("caller_0_number"),String)
@@ -308,7 +308,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Caller 2")>  _
         Public Property caller_1_number() As String
             Get
                 Return CType(Me("caller_1_number"),String)
@@ -320,7 +320,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Caller 3")>  _
         Public Property caller_2_number() As String
             Get
                 Return CType(Me("caller_2_number"),String)
@@ -332,13 +332,37 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Caller 4")>  _
         Public Property caller_3_number() As String
             Get
                 Return CType(Me("caller_3_number"),String)
             End Get
             Set
                 Me("caller_3_number") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("01800")>  _
+        Public Property pg_id() As String
+            Get
+                Return CType(Me("pg_id"),String)
+            End Get
+            Set
+                Me("pg_id") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property valid() As Boolean
+            Get
+                Return CType(Me("valid"),Boolean)
+            End Get
+            Set
+                Me("valid") = value
             End Set
         End Property
     End Class

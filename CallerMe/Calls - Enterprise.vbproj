@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Users\ISC\Desktop\demo\</PublishUrl>
+    <PublishUrl>C:\Users\ISC\Desktop\Calls - Enterprise SETUP\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>66</ApplicationRevision>
+    <ApplicationRevision>76</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -151,11 +151,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="class\ValidateLicence.vb" />
     <Compile Include="class\Conexion.vb" />
     <Compile Include="containers\AlertContainer.Designer.vb">
       <DependentUpon>AlertContainer.vb</DependentUpon>
     </Compile>
     <Compile Include="containers\AlertContainer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\Asistir_llamada.Designer.vb">
+      <DependentUpon>Asistir_llamada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\Asistir_llamada.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="containers\LlamadaEntrante.Designer.vb">
@@ -168,6 +175,12 @@
       <DependentUpon>Reports.vb</DependentUpon>
     </Compile>
     <Compile Include="containers\Reports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\validate.Designer.vb">
+      <DependentUpon>validate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\validate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataSet1.Designer.vb">
@@ -212,6 +225,12 @@
       <DependentUpon>DriversADD.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\DriversADD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\gps.Designer.vb">
+      <DependentUpon>gps.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\gps.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Logs.Designer.vb">
@@ -356,6 +375,9 @@
     <EmbeddedResource Include="containers\AlertContainer.resx">
       <DependentUpon>AlertContainer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="containers\Asistir_llamada.resx">
+      <DependentUpon>Asistir_llamada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="containers\Control.resx">
       <DependentUpon>Control.vb</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="containers\About.resx">
       <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\validate.resx">
+      <DependentUpon>validate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Adresses.resx">
       <DependentUpon>Adresses.vb</DependentUpon>
@@ -388,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DriversADD.resx">
       <DependentUpon>DriversADD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\gps.resx">
+      <DependentUpon>gps.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Logs.resx">
       <DependentUpon>Logs.vb</DependentUpon>
@@ -527,6 +555,7 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\icon_acerca_de.png" />
     <None Include="Resources\call_128.png" />
     <None Include="Resources\if_viber_386738.png" />
     <None Include="Resources\call_48.png" />

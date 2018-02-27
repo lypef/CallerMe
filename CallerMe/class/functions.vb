@@ -2,10 +2,12 @@
 Imports MySql.Data.MySqlClient
 Imports System.Runtime.InteropServices
 Imports System.Text
+Imports System.Security.Cryptography
 
 Public Class functions
 
     Dim Db As New Conexion
+    Dim Licence As New validateLicence
     Shared Db_shared As New Conexion
 
     Public Shared userID As String
@@ -19,6 +21,13 @@ Public Class functions
 
     'Listas 
     Dim ListNumeros As New List(Of Integer)
+
+    Public Sub finalizarLlamada(caller As Integer)
+        AD101_SetBusy(caller, 0)
+        System.Threading.Thread.Sleep(250)
+        AD101_SetBusy(caller, 1)
+    End Sub
+
     Dim ListUsuarios As New List(Of Integer)
     Dim ListDireccion As New List(Of Integer)
     Dim ListVehiculos As New List(Of Integer)
@@ -141,9 +150,9 @@ Public Class functions
         form.Show()
     End Sub
 
-    Public Function Login(ByVal username As TextBox, ByVal password As TextBox)
+    Public Function Login(ByVal username As TextBox, ByVal password As TextBox) As Boolean
         Dim r = False
-        Dim dato = Db.Consult("select * from users where username = '" + username.Text + "' and password = '" + password.Text + "' ")
+        Dim dato = Db.Consult("select * from users where username = '" + username.Text + "' and password = '" + EncriptMD5(password.Text) + "' ")
 
 
         If dato.hasrows Then
@@ -226,6 +235,17 @@ Public Class functions
     Public Function ReturnUsername()
         Dim r = ""
         Dim dato = Db.Consult("select name from users where id =  " + userID + "  ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
+
+    Public Function ReturnPasswordActual(id As String) As String
+        Dim r = ""
+        Dim dato = Db.Consult("select password from users where id =  " + id + "  ")
 
         If dato.Read() Then
             r = dato.GetString(0)
@@ -354,7 +374,7 @@ Public Class functions
         t.Columns.Add("Nombre", "Nombre")
         If dato.HasRows Then
             Do While dato.Read()
-                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2))
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(3))
             Loop
         End If
 
@@ -885,13 +905,26 @@ Public Class functions
 
     Public Sub ComboBox_SetDrivers(ByVal c As ComboBox)
         c.Items.Clear()
-        Dim dato = Db.Consult("SELECT * FROM drivers")
+        Dim dato = Db.Consult("SELECT * FROM drivers ORDER by nombre asc")
         c.Items.Add("Conductores")
         ListConductor.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(1))
                 ListConductor.Add(dato.GetString(0))
+            Loop
+        End If
+        c.SelectedIndex = 0
+    End Sub
+
+    Public Sub ComboBox_SetDriversConID(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT * FROM drivers ORDER by nombre asc")
+        c.Items.Add("Conductores")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(1) + " [" + dato.GetString(0) + "]")
             Loop
         End If
         c.SelectedIndex = 0
@@ -925,6 +958,19 @@ Public Class functions
         c.SelectedIndex = 0
     End Sub
 
+    Public Sub ComboBox_SetVehiculosConID(ByVal c As ComboBox)
+        c.Items.Clear()
+        Dim dato = Db.Consult("SELECT id, modelo FROM vehicles")
+        c.Items.Add("Vehiculos")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                c.Items.Add(dato.GetString(1) + " [" + dato.GetString(0) + "]")
+            Loop
+        End If
+        c.SelectedIndex = 0
+    End Sub
+
     Public Sub Picturebox_SetImageClient(ByVal p As PictureBox)
 
         Dim dato = Db.Consult("select foto from clients where id =  " + Client + "  ")
@@ -947,8 +993,18 @@ Public Class functions
         Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + Client + ", " + ListNumeros.Item(telefono.SelectedIndex).ToString + ", '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', " + ListUsuarios.Item(usuario.SelectedIndex).ToString + ", " + ListDireccion.Item(direccion.SelectedIndex).ToString + ", " + ListVehiculos.Item(vehiculo.SelectedIndex).ToString + ", " + ListConductor.Item(driver.SelectedIndex).ToString + ")")
     End Function
 
+    Public Function save_registroAutomatic(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal vehiculo As Integer, ByVal driver As Integer)
+        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '" + vehiculo.ToString + "', '" + driver.ToString + "')")
+    End Function
+
+    Private Function ReturnDateFormatString(ByVal fecha As Date) As String
+        Alert(fecha.Year.ToString + "-" + fecha.Month.ToString + "-" + fecha.Day.ToString + " " + fecha.Hour.ToString + ":" + fecha.Minute.ToString + ":" + fecha.Second.ToString, Alert_NumberInformacion)
+        Return fecha.Year.ToString + "-" + fecha.Month.ToString + "-" + fecha.Day.ToString + " " + fecha.Hour.ToString + ":" + fecha.Minute.ToString + ":" + fecha.Second.ToString
+    End Function
+
+
     Public Function Users_ADD(ByVal username As TextBox, ByVal password As TextBox, ByVal name As TextBox)
-        Dim r As Boolean = Db_shared.Ejecutar("INSERT INTO users (username, password, name) VALUES ('" + username.Text + "', '" + password.Text + "', '" + name.Text.ToUpper + "')")
+        Dim r As Boolean = Db_shared.Ejecutar("INSERT INTO users (username, password, name) VALUES ('" + username.Text + "', '" + EncriptMD5(password.Text) + "', '" + name.Text.ToUpper + "')")
         If r Then
             Return User_MAXID()
         Else
@@ -1088,7 +1144,13 @@ Public Class functions
     End Sub
 
     Public Function User_Update_Values(ByVal TxtUsername As TextBox, ByVal TxtPassword As TextBox, ByVal TxtName As TextBox)
-        Return Db_shared.Ejecutar("UPDATE users SET username = '" + TxtUsername.Text + "', password = '" + TxtPassword.Text + "', name = '" + TxtName.Text.ToUpper + "' WHERE id = " + user_select + " ")
+        If ReturnPasswordActual(user_select) = TxtPassword.Text Then
+            Return Db_shared.Ejecutar("UPDATE users SET username = '" + TxtUsername.Text + "', name = '" + TxtName.Text.ToUpper + "' WHERE id = " + user_select + " ")
+        Else
+            Return Db_shared.Ejecutar("UPDATE users SET username = '" + TxtUsername.Text + "', password = '" + EncriptMD5(TxtPassword.Text) + "', name = '" + TxtName.Text.ToUpper + "' WHERE id = " + user_select + " ")
+        End If
+
+
     End Function
 
     Public Function User_Update_Permisos(
@@ -1292,6 +1354,86 @@ Public Class functions
             result = "Desconocido"
         End If
         Return result
+    End Function
+
+    Public Function LoadNumberAsistencia(ByVal number As String, ByVal foto As PictureBox, ByVal direcciones As ComboBox, ByRef number_id As String, ByRef client_id As Integer) As String
+        direcciones.Items.Clear()
+        Dim result = ""
+        Dim r = Db.Consult("SELECT c.id, c.nombre, c.foto, t.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + number + "' ")
+        If r.Read() Then
+            client_id = r.GetString(0)
+            number_id = r.GetString(3)
+            result = r.GetString(1)
+
+            foto.SizeMode = PictureBoxSizeMode.Zoom
+            If My.Computer.FileSystem.FileExists(My.Settings.data_url + Data_clients + r.GetString(2)) Then
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + r.GetString(2))
+            Else
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+            End If
+            Dim p = Db.Consult("SELECT id, direccion, kms FROM adresses WHERE client = '" + r.GetString(0) + "' ")
+            direcciones.Items.Add("Direcciones")
+            If p.HasRows Then
+                Do While p.Read()
+                    direcciones.Items.Add(p.GetString(1) + " - kms: (" + p.GetString(2) + ") ID: [" + p.GetString(0) + "]")
+                Loop
+            End If
+            direcciones.SelectedIndex = 0
+        Else
+            'Publico en general
+            Dim p_g = Db.Consult("SELECT c.id, c.nombre, c.foto, t.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + My.Settings.pg_id + "' ")
+            If p_g.Read() Then
+                client_id = p_g.GetString(0)
+                number_id = p_g.GetString(3)
+                result = p_g.GetString(1)
+
+                foto.SizeMode = PictureBoxSizeMode.Zoom
+                If My.Computer.FileSystem.FileExists(My.Settings.data_url + Data_clients + p_g.GetString(2)) Then
+                    foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + p_g.GetString(2))
+                Else
+                    foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+                End If
+
+                Dim p_d = Db.Consult("SELECT c.id, a.id, c.nombre, a.direccion, a.kms FROM adresses a, clients c where a.client = c.id and c.id = '" + client_id.ToString + "'")
+                direcciones.Items.Add("Direcciones")
+                If p_d.HasRows Then
+                    Do While p_d.Read()
+                        direcciones.Items.Add(p_d.GetString(3) + " - kms: (" + p_d.GetString(4) + ") ID: [" + p_d.GetString(1) + "]")
+                    Loop
+                End If
+                direcciones.SelectedIndex = 0
+            End If
+        End If
+        Return result
+    End Function
+
+    Public Function ValidarLicence(ByVal code As TextBox) As Boolean
+        Dim resultado As New Boolean
+        resultado = False
+        Dim r = Licence.Consult("SELECT status FROM licence where licence = '" + code.Text + "' and status = 0")
+        If r.Read() Then
+            resultado = Licence.Ejecutar("update licence set status = 1 where licence = '" + code.Text + "' ")
+        End If
+        Return resultado
+    End Function
+
+    Private Function EncriptMD5(ByVal password As String) As String
+        Dim PasConMd5 = ""
+        Dim md5 As New MD5CryptoServiceProvider
+        Dim bytValue() As Byte
+        Dim bytHash() As Byte
+        Dim i As Integer
+
+        bytValue = System.Text.Encoding.UTF8.GetBytes(password.Replace(" ", ""))
+
+        bytHash = md5.ComputeHash(bytValue)
+        md5.Clear()
+
+        For i = 0 To bytHash.Length - 1
+            PasConMd5 &= bytHash(i).ToString("x").PadLeft(2, "0")
+        Next
+
+        Return PasConMd5
     End Function
 
 End Class

@@ -53,24 +53,26 @@ Partial Class Parametros
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Caler3_number = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Caler2_number = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Caler1_number = New System.Windows.Forms.TextBox()
         Me.caller_3 = New System.Windows.Forms.CheckBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.caller_2 = New System.Windows.Forms.CheckBox()
-        Me.Caller_1 = New System.Windows.Forms.CheckBox()
-        Me.Caller_0 = New System.Windows.Forms.CheckBox()
+        Me.Caler0_number = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Caller_1 = New System.Windows.Forms.CheckBox()
         Me.ComboBoxLEd = New System.Windows.Forms.ComboBox()
         Me.TimerInterval = New System.Windows.Forms.NumericUpDown()
+        Me.Caller_0 = New System.Windows.Forms.CheckBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Caler0_number = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Caler1_number = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Caler2_number = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Caler3_number = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.P_generalID = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -333,7 +335,7 @@ Partial Class Parametros
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(158, 69)
+        Me.Label6.Location = New System.Drawing.Point(158, 74)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 13)
         Me.Label6.TabIndex = 2
@@ -370,6 +372,57 @@ Partial Class Parametros
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Identificador de llamadas"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(7, 201)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(59, 13)
+        Me.Label13.TabIndex = 16
+        Me.Label13.Text = "Numero L4"
+        '
+        'Caler3_number
+        '
+        Me.Caler3_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Caler3_number.Location = New System.Drawing.Point(71, 196)
+        Me.Caler3_number.Name = "Caler3_number"
+        Me.Caler3_number.Size = New System.Drawing.Size(176, 22)
+        Me.Caler3_number.TabIndex = 17
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(7, 173)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(59, 13)
+        Me.Label12.TabIndex = 14
+        Me.Label12.Text = "Numero L3"
+        '
+        'Caler2_number
+        '
+        Me.Caler2_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Caler2_number.Location = New System.Drawing.Point(71, 168)
+        Me.Caler2_number.Name = "Caler2_number"
+        Me.Caler2_number.Size = New System.Drawing.Size(176, 22)
+        Me.Caler2_number.TabIndex = 15
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(7, 145)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(59, 13)
+        Me.Label11.TabIndex = 12
+        Me.Label11.Text = "Numero L2"
+        '
+        'Caler1_number
+        '
+        Me.Caler1_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Caler1_number.Location = New System.Drawing.Point(71, 140)
+        Me.Caler1_number.Name = "Caler1_number"
+        Me.Caler1_number.Size = New System.Drawing.Size(176, 22)
+        Me.Caler1_number.TabIndex = 13
+        '
         'caller_3
         '
         Me.caller_3.AutoSize = True
@@ -379,6 +432,15 @@ Partial Class Parametros
         Me.caller_3.TabIndex = 11
         Me.caller_3.Text = "Caller 4"
         Me.caller_3.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(7, 117)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(59, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "Numero L1"
         '
         'caller_2
         '
@@ -390,25 +452,13 @@ Partial Class Parametros
         Me.caller_2.Text = "Caller 3"
         Me.caller_2.UseVisualStyleBackColor = True
         '
-        'Caller_1
+        'Caler0_number
         '
-        Me.Caller_1.AutoSize = True
-        Me.Caller_1.Location = New System.Drawing.Point(64, 234)
-        Me.Caller_1.Name = "Caller_1"
-        Me.Caller_1.Size = New System.Drawing.Size(61, 17)
-        Me.Caller_1.TabIndex = 9
-        Me.Caller_1.Text = "Caller 2"
-        Me.Caller_1.UseVisualStyleBackColor = True
-        '
-        'Caller_0
-        '
-        Me.Caller_0.AutoSize = True
-        Me.Caller_0.Location = New System.Drawing.Point(6, 234)
-        Me.Caller_0.Name = "Caller_0"
-        Me.Caller_0.Size = New System.Drawing.Size(61, 17)
-        Me.Caller_0.TabIndex = 8
-        Me.Caller_0.Text = "Caller 1"
-        Me.Caller_0.UseVisualStyleBackColor = True
+        Me.Caler0_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Caler0_number.Location = New System.Drawing.Point(71, 112)
+        Me.Caler0_number.Name = "Caler0_number"
+        Me.Caler0_number.Size = New System.Drawing.Size(176, 22)
+        Me.Caler0_number.TabIndex = 10
         '
         'Label8
         '
@@ -418,6 +468,16 @@ Partial Class Parametros
         Me.Label8.Size = New System.Drawing.Size(187, 13)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Intervalo de comprobacion de llamada"
+        '
+        'Caller_1
+        '
+        Me.Caller_1.AutoSize = True
+        Me.Caller_1.Location = New System.Drawing.Point(64, 234)
+        Me.Caller_1.Name = "Caller_1"
+        Me.Caller_1.Size = New System.Drawing.Size(61, 17)
+        Me.Caller_1.TabIndex = 9
+        Me.Caller_1.Text = "Caller 2"
+        Me.Caller_1.UseVisualStyleBackColor = True
         '
         'ComboBoxLEd
         '
@@ -438,6 +498,16 @@ Partial Class Parametros
         Me.TimerInterval.TabIndex = 6
         Me.TimerInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Caller_0
+        '
+        Me.Caller_0.AutoSize = True
+        Me.Caller_0.Location = New System.Drawing.Point(6, 234)
+        Me.Caller_0.Name = "Caller_0"
+        Me.Caller_0.Size = New System.Drawing.Size(61, 17)
+        Me.Caller_0.TabIndex = 8
+        Me.Caller_0.Text = "Caller 1"
+        Me.Caller_0.UseVisualStyleBackColor = True
+        '
         'Button8
         '
         Me.Button8.Location = New System.Drawing.Point(6, 22)
@@ -449,6 +519,8 @@ Partial Class Parametros
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.P_generalID)
+        Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Controls.Add(Me.Button8)
         Me.GroupBox5.Location = New System.Drawing.Point(310, 281)
         Me.GroupBox5.Name = "GroupBox5"
@@ -457,73 +529,22 @@ Partial Class Parametros
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
         '
-        'Label9
+        'Label14
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 117)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(59, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "Numero L1"
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(6, 71)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(95, 13)
+        Me.Label14.TabIndex = 7
+        Me.Label14.Text = "Publico en general"
         '
-        'Caler0_number
+        'P_generalID
         '
-        Me.Caler0_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler0_number.Location = New System.Drawing.Point(71, 112)
-        Me.Caler0_number.Name = "Caler0_number"
-        Me.Caler0_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler0_number.TabIndex = 10
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(7, 145)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 13)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Numero L2"
-        '
-        'Caler1_number
-        '
-        Me.Caler1_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler1_number.Location = New System.Drawing.Point(71, 140)
-        Me.Caler1_number.Name = "Caler1_number"
-        Me.Caler1_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler1_number.TabIndex = 13
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 173)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 13)
-        Me.Label12.TabIndex = 14
-        Me.Label12.Text = "Numero L3"
-        '
-        'Caler2_number
-        '
-        Me.Caler2_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler2_number.Location = New System.Drawing.Point(71, 168)
-        Me.Caler2_number.Name = "Caler2_number"
-        Me.Caler2_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler2_number.TabIndex = 15
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(7, 201)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(59, 13)
-        Me.Label13.TabIndex = 16
-        Me.Label13.Text = "Numero L4"
-        '
-        'Caler3_number
-        '
-        Me.Caler3_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler3_number.Location = New System.Drawing.Point(71, 196)
-        Me.Caler3_number.Name = "Caler3_number"
-        Me.Caler3_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler3_number.TabIndex = 17
+        Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.P_generalID.Location = New System.Drawing.Point(107, 69)
+        Me.P_generalID.Name = "P_generalID"
+        Me.P_generalID.Size = New System.Drawing.Size(176, 22)
+        Me.P_generalID.TabIndex = 18
         '
         'Parametros
         '
@@ -551,6 +572,7 @@ Partial Class Parametros
         Me.GroupBox4.PerformLayout()
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -604,4 +626,6 @@ Partial Class Parametros
     Friend WithEvents Caler1_number As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Caler0_number As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents P_generalID As TextBox
 End Class

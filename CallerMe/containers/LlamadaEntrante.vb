@@ -1,5 +1,6 @@
 ﻿Public Class LlamadaEntrante
     Public caller As Integer
+    Public f_llamada As Date
 
     Dim f As New functions
     Private Sub LlamadaEntrante_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -7,19 +8,49 @@
     End Sub
 
     Private Sub Asistir_Click(sender As Object, e As EventArgs) Handles Asistir.Click
-        Clients.LoadClientes()
-        f.AddForm_Desktop(Clients, control.Desktop)
-        control.Timer0.Stop()
+        If caller = 0 Then
+            control.TimerCero.Stop()
+        ElseIf caller = 1 Then
+            control.TimerUno.Stop()
+        ElseIf caller = 2 Then
+            control.TimerDOS.Stop()
+        ElseIf caller = 3 Then
+            control.TimerTres.Stop()
+        End If
+
+        Dim a As New Asistir_llamada
+        a.caller = caller
+        a.number = Numero.Text
+        a.f_llamada = f_llamada
+        a.Asitir_llamada = DateTime.Now
+        a.loadvalues()
+        a.Show()
         Me.Dispose()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        f.AD101_SetBusy(caller, 0)
-        System.Threading.Thread.Sleep(250)
-        f.AD101_SetBusy(caller, 1)
-        control.Timer0.Stop()
-        control.Timer0.Start()
-        Me.Dispose()
+        If caller = 0 Then
+            control.TimerCero.Stop()
+            f.finalizarLlamada(caller)
+            control.TimerCero.Start()
+            Me.Dispose()
+        ElseIf caller = 1 Then
+            control.TimerUno.Stop()
+            f.finalizarLlamada(caller)
+            control.TimerUno.Start()
+            Me.Dispose()
+        ElseIf caller = 2 Then
+            control.TimerDOS.Stop()
+            f.finalizarLlamada(caller)
+            control.TimerDOS.Start()
+            Me.Dispose()
+        ElseIf caller = 3 Then
+            control.TimerTres.Stop()
+            f.finalizarLlamada(caller)
+            control.TimerTres.Start()
+            Me.Dispose()
+        End If
+
     End Sub
 
     Public Sub LoadNumber()
