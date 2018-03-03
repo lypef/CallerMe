@@ -3,6 +3,9 @@ Imports MySql.Data.MySqlClient
 Imports System.Runtime.InteropServices
 Imports System.Text
 Imports System.Security.Cryptography
+Imports System.Net
+Imports Newtonsoft.Json.Linq
+Imports Newtonsoft.Json
 
 Public Class functions
 
@@ -1436,4 +1439,74 @@ Public Class functions
         Return PasConMd5
     End Function
 
+    Public Function Driver_GetGPS(driver As Integer, ByRef la As String, ByRef lo As String, ByRef fe As String) As Boolean
+        Dim r = False
+        Dim idGps As String = DriverReturn_IdGps(driver)
+        Dim latitude As String
+        Dim longitud As String
+        Dim fecha As String
+
+        Dim request As HttpWebRequest
+        Dim response As HttpWebResponse = Nothing
+        Dim reader As StreamReader
+
+        request = DirectCast(WebRequest.Create(My.Settings.ws_gps), HttpWebRequest)
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+
+        Dim json As JObject = JObject.Parse(rawresp)
+
+        For Each Row In json
+            Dim arr = Row.ToString.Split("""")
+            Dim gpstmp As String
+
+            For count = 0 To arr.Length - 1
+                If arr(count).ToString.Replace(" ", "") = "id_gps" Then
+                    gpstmp = arr(count + 2)
+                End If
+                If arr(count).ToString.Replace(" ", "") = "longitud" Then
+                    longitud = arr(count + 1)
+                End If
+                If arr(count).ToString.Replace(" ", "") = "latitud" Then
+                    latitude = arr(count + 1)
+                End If
+                If arr(count).ToString.Replace(" ", "") = "fecha_gps" Then
+                    fecha = arr(count + 2)
+                End If
+                If gpstmp <> idGps Then
+                    latitude = ""
+                    longitud = ""
+                    fecha = ""
+                Else
+                    latitude = latitude.Replace(":", "").Replace(",", "").Replace(" ", "")
+                    longitud = longitud.Replace(":", "").Replace(",", "").Replace(" ", "")
+                End If
+            Next
+
+        Next
+        la = latitude
+        lo = longitud
+        fe = fecha
+
+        If String.IsNullOrEmpty(latitude) = False Then
+            r = True
+        End If
+
+        Return r
+    End Function
+
+    Public Function DriverReturn_IdGps(driver As Integer) As String
+        Dim r As String
+        Dim dato = Db.Consult("SELECT id_gps FROM drivers WHERE id = '" + driver.ToString + "' ")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
 End Class

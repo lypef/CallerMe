@@ -80,5 +80,8 @@
     <Setting Name="valid" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ws_gps" Type="(Web Service URL)" Scope="User">
+      <Value Profile="(Default)">http://13.92.173.204/tracking-es/api/list.php?authtoken=379012a61423089657ce6c1649d30c4c5b99d55a</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

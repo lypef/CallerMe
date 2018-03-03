@@ -365,6 +365,20 @@ Namespace My
                 Me("valid") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://13.92.173.204/tracking-es/api/list.php?authtoken=379012a61423089657ce6c164"& _ 
+            "9d30c4c5b99d55a")>  _
+        Public Property ws_gps() As String
+            Get
+                Return CType(Me("ws_gps"),String)
+            End Get
+            Set
+                Me("ws_gps") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
