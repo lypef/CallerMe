@@ -71,8 +71,10 @@ Partial Class Parametros
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.P_generalID = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.UrlApi = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -510,15 +512,17 @@ Partial Class Parametros
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(6, 22)
+        Me.Button8.Location = New System.Drawing.Point(286, 19)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(176, 34)
+        Me.Button8.Size = New System.Drawing.Size(110, 34)
         Me.Button8.TabIndex = 6
         Me.Button8.Text = "Tipo de letra alertas"
         Me.Button8.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.UrlApi)
+        Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.P_generalID)
         Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Controls.Add(Me.Button8)
@@ -529,22 +533,39 @@ Partial Class Parametros
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
         '
+        'P_generalID
+        '
+        Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.P_generalID.Location = New System.Drawing.Point(104, 17)
+        Me.P_generalID.Name = "P_generalID"
+        Me.P_generalID.Size = New System.Drawing.Size(176, 22)
+        Me.P_generalID.TabIndex = 18
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 71)
+        Me.Label14.Location = New System.Drawing.Point(6, 22)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(95, 13)
         Me.Label14.TabIndex = 7
         Me.Label14.Text = "Publico en general"
         '
-        'P_generalID
+        'UrlApi
         '
-        Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.P_generalID.Location = New System.Drawing.Point(107, 69)
-        Me.P_generalID.Name = "P_generalID"
-        Me.P_generalID.Size = New System.Drawing.Size(176, 22)
-        Me.P_generalID.TabIndex = 18
+        Me.UrlApi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UrlApi.Location = New System.Drawing.Point(51, 56)
+        Me.UrlApi.Name = "UrlApi"
+        Me.UrlApi.Size = New System.Drawing.Size(229, 22)
+        Me.UrlApi.TabIndex = 20
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(6, 61)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(39, 13)
+        Me.Label15.TabIndex = 19
+        Me.Label15.Text = "Url APi"
         '
         'Parametros
         '
@@ -628,4 +649,6 @@ Partial Class Parametros
     Friend WithEvents Caler0_number As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents P_generalID As TextBox
+    Friend WithEvents UrlApi As TextBox
+    Friend WithEvents Label15 As Label
 End Class

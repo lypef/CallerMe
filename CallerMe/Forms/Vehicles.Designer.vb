@@ -45,6 +45,8 @@ Partial Class Vehicles
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TxtGps = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -99,6 +101,8 @@ Partial Class Vehicles
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage2.Controls.Add(Me.TxtGps)
+        Me.TabPage2.Controls.Add(Me.Label6)
         Me.TabPage2.Controls.Add(Me.TxtCaracteristicas)
         Me.TabPage2.Controls.Add(Me.Label5)
         Me.TabPage2.Controls.Add(Me.TxtNumero)
@@ -124,7 +128,7 @@ Partial Class Vehicles
         Me.TxtCaracteristicas.Multiline = True
         Me.TxtCaracteristicas.Name = "TxtCaracteristicas"
         Me.TxtCaracteristicas.Size = New System.Drawing.Size(321, 44)
-        Me.TxtCaracteristicas.TabIndex = 26
+        Me.TxtCaracteristicas.TabIndex = 27
         '
         'Label5
         '
@@ -142,14 +146,14 @@ Partial Class Vehicles
         Me.TxtNumero.Location = New System.Drawing.Point(584, 226)
         Me.TxtNumero.Multiline = True
         Me.TxtNumero.Name = "TxtNumero"
-        Me.TxtNumero.Size = New System.Drawing.Size(321, 29)
+        Me.TxtNumero.Size = New System.Drawing.Size(159, 29)
         Me.TxtNumero.TabIndex = 25
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(584, 201)
+        Me.Label4.Location = New System.Drawing.Point(580, 203)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(139, 20)
         Me.Label4.TabIndex = 30
@@ -160,7 +164,7 @@ Partial Class Vehicles
         Me.Button1.Location = New System.Drawing.Point(785, 335)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 37)
-        Me.Button1.TabIndex = 27
+        Me.Button1.TabIndex = 28
         Me.Button1.Text = "Actualizar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -257,15 +261,34 @@ Partial Class Vehicles
         '
         Me.EditToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'TxtGps
+        '
+        Me.TxtGps.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtGps.Location = New System.Drawing.Point(752, 226)
+        Me.TxtGps.Multiline = True
+        Me.TxtGps.Name = "TxtGps"
+        Me.TxtGps.Size = New System.Drawing.Size(159, 29)
+        Me.TxtGps.TabIndex = 26
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(748, 203)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
+        Me.Label6.TabIndex = 33
+        Me.Label6.Text = "Id gps"
         '
         'Vehicles
         '
@@ -312,4 +335,6 @@ Partial Class Vehicles
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtModelo As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents TxtGps As TextBox
+    Friend WithEvents Label6 As Label
 End Class

@@ -31,13 +31,14 @@ Partial Class Asistir_llamada
         Me.Combo_direcciones = New System.Windows.Forms.ComboBox()
         Me.Combo_Driver = New System.Windows.Forms.ComboBox()
         Me.ComboVehiculos = New System.Windows.Forms.ComboBox()
+        Me.Wb = New System.Windows.Forms.WebBrowser()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(344, 241)
+        Me.Button1.Location = New System.Drawing.Point(680, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 0
@@ -46,7 +47,7 @@ Partial Class Asistir_llamada
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(263, 241)
+        Me.Button2.Location = New System.Drawing.Point(599, 103)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 1
@@ -63,15 +64,15 @@ Partial Class Asistir_llamada
         Me.Panel1.Controls.Add(Me.Combo_direcciones)
         Me.Panel1.Controls.Add(Me.Combo_Driver)
         Me.Panel1.Controls.Add(Me.ComboVehiculos)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(436, 273)
+        Me.Panel1.Size = New System.Drawing.Size(767, 151)
         Me.Panel1.TabIndex = 2
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(137, 241)
+        Me.Button3.Location = New System.Drawing.Point(473, 103)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(120, 23)
         Me.Button3.TabIndex = 30
@@ -101,9 +102,9 @@ Partial Class Asistir_llamada
         Me.Combo_direcciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Combo_direcciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.Combo_direcciones.FormattingEnabled = True
-        Me.Combo_direcciones.Location = New System.Drawing.Point(15, 145)
+        Me.Combo_direcciones.Location = New System.Drawing.Point(178, 13)
         Me.Combo_direcciones.Name = "Combo_direcciones"
-        Me.Combo_direcciones.Size = New System.Drawing.Size(405, 24)
+        Me.Combo_direcciones.Size = New System.Drawing.Size(577, 24)
         Me.Combo_direcciones.TabIndex = 24
         '
         'Combo_Driver
@@ -111,9 +112,9 @@ Partial Class Asistir_llamada
         Me.Combo_Driver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Combo_Driver.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.Combo_Driver.FormattingEnabled = True
-        Me.Combo_Driver.Location = New System.Drawing.Point(15, 211)
+        Me.Combo_Driver.Location = New System.Drawing.Point(178, 73)
         Me.Combo_Driver.Name = "Combo_Driver"
-        Me.Combo_Driver.Size = New System.Drawing.Size(405, 24)
+        Me.Combo_Driver.Size = New System.Drawing.Size(577, 24)
         Me.Combo_Driver.TabIndex = 27
         '
         'ComboVehiculos
@@ -121,16 +122,26 @@ Partial Class Asistir_llamada
         Me.ComboVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboVehiculos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.ComboVehiculos.FormattingEnabled = True
-        Me.ComboVehiculos.Location = New System.Drawing.Point(15, 178)
+        Me.ComboVehiculos.Location = New System.Drawing.Point(178, 43)
         Me.ComboVehiculos.Name = "ComboVehiculos"
-        Me.ComboVehiculos.Size = New System.Drawing.Size(405, 24)
+        Me.ComboVehiculos.Size = New System.Drawing.Size(577, 24)
         Me.ComboVehiculos.TabIndex = 25
+        '
+        'Wb
+        '
+        Me.Wb.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Wb.Location = New System.Drawing.Point(0, 151)
+        Me.Wb.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.Wb.Name = "Wb"
+        Me.Wb.Size = New System.Drawing.Size(767, 282)
+        Me.Wb.TabIndex = 3
         '
         'Asistir_llamada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(436, 273)
+        Me.ClientSize = New System.Drawing.Size(767, 433)
+        Me.Controls.Add(Me.Wb)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Asistir_llamada"
@@ -153,4 +164,5 @@ Partial Class Asistir_llamada
     Friend WithEvents PictureBox1 As PictureBox
     Public WithEvents Client As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents Wb As WebBrowser
 End Class

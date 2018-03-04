@@ -6,6 +6,7 @@ Imports System.Security.Cryptography
 Imports System.Net
 Imports Newtonsoft.Json.Linq
 Imports Newtonsoft.Json
+Imports Microsoft.Win32
 
 Public Class functions
 
@@ -442,10 +443,11 @@ Public Class functions
         t.Columns.Add("conductor", "Conductor")
         t.Columns.Add("Numero", "Numero")
         t.Columns.Add("caracteristica", "Caracteristica")
+        t.Columns.Add("id_gps", "Gps")
 
         If dato.HasRows Then
             Do While dato.Read()
-                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6))
             Loop
         End If
 
@@ -556,7 +558,7 @@ Public Class functions
         Return url_FotoActual
     End Function
 
-    Public Sub Vehicle_LoadUpdate(ByVal TxtModelo As TextBox, ByVal TxtMatricula As TextBox, ByVal TxtNumeroUnidad As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal t As DataGridView)
+    Public Sub Vehicle_LoadUpdate(ByVal TxtModelo As TextBox, ByVal TxtMatricula As TextBox, ByVal TxtNumeroUnidad As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal t As DataGridView, ByVal TxtGps As TextBox)
         Dim dato = Db.Consult("select * from vehicles where id =  '" + Vehicle_id + "'  ")
 
         If dato.Read() Then
@@ -565,7 +567,7 @@ Public Class functions
             Driver_id = dato.GetString(3)
             TxtNumeroUnidad.Text = dato.GetString(4)
             TxtCaracteristicas.Text = dato.GetString(5)
-
+            TxtGps.Text = dato.GetString(6)
             For Each row As DataGridViewRow In t.Rows
                 If t.Item(0, row.Index).Value = Driver_id Then
                     t.CurrentCell = t.Rows(row.Index).Cells(0)
@@ -656,8 +658,8 @@ Public Class functions
         Return Db_shared.Ejecutar("UPDATE adresses SET client = " + Client + ", direccion = '" + TxtDireccion.Text.ToUpper + "', referencia = '" + TxtReferencia.Text.ToUpper + "', kms = " + TxtKm.Text + " WHERE id = " + Adress_id + " ")
     End Function
 
-    Public Shared Function Vehicle_UPDATE(ByVal TxtModelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox) As Boolean
-        Return Db_shared.Ejecutar("UPDATE vehicles SET modelo = '" + TxtModelo.Text.ToUpper + "', placas = '" + TxtPlaca.Text.ToUpper + "', driver = " + Driver_id + ", numero = '" + TxtNumero.Text.ToUpper + "', caracteristicas = '" + TxtCaracteristicas.Text.ToUpper + "' WHERE id = " + Vehicle_id + "  ")
+    Public Shared Function Vehicle_UPDATE(ByVal TxtModelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal TxtGps As TextBox) As Boolean
+        Return Db_shared.Ejecutar("UPDATE vehicles SET modelo = '" + TxtModelo.Text.ToUpper + "', placas = '" + TxtPlaca.Text.ToUpper + "', driver = " + Driver_id + ", numero = '" + TxtNumero.Text.ToUpper + "', caracteristicas = '" + TxtCaracteristicas.Text.ToUpper + "', id_gps  = '" + TxtGps.Text.ToUpper + "' WHERE id = " + Vehicle_id + "  ")
     End Function
 
     Public Shared Function Clients_NumberADD(ByVal TxtNumero As TextBox, ByVal TxtCompañia As TextBox, ByVal TxtMovil As RadioButton, ByVal Txtfijo As RadioButton, ByVal TxtRef As TextBox) As Boolean
@@ -668,8 +670,8 @@ Public Class functions
         End If
     End Function
 
-    Public Shared Function Drivers_ADD(ByVal Txtmodelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox) As Boolean
-        Return Db_shared.Ejecutar("INSERT INTO vehicles (modelo, placas, driver, numero, caracteristicas) VALUES ('" + Txtmodelo.Text.ToUpper + "', '" + TxtPlaca.Text.ToUpper + "', " + Driver_id + ", '" + TxtNumero.Text.ToUpper + "', '" + TxtCaracteristicas.Text.ToUpper + "')")
+    Public Shared Function Drivers_ADD(ByVal Txtmodelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal TxtGps As TextBox) As Boolean
+        Return Db_shared.Ejecutar("INSERT INTO vehicles (modelo, placas, driver, numero, caracteristicas,id_gps ) VALUES ('" + Txtmodelo.Text.ToUpper + "', '" + TxtPlaca.Text.ToUpper + "', " + Driver_id + ", '" + TxtNumero.Text.ToUpper + "', '" + TxtCaracteristicas.Text.ToUpper + "', '" + TxtGps.Text.ToUpper + "')")
     End Function
 
     Public Sub Clients_Datagridview_Numbers(ByVal sql As String, ByVal t As DataGridView)
@@ -1439,9 +1441,12 @@ Public Class functions
         Return PasConMd5
     End Function
 
-    Public Function Driver_GetGPS(driver As Integer, ByRef la As String, ByRef lo As String, ByRef fe As String) As Boolean
+    Public Function Vehicle_GetGPS(driver As Integer, Wb As WebBrowser) As Boolean
+        Wb.Refresh()
         Dim r = False
-        Dim idGps As String = DriverReturn_IdGps(driver)
+        Dim nombre, idGps, modelo, placa, numero As String
+
+        VehicleReturn_IdGps_Name(driver, idGps, nombre, modelo, placa, numero)
         Dim latitude As String
         Dim longitud As String
         Dim fecha As String
@@ -1488,25 +1493,146 @@ Public Class functions
             Next
 
         Next
-        la = latitude
-        lo = longitud
-        fe = fecha
 
-        If String.IsNullOrEmpty(latitude) = False Then
+        If VerificaNavegador() And String.IsNullOrEmpty(latitude) = False Then
+            Wb.DocumentText =
+            "<!DOCTYPE html>
+            <html>
+                <head>
+                <title>Showing pixel and tile coordinates</title>
+                <meta name='viewport' content='initial-scale=1.0'>
+                <meta charset='utf-8'>
+                <style>
+                    /* Always set the map height explicitly to define the size of the div
+                    * element that contains the map. */
+                    #map {
+                    height: 100%;
+                    }
+                    /* Optional: Makes the sample page fill the window. */
+                    html, body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    }
+                </style>
+                </head>
+                <body>
+                <div id='map'></div>
+                <script>
+                    function initMap() {
+                    var chicago = new google.maps.LatLng(" + latitude + ", " + longitud + ");
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: chicago,
+                        zoom: 17
+                    });
+
+                    var coordInfoWindow = new google.maps.InfoWindow();
+                    coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
+                    coordInfoWindow.setPosition(chicago);
+                    coordInfoWindow.open(map);
+
+                    map.addListener('zoom_changed', function() {
+                        coordInfoWindow.setContent(createInfoWindowContent(chicago, map.getZoom()));
+                        coordInfoWindow.open(map);
+                    });
+                    }
+
+                    var TILE_SIZE = 256;
+
+                    function createInfoWindowContent(latLng, zoom) {
+                    var scale = 1 << zoom;
+
+                    var worldCoordinate = project(latLng);
+
+                    var pixelCoordinate = new google.maps.Point(
+                        Math.floor(worldCoordinate.x * scale),
+                        Math.floor(worldCoordinate.y * scale));
+
+                    var tileCoordinate = new google.maps.Point(
+                        Math.floor(worldCoordinate.x * scale / TILE_SIZE),
+                        Math.floor(worldCoordinate.y * scale / TILE_SIZE));
+
+                    return [
+                        '" + nombre + "',
+                        'Modelo: " + modelo + " #" + numero + "',
+                        'Matricula: " + placa + "',
+                        'Ultima ubicacion: " + fecha + "',
+                        'Zoom: ' + zoom
+                    ].join('<br>');
+                    }
+
+                    // The mapping between latitude, longitude and pixels is defined by the web
+                    // mercator projection.
+                    function project(latLng) {
+                    var siny = Math.sin(latLng.lat() * Math.PI / 180);
+
+                    // Truncating to 0.9999 effectively limits latitude to 89.189. This is
+                    // about a third of a tile past the edge of the world tile.
+                    siny = Math.min(Math.max(siny, -0.9999), 0.9999);
+
+                    return new google.maps.Point(
+                        TILE_SIZE * (0.5 + latLng.lng() / 360),
+                        TILE_SIZE * (0.5 - Math.log((1 + siny) / (1 - siny)) / (4 * Math.PI)));
+                    }
+                </script>
+                <script async defer
+                src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB0theeomcG72Ewe3QKbRxc9BqbCfQxlus &callback=initMap'>
+                </script>
+                </body>
+            </html>"
             r = True
+        Else
+            r = False
         End If
 
         Return r
     End Function
 
-    Public Function DriverReturn_IdGps(driver As Integer) As String
+    Public Function VehicleReturn_IdGps_Name(driver As Integer, ByRef id_gps As String, ByRef nombre As String, ByRef modelo As String, ByRef placa As String, ByRef numero As String) As String
         Dim r As String
-        Dim dato = Db.Consult("SELECT id_gps FROM drivers WHERE id = '" + driver.ToString + "' ")
+        Dim dato = Db.Consult("SELECT d.nombre, v.id_gps, v.modelo, v.placas, v.numero FROM drivers d, vehicles v WHERE v.driver = d.id and d.id = '" + driver.ToString + "'")
 
         If dato.Read() Then
-            r = dato.GetString(0)
+            nombre = dato.GetString(0)
+            id_gps = dato.GetString(1)
+            modelo = dato.GetString(2)
+            placa = dato.GetString(3)
+            numero = dato.GetString(4)
         End If
 
         Return r
+    End Function
+
+    Private Function VerificaNavegador() As Boolean
+        Dim versaoNavegador As Integer, RegVal As Integer
+        Try
+            ' Ontener version IE
+            Using Wb As New WebBrowser()
+                versaoNavegador = Wb.Version.Major
+            End Using
+
+            ' Define version IE
+            If versaoNavegador >= 11 Then
+                RegVal = 11001
+            ElseIf versaoNavegador = 10 Then
+                RegVal = 10001
+            ElseIf versaoNavegador = 9 Then
+                RegVal = 9999
+            ElseIf versaoNavegador = 8 Then
+                RegVal = 8888
+            Else
+                RegVal = 7000
+            End If
+
+            ' define a chave atual
+            Dim Key As RegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", True)
+            Key.SetValue(System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe", RegVal, RegistryValueKind.DWord)
+            Key.Close()
+            Return True
+
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 End Class

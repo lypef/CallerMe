@@ -9,6 +9,7 @@
     Public driver_id As String
     Public f_llamada As Date
     Public Asitir_llamada As Date
+    Dim ubicar As Boolean = False
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
@@ -57,6 +58,7 @@
         f.ComboBox_SetDriversConID(Combo_Driver)
         Combo_Driver.SelectedIndex = 0
         Client.Text = f.LoadNumberAsistencia(number, PictureBox1, Combo_direcciones, number_id, client_id)
+        ubicar = True
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -86,5 +88,14 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         loadvalues()
+    End Sub
+
+    Private Sub Combo_Driver_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_Driver.SelectedIndexChanged
+        If ubicar Then
+            Dim id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+            If f.Vehicle_GetGPS(Convert.ToInt32(id), Wb) = False Then
+                f.Alert("Error no definido", f.Alert_NumberExclamacion)
+            End If
+        End If
     End Sub
 End Class

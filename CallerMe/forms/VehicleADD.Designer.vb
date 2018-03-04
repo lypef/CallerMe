@@ -37,6 +37,8 @@ Partial Class VehicleADD
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtCaracteristicas = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TxtGps = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,12 +61,12 @@ Partial Class VehicleADD
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(557, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(370, 75)
+        Me.Panel1.Size = New System.Drawing.Size(370, 64)
         Me.Panel1.TabIndex = 10
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(270, 31)
+        Me.Button2.Location = New System.Drawing.Point(270, 29)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(78, 29)
         Me.Button2.TabIndex = 7
@@ -75,7 +77,7 @@ Partial Class VehicleADD
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(29, 8)
+        Me.Label3.Location = New System.Drawing.Point(29, 6)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(137, 20)
         Me.Label3.TabIndex = 10
@@ -84,7 +86,7 @@ Partial Class VehicleADD
         'TxtSearch
         '
         Me.TxtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSearch.Location = New System.Drawing.Point(27, 31)
+        Me.TxtSearch.Location = New System.Drawing.Point(27, 29)
         Me.TxtSearch.Name = "TxtSearch"
         Me.TxtSearch.Size = New System.Drawing.Size(237, 29)
         Me.TxtSearch.TabIndex = 6
@@ -101,7 +103,7 @@ Partial Class VehicleADD
         'TxtNumero
         '
         Me.TxtNumero.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumero.Location = New System.Drawing.Point(587, 244)
+        Me.TxtNumero.Location = New System.Drawing.Point(586, 211)
         Me.TxtNumero.Multiline = True
         Me.TxtNumero.Name = "TxtNumero"
         Me.TxtNumero.Size = New System.Drawing.Size(321, 29)
@@ -111,7 +113,7 @@ Partial Class VehicleADD
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(587, 219)
+        Me.Label4.Location = New System.Drawing.Point(586, 186)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(139, 20)
         Me.Label4.TabIndex = 20
@@ -119,17 +121,17 @@ Partial Class VehicleADD
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(788, 363)
+        Me.Button1.Location = New System.Drawing.Point(785, 388)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 37)
-        Me.Button1.TabIndex = 5
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "Agregar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TxtPlaca
         '
         Me.TxtPlaca.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPlaca.Location = New System.Drawing.Point(587, 185)
+        Me.TxtPlaca.Location = New System.Drawing.Point(586, 152)
         Me.TxtPlaca.Name = "TxtPlaca"
         Me.TxtPlaca.Size = New System.Drawing.Size(321, 29)
         Me.TxtPlaca.TabIndex = 2
@@ -138,7 +140,7 @@ Partial Class VehicleADD
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(587, 160)
+        Me.Label2.Location = New System.Drawing.Point(586, 127)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 20)
         Me.Label2.TabIndex = 17
@@ -147,7 +149,7 @@ Partial Class VehicleADD
         'TxtModelo
         '
         Me.TxtModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtModelo.Location = New System.Drawing.Point(587, 126)
+        Me.TxtModelo.Location = New System.Drawing.Point(586, 93)
         Me.TxtModelo.Name = "TxtModelo"
         Me.TxtModelo.Size = New System.Drawing.Size(321, 29)
         Me.TxtModelo.TabIndex = 1
@@ -156,7 +158,7 @@ Partial Class VehicleADD
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(587, 101)
+        Me.Label1.Location = New System.Drawing.Point(586, 68)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 20)
         Me.Label1.TabIndex = 14
@@ -165,27 +167,48 @@ Partial Class VehicleADD
         'TxtCaracteristicas
         '
         Me.TxtCaracteristicas.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCaracteristicas.Location = New System.Drawing.Point(587, 303)
+        Me.TxtCaracteristicas.Location = New System.Drawing.Point(586, 329)
         Me.TxtCaracteristicas.Multiline = True
         Me.TxtCaracteristicas.Name = "TxtCaracteristicas"
         Me.TxtCaracteristicas.Size = New System.Drawing.Size(321, 54)
-        Me.TxtCaracteristicas.TabIndex = 4
+        Me.TxtCaracteristicas.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(587, 278)
+        Me.Label5.Location = New System.Drawing.Point(586, 304)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(114, 20)
         Me.Label5.TabIndex = 22
         Me.Label5.Text = "Caracteristicas"
+        '
+        'TxtGps
+        '
+        Me.TxtGps.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtGps.Location = New System.Drawing.Point(586, 270)
+        Me.TxtGps.Multiline = True
+        Me.TxtGps.Name = "TxtGps"
+        Me.TxtGps.Size = New System.Drawing.Size(321, 29)
+        Me.TxtGps.TabIndex = 4
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(586, 245)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
+        Me.Label6.TabIndex = 102
+        Me.Label6.Text = "Id gps"
         '
         'VehicleADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.Controls.Add(Me.TxtGps)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TxtCaracteristicas)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.TxtNumero)
@@ -224,4 +247,6 @@ Partial Class VehicleADD
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtCaracteristicas As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents TxtGps As TextBox
+    Friend WithEvents Label6 As Label
 End Class

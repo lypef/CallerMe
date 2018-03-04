@@ -22,12 +22,13 @@
             If String.IsNullOrEmpty(TxtModelo.Text) = False Then
                 functions.Driver_id = DataGridView1.SelectedCells(0).Value
                 functions.OnLoader(PictureBox1)
-                If functions.Drivers_ADD(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas) Then
+                If functions.Drivers_ADD(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas, TxtGps) Then
                     f.Alert("Vehiculo agregado con exito", f.Alert_NumberInformacion)
                     functions.TextBox_clean(TxtModelo)
                     functions.TextBox_clean(TxtPlaca)
                     functions.TextBox_clean(TxtNumero)
                     functions.TextBox_clean(TxtCaracteristicas)
+                    functions.TextBox_clean(TxtGps)
                     functions.Driver_id = 0
                 Else
                     f.Alert("Error, verifique sus datos, es posible que el numero ya exista", f.Alert_NumberCritical)

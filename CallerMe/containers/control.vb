@@ -146,13 +146,12 @@ Public Class control
     End Sub
 
     Private Sub Button_Clients_Click(sender As Object, e As EventArgs) Handles Button_Clients.Click
-        f.AddForm_Desktop(gps, Desktop)
-        'If f.ReturnPermission(f.Permission_Access_Clients) Then
-        'Clients.LoadClientes()
-        'f.AddForm_Desktop(Clients, Desktop)
-        'Else
-        'f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        'End If
+        If f.ReturnPermission(f.Permission_Access_Clients) Then
+            Clients.LoadClientes()
+            f.AddForm_Desktop(Clients, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs)

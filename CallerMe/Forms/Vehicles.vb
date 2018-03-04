@@ -13,7 +13,7 @@
     End Sub
 
     Public Sub LoadVehicles()
-        f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc", Table)
+        f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas, v.id_gps FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc", Table)
         f.Drivers_DataGridViewSet("SELECT * FROM drivers ORDER by nombre asc", Table_drivers)
         TabControl1.SelectedIndex = 0
         functions.Vehicle_id = 0
@@ -35,7 +35,7 @@
         If TabControl1.SelectedIndex = 1 Then
             If f.ReturnPermission(f.Permission_Vehicle_EDIT) Then
                 If functions.Vehicle_id > 0 Then
-                    f.Vehicle_LoadUpdate(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas, Table_drivers)
+                    f.Vehicle_LoadUpdate(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas, Table_drivers, TxtGps)
                 Else
                     TabControl1.SelectedIndex = 0
                 End If
@@ -85,7 +85,7 @@
             If String.IsNullOrEmpty(TxtModelo.Text) = False Then
                 functions.OnLoader(Loader)
                 functions.Driver_id = Table_drivers.SelectedCells(0).Value
-                If functions.Vehicle_UPDATE(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas) Then
+                If functions.Vehicle_UPDATE(TxtModelo, TxtPlaca, TxtNumero, TxtCaracteristicas, TxtGps) Then
                     f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
                     LoadVehicles()
                 Else

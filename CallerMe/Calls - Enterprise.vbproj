@@ -15,6 +15,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>C:\Users\ISC\Desktop\Calls - Enterprise SETUP\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,13 +27,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>76</ApplicationRevision>
+    <ApplicationRevision>77</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -255,12 +255,6 @@
     <Compile Include="Forms\DriversADD.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\gps.Designer.vb">
-      <DependentUpon>gps.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\gps.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Logs.Designer.vb">
       <DependentUpon>Logs.vb</DependentUpon>
     </Compile>
@@ -441,9 +435,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DriversADD.resx">
       <DependentUpon>DriversADD.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\gps.resx">
-      <DependentUpon>gps.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Logs.resx">
       <DependentUpon>Logs.vb</DependentUpon>
