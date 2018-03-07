@@ -71,10 +71,10 @@ Partial Class Parametros
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.P_generalID = New System.Windows.Forms.TextBox()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.UrlApi = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.P_generalID = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -346,6 +346,7 @@ Partial Class Parametros
         'Tablas_Height
         '
         Me.Tablas_Height.Location = New System.Drawing.Point(223, 69)
+        Me.Tablas_Height.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
         Me.Tablas_Height.Name = "Tablas_Height"
         Me.Tablas_Height.Size = New System.Drawing.Size(57, 20)
         Me.Tablas_Height.TabIndex = 0
@@ -495,6 +496,7 @@ Partial Class Parametros
         'TimerInterval
         '
         Me.TimerInterval.Location = New System.Drawing.Point(10, 88)
+        Me.TimerInterval.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         Me.TimerInterval.Name = "TimerInterval"
         Me.TimerInterval.Size = New System.Drawing.Size(238, 20)
         Me.TimerInterval.TabIndex = 6
@@ -533,23 +535,6 @@ Partial Class Parametros
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
         '
-        'P_generalID
-        '
-        Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.P_generalID.Location = New System.Drawing.Point(104, 17)
-        Me.P_generalID.Name = "P_generalID"
-        Me.P_generalID.Size = New System.Drawing.Size(176, 22)
-        Me.P_generalID.TabIndex = 18
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 22)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(95, 13)
-        Me.Label14.TabIndex = 7
-        Me.Label14.Text = "Publico en general"
-        '
         'UrlApi
         '
         Me.UrlApi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -566,6 +551,23 @@ Partial Class Parametros
         Me.Label15.Size = New System.Drawing.Size(39, 13)
         Me.Label15.TabIndex = 19
         Me.Label15.Text = "Url APi"
+        '
+        'P_generalID
+        '
+        Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.P_generalID.Location = New System.Drawing.Point(104, 17)
+        Me.P_generalID.Name = "P_generalID"
+        Me.P_generalID.Size = New System.Drawing.Size(176, 22)
+        Me.P_generalID.TabIndex = 18
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(6, 22)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(95, 13)
+        Me.Label14.TabIndex = 7
+        Me.Label14.Text = "Publico en general"
         '
         'Parametros
         '
