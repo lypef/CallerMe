@@ -379,6 +379,18 @@ Namespace My
                 Me("ws_gps") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property use_gps() As Boolean
+            Get
+                Return CType(Me("use_gps"),Boolean)
+            End Get
+            Set
+                Me("use_gps") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

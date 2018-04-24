@@ -75,6 +75,7 @@ Partial Class Parametros
         Me.Label15 = New System.Windows.Forms.Label()
         Me.P_generalID = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.CheckGps = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -523,6 +524,7 @@ Partial Class Parametros
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.CheckGps)
         Me.GroupBox5.Controls.Add(Me.UrlApi)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.P_generalID)
@@ -568,6 +570,16 @@ Partial Class Parametros
         Me.Label14.Size = New System.Drawing.Size(95, 13)
         Me.Label14.TabIndex = 7
         Me.Label14.Text = "Publico en general"
+        '
+        'CheckGps
+        '
+        Me.CheckGps.AutoSize = True
+        Me.CheckGps.Location = New System.Drawing.Point(316, 61)
+        Me.CheckGps.Name = "CheckGps"
+        Me.CheckGps.Size = New System.Drawing.Size(81, 17)
+        Me.CheckGps.TabIndex = 18
+        Me.CheckGps.Text = "USAR GPS"
+        Me.CheckGps.UseVisualStyleBackColor = True
         '
         'Parametros
         '
@@ -653,4 +665,5 @@ Partial Class Parametros
     Friend WithEvents P_generalID As TextBox
     Friend WithEvents UrlApi As TextBox
     Friend WithEvents Label15 As Label
+    Friend WithEvents CheckGps As CheckBox
 End Class

@@ -92,9 +92,11 @@
 
     Private Sub Combo_Driver_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_Driver.SelectedIndexChanged
         If ubicar Then
-            Dim id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-            If f.Vehicle_GetGPS(Convert.ToInt32(id), Wb) = False Then
-                f.Alert("Error no definido", f.Alert_NumberExclamacion)
+            If My.Settings.use_gps Then
+                Dim id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                If f.Vehicle_GetGPS(Convert.ToInt32(id), Wb) = False Then
+                    f.Alert("Error no definido", f.Alert_NumberExclamacion)
+                End If
             End If
         End If
     End Sub
