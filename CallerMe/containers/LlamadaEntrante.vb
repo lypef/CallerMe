@@ -29,27 +29,32 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If caller = 0 Then
-            control.TimerCero.Stop()
-            f.finalizarLlamada(caller)
-            control.TimerCero.Start()
-            Me.Dispose()
-        ElseIf caller = 1 Then
-            control.TimerUno.Stop()
-            f.finalizarLlamada(caller)
-            control.TimerUno.Start()
-            Me.Dispose()
-        ElseIf caller = 2 Then
-            control.TimerDOS.Stop()
-            f.finalizarLlamada(caller)
-            control.TimerDOS.Start()
-            Me.Dispose()
-        ElseIf caller = 3 Then
-            control.TimerTres.Stop()
-            f.finalizarLlamada(caller)
-            control.TimerTres.Start()
+        If My.Settings.omitir_colgar Then
+            If caller = 0 Then
+                control.TimerCero.Stop()
+                f.finalizarLlamada(caller)
+                control.TimerCero.Start()
+                Me.Dispose()
+            ElseIf caller = 1 Then
+                control.TimerUno.Stop()
+                f.finalizarLlamada(caller)
+                control.TimerUno.Start()
+                Me.Dispose()
+            ElseIf caller = 2 Then
+                control.TimerDOS.Stop()
+                f.finalizarLlamada(caller)
+                control.TimerDOS.Start()
+                Me.Dispose()
+            ElseIf caller = 3 Then
+                control.TimerTres.Stop()
+                f.finalizarLlamada(caller)
+                control.TimerTres.Start()
+                Me.Dispose()
+            End If
+        Else
             Me.Dispose()
         End If
+
 
     End Sub
 

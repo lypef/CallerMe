@@ -391,6 +391,18 @@ Namespace My
                 Me("use_gps") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property omitir_colgar() As Boolean
+            Get
+                Return CType(Me("omitir_colgar"),Boolean)
+            End Get
+            Set
+                Me("omitir_colgar") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

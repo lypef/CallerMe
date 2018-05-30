@@ -71,11 +71,12 @@ Partial Class Parametros
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.CheckGps = New System.Windows.Forms.CheckBox()
         Me.UrlApi = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.P_generalID = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.CheckGps = New System.Windows.Forms.CheckBox()
+        Me.Colgar_omitir = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -524,6 +525,7 @@ Partial Class Parametros
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Colgar_omitir)
         Me.GroupBox5.Controls.Add(Me.CheckGps)
         Me.GroupBox5.Controls.Add(Me.UrlApi)
         Me.GroupBox5.Controls.Add(Me.Label15)
@@ -532,17 +534,27 @@ Partial Class Parametros
         Me.GroupBox5.Controls.Add(Me.Button8)
         Me.GroupBox5.Location = New System.Drawing.Point(310, 281)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(403, 100)
+        Me.GroupBox5.Size = New System.Drawing.Size(403, 125)
         Me.GroupBox5.TabIndex = 102
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
+        '
+        'CheckGps
+        '
+        Me.CheckGps.AutoSize = True
+        Me.CheckGps.Location = New System.Drawing.Point(51, 84)
+        Me.CheckGps.Name = "CheckGps"
+        Me.CheckGps.Size = New System.Drawing.Size(81, 17)
+        Me.CheckGps.TabIndex = 18
+        Me.CheckGps.Text = "USAR GPS"
+        Me.CheckGps.UseVisualStyleBackColor = True
         '
         'UrlApi
         '
         Me.UrlApi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UrlApi.Location = New System.Drawing.Point(51, 56)
         Me.UrlApi.Name = "UrlApi"
-        Me.UrlApi.Size = New System.Drawing.Size(229, 22)
+        Me.UrlApi.Size = New System.Drawing.Size(345, 22)
         Me.UrlApi.TabIndex = 20
         '
         'Label15
@@ -571,15 +583,15 @@ Partial Class Parametros
         Me.Label14.TabIndex = 7
         Me.Label14.Text = "Publico en general"
         '
-        'CheckGps
+        'Colgar_omitir
         '
-        Me.CheckGps.AutoSize = True
-        Me.CheckGps.Location = New System.Drawing.Point(316, 61)
-        Me.CheckGps.Name = "CheckGps"
-        Me.CheckGps.Size = New System.Drawing.Size(81, 17)
-        Me.CheckGps.TabIndex = 18
-        Me.CheckGps.Text = "USAR GPS"
-        Me.CheckGps.UseVisualStyleBackColor = True
+        Me.Colgar_omitir.AutoSize = True
+        Me.Colgar_omitir.Location = New System.Drawing.Point(138, 84)
+        Me.Colgar_omitir.Name = "Colgar_omitir"
+        Me.Colgar_omitir.Size = New System.Drawing.Size(180, 17)
+        Me.Colgar_omitir.TabIndex = 21
+        Me.Colgar_omitir.Text = "COLGAR LLAMADA AL OMITIR"
+        Me.Colgar_omitir.UseVisualStyleBackColor = True
         '
         'Parametros
         '
@@ -666,4 +678,5 @@ Partial Class Parametros
     Friend WithEvents UrlApi As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents CheckGps As CheckBox
+    Friend WithEvents Colgar_omitir As CheckBox
 End Class

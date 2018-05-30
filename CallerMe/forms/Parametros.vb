@@ -46,6 +46,7 @@ Public Class Parametros
         P_generalID.Text = My.Settings.pg_id
         UrlApi.Text = My.Settings.ws_gps
         CheckGps.Checked = My.Settings.use_gps
+        Colgar_omitir.Checked = My.Settings.omitir_colgar
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -84,6 +85,7 @@ Public Class Parametros
         My.Settings.pg_id = P_generalID.Text
         My.Settings.ws_gps = UrlApi.Text
         My.Settings.use_gps = CheckGps.Checked
+        My.Settings.omitir_colgar = Colgar_omitir.Checked
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
 
         Application.Restart()
