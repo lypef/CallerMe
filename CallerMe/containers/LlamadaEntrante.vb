@@ -29,6 +29,10 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        omitir()
+    End Sub
+
+    Private Sub omitir()
         If My.Settings.omitir_colgar Then
             If caller = 0 Then
                 control.TimerCero.Stop()
@@ -54,12 +58,11 @@
         Else
             Me.Dispose()
         End If
-
-
     End Sub
 
     Public Sub LoadNumber()
         Client.Text = f.LoadNumber(Numero, Company, Client, Type, ref, PictureBox1)
+
         If caller = 0 Then
             NumberLine.Text = "Linea: " + My.Settings.caller_0_number
         ElseIf caller = 1 Then
@@ -69,5 +72,19 @@
         ElseIf caller = 3 Then
             NumberLine.Text = "Linea: " + My.Settings.caller_3_number
         End If
+
+        Timer1.Enabled = True
+        Timer1.Interval = Convert.ToInt32(My.Settings.omitir_llamada)
+        Timer1.Start()
+    End Sub
+
+    Private Sub LlamadaEntrante_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        omitir()
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Timer1.Stop()
+        Timer1.Enabled = False
+        omitir()
     End Sub
 End Class

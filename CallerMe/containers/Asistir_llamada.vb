@@ -100,4 +100,10 @@
             End If
         End If
     End Sub
+
+    Private Sub ComboVehiculos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboVehiculos.SelectedIndexChanged
+        If ComboVehiculos.SelectedIndex > 0 Then
+            f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
+        End If
+    End Sub
 End Class

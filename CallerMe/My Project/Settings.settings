@@ -51,7 +51,7 @@
       <Value Profile="(Default)">Microsoft Sans Serif, 9.75pt, style=Bold</Value>
     </Setting>
     <Setting Name="caller_0" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="caller_1" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -78,7 +78,7 @@
       <Value Profile="(Default)">01800</Value>
     </Setting>
     <Setting Name="valid" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ws_gps" Type="(Web Service URL)" Scope="User">
       <Value Profile="(Default)">http://13.92.173.204/tracking-es/api/list.php?authtoken=379012a61423089657ce6c1649d30c4c5b99d55a</Value>
@@ -88,6 +88,9 @@
     </Setting>
     <Setting Name="omitir_colgar" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="omitir_llamada" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

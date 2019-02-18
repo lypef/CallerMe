@@ -22,6 +22,7 @@ Partial Class LlamadaEntrante
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Numero = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Asistir = New System.Windows.Forms.Button()
@@ -32,6 +33,7 @@ Partial Class LlamadaEntrante
         Me.ref = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NumberLine = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -128,6 +130,9 @@ Partial Class LlamadaEntrante
         Me.NumberLine.TabIndex = 9
         Me.NumberLine.Text = "Linea:"
         '
+        'Timer1
+        '
+        '
         'LlamadaEntrante
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -162,4 +167,5 @@ Partial Class LlamadaEntrante
     Public WithEvents ref As Label
     Public WithEvents Label1 As Label
     Public WithEvents NumberLine As Label
+    Friend WithEvents Timer1 As Timer
 End Class

@@ -53,7 +53,7 @@ Partial Class validate
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Image = Global.Calls.My.Resources.Resources.icon_acerca_de
+        Me.PictureBox1.Image = Global.Calls.My.Resources.Resources.icon_acerca_de1
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(361, 265)

@@ -24,7 +24,7 @@ Public Class functions
     Public Shared user_select As String
 
     'Listas 
-    Dim ListNumeros As New List(Of Integer)
+    Public ListNumeros As New List(Of Integer)
 
     Public Sub finalizarLlamada(caller As Integer)
         AD101_SetBusy(caller, 0)
@@ -33,9 +33,9 @@ Public Class functions
     End Sub
 
     Dim ListUsuarios As New List(Of Integer)
-    Dim ListDireccion As New List(Of Integer)
-    Dim ListVehiculos As New List(Of Integer)
-    Dim ListConductor As New List(Of Integer)
+    Public ListDireccion As New List(Of Integer)
+    Public ListVehiculos As New List(Of Integer)
+    Public ListConductor As New List(Of Integer)
 
     'Propiedades parametros
     Public ReadOnly Empresa_Nombre As String = "name_enterprise"
@@ -95,6 +95,7 @@ Public Class functions
 
     'Variables permisos de usuario
     Public ReadOnly GenReportClients As Integer = 1
+
     Public ReadOnly GenReportClients_NUMEROS As Integer = 2
     Public ReadOnly GenReportClients_DIRECCIONES As Integer = 3
     Public ReadOnly GenReportClients_DRIVERS As Integer = 4
@@ -236,7 +237,7 @@ Public Class functions
         Return r
     End Function
 
-    Public Function ReturnUsername()
+    Public Function ReturnUsername() As String
         Dim r = ""
         Dim dato = Db.Consult("select name from users where id =  " + userID + "  ")
 
@@ -405,6 +406,42 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6), dato.GetString(7), dato.GetString(8), dato.GetString(9))
+            Loop
+        End If
+
+    End Sub
+
+    Public Sub Logs_DataGridViewSet_fecha(ByVal sql As String, ByVal t As DataGridView, F_desde As DateTimePicker, f_hasta As DateTimePicker)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("client", "Cliente")
+        t.Columns.Add("numero", "Numero")
+        t.Columns.Add("direccion", "Direccion")
+        t.Columns.Add("atendio", "Atendio")
+        t.Columns.Add("modelo", "Vehiculo")
+        t.Columns.Add("driver", "Conductor")
+        t.Columns.Add("hour_llamada", "Fecha llamada")
+        t.Columns.Add("hour_atencion", "Llamada atendida")
+        t.Columns.Add("hour_finaliza", "Llamada finalizada")
+
+        Dim tmp1 = New DateTime(F_desde.Value.Year, F_desde.Value.Month, F_desde.Value.Day, 0, 0, 0)
+        F_desde.Value = tmp1
+        Dim tmp2 = New DateTime(f_hasta.Value.Year, f_hasta.Value.Month, f_hasta.Value.Day, 23, 59, 59)
+        f_hasta.Value = tmp2
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                Dim FechaDB = New DateTime()
+                FechaDB = Convert.ToDateTime(dato.GetString(7))
+
+                If FechaDB.CompareTo(Convert.ToDateTime(F_desde.Value)) >= 0 And FechaDB.CompareTo(Convert.ToDateTime(f_hasta.Value)) <= 0 Then
+                    t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6), dato.GetString(7), dato.GetString(8), dato.GetString(9))
+                End If
+
             Loop
         End If
 
@@ -756,128 +793,87 @@ Public Class functions
         End Try
     End Function
 
-    Public Sub GenReport(ByVal t As DataGridView, ByVal NumReport As Integer)
-        Dim dt As New DataTable
-        Dim report As CrystalDecisions.CrystalReports.Engine.ReportDocument
+    Public Sub GenReport(ByVal t As DataGridView, cadena As String, rotate As Boolean)
+        Dim filename = My.Settings.data_url + "\report_tmp.pdf"
 
-        If NumReport = Me.GenReportClients Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("nombre")
-            dt.Columns.Add("f_nacimiento")
-            dt.Columns.Add("correo_electronico")
-            dt.Columns.Add("r_social")
-            dt.Columns.Add("rfc")
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
-            Next
-
-            report = New Report_clientes
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE CLIENTES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-
-        ElseIf NumReport = Me.GenReportClients_NUMEROS Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("cliente")
-            dt.Columns.Add("numero")
-            dt.Columns.Add("compañia")
-            dt.Columns.Add("tipo_linea")
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
-            Next
-
-            report = New report_numbers
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE NUMEROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-
-        ElseIf NumReport = Me.GenReportClients_DIRECCIONES Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("cliente")
-            dt.Columns.Add("direccion")
-            dt.Columns.Add("km")
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(5).Value)
-            Next
-
-            report = New Report_adresses
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE DIRECCIONES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-
-        ElseIf NumReport = Me.GenReportClients_DRIVERS Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("nombre")
-            dt.Columns.Add("fecha")
-            dt.Columns.Add("licencia")
-            dt.Columns.Add("telefono")
-            dt.Columns.Add("correo")
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
-            Next
-
-            report = New report_drivers
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE CONDUCTORES: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-
-        ElseIf NumReport = Me.GenReportDrivers_Vehicle Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("modelo")
-            dt.Columns.Add("placas")
-            dt.Columns.Add("conductor")
-            dt.Columns.Add("numero")
-            dt.Columns.Add("caracteristicas")
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value)
-            Next
-
-            report = New Report_vehicles
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE VEHICULOS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-
-        ElseIf NumReport = Me.GenReportLOGS Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("cliente")
-            dt.Columns.Add("numero")
-            dt.Columns.Add("direccion")
-            dt.Columns.Add("Atendio")
-            dt.Columns.Add("Vehiculo")
-            dt.Columns.Add("Conductor")
-            dt.Columns.Add("Fecha llamada")
-            dt.Columns.Add("Llamada atendida")
-            dt.Columns.Add("Llamada finalizada")
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value, row.Cells(6).Value, row.Cells(7).Value, row.Cells(8).Value, row.Cells(9).Value)
-            Next
-
-            report = New Report_Logs
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE REGISTROS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-        ElseIf NumReport = Me.GenReport_users Then
-            dt.Columns.Add("id")
-            dt.Columns.Add("username")
-            dt.Columns.Add("name")
-
-
-            For Each row As DataGridViewRow In t.Rows
-                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value, row.Cells(2).Value)
-            Next
-
-            report = New report_users
-            report.SetDataSource(dt)
-            report.SetParameterValue("title", "REPORTE USUARIOS: " + ReturnEmpresa_Parametros(Me.Empresa_Nombre))
-        Else
-            report = Nothing
+        Dim doc = New iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER)
+        If rotate Then
+            doc = New iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER.Rotate)
         End If
 
-        report.SetParameterValue("image", My.Settings.report_image.Replace("/", "\"))
-        report.SetParameterValue("rfc", ReturnEmpresa_Parametros(Me.Empresa_Rfc))
-        report.SetParameterValue("direccion", ReturnEmpresa_Parametros(Me.Empresa_Direccion))
-        report.SetParameterValue("USERNAME", ReturnUsername)
-        Reports.CrystalReportViewer1.ReportSource = report
-        Reports.Show()
+        Dim writer = iTextSharp.text.pdf.PdfWriter.GetInstance(doc, New FileStream(filename, FileMode.Create))
+        doc.AddTitle("REPORTE CLTA - CALLER")
+        doc.AddCreator("clta")
+        doc.Open()
+
+        If File.Exists(My.Settings.report_image) Then
+            Dim fs = New FileStream(My.Settings.report_image, FileMode.Open, FileAccess.Read)
+            Dim imagen = iTextSharp.text.Image.GetInstance(System.Drawing.Image.FromStream(fs), iTextSharp.text.BaseColor.WHITE)
+            imagen.ScaleToFit(140, 140)
+            imagen.Alignment = iTextSharp.text.Element.ALIGN_RIGHT
+            Dim logo = New iTextSharp.text.Chunk(imagen, 375, -98)
+            If rotate Then
+                logo = New iTextSharp.text.Chunk(imagen, 500, -98)
+            End If
+            doc.Add(logo)
+        End If
+
+        Dim _standardFontTitle = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFontSubTitle = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.BOLDITALIC, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFont = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFontCell = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)
+
+        doc.Add(New iTextSharp.text.Paragraph(ReturnEmpresa_Parametros(Empresa_Nombre), _standardFontTitle))
+        doc.Add(New iTextSharp.text.Paragraph("DOCUMENTO: " + cadena.ToUpper, _standardFontSubTitle))
+        doc.Add(New iTextSharp.text.Paragraph("FECHA Y HORA DE GENERACION: " + DateTime.Now.ToString, _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("DIRECCION: " + ReturnEmpresa_Parametros(Empresa_Direccion), _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("RFC: " + ReturnEmpresa_Parametros(Empresa_Rfc), _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("USUARIO QUE GENERO: " + ReturnUsername(), _standardFont))
+
+        doc.Add(iTextSharp.text.Chunk.NEWLINE)
+
+        Dim tabla = New iTextSharp.text.pdf.PdfPTable(t.ColumnCount)
+        tabla.WidthPercentage = 100
+
+        'Adding Header row
+        For Each column As DataGridViewColumn In t.Columns
+            Dim cell As New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase(column.HeaderText.ToUpper, _standardFontTitle))
+            tabla.AddCell(cell)
+        Next
+
+        'Adding DataRow
+        For Each row As DataGridViewRow In t.Rows
+            For Each cell As DataGridViewCell In row.Cells
+                If String.IsNullOrEmpty(cell.Value) = False Then
+                    Dim tmp = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase(cell.Value.ToString(), _standardFontCell))
+                    tabla.AddCell(tmp)
+                End If
+            Next
+        Next
+
+        Dim ClId = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase("CONCEPTO", _standardFont))
+        ClId.BorderWidth = 0
+        ClId.BorderWidthBottom = 0.75F
+
+
+        tabla.AddCell(ClId)
+
+        ClId = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase("ssssss", _standardFont))
+        ClId.BorderWidth = 0
+        tabla.AddCell(ClId)
+
+        doc.Add(tabla)
+
+        Dim _FontFooter = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 6, iTextSharp.text.Font.ITALIC, iTextSharp.text.BaseColor.BLACK)
+        Dim footer = New iTextSharp.text.Paragraph("WWW.CYBERCHOAPAS.COM", _FontFooter)
+        footer.Alignment = 1
+        doc.Add(footer)
+
+        doc.Close()
+        writer.Close()
+        Dim prc = New System.Diagnostics.Process()
+        prc.StartInfo.FileName = filename
+        prc.Start()
     End Sub
 
     Public Sub ComboBox_SetNumeros_Client(ByVal c As ComboBox)
@@ -911,7 +907,7 @@ Public Class functions
     Public Sub ComboBox_SetDrivers(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT * FROM drivers ORDER by nombre asc")
-        c.Items.Add("Conductores")
+        c.Items.Add("CONDUCTORES")
         ListConductor.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
@@ -923,13 +919,15 @@ Public Class functions
     End Sub
 
     Public Sub ComboBox_SetDriversConID(ByVal c As ComboBox)
+        ListConductor.Clear()
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT * FROM drivers ORDER by nombre asc")
         c.Items.Add("Conductores")
-
+        ListConductor.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(1) + " [" + dato.GetString(0) + "]")
+                ListConductor.Add(dato.GetString(0))
             Loop
         End If
         c.SelectedIndex = 0
@@ -952,7 +950,7 @@ Public Class functions
     Public Sub ComboBox_SetVehiculos(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT id, modelo FROM vehicles")
-        c.Items.Add("Vehiculos")
+        c.Items.Add("VEHICULOS")
         ListVehiculos.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
@@ -964,6 +962,8 @@ Public Class functions
     End Sub
 
     Public Sub ComboBox_SetVehiculosConID(ByVal c As ComboBox)
+        ListVehiculos.Clear()
+        ListVehiculos.Add(0)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT id, modelo FROM vehicles")
         c.Items.Add("Vehiculos")
@@ -971,6 +971,7 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 c.Items.Add(dato.GetString(1) + " [" + dato.GetString(0) + "]")
+                ListVehiculos.Add(dato.GetString(0))
             Loop
         End If
         c.SelectedIndex = 0
@@ -995,7 +996,24 @@ Public Class functions
     End Sub
 
     Public Function save_registroMANUAL(ByVal telefono As ComboBox, ByVal usuario As ComboBox, ByVal direccion As ComboBox, ByVal vehiculo As ComboBox, ByVal driver As ComboBox, ByVal fecha As DateTimePicker)
-        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + Client + ", " + ListNumeros.Item(telefono.SelectedIndex).ToString + ", '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', '" + (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString + "', " + ListUsuarios.Item(usuario.SelectedIndex).ToString + ", " + ListDireccion.Item(direccion.SelectedIndex).ToString + ", " + ListVehiculos.Item(vehiculo.SelectedIndex).ToString + ", " + ListConductor.Item(driver.SelectedIndex).ToString + ")")
+        Dim cliente = Client
+        Dim numero = ListNumeros.Item(telefono.SelectedIndex).ToString
+        Dim _usuario = ListUsuarios.Item(usuario.SelectedIndex).ToString
+        Dim _direccion = ListDireccion.Item(direccion.SelectedIndex).ToString
+        Dim _vehiculo = ListVehiculos.Item(vehiculo.SelectedIndex).ToString
+        Dim _conductor = ListConductor.Item(driver.SelectedIndex).ToString
+        Dim hora_llamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
+        Dim AtencionLlamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
+        Dim FinalizaLlamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
+
+        MsgBox("Cliente:" + cliente)
+        MsgBox("Numero" + numero)
+        MsgBox("Usuario" + _usuario)
+        MsgBox("Dir" + _direccion)
+        MsgBox("Vehiculo" + _vehiculo)
+        MsgBox("Conductor" + _conductor)
+
+        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + cliente + ", " + numero + ", '" + hora_llamada + "', '" + AtencionLlamada + "', '" + FinalizaLlamada + "', " + _usuario + ", " + _direccion + ", " + _vehiculo + ", " + _conductor + ")")
     End Function
 
     Public Function save_registroAutomatic(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal vehiculo As Integer, ByVal driver As Integer)
@@ -1635,4 +1653,21 @@ Public Class functions
             Return False
         End Try
     End Function
+
+    Public Function ReturnDriver_Vehicle(var As Integer) As Integer
+        Dim dato = Db.Consult("SELECT driver FROM vehicles where id = '" + var.ToString + "' ")
+        If dato.Read() Then
+            Return dato.GetString(0)
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Sub SelectConductor(conductor As Integer, c As ComboBox)
+        For i = 0 To ListConductor.Count - 1
+            If ListConductor.Item(i) = conductor Then
+                c.SelectedIndex = i
+            End If
+        Next i
+    End Sub
 End Class

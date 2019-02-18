@@ -71,12 +71,14 @@ Partial Class Parametros
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Colgar_omitir = New System.Windows.Forms.CheckBox()
         Me.CheckGps = New System.Windows.Forms.CheckBox()
         Me.UrlApi = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.P_generalID = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Colgar_omitir = New System.Windows.Forms.CheckBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Omitir = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -84,6 +86,7 @@ Partial Class Parametros
         Me.GroupBox4.SuspendLayout()
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -203,7 +206,7 @@ Partial Class Parametros
         '
         'TxtGuardar
         '
-        Me.TxtGuardar.Location = New System.Drawing.Point(822, 303)
+        Me.TxtGuardar.Location = New System.Drawing.Point(812, 334)
         Me.TxtGuardar.Name = "TxtGuardar"
         Me.TxtGuardar.Size = New System.Drawing.Size(93, 33)
         Me.TxtGuardar.TabIndex = 100
@@ -212,7 +215,7 @@ Partial Class Parametros
         '
         'TxtSalir
         '
-        Me.TxtSalir.Location = New System.Drawing.Point(739, 303)
+        Me.TxtSalir.Location = New System.Drawing.Point(729, 334)
         Me.TxtSalir.Name = "TxtSalir"
         Me.TxtSalir.Size = New System.Drawing.Size(77, 33)
         Me.TxtSalir.TabIndex = 99
@@ -221,7 +224,7 @@ Partial Class Parametros
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(739, 342)
+        Me.Button2.Location = New System.Drawing.Point(729, 373)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(176, 33)
         Me.Button2.TabIndex = 101
@@ -539,6 +542,16 @@ Partial Class Parametros
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
         '
+        'Colgar_omitir
+        '
+        Me.Colgar_omitir.AutoSize = True
+        Me.Colgar_omitir.Location = New System.Drawing.Point(138, 84)
+        Me.Colgar_omitir.Name = "Colgar_omitir"
+        Me.Colgar_omitir.Size = New System.Drawing.Size(180, 17)
+        Me.Colgar_omitir.TabIndex = 21
+        Me.Colgar_omitir.Text = "COLGAR LLAMADA AL OMITIR"
+        Me.Colgar_omitir.UseVisualStyleBackColor = True
+        '
         'CheckGps
         '
         Me.CheckGps.AutoSize = True
@@ -583,22 +596,32 @@ Partial Class Parametros
         Me.Label14.TabIndex = 7
         Me.Label14.Text = "Publico en general"
         '
-        'Colgar_omitir
+        'Label16
         '
-        Me.Colgar_omitir.AutoSize = True
-        Me.Colgar_omitir.Location = New System.Drawing.Point(138, 84)
-        Me.Colgar_omitir.Name = "Colgar_omitir"
-        Me.Colgar_omitir.Size = New System.Drawing.Size(180, 17)
-        Me.Colgar_omitir.TabIndex = 21
-        Me.Colgar_omitir.Text = "COLGAR LLAMADA AL OMITIR"
-        Me.Colgar_omitir.UseVisualStyleBackColor = True
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(726, 281)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(148, 13)
+        Me.Label16.TabIndex = 7
+        Me.Label16.Text = "Omitir llamada des pues de  ..."
+        '
+        'Omitir
+        '
+        Me.Omitir.Location = New System.Drawing.Point(729, 303)
+        Me.Omitir.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
+        Me.Omitir.Name = "Omitir"
+        Me.Omitir.Size = New System.Drawing.Size(176, 20)
+        Me.Omitir.TabIndex = 6
+        Me.Omitir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.Omitir)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -620,7 +643,9 @@ Partial Class Parametros
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -679,4 +704,6 @@ Partial Class Parametros
     Friend WithEvents Label15 As Label
     Friend WithEvents CheckGps As CheckBox
     Friend WithEvents Colgar_omitir As CheckBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Omitir As NumericUpDown
 End Class

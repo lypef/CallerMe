@@ -65,6 +65,8 @@ Partial Class control
         Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionarToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -367,7 +369,7 @@ Partial Class control
         '
         Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem4})
         Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(160, 92)
+        Me.Btn_registros.Size = New System.Drawing.Size(160, 114)
         '
         'ToolStripMenuItem1
         '
@@ -378,10 +380,23 @@ Partial Class control
         '
         'GestionarToolStripMenuItem5
         '
+        Me.GestionarToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem7, Me.PorFechaToolStripMenuItem})
         Me.GestionarToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.Gestionar_32
         Me.GestionarToolStripMenuItem5.Name = "GestionarToolStripMenuItem5"
         Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(159, 22)
         Me.GestionarToolStripMenuItem5.Text = "Gestionar"
+        '
+        'GestionarToolStripMenuItem7
+        '
+        Me.GestionarToolStripMenuItem7.Name = "GestionarToolStripMenuItem7"
+        Me.GestionarToolStripMenuItem7.Size = New System.Drawing.Size(152, 22)
+        Me.GestionarToolStripMenuItem7.Text = "Gestionar"
+        '
+        'PorFechaToolStripMenuItem
+        '
+        Me.PorFechaToolStripMenuItem.Name = "PorFechaToolStripMenuItem"
+        Me.PorFechaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PorFechaToolStripMenuItem.Text = "Por fecha"
         '
         'ToolStripMenuItem2
         '
@@ -732,4 +747,6 @@ Partial Class control
     Public WithEvents TimerUno As Timer
     Public WithEvents TimerDOS As Timer
     Public WithEvents TimerTres As Timer
+    Friend WithEvents GestionarToolStripMenuItem7 As ToolStripMenuItem
+    Friend WithEvents PorFechaToolStripMenuItem As ToolStripMenuItem
 End Class

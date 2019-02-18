@@ -6,6 +6,10 @@
         f.DataGridView_Model(Table)
     End Sub
 
+    Public Sub LoadInifecha(desde As DateTimePicker, hasta As DateTimePicker)
+        f.Logs_DataGridViewSet_fecha("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id ORDER BY id desc", Table, desde, hasta)
+    End Sub
+
     Public Sub LoadIni()
         f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id ORDER BY id desc", Table)
     End Sub
@@ -37,5 +41,9 @@
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
         functions.log_id = 0
+    End Sub
+
+    Private Sub GenerarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        MsgBox(":D")
     End Sub
 End Class

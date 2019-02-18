@@ -248,7 +248,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Access_Clients) Then
             Dim d As New DataGridView
             f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", d)
-            f.GenReport(d, f.GenReportClients)
+            f.GenReport(d, "REPORTE CLIENTES", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -276,7 +276,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Access_adress) Then
             Dim d As New DataGridView
             f.Clients_AdresesDataGridViewSet("SELECT a.id, c.id, c.nombre, a.direccion, a.referencia, a.kms FROM adresses a, clients c where a.client = c.id order by a.id desc", d)
-            f.GenReport(d, f.GenReportClients_DIRECCIONES)
+            f.GenReport(d, "REPORTE DIRECCIONES", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -292,7 +292,8 @@ Public Class control
 
     Private Sub NuevoToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem3.Click
         If f.ReturnPermission(f.Permission_Vehicle_ADD) Then
-            f.AddForm_Desktop(VehicleADD, Desktop)
+            Dim form As New VehicleADD
+            f.AddForm_Desktop(form, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -300,8 +301,9 @@ Public Class control
 
     Private Sub GestionarToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem3.Click
         If f.ReturnPermission(f.Permission_Access_drivers) Then
-            Drivers.LoadDrivers()
-            f.AddForm_Desktop(Drivers, Desktop)
+            Dim form = New Drivers
+            form.LoadDrivers()
+            f.AddForm_Desktop(form, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -320,7 +322,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Telephone_Access) Then
             Dim d As New DataGridView
             f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id ORDER by n.id desc", d)
-            f.GenReport(d, f.GenReportClients_NUMEROS)
+            f.GenReport(d, "REPORTE numeros de CLIENTES", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -330,7 +332,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Access_drivers) Then
             Dim d As New DataGridView
             f.Drivers_DataGridViewSet("SELECT * FROM drivers ORDER by nombre asc", d)
-            f.GenReport(d, f.GenReportClients_DRIVERS)
+            f.GenReport(d, "REPORTE conductores", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -338,8 +340,9 @@ Public Class control
 
     Private Sub GestionarToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem4.Click
         If f.ReturnPermission(f.Permission_Access_vehicle) Then
-            Vehicles.LoadVehicles()
-            f.AddForm_Desktop(Vehicles, Desktop)
+            Dim form = New Vehicles
+            form.LoadVehicles()
+            f.AddForm_Desktop(form, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -366,8 +369,8 @@ Public Class control
     Private Sub GenerarReporteToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem3.Click
         If f.ReturnPermission(f.Permission_Access_vehicle) Then
             Dim d As New DataGridView
-            f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc", d)
-            f.GenReport(d, f.GenReportDrivers_Vehicle)
+            f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas, v.id_gps FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc", d)
+            f.GenReport(d, "REPORTE conductores y vehiculos", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -388,17 +391,9 @@ Public Class control
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         If f.ReturnPermission(f.Permission_Logs_ADD) Then
-            LogsADD.LoadIni()
-            f.AddForm_Desktop(LogsADD, Desktop)
-        Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
-        End If
-    End Sub
-
-    Private Sub GestionarToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem5.Click
-        If f.ReturnPermission(f.Permission_Access_LOGS) Then
-            Logs.LoadIni()
-            f.AddForm_Desktop(Logs, Desktop)
+            Dim form = New LogsADD
+            form.LoadIni()
+            f.AddForm_Desktop(form, Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -426,7 +421,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Access_LOGS) Then
             Dim d As New DataGridView
             f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id ORDER BY id desc", d)
-            f.GenReport(d, f.GenReportLOGS)
+            f.GenReport(d, "REPORTE registros", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -468,7 +463,7 @@ Public Class control
         If f.ReturnPermission(f.Permission_Access_users) Then
             Dim d As New DataGridView
             f.Users_DataGridViewSet("SELECT id, username, name FROM users ORDER by name asc", d)
-            f.GenReport(d, f.GenReport_users)
+            f.GenReport(d, "REPORTE usuarios", True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -562,6 +557,24 @@ Public Class control
             form.f_llamada = DateTime.Now
             form.LoadNumber()
             form.Show()
+        End If
+    End Sub
+
+    Private Sub GestionarToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem7.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            Logs.LoadIni()
+            f.AddForm_Desktop(Logs, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub PorFechaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorFechaToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            select_fecha.ini()
+            select_fecha.Show()
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
 End Class

@@ -248,7 +248,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property caller_0() As Boolean
             Get
                 Return CType(Me("caller_0"),Boolean)
@@ -356,7 +356,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property valid() As Boolean
             Get
                 Return CType(Me("valid"),Boolean)
@@ -401,6 +401,18 @@ Namespace My
             End Get
             Set
                 Me("omitir_colgar") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10000")>  _
+        Public Property omitir_llamada() As Decimal
+            Get
+                Return CType(Me("omitir_llamada"),Decimal)
+            End Get
+            Set
+                Me("omitir_llamada") = value
             End Set
         End Property
     End Class

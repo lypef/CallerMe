@@ -51,6 +51,7 @@ Public Class Parametros
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
         End If
+        Omitir.Value = My.Settings.omitir_llamada
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles TxtSalir.Click
@@ -86,8 +87,10 @@ Public Class Parametros
         My.Settings.ws_gps = UrlApi.Text
         My.Settings.use_gps = CheckGps.Checked
         My.Settings.omitir_colgar = Colgar_omitir.Checked
-        f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
+        My.Settings.omitir_llamada = Omitir.Value
+        My.Settings.Save()
 
+        f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)
         Application.Restart()
     End Sub
 
