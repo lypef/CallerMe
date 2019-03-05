@@ -25,6 +25,10 @@ Partial Class users
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Btn_add = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_editar = New System.Windows.Forms.Button()
         Me.Table_users = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -72,6 +76,7 @@ Partial Class users
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.Table_users, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -82,22 +87,86 @@ Partial Class users
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 3)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(924, 452)
+        Me.TabControl1.Size = New System.Drawing.Size(927, 433)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Panel2)
         Me.TabPage1.Controls.Add(Me.Table_users)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(916, 426)
+        Me.TabPage1.Size = New System.Drawing.Size(919, 407)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Usuarios"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Btn_add)
+        Me.Panel2.Controls.Add(Me.btn_delete)
+        Me.Panel2.Controls.Add(Me.btn_editar)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(3, 351)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(913, 53)
+        Me.Panel2.TabIndex = 7
+        '
+        'Btn_add
+        '
+        Me.Btn_add.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_AGREGAR
+        Me.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_add.FlatAppearance.BorderSize = 0
+        Me.Btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_add.Location = New System.Drawing.Point(104, 3)
+        Me.Btn_add.Name = "Btn_add"
+        Me.Btn_add.Size = New System.Drawing.Size(193, 49)
+        Me.Btn_add.TabIndex = 6
+        Me.Btn_add.Text = "Button2"
+        Me.Btn_add.UseVisualStyleBackColor = False
+        '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_eLIMINAR
+        Me.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_delete.Location = New System.Drawing.Point(596, 2)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(193, 49)
+        Me.btn_delete.TabIndex = 3
+        Me.btn_delete.Text = "btn_delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_editar
+        '
+        Me.btn_editar.BackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_editar
+        Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_editar.FlatAppearance.BorderSize = 0
+        Me.btn_editar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_editar.Location = New System.Drawing.Point(350, 3)
+        Me.btn_editar.Name = "btn_editar"
+        Me.btn_editar.Size = New System.Drawing.Size(193, 49)
+        Me.btn_editar.TabIndex = 2
+        Me.btn_editar.Text = "btn_editar"
+        Me.btn_editar.UseVisualStyleBackColor = False
         '
         'Table_users
         '
@@ -105,7 +174,7 @@ Partial Class users
         Me.Table_users.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table_users.Location = New System.Drawing.Point(3, 3)
         Me.Table_users.Name = "Table_users"
-        Me.Table_users.Size = New System.Drawing.Size(910, 420)
+        Me.Table_users.Size = New System.Drawing.Size(913, 401)
         Me.Table_users.TabIndex = 0
         '
         'TabPage2
@@ -122,7 +191,7 @@ Partial Class users
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(916, 426)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 407)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -170,9 +239,9 @@ Partial Class users
         Me.Panel1.Controls.Add(Me.acces_numbersTelephone)
         Me.Panel1.Controls.Add(Me.acces_clients)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel1.Location = New System.Drawing.Point(321, 3)
+        Me.Panel1.Location = New System.Drawing.Point(324, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(592, 420)
+        Me.Panel1.Size = New System.Drawing.Size(592, 401)
         Me.Panel1.TabIndex = 108
         '
         'Button3
@@ -558,26 +627,27 @@ Partial Class users
         '
         Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'users
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.ClientSize = New System.Drawing.Size(927, 433)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "users"
         Me.Text = "users"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         CType(Me.Table_users, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
@@ -635,4 +705,8 @@ Partial Class users
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtUsername As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Btn_add As Button
+    Friend WithEvents btn_delete As Button
+    Friend WithEvents btn_editar As Button
 End Class

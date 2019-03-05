@@ -122,8 +122,8 @@ Public Class functions
 
     Public Sub Button_SetModel(ByVal boton As Button, ByVal imagen As Bitmap)
         boton.BackgroundImage = imagen
-        boton.Height = My.Resources.Btn_Clientes.Height
-        boton.Width = My.Resources.Btn_Clientes.Width
+        'boton.Height = My.Resources.Btn_Clientes.Height
+        'boton.Width = My.Resources.Btn_Clientes.Width
         boton.FlatStyle = FlatStyle.Flat
         boton.BackgroundImageLayout = ImageLayout.Center
         boton.BackColor = Color.Transparent
@@ -131,6 +131,10 @@ Public Class functions
         boton.FlatAppearance.MouseDownBackColor = Color.Transparent
         boton.FlatAppearance.MouseOverBackColor = Color.Transparent
         boton.Text = ""
+    End Sub
+
+    Public Sub BotonesBackGroundBlue(ByVal panel As Panel)
+        panel.BackColor = Color.FromArgb(26, 67, 129)
     End Sub
 
     Public Sub Button_Hover_SetModel(ByVal boton As Button, ByVal imagen As Bitmap)

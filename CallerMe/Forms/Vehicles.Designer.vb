@@ -23,11 +23,16 @@ Partial Class Vehicles
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Loader = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Btn_add = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_editar = New System.Windows.Forms.Button()
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TxtGps = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtCaracteristicas = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtNumero = New System.Windows.Forms.TextBox()
@@ -45,11 +50,9 @@ Partial Class Vehicles
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TxtGps = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -57,36 +60,90 @@ Partial Class Vehicles
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Loader
-        '
-        Me.Loader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Loader.Location = New System.Drawing.Point(0, 0)
-        Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(927, 18)
-        Me.Loader.TabIndex = 106
-        Me.Loader.TabStop = False
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 25)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(925, 431)
+        Me.TabControl1.Size = New System.Drawing.Size(927, 435)
         Me.TabControl1.TabIndex = 105
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Panel2)
         Me.TabPage1.Controls.Add(Me.Table)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(917, 405)
+        Me.TabPage1.Size = New System.Drawing.Size(919, 409)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Conductores"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Btn_add)
+        Me.Panel2.Controls.Add(Me.btn_delete)
+        Me.Panel2.Controls.Add(Me.btn_editar)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(3, 353)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(913, 53)
+        Me.Panel2.TabIndex = 6
+        '
+        'Btn_add
+        '
+        Me.Btn_add.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_AGREGAR
+        Me.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_add.FlatAppearance.BorderSize = 0
+        Me.Btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_add.Location = New System.Drawing.Point(104, 3)
+        Me.Btn_add.Name = "Btn_add"
+        Me.Btn_add.Size = New System.Drawing.Size(193, 49)
+        Me.Btn_add.TabIndex = 6
+        Me.Btn_add.Text = "Button2"
+        Me.Btn_add.UseVisualStyleBackColor = False
+        '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_eLIMINAR
+        Me.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_delete.Location = New System.Drawing.Point(596, 2)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(193, 49)
+        Me.btn_delete.TabIndex = 3
+        Me.btn_delete.Text = "btn_delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_editar
+        '
+        Me.btn_editar.BackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_editar
+        Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_editar.FlatAppearance.BorderSize = 0
+        Me.btn_editar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_editar.Location = New System.Drawing.Point(350, 3)
+        Me.btn_editar.Name = "btn_editar"
+        Me.btn_editar.Size = New System.Drawing.Size(193, 49)
+        Me.btn_editar.TabIndex = 2
+        Me.btn_editar.Text = "btn_editar"
+        Me.btn_editar.UseVisualStyleBackColor = False
         '
         'Table
         '
@@ -95,7 +152,7 @@ Partial Class Vehicles
         Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(911, 399)
+        Me.Table.Size = New System.Drawing.Size(913, 403)
         Me.Table.TabIndex = 0
         '
         'TabPage2
@@ -117,9 +174,28 @@ Partial Class Vehicles
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(917, 405)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 409)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
+        '
+        'TxtGps
+        '
+        Me.TxtGps.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtGps.Location = New System.Drawing.Point(752, 226)
+        Me.TxtGps.Multiline = True
+        Me.TxtGps.Name = "TxtGps"
+        Me.TxtGps.Size = New System.Drawing.Size(159, 29)
+        Me.TxtGps.TabIndex = 26
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(748, 203)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 20)
+        Me.Label6.TabIndex = 33
+        Me.Label6.Text = "Id gps"
         '
         'TxtCaracteristicas
         '
@@ -212,7 +288,7 @@ Partial Class Vehicles
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(560, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(354, 75)
+        Me.Panel1.Size = New System.Drawing.Size(356, 75)
         Me.Panel1.TabIndex = 12
         '
         'Button2
@@ -248,7 +324,7 @@ Partial Class Vehicles
         Me.Table_drivers.Dock = System.Windows.Forms.DockStyle.Left
         Me.Table_drivers.Location = New System.Drawing.Point(3, 3)
         Me.Table_drivers.Name = "Table_drivers"
-        Me.Table_drivers.Size = New System.Drawing.Size(557, 399)
+        Me.Table_drivers.Size = New System.Drawing.Size(557, 403)
         Me.Table_drivers.TabIndex = 11
         '
         'ContextMenuStrip1
@@ -261,47 +337,27 @@ Partial Class Vehicles
         '
         Me.EditToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
-        '
-        'TxtGps
-        '
-        Me.TxtGps.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtGps.Location = New System.Drawing.Point(752, 226)
-        Me.TxtGps.Multiline = True
-        Me.TxtGps.Name = "TxtGps"
-        Me.TxtGps.Size = New System.Drawing.Size(159, 29)
-        Me.TxtGps.TabIndex = 26
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(748, 203)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 20)
-        Me.Label6.TabIndex = 33
-        Me.Label6.Text = "Id gps"
         '
         'Vehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(927, 457)
-        Me.Controls.Add(Me.Loader)
+        Me.ClientSize = New System.Drawing.Size(927, 435)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Vehicles"
         Me.Text = "Vehicles"
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         CType(Me.Table, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
@@ -312,8 +368,6 @@ Partial Class Vehicles
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Loader As PictureBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Table As DataGridView
@@ -337,4 +391,8 @@ Partial Class Vehicles
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtGps As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents btn_delete As Button
+    Friend WithEvents btn_editar As Button
+    Friend WithEvents Btn_add As Button
 End Class

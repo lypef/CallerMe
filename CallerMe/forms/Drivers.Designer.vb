@@ -25,6 +25,10 @@ Partial Class Drivers
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Btn_add = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_editar = New System.Windows.Forms.Button()
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,39 +49,104 @@ Partial Class Drivers
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtNombre = New System.Windows.Forms.TextBox()
-        Me.Loader = New System.Windows.Forms.PictureBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.Foto, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 25)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(925, 431)
+        Me.TabControl1.Size = New System.Drawing.Size(926, 434)
         Me.TabControl1.TabIndex = 103
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Panel2)
         Me.TabPage1.Controls.Add(Me.Table)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(917, 405)
+        Me.TabPage1.Size = New System.Drawing.Size(918, 408)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Conductores"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Btn_add)
+        Me.Panel2.Controls.Add(Me.btn_delete)
+        Me.Panel2.Controls.Add(Me.btn_editar)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(3, 352)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(912, 53)
+        Me.Panel2.TabIndex = 5
+        '
+        'Btn_add
+        '
+        Me.Btn_add.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_AGREGAR
+        Me.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_add.FlatAppearance.BorderSize = 0
+        Me.Btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_add.Location = New System.Drawing.Point(92, 2)
+        Me.Btn_add.Name = "Btn_add"
+        Me.Btn_add.Size = New System.Drawing.Size(193, 49)
+        Me.Btn_add.TabIndex = 7
+        Me.Btn_add.Text = "Button2"
+        Me.Btn_add.UseVisualStyleBackColor = False
+        '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_eLIMINAR
+        Me.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_delete.Location = New System.Drawing.Point(574, 2)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(193, 49)
+        Me.btn_delete.TabIndex = 3
+        Me.btn_delete.Text = "btn_delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_editar
+        '
+        Me.btn_editar.BackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_editar
+        Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_editar.FlatAppearance.BorderSize = 0
+        Me.btn_editar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_editar.Location = New System.Drawing.Point(333, 2)
+        Me.btn_editar.Name = "btn_editar"
+        Me.btn_editar.Size = New System.Drawing.Size(193, 49)
+        Me.btn_editar.TabIndex = 2
+        Me.btn_editar.Text = "btn_editar"
+        Me.btn_editar.UseVisualStyleBackColor = False
         '
         'Table
         '
@@ -86,7 +155,7 @@ Partial Class Drivers
         Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(911, 399)
+        Me.Table.Size = New System.Drawing.Size(912, 402)
         Me.Table.TabIndex = 0
         '
         'TabPage2
@@ -113,7 +182,7 @@ Partial Class Drivers
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(917, 405)
+        Me.TabPage2.Size = New System.Drawing.Size(918, 408)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -214,7 +283,7 @@ Partial Class Drivers
         Me.Foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Foto.Location = New System.Drawing.Point(26, 208)
         Me.Foto.Name = "Foto"
-        Me.Foto.Size = New System.Drawing.Size(416, 184)
+        Me.Foto.Size = New System.Drawing.Size(416, 118)
         Me.Foto.TabIndex = 134
         Me.Foto.TabStop = False
         '
@@ -282,16 +351,6 @@ Partial Class Drivers
         Me.TxtNombre.Size = New System.Drawing.Size(416, 29)
         Me.TxtNombre.TabIndex = 1
         '
-        'Loader
-        '
-        Me.Loader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Loader.Location = New System.Drawing.Point(0, 0)
-        Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(927, 18)
-        Me.Loader.TabIndex = 104
-        Me.Loader.TabStop = False
-        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
@@ -312,28 +371,34 @@ Partial Class Drivers
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.TabControl1)
+        Me.Panel1.Location = New System.Drawing.Point(3, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(926, 434)
+        Me.Panel1.TabIndex = 104
+        '
         'Drivers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(927, 457)
-        Me.Controls.Add(Me.Loader)
-        Me.Controls.Add(Me.TabControl1)
+        Me.ClientSize = New System.Drawing.Size(929, 460)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "Drivers"
         Me.Text = "Drivers"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
         CType(Me.Table, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.Foto, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Loader As PictureBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Table As DataGridView
@@ -359,4 +424,9 @@ Partial Class Drivers
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtTelefono As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents btn_delete As Button
+    Friend WithEvents btn_editar As Button
+    Friend WithEvents Btn_add As Button
 End Class

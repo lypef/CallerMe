@@ -27,9 +27,12 @@ Partial Class Number_telephone
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Loader = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Btn_add = New System.Windows.Forms.Button()
+        Me.btn_delete = New System.Windows.Forms.Button()
+        Me.btn_editar = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TxtRef = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -48,9 +51,9 @@ Partial Class Number_telephone
         Me.Table_EditClients = New System.Windows.Forms.DataGridView()
         CType(Me.Tabla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.LoaderEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -63,7 +66,7 @@ Partial Class Number_telephone
         Me.Tabla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tabla.Location = New System.Drawing.Point(3, 3)
         Me.Tabla.Name = "Tabla"
-        Me.Tabla.Size = New System.Drawing.Size(913, 402)
+        Me.Tabla.Size = New System.Drawing.Size(896, 363)
         Me.Tabla.TabIndex = 0
         '
         'ContextMenuStrip1
@@ -86,35 +89,90 @@ Partial Class Number_telephone
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
-        'Loader
-        '
-        Me.Loader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Loader.Location = New System.Drawing.Point(0, 0)
-        Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(927, 18)
-        Me.Loader.TabIndex = 2
-        Me.Loader.TabStop = False
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(0, 20)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(927, 434)
+        Me.TabControl1.Size = New System.Drawing.Size(910, 395)
         Me.TabControl1.TabIndex = 3
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Panel3)
         Me.TabPage1.Controls.Add(Me.Tabla)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(919, 408)
+        Me.TabPage1.Size = New System.Drawing.Size(902, 369)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Numeros"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Btn_add)
+        Me.Panel3.Controls.Add(Me.btn_delete)
+        Me.Panel3.Controls.Add(Me.btn_editar)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(3, 306)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(896, 60)
+        Me.Panel3.TabIndex = 5
+        '
+        'Btn_add
+        '
+        Me.Btn_add.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_AGREGAR
+        Me.Btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_add.FlatAppearance.BorderSize = 0
+        Me.Btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_add.Location = New System.Drawing.Point(99, 4)
+        Me.Btn_add.Name = "Btn_add"
+        Me.Btn_add.Size = New System.Drawing.Size(193, 49)
+        Me.Btn_add.TabIndex = 5
+        Me.Btn_add.Text = "Button2"
+        Me.Btn_add.UseVisualStyleBackColor = False
+        '
+        'btn_delete
+        '
+        Me.btn_delete.BackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_eLIMINAR
+        Me.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_delete.FlatAppearance.BorderSize = 0
+        Me.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_delete.Location = New System.Drawing.Point(565, 4)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(193, 49)
+        Me.btn_delete.TabIndex = 3
+        Me.btn_delete.Text = "btn_delete"
+        Me.btn_delete.UseVisualStyleBackColor = False
+        '
+        'btn_editar
+        '
+        Me.btn_editar.BackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.BackgroundImage = Global.Calls.My.Resources.Resources.Boton_editar
+        Me.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_editar.FlatAppearance.BorderSize = 0
+        Me.btn_editar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_editar.Location = New System.Drawing.Point(330, 4)
+        Me.btn_editar.Name = "btn_editar"
+        Me.btn_editar.Size = New System.Drawing.Size(193, 49)
+        Me.btn_editar.TabIndex = 2
+        Me.btn_editar.Text = "btn_editar"
+        Me.btn_editar.UseVisualStyleBackColor = False
         '
         'TabPage2
         '
@@ -134,7 +192,7 @@ Partial Class Number_telephone
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(919, 408)
+        Me.TabPage2.Size = New System.Drawing.Size(902, 369)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -160,9 +218,9 @@ Partial Class Number_telephone
         'LoaderEdit
         '
         Me.LoaderEdit.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.LoaderEdit.Location = New System.Drawing.Point(522, 387)
+        Me.LoaderEdit.Location = New System.Drawing.Point(522, 348)
         Me.LoaderEdit.Name = "LoaderEdit"
-        Me.LoaderEdit.Size = New System.Drawing.Size(394, 18)
+        Me.LoaderEdit.Size = New System.Drawing.Size(377, 18)
         Me.LoaderEdit.TabIndex = 22
         Me.LoaderEdit.TabStop = False
         '
@@ -174,7 +232,7 @@ Partial Class Number_telephone
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(522, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(394, 75)
+        Me.Panel1.Size = New System.Drawing.Size(377, 75)
         Me.Panel1.TabIndex = 21
         '
         'Button2
@@ -279,23 +337,22 @@ Partial Class Number_telephone
         Me.Table_EditClients.Dock = System.Windows.Forms.DockStyle.Left
         Me.Table_EditClients.Location = New System.Drawing.Point(3, 3)
         Me.Table_EditClients.Name = "Table_EditClients"
-        Me.Table_EditClients.Size = New System.Drawing.Size(519, 402)
+        Me.Table_EditClients.Size = New System.Drawing.Size(519, 363)
         Me.Table_EditClients.TabIndex = 12
         '
         'Number_telephone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(927, 457)
+        Me.ClientSize = New System.Drawing.Size(910, 395)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Loader)
         Me.Name = "Number_telephone"
         Me.Text = "Number_telephone"
         CType(Me.Tabla, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.Loader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.Panel3.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.LoaderEdit, System.ComponentModel.ISupportInitialize).EndInit()
@@ -309,7 +366,6 @@ Partial Class Number_telephone
     Friend WithEvents Tabla As DataGridView
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Loader As PictureBox
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
@@ -329,4 +385,8 @@ Partial Class Number_telephone
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Table_EditClients As DataGridView
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btn_delete As Button
+    Friend WithEvents btn_editar As Button
+    Friend WithEvents Btn_add As Button
 End Class

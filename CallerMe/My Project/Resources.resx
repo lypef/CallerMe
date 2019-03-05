@@ -136,6 +136,9 @@
   <data name="about_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Boton_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_editar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,11 +157,20 @@
   <data name="Btn_vehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_vehiculos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Boton_VerNumeros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_VerNumeros.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Btn_ajustes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_ajustes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boton_eLIMINARefecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_eLIMINARefecto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boton_VerNumeros_Efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_VerNumeros_Efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_viber_386738" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_viber_386738.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +190,9 @@
   <data name="vehicle_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vehicle_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Boton_editarEfect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_editarEfect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loader.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -195,6 +210,9 @@
   </data>
   <data name="ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boton_eLIMINAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_eLIMINAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="directiones_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\directiones_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,13 +244,19 @@
   <data name="Btn_Clientes_Efecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_Clientes_Efecto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_acerca_de1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="report_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="separador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\separador.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_acerca_de1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_AGREGAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_AGREGAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boton_AGREGAR_EFECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_AGREGAR_EFECT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

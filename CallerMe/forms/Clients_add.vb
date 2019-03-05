@@ -9,7 +9,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         If String.IsNullOrEmpty(TxtNombre.Text) = False Then
-            functions.OnLoader(Loader)
+            functions.OnLoader(control.Loader)
             If functions.Clients_add(TxtNombre, FechaNaci, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc) Then
                 f.Alert("Cliente agregado con exito", f.Alert_NumberInformacion)
                 functions.TextBox_clean(TxtNombre)
@@ -21,7 +21,7 @@
             Else
                 f.Alert("Error, verifique sus datos", f.Alert_NumberCritical)
             End If
-            functions.OffLoader(Loader)
+            functions.OffLoader(control.Loader)
         Else
             f.Alert("Ingrese al menos un nombre", f.Alert_NumberCritical)
         End If
@@ -29,7 +29,7 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnFoto.Click
         If CheckImagen.Checked Then
-            Dim tmp = functions.OpenFileSetPictureBox(Foto, Loader)
+            Dim tmp = functions.OpenFileSetPictureBox(Foto, control.Loader)
             If String.IsNullOrEmpty(tmp) = False Then
                 TxtFoto.Text = tmp
             End If

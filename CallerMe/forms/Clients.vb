@@ -6,11 +6,19 @@
         f.DataGridView_Model(Table)
         f.DataGridView_Model(ViewNumbers)
         TabControl1.Width = Me.Width
-        TabControl1.Height = Me.Height - Loader.Height
+        TabControl1.Height = Me.Height
         LoadClientes()
         functions.Client = 0
         TxtFoto.Enabled = False
         CheckImagen.Checked = True
+        f.BotonesBackGroundBlue(Panel1)
+        TabControl1.Height = control.Desktop.Height
+
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
+        f.Button_SetModel(btn_numeros, My.Resources.Boton_VerNumeros)
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+
     End Sub
 
     Public Sub LoadClientes()
@@ -101,7 +109,7 @@
     Private Sub BtnFoto_Click(sender As Object, e As EventArgs) Handles BtnFoto.Click
         If CheckImagen.Checked Then
 
-            Dim tmp = functions.OpenFileSetPictureBox(Foto, Loader)
+            Dim tmp = functions.OpenFileSetPictureBox(Foto, control.Loader)
             If String.IsNullOrEmpty(tmp) = False Then
                 TxtFoto.Text = tmp
             End If
@@ -113,7 +121,7 @@
 
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         If String.IsNullOrEmpty(TxtNombre.Text) = False Then
-            functions.OnLoader(Loader)
+            functions.OnLoader(control.Loader)
             If functions.Client_Update(TxtNombre, FechaNaci, TxtCorreoElectronico, TxtFoto, TxtRazonSocial, TxtRfc, foto_actualStatic) Then
                 f.Alert("Cliente actualizado con exito", f.Alert_NumberInformacion)
                 functions.TextBox_clean(TxtNombre)
@@ -126,7 +134,7 @@
             Else
                 f.Alert("Error, verifique sus datos", f.Alert_NumberCritical)
             End If
-            functions.OffLoader(Loader)
+            functions.OffLoader(control.Loader)
         Else
             f.Alert("Ingrese al menos un nombre", f.Alert_NumberCritical)
         End If
@@ -147,6 +155,54 @@
     End Sub
 
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+        delete()
+    End Sub
+
+    Private Sub btn_numeros_MouseLeave(sender As Object, e As EventArgs) Handles btn_numeros.MouseLeave
+        f.Button_SetModel(btn_numeros, My.Resources.Boton_VerNumeros)
+    End Sub
+
+    Private Sub btn_numeros_MouseEnter(sender As Object, e As EventArgs) Handles btn_numeros.MouseEnter
+        f.Button_SetModel(btn_numeros, My.Resources.Boton_VerNumeros_Efect)
+    End Sub
+
+    Private Sub btn_editar_MouseEnter(sender As Object, e As EventArgs) Handles btn_editar.MouseEnter
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editarEfect)
+    End Sub
+
+    Private Sub btn_editar_MouseLeave(sender As Object, e As EventArgs) Handles btn_editar.MouseLeave
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
+    End Sub
+
+    Private Sub btn_delete_MouseEnter(sender As Object, e As EventArgs) Handles btn_delete.MouseEnter
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINARefecto)
+    End Sub
+
+    Private Sub btn_delete_MouseLeave(sender As Object, e As EventArgs) Handles btn_delete.MouseLeave
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+    End Sub
+
+    Private Sub btn_numeros_Click(sender As Object, e As EventArgs) Handles btn_numeros.Click
+        If functions.Client > 0 Then
+            TabControl1.SelectedIndex = 2
+        End If
+    End Sub
+
+    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
+        If functions.Client > 0 Then
+            If f.ReturnPermission(f.Permission_Clients_edit) Then
+                TabControl1.SelectedIndex = 1
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        If functions.Client > 0 Then
+            delete()
+        End If
+    End Sub
+
+    Private Sub delete()
         If f.ReturnPermission(f.Permission_Clients_delete) Then
             If (MsgBox("¿Esta seguro de eliminar el cliente # " + functions.Client + " ?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
                 If functions.Clients_DELETE Then
@@ -156,6 +212,26 @@
                     f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
                 End If
             End If
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub Table_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles Table.CellMouseClick
+        functions.Client = Table.SelectedCells(0).Value
+    End Sub
+
+    Private Sub Btn_add_MouseLeave(sender As Object, e As EventArgs) Handles Btn_add.MouseLeave
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
+    End Sub
+
+    Private Sub Btn_add_MouseEnter(sender As Object, e As EventArgs) Handles Btn_add.MouseEnter
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR_EFECT)
+    End Sub
+
+    Private Sub Btn_add_Click(sender As Object, e As EventArgs) Handles Btn_add.Click
+        If f.ReturnPermission(f.Permission_Clients_add) Then
+            f.AddForm_Desktop(Clients_add, control.Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If

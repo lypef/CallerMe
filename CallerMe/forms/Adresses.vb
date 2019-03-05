@@ -5,6 +5,10 @@
         Panel1.BackColor = My.Settings.datagridview_color
         f.DataGridView_Model(Table)
         f.DataGridView_Model(DataGridView1)
+        f.BotonesBackGroundBlue(Panel3)
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
     End Sub
 
     Public Sub Loader()
@@ -55,8 +59,12 @@
     End Sub
 
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
+        delete()
+    End Sub
+
+    Private Sub delete()
         If f.ReturnPermission(f.Permission_Adresses_delete) Then
-            functions.OnLoader(loader1)
+            functions.OnLoader(control.Loader)
             functions.Adress_id = Table.SelectedCells(0).Value
             If (MsgBox("¿Esta seguro de eliminar la direccion" + vbNewLine + Table.SelectedCells(3).Value + vbNewLine + "DE: (" + f.ReturnNameClient() + ") ?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
                 If functions.Clients_AdressDELETE() Then
@@ -66,13 +74,17 @@
                     f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
                 End If
             End If
-            functions.OffLoader(loader1)
+            functions.OffLoader(control.Loader)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
 
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
+        editar()
+    End Sub
+
+    Private Sub editar()
         If f.ReturnPermission(f.Permission_Adresses_edit) Then
             TabControl1.SelectedIndex = 1
         Else
@@ -111,5 +123,51 @@
 
     Private Sub Adresses_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Me.Visible = False
+    End Sub
+
+    Private Sub btn_editar_MouseLeave(sender As Object, e As EventArgs) Handles btn_editar.MouseLeave
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
+    End Sub
+
+    Private Sub btn_editar_MouseEnter(sender As Object, e As EventArgs) Handles btn_editar.MouseEnter
+        f.Button_SetModel(btn_editar, My.Resources.Boton_editarEfect)
+    End Sub
+
+    Private Sub btn_delete_MouseLeave(sender As Object, e As EventArgs) Handles btn_delete.MouseLeave
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+    End Sub
+
+    Private Sub btn_delete_MouseEnter(sender As Object, e As EventArgs) Handles btn_delete.MouseEnter
+        f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINARefecto)
+    End Sub
+
+    Private Sub Table_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles Table.CellMouseClick
+        functions.Adress_id = Table.SelectedCells(0).Value
+        functions.Client = Table.SelectedCells(1).Value
+    End Sub
+
+    Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
+        editar()
+    End Sub
+
+    Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        delete()
+    End Sub
+
+    Private Sub Btn_add_MouseLeave(sender As Object, e As EventArgs) Handles Btn_add.MouseLeave
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
+    End Sub
+
+    Private Sub Btn_add_MouseEnter(sender As Object, e As EventArgs) Handles Btn_add.MouseEnter
+        f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR_EFECT)
+    End Sub
+
+    Private Sub Btn_add_Click(sender As Object, e As EventArgs) Handles Btn_add.Click
+        If f.ReturnPermission(f.Permission_Adresses_add) Then
+            AdressesADD.Loader()
+            f.AddForm_Desktop(AdressesADD, control.Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

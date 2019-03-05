@@ -484,6 +484,14 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\Boton_AGREGAR_EFECT.jpg" />
+    <None Include="Resources\Boton_AGREGAR.jpg" />
+    <None Include="Resources\Boton_eLIMINARefecto.jpg" />
+    <None Include="Resources\Boton_eLIMINAR.jpg" />
+    <None Include="Resources\Boton_editarEfect.jpg" />
+    <None Include="Resources\Boton_editar.jpg" />
+    <None Include="Resources\Boton_VerNumeros_Efect.jpg" />
+    <None Include="Resources\Boton_VerNumeros.jpg" />
     <None Include="Resources\icon_acerca_de.png" />
     <None Include="Resources\call_128.png" />
     <None Include="Resources\if_viber_386738.png" />

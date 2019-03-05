@@ -28,30 +28,13 @@ Partial Class control
         Me.RegistrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PapelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.TimerCero = New System.Windows.Forms.Timer(Me.components)
-        Me.TimerUno = New System.Windows.Forms.Timer(Me.components)
-        Me.TimerDOS = New System.Windows.Forms.Timer(Me.components)
-        Me.TimerTres = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Desktop = New System.Windows.Forms.Panel()
-        Me.MenuPanel = New System.Windows.Forms.Panel()
-        Me.Button_Ajustes = New System.Windows.Forms.Button()
-        Me.Button_Vehiculo = New System.Windows.Forms.Button()
-        Me.Button_Registros = New System.Windows.Forms.Button()
-        Me.Button_Clients = New System.Windows.Forms.Button()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AgregarUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuLine0 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisponibleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OcupadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,8 +47,11 @@ Partial Class control
         Me.MenuLine3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisponibleToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OcupadaToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_vehiculos = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.VehiculosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
@@ -76,12 +62,14 @@ Partial Class control
         Me.GestionarToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -97,12 +85,26 @@ Partial Class control
         Me.GestionarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TimerCero = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerUno = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerDOS = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerTres = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Desktop = New System.Windows.Forms.Panel()
+        Me.MenuPanel = New System.Windows.Forms.Panel()
+        Me.Button_Ajustes = New System.Windows.Forms.Button()
+        Me.Button_Vehiculo = New System.Windows.Forms.Button()
+        Me.Button_Registros = New System.Windows.Forms.Button()
+        Me.Button_Clients = New System.Windows.Forms.Button()
+        Me.Loader = New System.Windows.Forms.PictureBox()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
         Me.Btn_clientes.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.MenuPanel.SuspendLayout()
+        CType(Me.Loader, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ArchivoToolStripMenuItem
@@ -134,168 +136,6 @@ Partial Class control
         Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.ToolStripSeparator3, Me.MenuLine0, Me.MenuLine1, Me.MenuLine2, Me.MenuLine3, Me.ToolStripSeparator2, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
         Me.Btn_ajustes.Size = New System.Drawing.Size(154, 220)
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(150, 6)
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(150, 6)
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(150, 6)
-        '
-        'Btn_vehiculos
-        '
-        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VehiculosToolStripMenuItem, Me.ConductoresToolStripMenuItem})
-        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
-        Me.Btn_vehiculos.Size = New System.Drawing.Size(143, 48)
-        '
-        'Btn_registros
-        '
-        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem4})
-        Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(160, 92)
-        '
-        'Btn_clientes
-        '
-        Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.NumerosToolStripMenuItem, Me.DireccionesToolStripMenuItem})
-        Me.Btn_clientes.Name = "Btn_clientes"
-        Me.Btn_clientes.Size = New System.Drawing.Size(136, 70)
-        '
-        'TimerCero
-        '
-        '
-        'TimerUno
-        '
-        '
-        'TimerDOS
-        '
-        '
-        'TimerTres
-        '
-        '
-        'Panel1
-        '
-        Me.Panel1.BackgroundImage = Global.Calls.My.Resources.Resources.background
-        Me.Panel1.Controls.Add(Me.Panel4)
-        Me.Panel1.Controls.Add(Me.Desktop)
-        Me.Panel1.Controls.Add(Me.MenuPanel)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(926, 531)
-        Me.Panel1.TabIndex = 2
-        '
-        'Panel4
-        '
-        Me.Panel4.BackgroundImage = Global.Calls.My.Resources.Resources.separador
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(0, 96)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(926, 3)
-        Me.Panel4.TabIndex = 5
-        '
-        'Desktop
-        '
-        Me.Desktop.BackColor = System.Drawing.Color.Transparent
-        Me.Desktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Desktop.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Desktop.Location = New System.Drawing.Point(0, 99)
-        Me.Desktop.Name = "Desktop"
-        Me.Desktop.Size = New System.Drawing.Size(926, 432)
-        Me.Desktop.TabIndex = 4
-        '
-        'MenuPanel
-        '
-        Me.MenuPanel.BackColor = System.Drawing.Color.Transparent
-        Me.MenuPanel.Controls.Add(Me.Button_Ajustes)
-        Me.MenuPanel.Controls.Add(Me.Button_Vehiculo)
-        Me.MenuPanel.Controls.Add(Me.Button_Registros)
-        Me.MenuPanel.Controls.Add(Me.Button_Clients)
-        Me.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top
-        Me.MenuPanel.Location = New System.Drawing.Point(0, 0)
-        Me.MenuPanel.Name = "MenuPanel"
-        Me.MenuPanel.Size = New System.Drawing.Size(926, 96)
-        Me.MenuPanel.TabIndex = 3
-        '
-        'Button_Ajustes
-        '
-        Me.Button_Ajustes.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Ajustes.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_ajustes
-        Me.Button_Ajustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button_Ajustes.ContextMenuStrip = Me.Btn_ajustes
-        Me.Button_Ajustes.FlatAppearance.BorderSize = 0
-        Me.Button_Ajustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button_Ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button_Ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Ajustes.ForeColor = System.Drawing.Color.Maroon
-        Me.Button_Ajustes.Location = New System.Drawing.Point(683, 6)
-        Me.Button_Ajustes.Name = "Button_Ajustes"
-        Me.Button_Ajustes.Size = New System.Drawing.Size(216, 84)
-        Me.Button_Ajustes.TabIndex = 3
-        Me.Button_Ajustes.Text = "Button3"
-        Me.Button_Ajustes.UseVisualStyleBackColor = False
-        '
-        'Button_Vehiculo
-        '
-        Me.Button_Vehiculo.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Vehiculo.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_vehiculos
-        Me.Button_Vehiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button_Vehiculo.ContextMenuStrip = Me.Btn_vehiculos
-        Me.Button_Vehiculo.FlatAppearance.BorderSize = 0
-        Me.Button_Vehiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button_Vehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button_Vehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Vehiculo.ForeColor = System.Drawing.Color.Maroon
-        Me.Button_Vehiculo.Location = New System.Drawing.Point(461, 6)
-        Me.Button_Vehiculo.Name = "Button_Vehiculo"
-        Me.Button_Vehiculo.Size = New System.Drawing.Size(216, 84)
-        Me.Button_Vehiculo.TabIndex = 2
-        Me.Button_Vehiculo.Text = "Button3"
-        Me.Button_Vehiculo.UseVisualStyleBackColor = False
-        '
-        'Button_Registros
-        '
-        Me.Button_Registros.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Registros.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_registros
-        Me.Button_Registros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button_Registros.ContextMenuStrip = Me.Btn_registros
-        Me.Button_Registros.FlatAppearance.BorderSize = 0
-        Me.Button_Registros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button_Registros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button_Registros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Registros.ForeColor = System.Drawing.Color.Maroon
-        Me.Button_Registros.Location = New System.Drawing.Point(239, 6)
-        Me.Button_Registros.Name = "Button_Registros"
-        Me.Button_Registros.Size = New System.Drawing.Size(216, 84)
-        Me.Button_Registros.TabIndex = 1
-        Me.Button_Registros.Text = "Button2"
-        Me.Button_Registros.UseVisualStyleBackColor = False
-        '
-        'Button_Clients
-        '
-        Me.Button_Clients.BackColor = System.Drawing.Color.Transparent
-        Me.Button_Clients.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_Clientes
-        Me.Button_Clients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Button_Clients.ContextMenuStrip = Me.Btn_clientes
-        Me.Button_Clients.FlatAppearance.BorderSize = 0
-        Me.Button_Clients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Button_Clients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Button_Clients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Clients.ForeColor = System.Drawing.Color.Maroon
-        Me.Button_Clients.Location = New System.Drawing.Point(17, 6)
-        Me.Button_Clients.Name = "Button_Clients"
-        Me.Button_Clients.Size = New System.Drawing.Size(216, 84)
-        Me.Button_Clients.TabIndex = 0
-        Me.Button_Clients.Text = "Button1"
-        Me.Button_Clients.UseVisualStyleBackColor = False
         '
         'ToolStripMenuItem6
         '
@@ -339,6 +179,11 @@ Partial Class control
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
         Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.LimpiarToolStripMenuItem.Text = "Vaciar registros"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(150, 6)
         '
         'MenuLine0
         '
@@ -420,6 +265,11 @@ Partial Class control
         Me.OcupadaToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
         Me.OcupadaToolStripMenuItem3.Text = "Ocupada"
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(150, 6)
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.exit_48
@@ -427,12 +277,23 @@ Partial Class control
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(150, 6)
+        '
         'AcercaDeToolStripMenuItem
         '
         Me.AcercaDeToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.about_48
         Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
         Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
+        '
+        'Btn_vehiculos
+        '
+        Me.Btn_vehiculos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VehiculosToolStripMenuItem, Me.ConductoresToolStripMenuItem})
+        Me.Btn_vehiculos.Name = "ContextMenuStrip1"
+        Me.Btn_vehiculos.Size = New System.Drawing.Size(143, 48)
         '
         'VehiculosToolStripMenuItem
         '
@@ -506,6 +367,12 @@ Partial Class control
         Me.GenerarReporteToolStripMenuItem2.Size = New System.Drawing.Size(156, 22)
         Me.GenerarReporteToolStripMenuItem2.Text = "Generar reporte"
         '
+        'Btn_registros
+        '
+        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem4})
+        Me.Btn_registros.Name = "ContextMenuStrip1"
+        Me.Btn_registros.Size = New System.Drawing.Size(160, 92)
+        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.new_48
@@ -546,6 +413,13 @@ Partial Class control
         Me.GenerarReporteToolStripMenuItem4.Name = "GenerarReporteToolStripMenuItem4"
         Me.GenerarReporteToolStripMenuItem4.Size = New System.Drawing.Size(159, 22)
         Me.GenerarReporteToolStripMenuItem4.Text = "Generar reporte"
+        '
+        'Btn_clientes
+        '
+        Me.Btn_clientes.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Btn_clientes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem1, Me.NumerosToolStripMenuItem, Me.DireccionesToolStripMenuItem})
+        Me.Btn_clientes.Name = "Btn_clientes"
+        Me.Btn_clientes.Size = New System.Drawing.Size(136, 70)
         '
         'ClientesToolStripMenuItem1
         '
@@ -655,12 +529,151 @@ Partial Class control
         Me.ToolStripMenuItem5.Size = New System.Drawing.Size(156, 22)
         Me.ToolStripMenuItem5.Text = "Generar reporte"
         '
+        'TimerCero
+        '
+        '
+        'TimerUno
+        '
+        '
+        'TimerDOS
+        '
+        '
+        'TimerTres
+        '
+        '
+        'Panel1
+        '
+        Me.Panel1.BackgroundImage = Global.Calls.My.Resources.Resources.background
+        Me.Panel1.Controls.Add(Me.Panel4)
+        Me.Panel1.Controls.Add(Me.Desktop)
+        Me.Panel1.Controls.Add(Me.MenuPanel)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(926, 532)
+        Me.Panel1.TabIndex = 2
+        '
+        'Panel4
+        '
+        Me.Panel4.BackgroundImage = Global.Calls.My.Resources.Resources.separador
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel4.Location = New System.Drawing.Point(0, 96)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(926, 2)
+        Me.Panel4.TabIndex = 5
+        '
+        'Desktop
+        '
+        Me.Desktop.BackColor = System.Drawing.Color.Transparent
+        Me.Desktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Desktop.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Desktop.Location = New System.Drawing.Point(0, 98)
+        Me.Desktop.Name = "Desktop"
+        Me.Desktop.Size = New System.Drawing.Size(926, 434)
+        Me.Desktop.TabIndex = 4
+        '
+        'MenuPanel
+        '
+        Me.MenuPanel.BackColor = System.Drawing.Color.Transparent
+        Me.MenuPanel.Controls.Add(Me.Loader)
+        Me.MenuPanel.Controls.Add(Me.Button_Ajustes)
+        Me.MenuPanel.Controls.Add(Me.Button_Vehiculo)
+        Me.MenuPanel.Controls.Add(Me.Button_Registros)
+        Me.MenuPanel.Controls.Add(Me.Button_Clients)
+        Me.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top
+        Me.MenuPanel.Location = New System.Drawing.Point(0, 0)
+        Me.MenuPanel.Name = "MenuPanel"
+        Me.MenuPanel.Size = New System.Drawing.Size(926, 96)
+        Me.MenuPanel.TabIndex = 3
+        '
+        'Button_Ajustes
+        '
+        Me.Button_Ajustes.BackColor = System.Drawing.Color.Transparent
+        Me.Button_Ajustes.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_ajustes
+        Me.Button_Ajustes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button_Ajustes.ContextMenuStrip = Me.Btn_ajustes
+        Me.Button_Ajustes.FlatAppearance.BorderSize = 0
+        Me.Button_Ajustes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button_Ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button_Ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Ajustes.ForeColor = System.Drawing.Color.Maroon
+        Me.Button_Ajustes.Location = New System.Drawing.Point(683, 6)
+        Me.Button_Ajustes.Name = "Button_Ajustes"
+        Me.Button_Ajustes.Size = New System.Drawing.Size(216, 84)
+        Me.Button_Ajustes.TabIndex = 3
+        Me.Button_Ajustes.Text = "Button3"
+        Me.Button_Ajustes.UseVisualStyleBackColor = False
+        '
+        'Button_Vehiculo
+        '
+        Me.Button_Vehiculo.BackColor = System.Drawing.Color.Transparent
+        Me.Button_Vehiculo.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_vehiculos
+        Me.Button_Vehiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button_Vehiculo.ContextMenuStrip = Me.Btn_vehiculos
+        Me.Button_Vehiculo.FlatAppearance.BorderSize = 0
+        Me.Button_Vehiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button_Vehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button_Vehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Vehiculo.ForeColor = System.Drawing.Color.Maroon
+        Me.Button_Vehiculo.Location = New System.Drawing.Point(461, 6)
+        Me.Button_Vehiculo.Name = "Button_Vehiculo"
+        Me.Button_Vehiculo.Size = New System.Drawing.Size(216, 84)
+        Me.Button_Vehiculo.TabIndex = 2
+        Me.Button_Vehiculo.Text = "Button3"
+        Me.Button_Vehiculo.UseVisualStyleBackColor = False
+        '
+        'Button_Registros
+        '
+        Me.Button_Registros.BackColor = System.Drawing.Color.Transparent
+        Me.Button_Registros.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_registros
+        Me.Button_Registros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button_Registros.ContextMenuStrip = Me.Btn_registros
+        Me.Button_Registros.FlatAppearance.BorderSize = 0
+        Me.Button_Registros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button_Registros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button_Registros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Registros.ForeColor = System.Drawing.Color.Maroon
+        Me.Button_Registros.Location = New System.Drawing.Point(239, 6)
+        Me.Button_Registros.Name = "Button_Registros"
+        Me.Button_Registros.Size = New System.Drawing.Size(216, 84)
+        Me.Button_Registros.TabIndex = 1
+        Me.Button_Registros.Text = "Button2"
+        Me.Button_Registros.UseVisualStyleBackColor = False
+        '
+        'Button_Clients
+        '
+        Me.Button_Clients.BackColor = System.Drawing.Color.Transparent
+        Me.Button_Clients.BackgroundImage = Global.Calls.My.Resources.Resources.Btn_Clientes
+        Me.Button_Clients.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Button_Clients.ContextMenuStrip = Me.Btn_clientes
+        Me.Button_Clients.FlatAppearance.BorderSize = 0
+        Me.Button_Clients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Button_Clients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Button_Clients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Clients.ForeColor = System.Drawing.Color.Maroon
+        Me.Button_Clients.Location = New System.Drawing.Point(17, 6)
+        Me.Button_Clients.Name = "Button_Clients"
+        Me.Button_Clients.Size = New System.Drawing.Size(216, 84)
+        Me.Button_Clients.TabIndex = 0
+        Me.Button_Clients.Text = "Button1"
+        Me.Button_Clients.UseVisualStyleBackColor = False
+        '
+        'Loader
+        '
+        Me.Loader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Loader.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Loader.Location = New System.Drawing.Point(905, 0)
+        Me.Loader.Name = "Loader"
+        Me.Loader.Size = New System.Drawing.Size(21, 96)
+        Me.Loader.TabIndex = 103
+        Me.Loader.TabStop = False
+        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(926, 531)
+        Me.ClientSize = New System.Drawing.Size(926, 532)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "control"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -671,6 +684,7 @@ Partial Class control
         Me.Btn_clientes.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.MenuPanel.ResumeLayout(False)
+        CType(Me.Loader, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -749,4 +763,5 @@ Partial Class control
     Public WithEvents TimerTres As Timer
     Friend WithEvents GestionarToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents PorFechaToolStripMenuItem As ToolStripMenuItem
+    Public WithEvents Loader As PictureBox
 End Class
