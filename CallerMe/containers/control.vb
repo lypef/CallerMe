@@ -578,4 +578,8 @@ Public Class control
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
+
+    Private Sub LimpiarEscritorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarEscritorioToolStripMenuItem.Click
+        f.DesktopClean(Desktop)
+    End Sub
 End Class

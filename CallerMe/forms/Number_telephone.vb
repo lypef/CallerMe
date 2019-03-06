@@ -145,12 +145,16 @@
             Else
                 f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
             End If
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         If functions.Number_id > 0 And functions.Client > 0 Then
             delete()
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 

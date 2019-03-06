@@ -5,31 +5,16 @@
     Dim f As New functions
     Private Sub LlamadaEntrante_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
+        f.Button_SetModel(btn_omitir, My.Resources.Boton_omitir)
+        f.Button_SetModel(btn_asistir, My.Resources.Boton_ASISTIR)
     End Sub
 
-    Private Sub Asistir_Click(sender As Object, e As EventArgs) Handles Asistir.Click
-        If caller = 0 Then
-            control.TimerCero.Stop()
-        ElseIf caller = 1 Then
-            control.TimerUno.Stop()
-        ElseIf caller = 2 Then
-            control.TimerDOS.Stop()
-        ElseIf caller = 3 Then
-            control.TimerTres.Stop()
-        End If
+    Private Sub Asistir_Click(sender As Object, e As EventArgs)
 
-        Dim a As New Asistir_llamada
-        a.caller = caller
-        a.number = Numero.Text
-        a.f_llamada = f_llamada
-        a.Asitir_llamada = DateTime.Now
-        a.loadvalues()
-        a.Show()
-        Me.Dispose()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        omitir()
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub omitir()
@@ -86,5 +71,46 @@
         Timer1.Stop()
         Timer1.Enabled = False
         omitir()
+    End Sub
+
+    Private Sub Btn_add_Click(sender As Object, e As EventArgs) Handles btn_asistir.Click
+        If caller = 0 Then
+            control.TimerCero.Stop()
+        ElseIf caller = 1 Then
+            control.TimerUno.Stop()
+        ElseIf caller = 2 Then
+            control.TimerDOS.Stop()
+        ElseIf caller = 3 Then
+            control.TimerTres.Stop()
+        End If
+
+        Dim a As New Asistir_llamada
+        a.caller = caller
+        a.number = Numero.Text
+        a.f_llamada = f_llamada
+        a.Asitir_llamada = DateTime.Now
+        a.loadvalues()
+        a.Show()
+        Me.Dispose()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_omitir.Click
+        omitir()
+    End Sub
+
+    Private Sub btn_omitir_MouseLeave(sender As Object, e As EventArgs) Handles btn_omitir.MouseLeave
+        f.Button_SetModel(btn_omitir, My.Resources.Boton_omitir)
+    End Sub
+
+    Private Sub btn_omitir_MouseEnter(sender As Object, e As EventArgs) Handles btn_omitir.MouseEnter
+        f.Button_SetModel(btn_omitir, My.Resources.Boton_omitir_efect)
+    End Sub
+
+    Private Sub btn_asistir_MouseLeave(sender As Object, e As EventArgs) Handles btn_asistir.MouseLeave
+        f.Button_SetModel(btn_asistir, My.Resources.Boton_ASISTIR)
+    End Sub
+
+    Private Sub btn_asistir_MouseEnter(sender As Object, e As EventArgs) Handles btn_asistir.MouseEnter
+        f.Button_SetModel(btn_asistir, My.Resources.Boton_ASISTIR_EFECT)
     End Sub
 End Class

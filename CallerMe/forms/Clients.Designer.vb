@@ -24,7 +24,10 @@ Partial Class Clients
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.VerMovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ViewNumbers = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
@@ -45,29 +48,26 @@ Partial Class Clients
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Foto = New System.Windows.Forms.PictureBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Table = New System.Windows.Forms.DataGridView()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Btn_add = New System.Windows.Forms.Button()
         Me.btn_delete = New System.Windows.Forms.Button()
         Me.btn_numeros = New System.Windows.Forms.Button()
         Me.btn_editar = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Foto = New System.Windows.Forms.PictureBox()
-        Me.VerMovimientosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Table = New System.Windows.Forms.DataGridView()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         CType(Me.ViewNumbers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Foto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Foto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip1
@@ -76,10 +76,31 @@ Partial Class Clients
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(124, 76)
         '
+        'VerMovimientosToolStripMenuItem
+        '
+        Me.VerMovimientosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
+        Me.VerMovimientosToolStripMenuItem.Name = "VerMovimientosToolStripMenuItem"
+        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.VerMovimientosToolStripMenuItem.Text = "Numeros"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(120, 6)
+        '
+        'EditarToolStripMenuItem
+        '
+        Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
+        Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'TabPage3
         '
@@ -87,7 +108,7 @@ Partial Class Clients
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(919, 574)
+        Me.TabPage3.Size = New System.Drawing.Size(919, 408)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Numeros"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -98,7 +119,7 @@ Partial Class Clients
         Me.ViewNumbers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewNumbers.Location = New System.Drawing.Point(3, 3)
         Me.ViewNumbers.Name = "ViewNumbers"
-        Me.ViewNumbers.Size = New System.Drawing.Size(913, 568)
+        Me.ViewNumbers.Size = New System.Drawing.Size(913, 402)
         Me.ViewNumbers.TabIndex = 0
         '
         'TabPage2
@@ -126,7 +147,7 @@ Partial Class Clients
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(919, 574)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 408)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -286,6 +307,25 @@ Partial Class Clients
         Me.Label1.TabIndex = 105
         Me.Label1.Text = "Nombre"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(913, 18)
+        Me.PictureBox1.TabIndex = 124
+        Me.PictureBox1.TabStop = False
+        '
+        'Foto
+        '
+        Me.Foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Foto.Location = New System.Drawing.Point(12, 222)
+        Me.Foto.Name = "Foto"
+        Me.Foto.Size = New System.Drawing.Size(416, 113)
+        Me.Foto.TabIndex = 121
+        Me.Foto.TabStop = False
+        '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.Panel1)
@@ -309,28 +349,6 @@ Partial Class Clients
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(913, 53)
         Me.Panel1.TabIndex = 4
-        '
-        'Table
-        '
-        Me.Table.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Table.Location = New System.Drawing.Point(3, 3)
-        Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(913, 402)
-        Me.Table.TabIndex = 0
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(927, 434)
-        Me.TabControl1.TabIndex = 1
         '
         'Btn_add
         '
@@ -400,45 +418,27 @@ Partial Class Clients
         Me.btn_editar.Text = "btn_editar"
         Me.btn_editar.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'Table
         '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(913, 18)
-        Me.PictureBox1.TabIndex = 124
-        Me.PictureBox1.TabStop = False
+        Me.Table.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Table.Location = New System.Drawing.Point(3, 3)
+        Me.Table.Name = "Table"
+        Me.Table.Size = New System.Drawing.Size(913, 402)
+        Me.Table.TabIndex = 0
         '
-        'Foto
+        'TabControl1
         '
-        Me.Foto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Foto.Location = New System.Drawing.Point(12, 222)
-        Me.Foto.Name = "Foto"
-        Me.Foto.Size = New System.Drawing.Size(416, 113)
-        Me.Foto.TabIndex = 121
-        Me.Foto.TabStop = False
-        '
-        'VerMovimientosToolStripMenuItem
-        '
-        Me.VerMovimientosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.telefono_48
-        Me.VerMovimientosToolStripMenuItem.Name = "VerMovimientosToolStripMenuItem"
-        Me.VerMovimientosToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.VerMovimientosToolStripMenuItem.Text = "Numeros"
-        '
-        'EditarToolStripMenuItem
-        '
-        Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
-        Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.EditarToolStripMenuItem.Text = "Editar"
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(927, 434)
+        Me.TabControl1.TabIndex = 1
         '
         'Clients
         '
@@ -453,12 +453,12 @@ Partial Class Clients
         CType(Me.ViewNumbers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Foto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.Table, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Foto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

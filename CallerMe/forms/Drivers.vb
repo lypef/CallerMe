@@ -151,12 +151,16 @@
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
         If functions.Driver_id > 0 Then
             TabControl1.SelectedIndex = 1
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         If functions.Driver_id > 0 Then
             delete()
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 

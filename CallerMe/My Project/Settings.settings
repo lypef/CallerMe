@@ -30,10 +30,10 @@
       <Value Profile="(Default)">24</Value>
     </Setting>
     <Setting Name="datagridview_color" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">SteelBlue</Value>
+      <Value Profile="(Default)">ActiveCaption</Value>
     </Setting>
     <Setting Name="datagridview_selectrow" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">DarkGray</Value>
+      <Value Profile="(Default)">Maroon</Value>
     </Setting>
     <Setting Name="datagridview_font" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif, 9pt</Value>

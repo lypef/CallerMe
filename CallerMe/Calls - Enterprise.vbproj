@@ -484,6 +484,12 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\Boton_omitir_efect.jpg" />
+    <None Include="Resources\Boton_omitir.jpg" />
+    <None Include="Resources\Boton_ASISTIR_EFECT.jpg" />
+    <None Include="Resources\Boton_ASISTIR.jpg" />
+    <None Include="Resources\btn_llamada_entrante.jpg" />
+    <None Include="Resources\iconfinder_Gnome-Edit-Clear-64_55586.png" />
     <None Include="Resources\Boton_AGREGAR_EFECT.jpg" />
     <None Include="Resources\Boton_AGREGAR.jpg" />
     <None Include="Resources\Boton_eLIMINARefecto.jpg" />

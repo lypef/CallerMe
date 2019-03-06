@@ -185,6 +185,8 @@
     Private Sub btn_numeros_Click(sender As Object, e As EventArgs) Handles btn_numeros.Click
         If functions.Client > 0 Then
             TabControl1.SelectedIndex = 2
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 
@@ -193,12 +195,16 @@
             If f.ReturnPermission(f.Permission_Clients_edit) Then
                 TabControl1.SelectedIndex = 1
             End If
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         If functions.Client > 0 Then
             delete()
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 

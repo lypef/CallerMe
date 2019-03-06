@@ -265,12 +265,16 @@
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
         If functions.user_select > 0 Then
             editar()
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
         If functions.user_select > 0 Then
             delete()
+        Else
+            f.Alert(f.Alert_seleccione_item, f.Alert_NumberExclamacion)
         End If
     End Sub
 End Class

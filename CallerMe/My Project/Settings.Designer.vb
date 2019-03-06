@@ -164,7 +164,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("SteelBlue")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ActiveCaption")>  _
         Public Property datagridview_color() As Global.System.Drawing.Color
             Get
                 Return CType(Me("datagridview_color"),Global.System.Drawing.Color)
@@ -176,7 +176,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("DarkGray")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Maroon")>  _
         Public Property datagridview_selectrow() As Global.System.Drawing.Color
             Get
                 Return CType(Me("datagridview_selectrow"),Global.System.Drawing.Color)

@@ -49,6 +49,7 @@ Public Class functions
 
     Public ReadOnly Alert_ProcesoFinalizadoNO As String = "Proceso finalizado SIN exito"
     Public ReadOnly Alert_Verifique_proceso As String = "Verifique el proceso"
+    Public ReadOnly Alert_seleccione_item As String = "Seleccione un item"
 
     'Numeros de alerta
     Public ReadOnly Alert_NumberInformacion As Integer = 64
@@ -137,6 +138,10 @@ Public Class functions
         panel.BackColor = Color.FromArgb(26, 67, 129)
     End Sub
 
+    Public Sub FormBackColor(ByVal f As Form)
+        f.BackColor = Color.FromArgb(26, 67, 129)
+    End Sub
+
     Public Sub Button_Hover_SetModel(ByVal boton As Button, ByVal imagen As Bitmap)
         boton.BackgroundImage = imagen
         boton.Height = My.Resources.Btn_Clientes.Height
@@ -148,6 +153,11 @@ Public Class functions
         boton.FlatAppearance.MouseDownBackColor = Color.Transparent
         boton.FlatAppearance.MouseOverBackColor = Color.Transparent
         boton.Text = ""
+    End Sub
+
+    Public Sub DesktopClean(ByVal Desktop As Panel)
+        Desktop.Controls.Clear()
+        Desktop.BorderStyle = BorderStyle.None
     End Sub
 
     Public Sub AddForm_Desktop(ByVal form As Form, ByVal Desktop As Panel)
@@ -1009,15 +1019,8 @@ Public Class functions
         Dim hora_llamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
         Dim AtencionLlamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
         Dim FinalizaLlamada = (fecha.Value.Year).ToString + "-" + (fecha.Value.Month).ToString + "-" + (fecha.Value.Day).ToString
-
-        MsgBox("Cliente:" + cliente)
-        MsgBox("Numero" + numero)
-        MsgBox("Usuario" + _usuario)
-        MsgBox("Dir" + _direccion)
-        MsgBox("Vehiculo" + _vehiculo)
-        MsgBox("Conductor" + _conductor)
-
         Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES (" + cliente + ", " + numero + ", '" + hora_llamada + "', '" + AtencionLlamada + "', '" + FinalizaLlamada + "', " + _usuario + ", " + _direccion + ", " + _vehiculo + ", " + _conductor + ")")
+
     End Function
 
     Public Function save_registroAutomatic(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal vehiculo As Integer, ByVal driver As Integer)

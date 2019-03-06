@@ -93,11 +93,12 @@ Partial Class control
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Desktop = New System.Windows.Forms.Panel()
         Me.MenuPanel = New System.Windows.Forms.Panel()
+        Me.Loader = New System.Windows.Forms.PictureBox()
         Me.Button_Ajustes = New System.Windows.Forms.Button()
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.Loader = New System.Windows.Forms.PictureBox()
+        Me.LimpiarEscritorioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -133,15 +134,15 @@ Partial Class control
         '
         'Btn_ajustes
         '
-        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.ToolStripSeparator3, Me.MenuLine0, Me.MenuLine1, Me.MenuLine2, Me.MenuLine3, Me.ToolStripSeparator2, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
+        Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.LimpiarEscritorioToolStripMenuItem, Me.ToolStripSeparator3, Me.MenuLine0, Me.MenuLine1, Me.MenuLine2, Me.MenuLine3, Me.ToolStripSeparator2, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(154, 220)
+        Me.Btn_ajustes.Size = New System.Drawing.Size(164, 264)
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Image = Global.Calls.My.Resources.Resources.properties_48
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(153, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(163, 22)
         Me.ToolStripMenuItem6.Text = "Propiedades"
         '
         'UsuariosToolStripMenuItem
@@ -149,7 +150,7 @@ Partial Class control
         Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarUsuarioToolStripMenuItem, Me.GestionarToolStripMenuItem6, Me.GenerarReporteToolStripMenuItem5})
         Me.UsuariosToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.clients_48
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'AgregarUsuarioToolStripMenuItem
@@ -177,20 +178,20 @@ Partial Class control
         '
         Me.LimpiarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.directiones_24
         Me.LimpiarToolStripMenuItem.Name = "LimpiarToolStripMenuItem"
-        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.LimpiarToolStripMenuItem.Text = "Vaciar registros"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(150, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(160, 6)
         '
         'MenuLine0
         '
         Me.MenuLine0.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisponibleToolStripMenuItem, Me.OcupadaToolStripMenuItem})
         Me.MenuLine0.Image = Global.Calls.My.Resources.Resources.call_48
         Me.MenuLine0.Name = "MenuLine0"
-        Me.MenuLine0.Size = New System.Drawing.Size(153, 22)
+        Me.MenuLine0.Size = New System.Drawing.Size(163, 22)
         Me.MenuLine0.Text = "Linea 1"
         '
         'DisponibleToolStripMenuItem
@@ -210,7 +211,7 @@ Partial Class control
         Me.MenuLine1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisponibleToolStripMenuItem1, Me.OcupadaToolStripMenuItem1})
         Me.MenuLine1.Image = Global.Calls.My.Resources.Resources.call_48
         Me.MenuLine1.Name = "MenuLine1"
-        Me.MenuLine1.Size = New System.Drawing.Size(153, 22)
+        Me.MenuLine1.Size = New System.Drawing.Size(163, 22)
         Me.MenuLine1.Text = "Linea 2"
         '
         'DisponibleToolStripMenuItem1
@@ -230,7 +231,7 @@ Partial Class control
         Me.MenuLine2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisponibleToolStripMenuItem2, Me.OcupadaToolStripMenuItem2})
         Me.MenuLine2.Image = Global.Calls.My.Resources.Resources.call_48
         Me.MenuLine2.Name = "MenuLine2"
-        Me.MenuLine2.Size = New System.Drawing.Size(153, 22)
+        Me.MenuLine2.Size = New System.Drawing.Size(163, 22)
         Me.MenuLine2.Text = "Linea 3"
         '
         'DisponibleToolStripMenuItem2
@@ -250,7 +251,7 @@ Partial Class control
         Me.MenuLine3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisponibleToolStripMenuItem3, Me.OcupadaToolStripMenuItem3})
         Me.MenuLine3.Image = Global.Calls.My.Resources.Resources.call_48
         Me.MenuLine3.Name = "MenuLine3"
-        Me.MenuLine3.Size = New System.Drawing.Size(153, 22)
+        Me.MenuLine3.Size = New System.Drawing.Size(163, 22)
         Me.MenuLine3.Text = "Linea 4"
         '
         'DisponibleToolStripMenuItem3
@@ -268,25 +269,25 @@ Partial Class control
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(150, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(160, 6)
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.exit_48
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(150, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(160, 6)
         '
         'AcercaDeToolStripMenuItem
         '
         Me.AcercaDeToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.about_48
         Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.AcercaDeToolStripMenuItem.Text = "Acerca de"
         '
         'Btn_vehiculos
@@ -586,6 +587,16 @@ Partial Class control
         Me.MenuPanel.Size = New System.Drawing.Size(926, 96)
         Me.MenuPanel.TabIndex = 3
         '
+        'Loader
+        '
+        Me.Loader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Loader.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Loader.Location = New System.Drawing.Point(905, 0)
+        Me.Loader.Name = "Loader"
+        Me.Loader.Size = New System.Drawing.Size(21, 96)
+        Me.Loader.TabIndex = 103
+        Me.Loader.TabStop = False
+        '
         'Button_Ajustes
         '
         Me.Button_Ajustes.BackColor = System.Drawing.Color.Transparent
@@ -658,15 +669,12 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
-        'Loader
+        'LimpiarEscritorioToolStripMenuItem
         '
-        Me.Loader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Loader.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Loader.Location = New System.Drawing.Point(905, 0)
-        Me.Loader.Name = "Loader"
-        Me.Loader.Size = New System.Drawing.Size(21, 96)
-        Me.Loader.TabIndex = 103
-        Me.Loader.TabStop = False
+        Me.LimpiarEscritorioToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.iconfinder_Gnome_Edit_Clear_64_55586
+        Me.LimpiarEscritorioToolStripMenuItem.Name = "LimpiarEscritorioToolStripMenuItem"
+        Me.LimpiarEscritorioToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.LimpiarEscritorioToolStripMenuItem.Text = "limpiar escritorio"
         '
         'control
         '
@@ -764,4 +772,5 @@ Partial Class control
     Friend WithEvents GestionarToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents PorFechaToolStripMenuItem As ToolStripMenuItem
     Public WithEvents Loader As PictureBox
+    Friend WithEvents LimpiarEscritorioToolStripMenuItem As ToolStripMenuItem
 End Class
