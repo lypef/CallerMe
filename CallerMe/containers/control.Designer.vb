@@ -99,6 +99,10 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
+        Me.work0 = New System.ComponentModel.BackgroundWorker()
+        Me.work1 = New System.ComponentModel.BackgroundWorker()
+        Me.work3 = New System.ComponentModel.BackgroundWorker()
+        Me.work2 = New System.ComponentModel.BackgroundWorker()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -136,7 +140,7 @@ Partial Class control
         '
         Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.LimpiarEscritorioToolStripMenuItem, Me.ToolStripSeparator3, Me.MenuLine0, Me.MenuLine1, Me.MenuLine2, Me.MenuLine3, Me.ToolStripSeparator2, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(164, 264)
+        Me.Btn_ajustes.Size = New System.Drawing.Size(164, 242)
         '
         'ToolStripMenuItem6
         '
@@ -204,13 +208,13 @@ Partial Class control
         'DisponibleToolStripMenuItem
         '
         Me.DisponibleToolStripMenuItem.Name = "DisponibleToolStripMenuItem"
-        Me.DisponibleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DisponibleToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.DisponibleToolStripMenuItem.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem
         '
         Me.OcupadaToolStripMenuItem.Name = "OcupadaToolStripMenuItem"
-        Me.OcupadaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OcupadaToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.OcupadaToolStripMenuItem.Text = "Ocupada"
         '
         'MenuLine1
@@ -224,13 +228,13 @@ Partial Class control
         'DisponibleToolStripMenuItem1
         '
         Me.DisponibleToolStripMenuItem1.Name = "DisponibleToolStripMenuItem1"
-        Me.DisponibleToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.DisponibleToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
         Me.DisponibleToolStripMenuItem1.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem1
         '
         Me.OcupadaToolStripMenuItem1.Name = "OcupadaToolStripMenuItem1"
-        Me.OcupadaToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.OcupadaToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
         Me.OcupadaToolStripMenuItem1.Text = "Ocupada"
         '
         'MenuLine2
@@ -244,13 +248,13 @@ Partial Class control
         'DisponibleToolStripMenuItem2
         '
         Me.DisponibleToolStripMenuItem2.Name = "DisponibleToolStripMenuItem2"
-        Me.DisponibleToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.DisponibleToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
         Me.DisponibleToolStripMenuItem2.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem2
         '
         Me.OcupadaToolStripMenuItem2.Name = "OcupadaToolStripMenuItem2"
-        Me.OcupadaToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.OcupadaToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
         Me.OcupadaToolStripMenuItem2.Text = "Ocupada"
         '
         'MenuLine3
@@ -264,13 +268,13 @@ Partial Class control
         'DisponibleToolStripMenuItem3
         '
         Me.DisponibleToolStripMenuItem3.Name = "DisponibleToolStripMenuItem3"
-        Me.DisponibleToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.DisponibleToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
         Me.DisponibleToolStripMenuItem3.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem3
         '
         Me.OcupadaToolStripMenuItem3.Name = "OcupadaToolStripMenuItem3"
-        Me.OcupadaToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.OcupadaToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
         Me.OcupadaToolStripMenuItem3.Text = "Ocupada"
         '
         'ToolStripSeparator2
@@ -676,6 +680,18 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
+        'work0
+        '
+        '
+        'work1
+        '
+        '
+        'work3
+        '
+        '
+        'work2
+        '
+        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -769,8 +785,12 @@ Partial Class control
     Friend WithEvents PorFechaToolStripMenuItem As ToolStripMenuItem
     Public WithEvents Loader As PictureBox
     Friend WithEvents LimpiarEscritorioToolStripMenuItem As ToolStripMenuItem
-    Public WithEvents MenuLine0 As ToolStripMenuItem
     Public WithEvents MenuLine1 As ToolStripMenuItem
     Public WithEvents MenuLine2 As ToolStripMenuItem
     Public WithEvents MenuLine3 As ToolStripMenuItem
+    Friend WithEvents work0 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents work1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents work3 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents work2 As System.ComponentModel.BackgroundWorker
+    Public WithEvents MenuLine0 As ToolStripMenuItem
 End Class

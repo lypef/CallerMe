@@ -3,6 +3,10 @@ Imports System.Text
 
 Public Class control
     Dim f As New functions
+    Public Shared Device0 As String = ""
+    Public Shared Device1 As String = ""
+    Public Shared Device2 As String = ""
+    Public Shared Device3 As String = ""
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.BotonesBackGroundBlue(MenuPanel)
@@ -458,7 +462,6 @@ Public Class control
     End Sub
 
     Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles TimerCero.Tick
-        Dim Device0 = f.ComprobarLlamada(0).ToString
         If (String.IsNullOrEmpty(Device0) = False) Then
             TimerCero.Stop()
             Dim form As New LlamadaEntrante
@@ -467,6 +470,9 @@ Public Class control
             form.f_llamada = DateTime.Now
             form.LoadNumber()
             form.Show()
+        Else
+            TimerCero.Stop()
+            work0.RunWorkerAsync()
         End If
     End Sub
 
@@ -507,44 +513,47 @@ Public Class control
     End Sub
 
     Private Sub TimerUno_Tick(sender As Object, e As EventArgs) Handles TimerUno.Tick
-        Dim Caller = 1
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
+        If (String.IsNullOrEmpty(Device1) = False) Then
             TimerUno.Stop()
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
-            form.caller = Caller
+            form.Numero.Text = Device1
+            form.caller = 1
             form.f_llamada = DateTime.Now
             form.LoadNumber()
             form.Show()
+        Else
+            TimerUno.Stop()
+            work1.RunWorkerAsync()
         End If
     End Sub
 
     Private Sub TimerDOS_Tick(sender As Object, e As EventArgs) Handles TimerDOS.Tick
-        Dim Caller = 2
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
+        If (String.IsNullOrEmpty(Device2) = False) Then
             TimerDOS.Stop()
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
-            form.caller = Caller
+            form.Numero.Text = Device2
+            form.caller = 2
             form.f_llamada = DateTime.Now
             form.LoadNumber()
             form.Show()
+        Else
+            TimerDOS.Stop()
+            work2.RunWorkerAsync()
         End If
     End Sub
 
     Private Sub TimerTres_Tick(sender As Object, e As EventArgs) Handles TimerTres.Tick
-        Dim Caller = 3
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
+        If (String.IsNullOrEmpty(Device3) = False) Then
             TimerTres.Stop()
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
-            form.caller = Caller
+            form.Numero.Text = Device3
+            form.caller = 3
             form.f_llamada = DateTime.Now
             form.LoadNumber()
             form.Show()
+        Else
+            TimerTres.Stop()
+            work3.RunWorkerAsync()
         End If
     End Sub
 
@@ -568,5 +577,60 @@ Public Class control
 
     Private Sub LimpiarEscritorioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LimpiarEscritorioToolStripMenuItem.Click
         f.DesktopClean(Desktop)
+    End Sub
+
+    Private Sub work0_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles work0.DoWork
+        Device0 = f.ComprobarLlamada(0).ToString
+    End Sub
+
+    Private Sub work0_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles work0.RunWorkerCompleted
+        TimerCero.Start()
+    End Sub
+
+    Private Sub work1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles work1.DoWork
+        Device1 = f.ComprobarLlamada(1).ToString
+    End Sub
+
+    Private Sub work1_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles work1.RunWorkerCompleted
+        TimerUno.Start()
+    End Sub
+
+    Private Sub work2_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs)
+        Device2 = f.ComprobarLlamada(2).ToString
+    End Sub
+
+    Private Sub work2_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles work2.RunWorkerCompleted
+        TimerDOS.Start()
+    End Sub
+
+    Private Sub work2_DoWork_1(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles work2.DoWork
+        Device2 = f.ComprobarLlamada(2).ToString
+    End Sub
+
+    Private Sub work3_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles work3.DoWork
+        Device3 = f.ComprobarLlamada(3).ToString
+    End Sub
+
+    Private Sub work3_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles work3.RunWorkerCompleted
+        TimerTres.Start()
+    End Sub
+
+    Private Sub control_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        If (My.Settings.caller_0) Then
+            f.AsignarNombreLinea(0)
+        End If
+
+        If My.Settings.caller_1 Then
+            f.AsignarNombreLinea(1)
+        End If
+
+        If My.Settings.caller_2 Then
+            f.AsignarNombreLinea(2)
+        End If
+
+        If My.Settings.caller_3 Then
+            f.AsignarNombreLinea(3)
+        End If
+
     End Sub
 End Class

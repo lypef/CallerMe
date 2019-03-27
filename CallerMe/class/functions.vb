@@ -8,6 +8,7 @@ Imports Newtonsoft.Json.Linq
 Imports Newtonsoft.Json
 Imports Microsoft.Win32
 Imports System.Threading
+Imports System.ComponentModel
 
 Public Class functions
 
@@ -37,6 +38,9 @@ Public Class functions
         AD101_SetBusy(caller, 0)
         System.Threading.Thread.Sleep(250)
         AD101_SetBusy(caller, 1)
+        If caller = 0 Then
+            control.Device0 = ""
+        End If
     End Sub
 
     Dim ListUsuarios As New List(Of Integer)
@@ -1355,13 +1359,8 @@ Public Class functions
     Public Shared Function AD101_SetRingOffTime(ByVal nSecond As Integer) As Integer
     End Function
 
-    Public Function ComprobarLlamada(ByVal Device As Integer) As StringBuilder
-        Dim szCallerID As New StringBuilder(128)
-        Dim szName As New StringBuilder(128)
-        Dim szTime As New StringBuilder(128)
+    Public Function AsignarNombreLinea(ByVal Device As Integer)
         Dim szCPUID As New StringBuilder(128)
-
-        AD101_GetCallerID(Device, szCallerID, szName, szTime)
 
         If Device = 0 And NumberDevice_0_set = False Then
             AD101_GetCPUID(Device, szCPUID)
@@ -1377,7 +1376,27 @@ Public Class functions
             AsignarNumeroDeviceID(Device, szCPUID.ToString)
         End If
 
-        Return szCallerID
+    End Function
+
+    Public Function ComprobarLlamada(ByVal Device As Integer) As String
+        Dim r As String
+        Dim szCallerID As New StringBuilder(128)
+        Dim szName As New StringBuilder(128)
+        Dim szTime As New StringBuilder(128)
+
+
+        AD101_GetCallerID(Device, szCallerID, szName, szTime)
+
+        Dim tono As Integer = AD101_GetRingIndex(Device)
+        Thread.Sleep(700)
+        If AD101_GetRingIndex(Device) > tono And tono <> 0 Then
+            r = szCallerID.ToString
+            Console.WriteLine("Linea sonando")
+        Else
+            r = ""
+        End If
+
+        Return r
     End Function
 
     Private Function AsignarNumeroDeviceID(ByVal Device As Integer, ByVal szCPUID As String)

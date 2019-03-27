@@ -45,13 +45,13 @@
         Client.Text = f.LoadNumber(Numero, Company, Client, Type, ref, PictureBox1)
 
         If caller = 0 Then
-            NumberLine.Text = "Linea: " + My.Settings.caller_0_number
+            NumberLine.Text = "Linea: " + control.MenuLine0.Text
         ElseIf caller = 1 Then
-            NumberLine.Text = "Linea: " + My.Settings.caller_1_number
+            NumberLine.Text = "Linea: " + control.MenuLine1.Text
         ElseIf caller = 2 Then
-            NumberLine.Text = "Linea: " + My.Settings.caller_2_number
+            NumberLine.Text = "Linea: " + control.MenuLine2.Text
         ElseIf caller = 3 Then
-            NumberLine.Text = "Linea: " + My.Settings.caller_3_number
+            NumberLine.Text = "Linea: " + control.MenuLine3.Text
         End If
 
         Timer1.Enabled = True

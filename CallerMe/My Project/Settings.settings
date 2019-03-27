@@ -99,7 +99,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="id_device3" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>
