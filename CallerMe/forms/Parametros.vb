@@ -46,7 +46,11 @@ Public Class Parametros
         P_generalID.Text = My.Settings.pg_id
         UrlApi.Text = My.Settings.ws_gps
         CheckGps.Checked = My.Settings.use_gps
-        Colgar_omitir.Checked = My.Settings.omitir_colgar
+
+        id_device_0.Text = My.Settings.id_device0.ToString
+        id_device_1.Text = My.Settings.id_device1.ToString
+        id_device_2.Text = My.Settings.id_device2.ToString
+        id_device_3.Text = My.Settings.id_device3.ToString
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
@@ -86,8 +90,13 @@ Public Class Parametros
         My.Settings.pg_id = P_generalID.Text
         My.Settings.ws_gps = UrlApi.Text
         My.Settings.use_gps = CheckGps.Checked
-        My.Settings.omitir_colgar = Colgar_omitir.Checked
         My.Settings.omitir_llamada = Omitir.Value
+
+        My.Settings.id_device0 = CType(Integer.Parse(id_device_0.Text), String)
+        My.Settings.id_device1 = CType(Integer.Parse(id_device_1.Text), String)
+        My.Settings.id_device2 = CType(Integer.Parse(id_device_2.Text), String)
+        My.Settings.id_device3 = CType(Integer.Parse(id_device_3.Text), String)
+
         My.Settings.Save()
 
         f.Alert("Configuracion actualizada", f.Alert_NumberInformacion)

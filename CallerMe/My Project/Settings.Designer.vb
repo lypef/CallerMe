@@ -394,18 +394,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property omitir_colgar() As Boolean
-            Get
-                Return CType(Me("omitir_colgar"),Boolean)
-            End Get
-            Set
-                Me("omitir_colgar") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("10000")>  _
         Public Property omitir_llamada() As Decimal
             Get
@@ -413,6 +401,54 @@ Namespace My
             End Get
             Set
                 Me("omitir_llamada") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property id_device0() As Integer
+            Get
+                Return CType(Me("id_device0"),Integer)
+            End Get
+            Set
+                Me("id_device0") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property id_device1() As Integer
+            Get
+                Return CType(Me("id_device1"),Integer)
+            End Get
+            Set
+                Me("id_device1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property id_device2() As Integer
+            Get
+                Return CType(Me("id_device2"),Integer)
+            End Get
+            Set
+                Me("id_device2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property id_device3() As String
+            Get
+                Return CType(Me("id_device3"),String)
+            End Get
+            Set
+                Me("id_device3") = value
             End Set
         End Property
     End Class

@@ -71,7 +71,6 @@ Partial Class Parametros
         Me.Button8 = New System.Windows.Forms.Button()
         Me.FontDialog2 = New System.Windows.Forms.FontDialog()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Colgar_omitir = New System.Windows.Forms.CheckBox()
         Me.CheckGps = New System.Windows.Forms.CheckBox()
         Me.UrlApi = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -79,6 +78,14 @@ Partial Class Parametros
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Omitir = New System.Windows.Forms.NumericUpDown()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.id_device_3 = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.id_device_2 = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.id_device_1 = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.id_device_0 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -358,6 +365,14 @@ Partial Class Parametros
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label17)
+        Me.GroupBox4.Controls.Add(Me.id_device_3)
+        Me.GroupBox4.Controls.Add(Me.Label18)
+        Me.GroupBox4.Controls.Add(Me.id_device_2)
+        Me.GroupBox4.Controls.Add(Me.Label19)
+        Me.GroupBox4.Controls.Add(Me.id_device_1)
+        Me.GroupBox4.Controls.Add(Me.Label20)
+        Me.GroupBox4.Controls.Add(Me.id_device_0)
         Me.GroupBox4.Controls.Add(Me.Label13)
         Me.GroupBox4.Controls.Add(Me.Caler3_number)
         Me.GroupBox4.Controls.Add(Me.Label12)
@@ -375,7 +390,7 @@ Partial Class Parametros
         Me.GroupBox4.Controls.Add(Me.Caller_0)
         Me.GroupBox4.Location = New System.Drawing.Point(460, 12)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(253, 263)
+        Me.GroupBox4.Size = New System.Drawing.Size(445, 263)
         Me.GroupBox4.TabIndex = 10
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Identificador de llamadas"
@@ -528,7 +543,6 @@ Partial Class Parametros
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.Colgar_omitir)
         Me.GroupBox5.Controls.Add(Me.CheckGps)
         Me.GroupBox5.Controls.Add(Me.UrlApi)
         Me.GroupBox5.Controls.Add(Me.Label15)
@@ -542,20 +556,10 @@ Partial Class Parametros
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Otros"
         '
-        'Colgar_omitir
-        '
-        Me.Colgar_omitir.AutoSize = True
-        Me.Colgar_omitir.Location = New System.Drawing.Point(138, 84)
-        Me.Colgar_omitir.Name = "Colgar_omitir"
-        Me.Colgar_omitir.Size = New System.Drawing.Size(180, 17)
-        Me.Colgar_omitir.TabIndex = 21
-        Me.Colgar_omitir.Text = "COLGAR LLAMADA AL OMITIR"
-        Me.Colgar_omitir.UseVisualStyleBackColor = True
-        '
         'CheckGps
         '
         Me.CheckGps.AutoSize = True
-        Me.CheckGps.Location = New System.Drawing.Point(51, 84)
+        Me.CheckGps.Location = New System.Drawing.Point(316, 83)
         Me.CheckGps.Name = "CheckGps"
         Me.CheckGps.Size = New System.Drawing.Size(81, 17)
         Me.CheckGps.TabIndex = 18
@@ -613,6 +617,74 @@ Partial Class Parametros
         Me.Omitir.Size = New System.Drawing.Size(176, 20)
         Me.Omitir.TabIndex = 6
         Me.Omitir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(258, 200)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(75, 13)
+        Me.Label17.TabIndex = 24
+        Me.Label17.Text = "ID DEVICE L4"
+        '
+        'id_device_3
+        '
+        Me.id_device_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_device_3.Location = New System.Drawing.Point(261, 216)
+        Me.id_device_3.Name = "id_device_3"
+        Me.id_device_3.Size = New System.Drawing.Size(172, 22)
+        Me.id_device_3.TabIndex = 25
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(258, 146)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(75, 13)
+        Me.Label18.TabIndex = 22
+        Me.Label18.Text = "ID DEVICE L3"
+        '
+        'id_device_2
+        '
+        Me.id_device_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_device_2.Location = New System.Drawing.Point(258, 162)
+        Me.id_device_2.Name = "id_device_2"
+        Me.id_device_2.Size = New System.Drawing.Size(175, 22)
+        Me.id_device_2.TabIndex = 23
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(258, 92)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(75, 13)
+        Me.Label19.TabIndex = 20
+        Me.Label19.Text = "ID DEVICE L2"
+        '
+        'id_device_1
+        '
+        Me.id_device_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_device_1.Location = New System.Drawing.Point(258, 108)
+        Me.id_device_1.Name = "id_device_1"
+        Me.id_device_1.Size = New System.Drawing.Size(175, 22)
+        Me.id_device_1.TabIndex = 21
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(258, 44)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(75, 13)
+        Me.Label20.TabIndex = 18
+        Me.Label20.Text = "ID DEVICE L1"
+        '
+        'id_device_0
+        '
+        Me.id_device_0.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.id_device_0.Location = New System.Drawing.Point(258, 60)
+        Me.id_device_0.Name = "id_device_0"
+        Me.id_device_0.Size = New System.Drawing.Size(175, 22)
+        Me.id_device_0.TabIndex = 19
         '
         'Parametros
         '
@@ -703,7 +775,14 @@ Partial Class Parametros
     Friend WithEvents UrlApi As TextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents CheckGps As CheckBox
-    Friend WithEvents Colgar_omitir As CheckBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Omitir As NumericUpDown
+    Friend WithEvents Label17 As Label
+    Friend WithEvents id_device_3 As TextBox
+    Friend WithEvents Label18 As Label
+    Friend WithEvents id_device_2 As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents id_device_1 As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents id_device_0 As TextBox
 End Class

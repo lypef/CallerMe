@@ -7,6 +7,7 @@ Imports System.Net
 Imports Newtonsoft.Json.Linq
 Imports Newtonsoft.Json
 Imports Microsoft.Win32
+Imports System.Threading
 
 Public Class functions
 
@@ -22,6 +23,12 @@ Public Class functions
     Public Shared Vehicle_id As String
     Public Shared log_id As String
     Public Shared user_select As String
+
+    'Valores set numero telefono caller
+    Public Shared NumberDevice_0_set As Boolean = False
+    Public Shared NumberDevice_1_set As Boolean = False
+    Public Shared NumberDevice_2_set As Boolean = False
+    Public Shared NumberDevice_3_set As Boolean = False
 
     'Listas 
     Public ListNumeros As New List(Of Integer)
@@ -1352,8 +1359,61 @@ Public Class functions
         Dim szCallerID As New StringBuilder(128)
         Dim szName As New StringBuilder(128)
         Dim szTime As New StringBuilder(128)
+        Dim szCPUID As New StringBuilder(128)
+
         AD101_GetCallerID(Device, szCallerID, szName, szTime)
+
+        If Device = 0 And NumberDevice_0_set = False Then
+            AD101_GetCPUID(Device, szCPUID)
+            AsignarNumeroDeviceID(Device, szCPUID.ToString)
+        ElseIf Device = 1 And NumberDevice_1_set = False Then
+            AD101_GetCPUID(Device, szCPUID)
+            AsignarNumeroDeviceID(Device, szCPUID.ToString)
+        ElseIf Device = 2 And NumberDevice_2_set = False Then
+            AD101_GetCPUID(Device, szCPUID)
+            AsignarNumeroDeviceID(Device, szCPUID.ToString)
+        ElseIf Device = 3 And NumberDevice_3_set = False Then
+            AD101_GetCPUID(Device, szCPUID)
+            AsignarNumeroDeviceID(Device, szCPUID.ToString)
+        End If
+
         Return szCallerID
+    End Function
+
+    Private Function AsignarNumeroDeviceID(ByVal Device As Integer, ByVal szCPUID As String)
+        Dim name_line = ""
+
+        If szCPUID = My.Settings.id_device0.ToString Then
+            name_line = My.Settings.caller_0_number
+        ElseIf szCPUID = My.Settings.id_device1.ToString Then
+            name_line = My.Settings.caller_1_number
+        ElseIf szCPUID = My.Settings.id_device2.ToString Then
+            name_line = My.Settings.caller_2_number
+        ElseIf szCPUID = My.Settings.id_device3.ToString Then
+            name_line = My.Settings.caller_3_number
+        Else
+            name_line = szCPUID
+        End If
+
+        If Device = 0 Then
+            control.MenuLine0.Text = name_line
+        ElseIf Device = 1 Then
+            control.MenuLine1.Text = name_line
+        ElseIf Device = 2 Then
+            control.MenuLine2.Text = name_line
+        ElseIf Device = 3 Then
+            control.MenuLine3.Text = name_line
+        End If
+
+        If Device = 0 Then
+            NumberDevice_0_set = True
+        ElseIf Device = 1 Then
+            NumberDevice_1_set = True
+        ElseIf Device = 2 Then
+            NumberDevice_2_set = True
+        ElseIf Device = 3 Then
+            NumberDevice_3_set = True
+        End If
     End Function
 
     Public Function LoadNumber(ByVal number As Label, ByVal company As Label, ByVal client As Label, ByVal type As Label, ByVal ref As Label, ByVal foto As PictureBox) As String

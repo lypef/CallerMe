@@ -34,6 +34,7 @@ Partial Class control
         Me.GestionarToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LimpiarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LimpiarEscritorioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuLine0 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisponibleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -98,7 +99,6 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.LimpiarEscritorioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -181,6 +181,13 @@ Partial Class control
         Me.LimpiarToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.LimpiarToolStripMenuItem.Text = "Vaciar registros"
         '
+        'LimpiarEscritorioToolStripMenuItem
+        '
+        Me.LimpiarEscritorioToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.iconfinder_Gnome_Edit_Clear_64_55586
+        Me.LimpiarEscritorioToolStripMenuItem.Name = "LimpiarEscritorioToolStripMenuItem"
+        Me.LimpiarEscritorioToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.LimpiarEscritorioToolStripMenuItem.Text = "limpiar escritorio"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
@@ -197,13 +204,13 @@ Partial Class control
         'DisponibleToolStripMenuItem
         '
         Me.DisponibleToolStripMenuItem.Name = "DisponibleToolStripMenuItem"
-        Me.DisponibleToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.DisponibleToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DisponibleToolStripMenuItem.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem
         '
         Me.OcupadaToolStripMenuItem.Name = "OcupadaToolStripMenuItem"
-        Me.OcupadaToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.OcupadaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OcupadaToolStripMenuItem.Text = "Ocupada"
         '
         'MenuLine1
@@ -217,13 +224,13 @@ Partial Class control
         'DisponibleToolStripMenuItem1
         '
         Me.DisponibleToolStripMenuItem1.Name = "DisponibleToolStripMenuItem1"
-        Me.DisponibleToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
+        Me.DisponibleToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.DisponibleToolStripMenuItem1.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem1
         '
         Me.OcupadaToolStripMenuItem1.Name = "OcupadaToolStripMenuItem1"
-        Me.OcupadaToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
+        Me.OcupadaToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.OcupadaToolStripMenuItem1.Text = "Ocupada"
         '
         'MenuLine2
@@ -237,13 +244,13 @@ Partial Class control
         'DisponibleToolStripMenuItem2
         '
         Me.DisponibleToolStripMenuItem2.Name = "DisponibleToolStripMenuItem2"
-        Me.DisponibleToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
+        Me.DisponibleToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.DisponibleToolStripMenuItem2.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem2
         '
         Me.OcupadaToolStripMenuItem2.Name = "OcupadaToolStripMenuItem2"
-        Me.OcupadaToolStripMenuItem2.Size = New System.Drawing.Size(130, 22)
+        Me.OcupadaToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.OcupadaToolStripMenuItem2.Text = "Ocupada"
         '
         'MenuLine3
@@ -257,13 +264,13 @@ Partial Class control
         'DisponibleToolStripMenuItem3
         '
         Me.DisponibleToolStripMenuItem3.Name = "DisponibleToolStripMenuItem3"
-        Me.DisponibleToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
+        Me.DisponibleToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.DisponibleToolStripMenuItem3.Text = "Disponible"
         '
         'OcupadaToolStripMenuItem3
         '
         Me.OcupadaToolStripMenuItem3.Name = "OcupadaToolStripMenuItem3"
-        Me.OcupadaToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
+        Me.OcupadaToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.OcupadaToolStripMenuItem3.Text = "Ocupada"
         '
         'ToolStripSeparator2
@@ -669,13 +676,6 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
-        'LimpiarEscritorioToolStripMenuItem
-        '
-        Me.LimpiarEscritorioToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.iconfinder_Gnome_Edit_Clear_64_55586
-        Me.LimpiarEscritorioToolStripMenuItem.Name = "LimpiarEscritorioToolStripMenuItem"
-        Me.LimpiarEscritorioToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
-        Me.LimpiarEscritorioToolStripMenuItem.Text = "limpiar escritorio"
-        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -752,16 +752,12 @@ Partial Class control
     Friend WithEvents GenerarReporteToolStripMenuItem5 As ToolStripMenuItem
     Friend WithEvents Timer1 As Timer
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents MenuLine0 As ToolStripMenuItem
     Friend WithEvents DisponibleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OcupadaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuLine1 As ToolStripMenuItem
     Friend WithEvents DisponibleToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents OcupadaToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents MenuLine2 As ToolStripMenuItem
     Friend WithEvents DisponibleToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents OcupadaToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents MenuLine3 As ToolStripMenuItem
     Friend WithEvents DisponibleToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents OcupadaToolStripMenuItem3 As ToolStripMenuItem
     Public WithEvents TimerCero As Timer
@@ -773,4 +769,8 @@ Partial Class control
     Friend WithEvents PorFechaToolStripMenuItem As ToolStripMenuItem
     Public WithEvents Loader As PictureBox
     Friend WithEvents LimpiarEscritorioToolStripMenuItem As ToolStripMenuItem
+    Public WithEvents MenuLine0 As ToolStripMenuItem
+    Public WithEvents MenuLine1 As ToolStripMenuItem
+    Public WithEvents MenuLine2 As ToolStripMenuItem
+    Public WithEvents MenuLine3 As ToolStripMenuItem
 End Class
