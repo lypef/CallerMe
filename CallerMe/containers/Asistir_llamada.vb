@@ -82,8 +82,19 @@
     End Sub
 
     Private Sub Asistir_llamada_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        f.finalizarLlamada(caller)
-        control.TimerCero.Start()
+        If caller = 0 Then
+            f.finalizarLlamada(caller)
+            control.TimerCero.Start()
+        ElseIf caller = 1 Then
+            f.finalizarLlamada(caller)
+            control.TimerUno.Start()
+        ElseIf caller = 2 Then
+            f.finalizarLlamada(caller)
+            control.TimerDOS.Start()
+        ElseIf caller = 3 Then
+            f.finalizarLlamada(caller)
+            control.TimerTres.Start()
+        End If
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
