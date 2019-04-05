@@ -25,6 +25,12 @@ Public Class functions
     Public Shared log_id As String
     Public Shared user_select As String
 
+    'ultimos numeros en llamar
+    Public Shared LastNumber0 As String = ""
+    Public Shared LastNumber1 As String = ""
+    Public Shared LastNumber2 As String = ""
+    Public Shared LastNumber3 As String = ""
+
     'Valores set numero telefono caller
     Public Shared NumberDevice_0_set As Boolean = False
     Public Shared NumberDevice_1_set As Boolean = False
@@ -1379,21 +1385,37 @@ Public Class functions
     End Function
 
     Public Function ComprobarLlamada(ByVal Device As Integer) As String
-        Dim r As String
+        Dim r As String = ""
+
         Dim szCallerID As New StringBuilder(128)
         Dim szName As New StringBuilder(128)
         Dim szTime As New StringBuilder(128)
-
-
         AD101_GetCallerID(Device, szCallerID, szName, szTime)
 
-        Dim tono As Integer = AD101_GetRingIndex(Device)
-        Thread.Sleep(700)
-        If AD101_GetRingIndex(Device) > tono And tono <> 0 Then
-            r = szCallerID.ToString
-            Console.WriteLine("Linea sonando")
-        Else
-            r = ""
+        If Device = 0 Then
+            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                If szCallerID.ToString <> LastNumber0 Then
+                    r = szCallerID.ToString
+                End If
+            End If
+        ElseIf Device = 1 Then
+            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                If szCallerID.ToString <> LastNumber1 Then
+                    r = szCallerID.ToString
+                End If
+            End If
+        ElseIf Device = 2 Then
+            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                If szCallerID.ToString <> LastNumber2 Then
+                    r = szCallerID.ToString
+                End If
+            End If
+        ElseIf Device = 3 Then
+            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                If szCallerID.ToString <> LastNumber3 Then
+                    r = szCallerID.ToString
+                End If
+            End If
         End If
 
         Return r

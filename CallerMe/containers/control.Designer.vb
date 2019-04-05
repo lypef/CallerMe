@@ -99,10 +99,6 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
-        Me.work0 = New System.ComponentModel.BackgroundWorker()
-        Me.work1 = New System.ComponentModel.BackgroundWorker()
-        Me.work3 = New System.ComponentModel.BackgroundWorker()
-        Me.work2 = New System.ComponentModel.BackgroundWorker()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -680,18 +676,6 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
-        'work0
-        '
-        '
-        'work1
-        '
-        '
-        'work3
-        '
-        '
-        'work2
-        '
-        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -788,9 +772,5 @@ Partial Class control
     Public WithEvents MenuLine1 As ToolStripMenuItem
     Public WithEvents MenuLine2 As ToolStripMenuItem
     Public WithEvents MenuLine3 As ToolStripMenuItem
-    Friend WithEvents work0 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents work1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents work3 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents work2 As System.ComponentModel.BackgroundWorker
     Public WithEvents MenuLine0 As ToolStripMenuItem
 End Class
