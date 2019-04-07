@@ -49,7 +49,7 @@
 
     Private Sub Asistir_llamada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
-        Panel1.BackColor = My.Settings.datagridview_color
+        f.BotonesBackGroundBlue(Panel1)
     End Sub
 
     Public Sub loadvalues()
@@ -57,7 +57,7 @@
         Combo_Driver.Items.Add("Conductores")
         f.ComboBox_SetDriversConID(Combo_Driver)
         Combo_Driver.SelectedIndex = 0
-        Client.Text = f.LoadNumberAsistencia(number, PictureBox1, Combo_direcciones, number_id, client_id)
+        Client.Text = f.LoadNumberAsistencia(number, PictureBox1, Combo_direcciones, number_id, client_id) + " | " + number
         ubicar = True
     End Sub
 
@@ -116,5 +116,9 @@
         If ComboVehiculos.SelectedIndex > 0 Then
             f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
         End If
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class

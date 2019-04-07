@@ -3,8 +3,8 @@
     Dim foto_actualStatic As String
 
     Private Sub Drivers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Panel1.Height = control.Desktop.Height
-        Panel1.Width = control.Desktop.Width
+        Panel1.Height = control.Desktop.Height - 4
+        Panel1.Width = control.Desktop.Width - 4
         f.BotonesBackGroundBlue(Panel2)
         f.DataGridView_Model(Table)
         TabControl1.SelectedIndex = 0

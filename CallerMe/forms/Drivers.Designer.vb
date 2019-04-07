@@ -383,7 +383,7 @@ Partial Class Drivers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(929, 460)
+        Me.ClientSize = New System.Drawing.Size(927, 435)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Drivers"
         Me.Text = "Drivers"
