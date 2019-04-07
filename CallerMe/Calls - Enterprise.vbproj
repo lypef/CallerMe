@@ -484,6 +484,11 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\ticket_16.png" />
+    <None Include="Resources\boton_ticket_efec.jpg" />
+    <None Include="Resources\boton_ticket.jpg" />
+    <None Include="Resources\boton_g.pdf_efect.jpg" />
+    <None Include="Resources\boton_g.pdf.jpg" />
     <None Include="Resources\Boton_omitir_efect.jpg" />
     <None Include="Resources\Boton_omitir.jpg" />
     <None Include="Resources\Boton_ASISTIR_EFECT.jpg" />

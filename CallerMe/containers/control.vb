@@ -381,7 +381,7 @@ Public Class control
         About.Show()
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         If f.ReturnPermission(f.Permission_Logs_ADD) Then
             Dim form = New LogsADD
             form.LoadIni()
@@ -409,7 +409,7 @@ Public Class control
         End If
     End Sub
 
-    Private Sub GenerarReporteToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem4.Click
+    Private Sub GenerarReporteToolStripMenuItem4_Click(sender As Object, e As EventArgs)
         If f.ReturnPermission(f.Permission_Access_LOGS) Then
             Dim d As New DataGridView
             f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id ORDER BY id desc", d)

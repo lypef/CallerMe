@@ -64,12 +64,10 @@ Partial Class control
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GenerarReporteToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -377,50 +375,36 @@ Partial Class control
         '
         'Btn_registros
         '
-        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2, Me.GenerarReporteToolStripMenuItem4})
+        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2})
         Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(160, 92)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.new_48
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(159, 22)
-        Me.ToolStripMenuItem1.Text = "Agregar registro"
+        Me.Btn_registros.Size = New System.Drawing.Size(153, 70)
         '
         'GestionarToolStripMenuItem5
         '
         Me.GestionarToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem7, Me.PorFechaToolStripMenuItem})
         Me.GestionarToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.Gestionar_32
         Me.GestionarToolStripMenuItem5.Name = "GestionarToolStripMenuItem5"
-        Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(159, 22)
+        Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(152, 22)
         Me.GestionarToolStripMenuItem5.Text = "Gestionar"
         '
         'GestionarToolStripMenuItem7
         '
         Me.GestionarToolStripMenuItem7.Name = "GestionarToolStripMenuItem7"
-        Me.GestionarToolStripMenuItem7.Size = New System.Drawing.Size(124, 22)
+        Me.GestionarToolStripMenuItem7.Size = New System.Drawing.Size(152, 22)
         Me.GestionarToolStripMenuItem7.Text = "Gestionar"
         '
         'PorFechaToolStripMenuItem
         '
         Me.PorFechaToolStripMenuItem.Name = "PorFechaToolStripMenuItem"
-        Me.PorFechaToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.PorFechaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PorFechaToolStripMenuItem.Text = "Por fecha"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.Calls.My.Resources.Resources.search_48
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(159, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem2.Text = "Buscar"
-        '
-        'GenerarReporteToolStripMenuItem4
-        '
-        Me.GenerarReporteToolStripMenuItem4.Image = Global.Calls.My.Resources.Resources.report_48
-        Me.GenerarReporteToolStripMenuItem4.Name = "GenerarReporteToolStripMenuItem4"
-        Me.GenerarReporteToolStripMenuItem4.Size = New System.Drawing.Size(159, 22)
-        Me.GenerarReporteToolStripMenuItem4.Text = "Generar reporte"
         '
         'Btn_clientes
         '
@@ -709,7 +693,6 @@ Partial Class control
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Btn_clientes As ContextMenuStrip
     Friend WithEvents Btn_registros As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents Btn_vehiculos As ContextMenuStrip
     Friend WithEvents Btn_ajustes As ContextMenuStrip
@@ -743,7 +726,6 @@ Partial Class control
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents AcercaDeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GestionarToolStripMenuItem5 As ToolStripMenuItem
-    Friend WithEvents GenerarReporteToolStripMenuItem4 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents LimpiarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
