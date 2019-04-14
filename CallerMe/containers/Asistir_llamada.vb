@@ -59,6 +59,7 @@
         Combo_Driver.SelectedIndex = 0
         Client.Text = f.LoadNumberAsistencia(number, PictureBox1, Combo_direcciones, number_id, client_id) + " | " + number
         ubicar = True
+        Me.StartPosition = FormStartPosition.WindowsDefaultLocation
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

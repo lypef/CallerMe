@@ -641,4 +641,8 @@ Public Class control
         End If
 
     End Sub
+
+    Private Sub GestionarToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem5.Click
+
+    End Sub
 End Class
