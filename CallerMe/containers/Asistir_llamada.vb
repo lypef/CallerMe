@@ -80,6 +80,7 @@
             control.TimerTres.Start()
             Me.Dispose()
         End If
+        f.OmitirLlamadaDb(f_llamada, number)
     End Sub
 
     Private Sub Asistir_llamada_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
@@ -96,6 +97,7 @@
             f.finalizarLlamada(caller)
             control.TimerTres.Start()
         End If
+        f.OmitirLlamadaDb(f_llamada, number)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

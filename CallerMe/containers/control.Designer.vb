@@ -64,9 +64,12 @@ Partial Class control
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GenerarReporteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_registros = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionarToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PorFechaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OmitidasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_clientes = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ClientesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -97,6 +100,7 @@ Partial Class control
         Me.Button_Vehiculo = New System.Windows.Forms.Button()
         Me.Button_Registros = New System.Windows.Forms.Button()
         Me.Button_Clients = New System.Windows.Forms.Button()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Btn_ajustes.SuspendLayout()
         Me.Btn_vehiculos.SuspendLayout()
         Me.Btn_registros.SuspendLayout()
@@ -375,13 +379,20 @@ Partial Class control
         '
         'Btn_registros
         '
-        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2})
+        Me.Btn_registros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.GestionarToolStripMenuItem5, Me.ToolStripMenuItem2})
         Me.Btn_registros.Name = "ContextMenuStrip1"
-        Me.Btn_registros.Size = New System.Drawing.Size(153, 70)
+        Me.Btn_registros.Size = New System.Drawing.Size(153, 92)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Image = Global.Calls.My.Resources.Resources.new_48
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Text = "Agregar"
         '
         'GestionarToolStripMenuItem5
         '
-        Me.GestionarToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem7, Me.PorFechaToolStripMenuItem})
+        Me.GestionarToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionarToolStripMenuItem7, Me.PorFechaToolStripMenuItem, Me.ToolStripSeparator4, Me.OmitidasToolStripMenuItem, Me.ToolStripMenuItem3})
         Me.GestionarToolStripMenuItem5.Image = Global.Calls.My.Resources.Resources.Gestionar_32
         Me.GestionarToolStripMenuItem5.Name = "GestionarToolStripMenuItem5"
         Me.GestionarToolStripMenuItem5.Size = New System.Drawing.Size(152, 22)
@@ -389,15 +400,29 @@ Partial Class control
         '
         'GestionarToolStripMenuItem7
         '
+        Me.GestionarToolStripMenuItem7.Image = Global.Calls.My.Resources.Resources.call_128
         Me.GestionarToolStripMenuItem7.Name = "GestionarToolStripMenuItem7"
         Me.GestionarToolStripMenuItem7.Size = New System.Drawing.Size(152, 22)
-        Me.GestionarToolStripMenuItem7.Text = "Gestionar"
+        Me.GestionarToolStripMenuItem7.Text = "Asistidas"
         '
         'PorFechaToolStripMenuItem
         '
+        Me.PorFechaToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.properties_48
         Me.PorFechaToolStripMenuItem.Name = "PorFechaToolStripMenuItem"
         Me.PorFechaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PorFechaToolStripMenuItem.Text = "Por fecha"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(149, 6)
+        '
+        'OmitidasToolStripMenuItem
+        '
+        Me.OmitidasToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.critical_128
+        Me.OmitidasToolStripMenuItem.Name = "OmitidasToolStripMenuItem"
+        Me.OmitidasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OmitidasToolStripMenuItem.Text = "Omitidas"
         '
         'ToolStripMenuItem2
         '
@@ -660,6 +685,13 @@ Partial Class control
         Me.Button_Clients.Text = "Button1"
         Me.Button_Clients.UseVisualStyleBackColor = False
         '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Image = Global.Calls.My.Resources.Resources.properties_48
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Text = "Por fecha"
+        '
         'control
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -755,4 +787,8 @@ Partial Class control
     Public WithEvents MenuLine2 As ToolStripMenuItem
     Public WithEvents MenuLine3 As ToolStripMenuItem
     Public WithEvents MenuLine0 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents OmitidasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
 End Class

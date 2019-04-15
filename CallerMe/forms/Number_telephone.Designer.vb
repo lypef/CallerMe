@@ -62,11 +62,12 @@ Partial Class Number_telephone
         '
         'Tabla
         '
+        Me.Tabla.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Tabla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tabla.Location = New System.Drawing.Point(3, 3)
         Me.Tabla.Name = "Tabla"
-        Me.Tabla.Size = New System.Drawing.Size(896, 363)
+        Me.Tabla.Size = New System.Drawing.Size(896, 297)
         Me.Tabla.TabIndex = 0
         '
         'ContextMenuStrip1

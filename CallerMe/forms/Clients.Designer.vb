@@ -108,7 +108,7 @@ Partial Class Clients
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(919, 408)
+        Me.TabPage3.Size = New System.Drawing.Size(919, 254)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Numeros"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -119,7 +119,7 @@ Partial Class Clients
         Me.ViewNumbers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewNumbers.Location = New System.Drawing.Point(3, 3)
         Me.ViewNumbers.Name = "ViewNumbers"
-        Me.ViewNumbers.Size = New System.Drawing.Size(913, 402)
+        Me.ViewNumbers.Size = New System.Drawing.Size(913, 248)
         Me.ViewNumbers.TabIndex = 0
         '
         'TabPage2
@@ -147,7 +147,7 @@ Partial Class Clients
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(919, 408)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 254)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -422,10 +422,10 @@ Partial Class Clients
         '
         Me.Table.BackgroundColor = System.Drawing.SystemColors.Control
         Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Table.Dock = System.Windows.Forms.DockStyle.Top
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(913, 402)
+        Me.Table.Size = New System.Drawing.Size(913, 345)
         Me.Table.TabIndex = 0
         '
         'TabControl1

@@ -93,6 +93,7 @@ Public Class control
         f.AddForm_Desktop(Drivers, Desktop)
         f.AddForm_Desktop(DriversADD, Desktop)
         f.AddForm_Desktop(Logs, Desktop)
+        f.AddForm_Desktop(LogsOmitidas, Desktop)
         f.AddForm_Desktop(LogsADD, Desktop)
         f.AddForm_Desktop(Number_telephone, Desktop)
         f.AddForm_Desktop(Number_telephoneADD, Desktop)
@@ -146,6 +147,14 @@ Public Class control
         'a.loadvalues()
         'a.Show()
 
+        'Dim form As New LlamadaEntrante
+        'Form.Static_numero = "9231200505"
+        'Form.caller = 0
+        'Form.f_llamada = DateTime.Now
+        'Form.LoadNumber()
+        'Form.Show()
+
+        'Funcion correcta
         If f.ReturnPermission(f.Permission_Access_Clients) Then
             Clients.LoadClientes()
             f.AddForm_Desktop(Clients, Desktop)
@@ -476,7 +485,7 @@ Public Class control
             TimerCero.Stop()
             functions.LastNumber0 = Device0
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
+            form.Static_numero = Device0
             form.caller = 0
             form.f_llamada = DateTime.Now
             form.LoadNumber()
@@ -527,7 +536,7 @@ Public Class control
             TimerUno.Stop()
             functions.LastNumber1 = Device0
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
+            form.Static_numero = Device0
             form.caller = Caller
             form.f_llamada = DateTime.Now
             form.LoadNumber()
@@ -542,7 +551,7 @@ Public Class control
             TimerDOS.Stop()
             functions.LastNumber2 = Device0
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
+            form.Static_numero = Device0
             form.caller = Caller
             form.f_llamada = DateTime.Now
             form.LoadNumber()
@@ -557,7 +566,7 @@ Public Class control
             TimerTres.Stop()
             functions.LastNumber3 = Device0
             Dim form As New LlamadaEntrante
-            form.Numero.Text = Device0
+            form.Static_numero = Device0
             form.caller = Caller
             form.f_llamada = DateTime.Now
             form.LoadNumber()
@@ -644,5 +653,34 @@ Public Class control
 
     Private Sub GestionarToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem5.Click
 
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        If f.ReturnPermission(f.Permission_Logs_ADD) Then
+            Dim form = New LogsADD
+            form.LoadIni()
+            f.AddForm_Desktop(form, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub OmitidasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OmitidasToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            LogsOmitidas.LoadIni()
+            f.AddForm_Desktop(LogsOmitidas, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            select_fecha.ini()
+            select_fecha.logs_omitir = True
+            select_fecha.Show()
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

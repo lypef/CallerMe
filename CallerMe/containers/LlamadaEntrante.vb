@@ -1,6 +1,7 @@
 ﻿Public Class LlamadaEntrante
     Public caller As Integer
     Public f_llamada As Date
+    Public Static_numero As String
 
     Dim f As New functions
     Private Sub LlamadaEntrante_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -39,9 +40,11 @@
             control.TimerTres.Start()
             Me.Dispose()
         End If
+        f.OmitirLlamadaDb(f_llamada, Static_numero)
     End Sub
 
     Public Sub LoadNumber()
+        Numero.Text = Static_numero
         Client.Text = f.LoadNumber(Numero, Company, Client, Type, ref, PictureBox1)
 
         If caller = 0 Then

@@ -149,10 +149,10 @@ Partial Class Vehicles
         '
         Me.Table.BackgroundColor = System.Drawing.SystemColors.Control
         Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Table.Dock = System.Windows.Forms.DockStyle.Top
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(913, 403)
+        Me.Table.Size = New System.Drawing.Size(913, 344)
         Me.Table.TabIndex = 0
         '
         'TabPage2

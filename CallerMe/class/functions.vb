@@ -23,6 +23,7 @@ Public Class functions
     Public Shared Driver_id As String
     Public Shared Vehicle_id As String
     Public Shared log_id As String
+    Public Shared log_id_omitidas As String
     Public Shared user_select As String
 
     'ultimos numeros en llamar
@@ -39,6 +40,10 @@ Public Class functions
 
     'Listas 
     Public ListNumeros As New List(Of Integer)
+
+    Public Sub OmitirLlamadaDb(f_llamada As DateTime, numero As String)
+        Db.Ejecutar("INSERT INTO `registros_omitidos` (`cliente`, `numero`, `f_llamada`, `usuario`) VALUES ('" + ReturnClientID(numero) + "', '" + numero + "', '" + ReturnDateFormatString(f_llamada) + "', " + userID + ");")
+    End Sub
 
     Public Sub finalizarLlamada(caller As Integer)
         AD101_SetBusy(caller, 0)
@@ -442,6 +447,27 @@ Public Class functions
 
     End Sub
 
+    Public Sub LogsOmitidos_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("client", "CLIENTE")
+        t.Columns.Add("numero", "NUMERO")
+        t.Columns.Add("hour_llamada", "FECHA LLAMADA")
+        t.Columns.Add("atendio", "ATENDIO")
+        t.Columns.Add("estatus", "ESTATUS")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Logs_DataGridViewSet_fecha(ByVal sql As String, ByVal t As DataGridView, F_desde As DateTimePicker, f_hasta As DateTimePicker)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -547,6 +573,10 @@ Public Class functions
 
     Public Shared Function Logs_delete() As Boolean
         Return Db_shared.Ejecutar("delete from registros where id = " + log_id + " ")
+    End Function
+
+    Public Shared Function Logs_delete_omitidas() As Boolean
+        Return Db_shared.Ejecutar("delete from registros_omitidos where id = " + log_id_omitidas + " ")
     End Function
 
     Public Shared Function Vehicle_delete() As Boolean
@@ -1045,7 +1075,6 @@ Public Class functions
     End Function
 
     Private Function ReturnDateFormatString(ByVal fecha As Date) As String
-        Alert(fecha.Year.ToString + "-" + fecha.Month.ToString + "-" + fecha.Day.ToString + " " + fecha.Hour.ToString + ":" + fecha.Minute.ToString + ":" + fecha.Second.ToString, Alert_NumberInformacion)
         Return fecha.Year.ToString + "-" + fecha.Month.ToString + "-" + fecha.Day.ToString + " " + fecha.Hour.ToString + ":" + fecha.Minute.ToString + ":" + fecha.Second.ToString
     End Function
 
@@ -1533,6 +1562,21 @@ Public Class functions
                     Loop
                 End If
                 direcciones.SelectedIndex = 0
+            End If
+        End If
+        Return result
+    End Function
+
+    Public Function ReturnClientID(ByVal number As String) As String
+        Dim result = ""
+        Dim r = Db.Consult("SELECT c.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + number + "' ")
+        If r.Read() Then
+            result = r.GetString(0)
+        Else
+            'Publico en general
+            Dim p_g = Db.Consult("SELECT c.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + My.Settings.pg_id + "' ")
+            If p_g.Read() Then
+                result = r.GetString(0)
             End If
         End If
         Return result

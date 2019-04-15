@@ -145,11 +145,12 @@ Partial Class Adresses
         '
         'Table
         '
+        Me.Table.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(913, 403)
+        Me.Table.Size = New System.Drawing.Size(913, 337)
         Me.Table.TabIndex = 101
         '
         'TabPage2
