@@ -50,6 +50,8 @@ Partial Class Vehicles
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btn_Back = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -85,6 +87,8 @@ Partial Class Vehicles
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.BtnNext)
+        Me.Panel2.Controls.Add(Me.Btn_Back)
         Me.Panel2.Controls.Add(Me.Btn_add)
         Me.Panel2.Controls.Add(Me.btn_delete)
         Me.Panel2.Controls.Add(Me.btn_editar)
@@ -104,7 +108,7 @@ Partial Class Vehicles
         Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
-        Me.Btn_add.Location = New System.Drawing.Point(104, 3)
+        Me.Btn_add.Location = New System.Drawing.Point(47, 2)
         Me.Btn_add.Name = "Btn_add"
         Me.Btn_add.Size = New System.Drawing.Size(193, 49)
         Me.Btn_add.TabIndex = 6
@@ -121,7 +125,7 @@ Partial Class Vehicles
         Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_delete.Location = New System.Drawing.Point(596, 2)
+        Me.btn_delete.Location = New System.Drawing.Point(490, 1)
         Me.btn_delete.Name = "btn_delete"
         Me.btn_delete.Size = New System.Drawing.Size(193, 49)
         Me.btn_delete.TabIndex = 3
@@ -138,7 +142,7 @@ Partial Class Vehicles
         Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_editar.Location = New System.Drawing.Point(350, 3)
+        Me.btn_editar.Location = New System.Drawing.Point(273, 2)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(193, 49)
         Me.btn_editar.TabIndex = 2
@@ -347,6 +351,40 @@ Partial Class Vehicles
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
+        'BtnNext
+        '
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
+        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnNext.FlatAppearance.BorderSize = 0
+        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
+        Me.BtnNext.Location = New System.Drawing.Point(800, 1)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
+        Me.BtnNext.TabIndex = 8
+        Me.BtnNext.Text = "Button3"
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'Btn_Back
+        '
+        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
+        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_Back.FlatAppearance.BorderSize = 0
+        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_Back.Location = New System.Drawing.Point(743, 1)
+        Me.Btn_Back.Name = "Btn_Back"
+        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
+        Me.Btn_Back.TabIndex = 7
+        Me.Btn_Back.Text = "Button2"
+        Me.Btn_Back.UseVisualStyleBackColor = False
+        '
         'Vehicles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -395,4 +433,6 @@ Partial Class Vehicles
     Friend WithEvents btn_delete As Button
     Friend WithEvents btn_editar As Button
     Friend WithEvents Btn_add As Button
+    Friend WithEvents BtnNext As Button
+    Friend WithEvents Btn_Back As Button
 End Class

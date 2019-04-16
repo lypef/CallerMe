@@ -8,15 +8,18 @@
     End Sub
 
     Public Sub Loader()
-        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", DataGridView1)
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc LIMIT 0, 50", DataGridView1)
     End Sub
 
-    Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
+        search()
+    End Sub
+
+    Private Sub search()
+        If String.IsNullOrEmpty(TxtSearch.Text) = False Then
+            f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -43,5 +46,11 @@
 
     Private Sub Number_telephoneADD_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Me.Visible = False
+    End Sub
+
+    Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
+        If Convert.ToInt32(e.KeyChar) = Convert.ToInt32(Keys.Enter) Then
+            search()
+        End If
     End Sub
 End Class

@@ -53,6 +53,8 @@ Partial Class Drivers
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btn_Back = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -88,6 +90,8 @@ Partial Class Drivers
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.BtnNext)
+        Me.Panel2.Controls.Add(Me.Btn_Back)
         Me.Panel2.Controls.Add(Me.Btn_add)
         Me.Panel2.Controls.Add(Me.btn_delete)
         Me.Panel2.Controls.Add(Me.btn_editar)
@@ -107,7 +111,7 @@ Partial Class Drivers
         Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
-        Me.Btn_add.Location = New System.Drawing.Point(92, 2)
+        Me.Btn_add.Location = New System.Drawing.Point(53, 2)
         Me.Btn_add.Name = "Btn_add"
         Me.Btn_add.Size = New System.Drawing.Size(193, 49)
         Me.Btn_add.TabIndex = 7
@@ -124,7 +128,7 @@ Partial Class Drivers
         Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_delete.Location = New System.Drawing.Point(574, 2)
+        Me.btn_delete.Location = New System.Drawing.Point(517, 2)
         Me.btn_delete.Name = "btn_delete"
         Me.btn_delete.Size = New System.Drawing.Size(193, 49)
         Me.btn_delete.TabIndex = 3
@@ -141,7 +145,7 @@ Partial Class Drivers
         Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_editar.Location = New System.Drawing.Point(333, 2)
+        Me.btn_editar.Location = New System.Drawing.Point(288, 2)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(193, 49)
         Me.btn_editar.TabIndex = 2
@@ -150,12 +154,13 @@ Partial Class Drivers
         '
         'Table
         '
+        Me.Table.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Table.BackgroundColor = System.Drawing.SystemColors.Control
         Me.Table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 3)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(912, 402)
+        Me.Table.Size = New System.Drawing.Size(912, 345)
         Me.Table.TabIndex = 0
         '
         'TabPage2
@@ -379,6 +384,40 @@ Partial Class Drivers
         Me.Panel1.Size = New System.Drawing.Size(926, 434)
         Me.Panel1.TabIndex = 104
         '
+        'BtnNext
+        '
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
+        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnNext.FlatAppearance.BorderSize = 0
+        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
+        Me.BtnNext.Location = New System.Drawing.Point(802, 2)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
+        Me.BtnNext.TabIndex = 10
+        Me.BtnNext.Text = "Button3"
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'Btn_Back
+        '
+        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
+        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_Back.FlatAppearance.BorderSize = 0
+        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_Back.Location = New System.Drawing.Point(745, 2)
+        Me.Btn_Back.Name = "Btn_Back"
+        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
+        Me.Btn_Back.TabIndex = 9
+        Me.Btn_Back.Text = "Button2"
+        Me.Btn_Back.UseVisualStyleBackColor = False
+        '
         'Drivers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -429,4 +468,6 @@ Partial Class Drivers
     Friend WithEvents btn_delete As Button
     Friend WithEvents btn_editar As Button
     Friend WithEvents Btn_add As Button
+    Friend WithEvents BtnNext As Button
+    Friend WithEvents Btn_Back As Button
 End Class

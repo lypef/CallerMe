@@ -1,5 +1,6 @@
 ﻿Public Class AdressesADD
     Dim f As New functions
+    Dim pagina As Integer = 0
 
     Private Sub AdressesADD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.DataGridView_Model(DataGridView1)
@@ -7,20 +8,28 @@
     End Sub
 
     Public Sub Loader()
-        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", DataGridView1)
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc LIMIT 0, 40", DataGridView1)
         functions.Client = 0
         TxtNombre.Text = ""
         TxtReferencia.Text = ""
-        TxtKilometros.Text = ""
+        TxtKilometros.Text = "1"
         TxtSearch.Text = ""
     End Sub
 
     Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
+        If Convert.ToInt32(e.KeyChar) = Convert.ToInt32(Keys.Enter) Then
+            Search()
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
+        search()
+    End Sub
+
+    Private Sub search()
+        If String.IsNullOrEmpty(TxtSearch.Text) = False Then
+            f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", DataGridView1)
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

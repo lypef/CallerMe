@@ -90,17 +90,17 @@ Partial Class AdressesADD
         'TxtNombre
         '
         Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNombre.Location = New System.Drawing.Point(585, 131)
+        Me.TxtNombre.Location = New System.Drawing.Point(567, 132)
         Me.TxtNombre.Multiline = True
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(317, 66)
+        Me.TxtNombre.Size = New System.Drawing.Size(335, 66)
         Me.TxtNombre.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(583, 108)
+        Me.Label1.Location = New System.Drawing.Point(565, 109)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 20)
         Me.Label1.TabIndex = 12
@@ -110,7 +110,7 @@ Partial Class AdressesADD
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(583, 200)
+        Me.Label2.Location = New System.Drawing.Point(565, 201)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(87, 20)
         Me.Label2.TabIndex = 14
@@ -119,16 +119,16 @@ Partial Class AdressesADD
         'TxtKilometros
         '
         Me.TxtKilometros.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtKilometros.Location = New System.Drawing.Point(585, 324)
+        Me.TxtKilometros.Location = New System.Drawing.Point(567, 325)
         Me.TxtKilometros.Name = "TxtKilometros"
-        Me.TxtKilometros.Size = New System.Drawing.Size(317, 29)
+        Me.TxtKilometros.Size = New System.Drawing.Size(335, 29)
         Me.TxtKilometros.TabIndex = 3
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(587, 301)
+        Me.Label4.Location = New System.Drawing.Point(569, 302)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 20)
         Me.Label4.TabIndex = 16
@@ -137,10 +137,10 @@ Partial Class AdressesADD
         'TxtReferencia
         '
         Me.TxtReferencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtReferencia.Location = New System.Drawing.Point(585, 223)
+        Me.TxtReferencia.Location = New System.Drawing.Point(567, 224)
         Me.TxtReferencia.Multiline = True
         Me.TxtReferencia.Name = "TxtReferencia"
-        Me.TxtReferencia.Size = New System.Drawing.Size(317, 66)
+        Me.TxtReferencia.Size = New System.Drawing.Size(335, 66)
         Me.TxtReferencia.TabIndex = 2
         '
         'Button1

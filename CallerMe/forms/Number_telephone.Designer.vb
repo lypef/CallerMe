@@ -49,6 +49,8 @@ Partial Class Number_telephone
         Me.TxtNumber = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Table_EditClients = New System.Windows.Forms.DataGridView()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btn_Back = New System.Windows.Forms.Button()
         CType(Me.Tabla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -62,8 +64,9 @@ Partial Class Number_telephone
         '
         'Tabla
         '
-        Me.Tabla.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Tabla.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Tabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Tabla.Location = New System.Drawing.Point(3, 3)
         Me.Tabla.Name = "Tabla"
@@ -115,6 +118,8 @@ Partial Class Number_telephone
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.BtnNext)
+        Me.Panel3.Controls.Add(Me.Btn_Back)
         Me.Panel3.Controls.Add(Me.Btn_add)
         Me.Panel3.Controls.Add(Me.btn_delete)
         Me.Panel3.Controls.Add(Me.btn_editar)
@@ -134,7 +139,7 @@ Partial Class Number_telephone
         Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
-        Me.Btn_add.Location = New System.Drawing.Point(99, 4)
+        Me.Btn_add.Location = New System.Drawing.Point(29, 6)
         Me.Btn_add.Name = "Btn_add"
         Me.Btn_add.Size = New System.Drawing.Size(193, 49)
         Me.Btn_add.TabIndex = 5
@@ -151,7 +156,7 @@ Partial Class Number_telephone
         Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_delete.Location = New System.Drawing.Point(565, 4)
+        Me.btn_delete.Location = New System.Drawing.Point(495, 6)
         Me.btn_delete.Name = "btn_delete"
         Me.btn_delete.Size = New System.Drawing.Size(193, 49)
         Me.btn_delete.TabIndex = 3
@@ -168,7 +173,7 @@ Partial Class Number_telephone
         Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_editar.Location = New System.Drawing.Point(330, 4)
+        Me.btn_editar.Location = New System.Drawing.Point(260, 6)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(193, 49)
         Me.btn_editar.TabIndex = 2
@@ -341,6 +346,40 @@ Partial Class Number_telephone
         Me.Table_EditClients.Size = New System.Drawing.Size(519, 363)
         Me.Table_EditClients.TabIndex = 12
         '
+        'BtnNext
+        '
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
+        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnNext.FlatAppearance.BorderSize = 0
+        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
+        Me.BtnNext.Location = New System.Drawing.Point(806, 6)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
+        Me.BtnNext.TabIndex = 8
+        Me.BtnNext.Text = "Button3"
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'Btn_Back
+        '
+        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
+        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_Back.FlatAppearance.BorderSize = 0
+        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_Back.Location = New System.Drawing.Point(749, 6)
+        Me.Btn_Back.Name = "Btn_Back"
+        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
+        Me.Btn_Back.TabIndex = 7
+        Me.Btn_Back.Text = "Button2"
+        Me.Btn_Back.UseVisualStyleBackColor = False
+        '
         'Number_telephone
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -390,4 +429,6 @@ Partial Class Number_telephone
     Friend WithEvents btn_delete As Button
     Friend WithEvents btn_editar As Button
     Friend WithEvents Btn_add As Button
+    Friend WithEvents BtnNext As Button
+    Friend WithEvents Btn_Back As Button
 End Class

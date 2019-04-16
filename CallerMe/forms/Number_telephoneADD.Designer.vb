@@ -34,9 +34,9 @@ Partial Class Number_telephoneADD
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TxtRef = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,15 +158,6 @@ Partial Class Number_telephoneADD
         Me.TxtSearch.Size = New System.Drawing.Size(237, 29)
         Me.TxtSearch.TabIndex = 7
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox1.Location = New System.Drawing.Point(557, 439)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(370, 18)
-        Me.PictureBox1.TabIndex = 10
-        Me.PictureBox1.TabStop = False
-        '
         'TxtRef
         '
         Me.TxtRef.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -185,6 +176,15 @@ Partial Class Number_telephoneADD
         Me.Label4.Size = New System.Drawing.Size(133, 20)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Referencia / Nota"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox1.Location = New System.Drawing.Point(557, 439)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(370, 18)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
         '
         'Number_telephoneADD
         '
@@ -226,7 +226,7 @@ Partial Class Number_telephoneADD
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TxtRef As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

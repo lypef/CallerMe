@@ -1,6 +1,7 @@
 ﻿Public Class Clients
     Dim f As New functions
     Dim foto_actualStatic As String
+    Dim pagina As Integer = 0
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.DataGridView_Model(Table)
@@ -18,13 +19,29 @@
         f.Button_SetModel(btn_numeros, My.Resources.Boton_VerNumeros)
         f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
         f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
 
     End Sub
 
     Public Sub LoadClientes()
-        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table)
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc LIMIT 0, 40", Table)
         TabControl1.SelectedIndex = 0
         functions.Client = 0
+        pagina = 0
+    End Sub
+
+    Public Sub LoadClientes_ChangPag()
+        Dim pagina_ini As Integer
+
+        If pagina < 1 Then
+            pagina_ini = 0
+            pagina = 0
+        Else
+            pagina_ini = (pagina * 40) - 1
+        End If
+
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc LIMIT " + pagina_ini.ToString + ", 40", Table)
     End Sub
 
     Public Sub SearchClientes(ByVal txt As String)
@@ -241,5 +258,31 @@
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub Btn_Back_MouseEnter(sender As Object, e As EventArgs) Handles Btn_Back.MouseEnter
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back_efect)
+    End Sub
+
+    Private Sub Btn_Back_MouseLeave(sender As Object, e As EventArgs) Handles Btn_Back.MouseLeave
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
+    End Sub
+
+    Private Sub BtnNext_MouseEnter(sender As Object, e As EventArgs) Handles BtnNext.MouseEnter
+        f.Button_SetModel(BtnNext, My.Resources.btn_next_efect)
+    End Sub
+
+    Private Sub BtnNext_MouseLeave(sender As Object, e As EventArgs) Handles BtnNext.MouseLeave
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+    End Sub
+
+    Private Sub BtnNext_Click_1(sender As Object, e As EventArgs) Handles BtnNext.Click
+        pagina = pagina + 1
+        LoadClientes_ChangPag()
+    End Sub
+
+    Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
+        pagina = pagina - 1
+        LoadClientes_ChangPag()
     End Sub
 End Class

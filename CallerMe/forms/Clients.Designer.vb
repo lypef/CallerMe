@@ -52,6 +52,8 @@ Partial Class Clients
         Me.Foto = New System.Windows.Forms.PictureBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btn_Back = New System.Windows.Forms.Button()
         Me.Btn_add = New System.Windows.Forms.Button()
         Me.btn_delete = New System.Windows.Forms.Button()
         Me.btn_numeros = New System.Windows.Forms.Button()
@@ -108,7 +110,7 @@ Partial Class Clients
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(919, 254)
+        Me.TabPage3.Size = New System.Drawing.Size(919, 408)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Numeros"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -119,7 +121,7 @@ Partial Class Clients
         Me.ViewNumbers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ViewNumbers.Location = New System.Drawing.Point(3, 3)
         Me.ViewNumbers.Name = "ViewNumbers"
-        Me.ViewNumbers.Size = New System.Drawing.Size(913, 248)
+        Me.ViewNumbers.Size = New System.Drawing.Size(913, 402)
         Me.ViewNumbers.TabIndex = 0
         '
         'TabPage2
@@ -147,7 +149,7 @@ Partial Class Clients
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(919, 254)
+        Me.TabPage2.Size = New System.Drawing.Size(919, 408)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Editar"
         '
@@ -340,6 +342,8 @@ Partial Class Clients
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.BtnNext)
+        Me.Panel1.Controls.Add(Me.Btn_Back)
         Me.Panel1.Controls.Add(Me.Btn_add)
         Me.Panel1.Controls.Add(Me.btn_delete)
         Me.Panel1.Controls.Add(Me.btn_numeros)
@@ -349,6 +353,40 @@ Partial Class Clients
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(913, 53)
         Me.Panel1.TabIndex = 4
+        '
+        'BtnNext
+        '
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
+        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnNext.FlatAppearance.BorderSize = 0
+        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
+        Me.BtnNext.Location = New System.Drawing.Point(849, 2)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
+        Me.BtnNext.TabIndex = 6
+        Me.BtnNext.Text = "Button3"
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'Btn_Back
+        '
+        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
+        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_Back.FlatAppearance.BorderSize = 0
+        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_Back.Location = New System.Drawing.Point(792, 2)
+        Me.Btn_Back.Name = "Btn_Back"
+        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
+        Me.Btn_Back.TabIndex = 5
+        Me.Btn_Back.Text = "Button2"
+        Me.Btn_Back.UseVisualStyleBackColor = False
         '
         'Btn_add
         '
@@ -360,7 +398,7 @@ Partial Class Clients
         Me.Btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_add.ForeColor = System.Drawing.Color.Maroon
-        Me.Btn_add.Location = New System.Drawing.Point(65, 2)
+        Me.Btn_add.Location = New System.Drawing.Point(11, 2)
         Me.Btn_add.Name = "Btn_add"
         Me.Btn_add.Size = New System.Drawing.Size(193, 49)
         Me.Btn_add.TabIndex = 4
@@ -377,7 +415,7 @@ Partial Class Clients
         Me.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_delete.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_delete.Location = New System.Drawing.Point(662, 2)
+        Me.btn_delete.Location = New System.Drawing.Point(593, 2)
         Me.btn_delete.Name = "btn_delete"
         Me.btn_delete.Size = New System.Drawing.Size(193, 49)
         Me.btn_delete.TabIndex = 3
@@ -394,7 +432,7 @@ Partial Class Clients
         Me.btn_numeros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_numeros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_numeros.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_numeros.Location = New System.Drawing.Point(264, 2)
+        Me.btn_numeros.Location = New System.Drawing.Point(205, 2)
         Me.btn_numeros.Name = "btn_numeros"
         Me.btn_numeros.Size = New System.Drawing.Size(193, 49)
         Me.btn_numeros.TabIndex = 1
@@ -411,7 +449,7 @@ Partial Class Clients
         Me.btn_editar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_editar.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_editar.Location = New System.Drawing.Point(463, 2)
+        Me.btn_editar.Location = New System.Drawing.Point(399, 2)
         Me.btn_editar.Name = "btn_editar"
         Me.btn_editar.Size = New System.Drawing.Size(193, 49)
         Me.btn_editar.TabIndex = 2
@@ -497,4 +535,6 @@ Partial Class Clients
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Btn_add As Button
+    Friend WithEvents Btn_Back As Button
+    Friend WithEvents BtnNext As Button
 End Class

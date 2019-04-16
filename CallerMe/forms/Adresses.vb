@@ -1,5 +1,6 @@
 ﻿Public Class Adresses
     Dim f As New functions
+    Dim pagina As Integer = 0
 
     Private Sub Adresses_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Panel1.BackColor = My.Settings.datagridview_color
@@ -9,10 +10,12 @@
         f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
         f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
         f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
     End Sub
 
     Public Sub Loader()
-        f.Clients_AdresesDataGridViewSet("SELECT a.id, c.id, c.nombre, a.direccion, a.referencia, a.kms FROM adresses a, clients c where a.client = c.id order by a.id desc", Table)
+        f.Clients_AdresesDataGridViewSet("SELECT a.id, c.id, c.nombre, a.direccion, a.referencia, a.kms FROM adresses a, clients c where a.client = c.id order by a.id desc LIMIT 0, 40", Table)
         TabControl1.SelectedIndex = 0
         functions.Client = 0
         functions.Adress_id = 0
@@ -20,6 +23,20 @@
         TxtReferencia.Text = ""
         TxtKilometros.Text = ""
         TxtSearch.Text = ""
+        pagina = 0
+    End Sub
+
+    Public Sub Loader_ChangPag()
+        Dim pagina_ini As Integer
+
+        If pagina < 1 Then
+            pagina_ini = 0
+            pagina = 0
+        Else
+            pagina_ini = (pagina * 40) - 1
+        End If
+
+        f.Clients_AdresesDataGridViewSet("SELECT a.id, c.id, c.nombre, a.direccion, a.referencia, a.kms FROM adresses a, clients c where a.client = c.id order by a.id desc LIMIT " + pagina_ini.ToString + ", 40", Table)
     End Sub
 
     Public Sub Search(ByVal txt As String)
@@ -39,7 +56,7 @@
                 Loader()
             Else
                 If f.ReturnPermission(f.Permission_Adresses_edit) Then
-                    f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", DataGridView1)
+                    f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc limit 0,40", DataGridView1)
                     f.Client_AdressesLoadUpdate(TxtDireccion, TxtReferencia, TxtKilometros, DataGridView1)
                 Else
                     f.Alert(f.Alert_NoPermitido, f.Alert_NumberCritical)
@@ -177,5 +194,31 @@
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub Btn_Back_MouseEnter(sender As Object, e As EventArgs) Handles Btn_Back.MouseEnter
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back_efect)
+    End Sub
+
+    Private Sub Btn_Back_MouseLeave(sender As Object, e As EventArgs) Handles Btn_Back.MouseLeave
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
+    End Sub
+
+    Private Sub BtnNext_MouseEnter(sender As Object, e As EventArgs) Handles BtnNext.MouseEnter
+        f.Button_SetModel(BtnNext, My.Resources.btn_next_efect)
+    End Sub
+
+    Private Sub BtnNext_MouseLeave(sender As Object, e As EventArgs) Handles BtnNext.MouseLeave
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+    End Sub
+
+    Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
+        pagina = pagina + 1
+        Loader_ChangPag()
+    End Sub
+
+    Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
+        pagina = pagina - 1
+        Loader_ChangPag()
     End Sub
 End Class

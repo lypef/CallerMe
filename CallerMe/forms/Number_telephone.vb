@@ -1,5 +1,6 @@
 ﻿Public Class Number_telephone
     Dim f As New functions
+    Dim pagina As Integer = 0
 
     Private Sub Number_telephone_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
@@ -10,13 +11,29 @@
         f.Button_SetModel(Btn_add, My.Resources.Boton_AGREGAR)
         f.Button_SetModel(btn_editar, My.Resources.Boton_editar)
         f.Button_SetModel(btn_delete, My.Resources.Boton_eLIMINAR)
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
     End Sub
 
     Public Sub LoadClientes()
-        f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id ORDER by n.id desc", Tabla)
+        f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id ORDER by n.id desc LIMIT 0, 40", Tabla)
         functions.Number_id = 0
         functions.Client = 0
         TabControl1.SelectedIndex = 0
+        pagina = 0
+    End Sub
+
+    Public Sub LoadClientes_ChangPag()
+        Dim pagina_ini As Integer
+
+        If pagina < 1 Then
+            pagina_ini = 0
+            pagina = 0
+        Else
+            pagina_ini = (pagina * 40) - 1
+        End If
+
+        f.Clients_Datagridview_Numbers("SELECT n.id, n.client, c.nombre, n.numero, n.compañia, n.fijo, n.movil FROM telephone_numbers n, clients c where n.client = c.id ORDER by n.id desc LIMIT " + pagina_ini.ToString + ", 40", Tabla)
     End Sub
 
     Public Sub Search(ByVal txt As String)
@@ -64,7 +81,7 @@
 
         If TabControl1.SelectedIndex = 1 Then
             If functions.Number_id > 0 Then
-                f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table_EditClients)
+                f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc LIMIT 0, 40", Table_EditClients)
                 f.Client_NumberLoadUpdate(TxtNumber, TxtCompañia, TxtRef, TxtMovil, TxtFijo, Table_EditClients)
             Else
                 TabControl1.SelectedIndex = 0
@@ -82,11 +99,19 @@
     End Sub
 
     Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", Table_EditClients)
+        If Convert.ToInt32(e.KeyChar) = Convert.ToInt32(Keys.Enter) Then
+            Search()
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", Table_EditClients)
+        Search()
+    End Sub
+
+    Private Sub Search()
+        If String.IsNullOrEmpty(TxtSearch.Text) = False Then
+            f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + TxtSearch.Text + "%' or correo_electronico LIKE '%" + TxtSearch.Text + "%' or rfc LIKE '%" + TxtSearch.Text + "%' OR razon_social LIKE '%" + TxtSearch.Text + "%' ORDER by nombre asc", Table_EditClients)
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -173,5 +198,31 @@
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub Btn_Back_MouseEnter(sender As Object, e As EventArgs) Handles Btn_Back.MouseEnter
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back_efect)
+    End Sub
+
+    Private Sub Btn_Back_MouseLeave(sender As Object, e As EventArgs) Handles Btn_Back.MouseLeave
+        f.Button_SetModel(Btn_Back, My.Resources.btn_back)
+    End Sub
+
+    Private Sub BtnNext_MouseEnter(sender As Object, e As EventArgs) Handles BtnNext.MouseEnter
+        f.Button_SetModel(BtnNext, My.Resources.btn_next_efect)
+    End Sub
+
+    Private Sub BtnNext_MouseLeave(sender As Object, e As EventArgs) Handles BtnNext.MouseLeave
+        f.Button_SetModel(BtnNext, My.Resources.btn_next)
+    End Sub
+
+    Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
+        pagina = pagina + 1
+        LoadClientes_ChangPag()
+    End Sub
+
+    Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
+        pagina = pagina - 1
+        LoadClientes_ChangPag()
     End Sub
 End Class
