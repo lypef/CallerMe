@@ -121,8 +121,8 @@
   <data name="login_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="boton_ticket" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boton_ticket.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_AGREGAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_AGREGAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="manager_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manager_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,23 +136,35 @@
   <data name="Boton_AGREGAR_EFECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton_AGREGAR_EFECT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Boton_ASISTIR_EFECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_ASISTIR_EFECT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="steering_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\steering_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_back.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="properties_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\properties_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_acerca_de1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Boton_ASISTIR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_ASISTIR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="about_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_next_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_next_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="call_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\call_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Btn_ajustes_efct" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Btn_ajustes_efct.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ASISTIR_LLAMADA_AGREGAR_EFECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ASISTIR_LLAMADA_AGREGAR_EFECT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clients_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clients_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,14 +175,11 @@
   <data name="exclamacion_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamacion_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_acerca_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="directiones_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\directiones_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Btn_vehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_vehiculos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Boton_VerNumeros" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_VerNumeros.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_next.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,23 +196,20 @@
   <data name="boton_g.pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton_g.pdf.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Boton_eLIMINARefecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_eLIMINARefecto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Boton_VerNumeros_Efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton_VerNumeros_Efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_viber_386738" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\if_viber_386738.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="movements_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\movements_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_editarEfect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_editarEfect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ASISTIR_LLAMADA_AGREGAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ASISTIR_LLAMADA_AGREGAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gestionar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gestionar_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="call_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\call_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconfinder_Gnome-Edit-Clear-64_55586" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconfinder_Gnome-Edit-Clear-64_55586.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,14 +220,14 @@
   <data name="boton_g.pdf_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton_g.pdf_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vehicle_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vehicle_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_back_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_back_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Boton_editarEfect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_editarEfect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="boton_ticket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton_ticket.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loader.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,11 +235,14 @@
   <data name="critical_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\critical_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="new_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="search_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Boton_AGREGAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_AGREGAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Btn_ajustes_efct" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Btn_ajustes_efct.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="information_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,11 +256,11 @@
   <data name="Boton_eLIMINAR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton_eLIMINAR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="directiones_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\directiones_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_eLIMINARefecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_eLIMINARefecto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="call_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\call_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,14 +277,14 @@
   <data name="Btn_registros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_registros.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="properties_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\properties_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vehicle_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vehicle_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="call_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\call_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="movements_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\movements_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Boton_ASISTIR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Boton_ASISTIR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_ASISTIR_EFECT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_ASISTIR_EFECT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_about" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_about.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,8 +295,8 @@
   <data name="Btn_Clientes_Efecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Btn_Clientes_Efecto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_acerca_de1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Boton_VerNumeros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Boton_VerNumeros.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="report_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,13 +304,28 @@
   <data name="separador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\separador.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_acerca_de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_acerca_de.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="boton_ticket_efec" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton_ticket_efec.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_back_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_back_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="guardar_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardar_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_next_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_next_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guardar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelar_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelar_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancelar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_valores_efect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_valores_efect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_valores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_valores.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

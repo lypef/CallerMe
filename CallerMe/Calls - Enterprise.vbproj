@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>97</ApplicationRevision>
+    <ApplicationRevision>99</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -493,6 +493,14 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\r_valores.jpg" />
+    <None Include="Resources\r_valores_efect.jpg" />
+    <None Include="Resources\cancelar.jpg" />
+    <None Include="Resources\cancelar_efect.jpg" />
+    <None Include="Resources\guardar.jpg" />
+    <None Include="Resources\guardar_efect.jpg" />
+    <None Include="Resources\ASISTIR_LLAMADA_AGREGAR_EFECT.jpg" />
+    <None Include="Resources\ASISTIR_LLAMADA_AGREGAR.jpg" />
     <None Include="Resources\btn_next_efect.jpg" />
     <None Include="Resources\btn_back_efect.jpg" />
     <None Include="Resources\btn_next.jpg" />

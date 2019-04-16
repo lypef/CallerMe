@@ -1564,6 +1564,9 @@ Public Class functions
                 direcciones.SelectedIndex = 0
             End If
         End If
+
+        direcciones.SelectedIndex = direcciones.Items.Count - 1
+
         Return result
     End Function
 
@@ -1576,7 +1579,7 @@ Public Class functions
             'Publico en general
             Dim p_g = Db.Consult("SELECT c.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + My.Settings.pg_id + "' ")
             If p_g.Read() Then
-                result = r.GetString(0)
+                result = p_g.GetString(0)
             End If
         End If
         Return result
@@ -1822,4 +1825,56 @@ Public Class functions
             End If
         Next i
     End Sub
+
+    Public Function AddClientXpress(ByVal txt As TextBox, ByVal tel As String) As Boolean
+        Dim r As Boolean = False
+
+        Dim id = NextIDClients()
+        Dim add_client = Db.Ejecutar("INSERT INTO `clients` (`id`, `nombre`, `fecha_nacimiento`, `correo_electronico`, `foto`, `razon_social`, `rfc`) VALUES ('" + id.ToString + "', '" + txt.Text + "', '1992-01-24', '', '', '', '');")
+
+        If add_client Then
+            r = Db.Ejecutar("INSERT INTO `telephone_numbers` (`id`, `client`, `numero`, `compañia`, `ref_note`, `fijo`, `movil`) VALUES (NULL, '" + id.ToString + "', '" + tel + "', '', '', '0', '1');")
+        End If
+
+        Return r
+    End Function
+
+    Public Function AddDireccionXpress(ByVal txt As TextBox, ByVal client As Integer) As Boolean
+        Return Db.Ejecutar("INSERT INTO `adresses` (`id`, `client`, `direccion`, `referencia`, `kms`) VALUES (NULL, '" + client.ToString + "', '" + txt.Text + "', '', '1');")
+    End Function
+
+    Public Function NextIDClients() As Integer
+        Dim r As Integer
+
+        Dim dato = Db.Consult("SELECT (MAX(id)+1) AS id FROM clients")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
+
+    Public Sub LastLogs_DataGridViewSet(ByVal t As DataGridView)
+        DataGridView_Model(t)
+        Dim sql = "SELECT c.nombre, t.numero, d.direccion, dri.nombre FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and r.usuario = '" + userID.ToString + "' ORDER BY r.id desc limit 0,15"
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(Sql)
+
+        t.Columns.Add("client", "CLIENTE")
+        t.Columns.Add("numero", "NUMERO")
+        t.Columns.Add("direccion", "DIRECCION")
+        t.Columns.Add("driver", "CONDUCTOR")
+
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3))
+            Loop
+        End If
+
+    End Sub
+
 End Class
