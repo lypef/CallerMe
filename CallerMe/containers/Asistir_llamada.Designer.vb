@@ -23,31 +23,31 @@ Partial Class Asistir_llamada
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Table_Logs = New System.Windows.Forms.DataGridView()
+        Me.Btn_GuardarDb = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.ComboVehiculos = New System.Windows.Forms.ComboBox()
         Me.Combo_Driver = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_ADD_INFO = New System.Windows.Forms.Button()
         Me.TxtAddDireccion = New System.Windows.Forms.TextBox()
         Me.CbDireccionAdd = New System.Windows.Forms.CheckBox()
         Me.TxtAddClient = New System.Windows.Forms.TextBox()
         Me.CbAddClient = New System.Windows.Forms.CheckBox()
+        Me.BtnRecargar = New System.Windows.Forms.Button()
         Me.GB_EXISTENTE = New System.Windows.Forms.GroupBox()
         Me.Combo_direcciones = New System.Windows.Forms.ComboBox()
-        Me.Wb = New System.Windows.Forms.WebBrowser()
-        Me.Btn_GuardarDb = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btn_ADD_INFO = New System.Windows.Forms.Button()
-        Me.BtnRecargar = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.Table_Logs = New System.Windows.Forms.DataGridView()
+        Me.Wb = New System.Windows.Forms.WebBrowser()
         Me.Panel1.SuspendLayout()
+        CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GB_EXISTENTE.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -66,6 +66,26 @@ Partial Class Asistir_llamada
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(767, 445)
         Me.Panel1.TabIndex = 2
+        '
+        'Table_Logs
+        '
+        Me.Table_Logs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Table_Logs.Location = New System.Drawing.Point(12, 302)
+        Me.Table_Logs.Name = "Table_Logs"
+        Me.Table_Logs.Size = New System.Drawing.Size(608, 129)
+        Me.Table_Logs.TabIndex = 34
+        '
+        'Btn_GuardarDb
+        '
+        Me.Btn_GuardarDb.BackgroundImage = Global.Calls.My.Resources.Resources.guardar
+        Me.Btn_GuardarDb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Btn_GuardarDb.FlatAppearance.BorderSize = 0
+        Me.Btn_GuardarDb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_GuardarDb.Location = New System.Drawing.Point(626, 302)
+        Me.Btn_GuardarDb.Name = "Btn_GuardarDb"
+        Me.Btn_GuardarDb.Size = New System.Drawing.Size(126, 39)
+        Me.Btn_GuardarDb.TabIndex = 33
+        Me.Btn_GuardarDb.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -112,6 +132,15 @@ Partial Class Asistir_llamada
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "FOTOGRAFIA"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 24)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(209, 184)
+        Me.PictureBox1.TabIndex = 28
+        Me.PictureBox1.TabStop = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btn_ADD_INFO)
@@ -128,24 +157,40 @@ Partial Class Asistir_llamada
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "NUEVA INFORMACION"
         '
+        'btn_ADD_INFO
+        '
+        Me.btn_ADD_INFO.BackColor = System.Drawing.Color.Transparent
+        Me.btn_ADD_INFO.BackgroundImage = Global.Calls.My.Resources.Resources.ASISTIR_LLAMADA_AGREGAR
+        Me.btn_ADD_INFO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btn_ADD_INFO.FlatAppearance.BorderSize = 0
+        Me.btn_ADD_INFO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.btn_ADD_INFO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.btn_ADD_INFO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_ADD_INFO.ForeColor = System.Drawing.Color.Maroon
+        Me.btn_ADD_INFO.Location = New System.Drawing.Point(7, 82)
+        Me.btn_ADD_INFO.Name = "btn_ADD_INFO"
+        Me.btn_ADD_INFO.Size = New System.Drawing.Size(509, 56)
+        Me.btn_ADD_INFO.TabIndex = 19
+        Me.btn_ADD_INFO.UseVisualStyleBackColor = False
+        '
         'TxtAddDireccion
         '
         Me.TxtAddDireccion.Enabled = False
         Me.TxtAddDireccion.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAddDireccion.Location = New System.Drawing.Point(175, 51)
+        Me.TxtAddDireccion.Location = New System.Drawing.Point(106, 51)
         Me.TxtAddDireccion.Name = "TxtAddDireccion"
-        Me.TxtAddDireccion.Size = New System.Drawing.Size(341, 25)
+        Me.TxtAddDireccion.Size = New System.Drawing.Size(410, 25)
         Me.TxtAddDireccion.TabIndex = 18
         '
         'CbDireccionAdd
         '
         Me.CbDireccionAdd.AutoSize = True
         Me.CbDireccionAdd.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CbDireccionAdd.Location = New System.Drawing.Point(7, 51)
+        Me.CbDireccionAdd.Location = New System.Drawing.Point(6, 53)
         Me.CbDireccionAdd.Name = "CbDireccionAdd"
-        Me.CbDireccionAdd.Size = New System.Drawing.Size(162, 21)
+        Me.CbDireccionAdd.Size = New System.Drawing.Size(99, 21)
         Me.CbDireccionAdd.TabIndex = 17
-        Me.CbDireccionAdd.Text = "DIRECCION | NOMBRE"
+        Me.CbDireccionAdd.Text = "DIRECCION "
         Me.CbDireccionAdd.UseVisualStyleBackColor = True
         '
         'TxtAddClient
@@ -167,6 +212,18 @@ Partial Class Asistir_llamada
         Me.CbAddClient.TabIndex = 15
         Me.CbAddClient.Text = "CLIENTE | NOMBRE"
         Me.CbAddClient.UseVisualStyleBackColor = True
+        '
+        'BtnRecargar
+        '
+        Me.BtnRecargar.BackgroundImage = Global.Calls.My.Resources.Resources.r_valores
+        Me.BtnRecargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnRecargar.FlatAppearance.BorderSize = 0
+        Me.BtnRecargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRecargar.Location = New System.Drawing.Point(626, 347)
+        Me.BtnRecargar.Name = "BtnRecargar"
+        Me.BtnRecargar.Size = New System.Drawing.Size(126, 39)
+        Me.BtnRecargar.TabIndex = 30
+        Me.BtnRecargar.UseVisualStyleBackColor = True
         '
         'GB_EXISTENTE
         '
@@ -190,64 +247,6 @@ Partial Class Asistir_llamada
         Me.Combo_direcciones.Size = New System.Drawing.Size(509, 28)
         Me.Combo_direcciones.TabIndex = 24
         '
-        'Wb
-        '
-        Me.Wb.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Wb.Location = New System.Drawing.Point(0, 445)
-        Me.Wb.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.Wb.Name = "Wb"
-        Me.Wb.Size = New System.Drawing.Size(767, 195)
-        Me.Wb.TabIndex = 3
-        '
-        'Btn_GuardarDb
-        '
-        Me.Btn_GuardarDb.BackgroundImage = Global.Calls.My.Resources.Resources.guardar
-        Me.Btn_GuardarDb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Btn_GuardarDb.FlatAppearance.BorderSize = 0
-        Me.Btn_GuardarDb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_GuardarDb.Location = New System.Drawing.Point(626, 302)
-        Me.Btn_GuardarDb.Name = "Btn_GuardarDb"
-        Me.Btn_GuardarDb.Size = New System.Drawing.Size(126, 39)
-        Me.Btn_GuardarDb.TabIndex = 33
-        Me.Btn_GuardarDb.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 24)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(209, 184)
-        Me.PictureBox1.TabIndex = 28
-        Me.PictureBox1.TabStop = False
-        '
-        'btn_ADD_INFO
-        '
-        Me.btn_ADD_INFO.BackColor = System.Drawing.Color.Transparent
-        Me.btn_ADD_INFO.BackgroundImage = Global.Calls.My.Resources.Resources.ASISTIR_LLAMADA_AGREGAR
-        Me.btn_ADD_INFO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btn_ADD_INFO.FlatAppearance.BorderSize = 0
-        Me.btn_ADD_INFO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.btn_ADD_INFO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.btn_ADD_INFO.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_ADD_INFO.ForeColor = System.Drawing.Color.Maroon
-        Me.btn_ADD_INFO.Location = New System.Drawing.Point(7, 82)
-        Me.btn_ADD_INFO.Name = "btn_ADD_INFO"
-        Me.btn_ADD_INFO.Size = New System.Drawing.Size(509, 56)
-        Me.btn_ADD_INFO.TabIndex = 19
-        Me.btn_ADD_INFO.UseVisualStyleBackColor = False
-        '
-        'BtnRecargar
-        '
-        Me.BtnRecargar.BackgroundImage = Global.Calls.My.Resources.Resources.r_valores
-        Me.BtnRecargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnRecargar.FlatAppearance.BorderSize = 0
-        Me.BtnRecargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRecargar.Location = New System.Drawing.Point(626, 347)
-        Me.BtnRecargar.Name = "BtnRecargar"
-        Me.BtnRecargar.Size = New System.Drawing.Size(126, 39)
-        Me.BtnRecargar.TabIndex = 30
-        Me.BtnRecargar.UseVisualStyleBackColor = True
-        '
         'BtnCancelar
         '
         Me.BtnCancelar.BackgroundImage = Global.Calls.My.Resources.Resources.cancelar
@@ -260,13 +259,14 @@ Partial Class Asistir_llamada
         Me.BtnCancelar.TabIndex = 1
         Me.BtnCancelar.UseVisualStyleBackColor = True
         '
-        'Table_Logs
+        'Wb
         '
-        Me.Table_Logs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Table_Logs.Location = New System.Drawing.Point(12, 302)
-        Me.Table_Logs.Name = "Table_Logs"
-        Me.Table_Logs.Size = New System.Drawing.Size(608, 129)
-        Me.Table_Logs.TabIndex = 34
+        Me.Wb.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Wb.Location = New System.Drawing.Point(0, 445)
+        Me.Wb.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.Wb.Name = "Wb"
+        Me.Wb.Size = New System.Drawing.Size(767, 195)
+        Me.Wb.TabIndex = 3
         '
         'Asistir_llamada
         '
@@ -281,13 +281,13 @@ Partial Class Asistir_llamada
         Me.Text = "Asistir_llamada"
         Me.TopMost = True
         Me.Panel1.ResumeLayout(False)
+        CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GB_EXISTENTE.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

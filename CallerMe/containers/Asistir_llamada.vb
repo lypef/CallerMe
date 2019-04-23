@@ -113,6 +113,7 @@
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient.CheckedChanged
         If CbAddClient.Checked Then
             TxtAddClient.Enabled = True
+            TxtAddClient.Text = "CLIENTE SIN NOMBRE"
             TxtAddClient.Focus()
         Else
             TxtAddClient.Text = ""
@@ -185,6 +186,12 @@
             Else
                 f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
             End If
+
+            'Se actualiza form logs, hoy
+            If f.ReturnPermission(f.Permission_Access_LOGS) Then
+                Logs.LoadIni()
+            End If
+
         Else
             f.Alert("Verifique sus opciones seleccionadas", f.Alert_NumberExclamacion)
         End If
