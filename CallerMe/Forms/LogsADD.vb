@@ -3,7 +3,7 @@
 
     Public Sub LoadIni()
         f.DataGridView_Model(Table_Clients)
-        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by nombre asc", Table_Clients)
+        f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc LIMIT 0, 40", Table_Clients)
         f.ComboBox_SetUsers(Combo_Users)
         f.ComboBox_SetVehiculos(ComboVehiculos)
         f.ComboBox_SetDrivers(Combo_Driver)
@@ -23,15 +23,17 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim txt As String = TxtSearch.Text
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + txt + "%' or correo_electronico LIKE '%" + txt + "%' or rfc LIKE '%" + txt + "%' OR razon_social LIKE '%" + txt + "%' ORDER by nombre asc", Table_Clients)
-        Table_Clients.ClearSelection()
+        Search()
     End Sub
 
-    Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
-        Dim txt As String = TxtSearch.Text
-        f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + txt + "%' or correo_electronico LIKE '%" + txt + "%' or rfc LIKE '%" + txt + "%' OR razon_social LIKE '%" + txt + "%' ORDER by nombre asc", Table_Clients)
-        Table_Clients.ClearSelection()
+    Private Sub Search()
+        If String.IsNullOrWhiteSpace(TxtSearch.Text) Then
+            f.Clients_DataGridViewSet("SELECT * FROM clients ORDER by id desc LIMIT 0, 40", Table_Clients)
+        Else
+            Dim txt As String = TxtSearch.Text
+            f.Clients_DataGridViewSet("SELECT * FROM clients where nombre LIKE '%" + txt + "%' or correo_electronico LIKE '%" + txt + "%' or rfc LIKE '%" + txt + "%' OR razon_social LIKE '%" + txt + "%' ORDER by nombre asc", Table_Clients)
+            Table_Clients.ClearSelection()
+        End If
     End Sub
 
     Private Sub Table_Clients_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Table_Clients.CellClick
@@ -88,6 +90,12 @@
     Private Sub ComboVehiculos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboVehiculos.SelectedIndexChanged
         If ComboVehiculos.SelectedIndex > 0 Then
             f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
+        End If
+    End Sub
+
+    Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
+        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Enter) Then
+            Search()
         End If
     End Sub
 End Class

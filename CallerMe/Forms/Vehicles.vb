@@ -19,7 +19,6 @@
 
     Public Sub LoadVehicles()
         f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas, v.id_gps FROM vehicles v, drivers d WHERE v.driver = d.id ORDER by v.id desc limit 0,40", Table)
-        f.Drivers_DataGridViewSet("SELECT * FROM drivers ORDER by id desc limit 0,40", Table_drivers)
         TabControl1.SelectedIndex = 0
         functions.Vehicle_id = 0
         functions.Driver_id = 0
@@ -40,7 +39,7 @@
     End Sub
 
     Public Sub Search(ByVal txt As String)
-        f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas FROM vehicles v, drivers d WHERE v.driver = d.id and modelo LIKE '%" + txt + "%' or v.driver = d.id and placas LIKE '%" + txt + "%' or v.driver = d.id and d.nombre LIKE '%" + txt + "%' or v.driver = d.id and numero LIKE '%" + txt + "' or v.driver = d.id and caracteristicas LIKE '%" + txt + "%' ORDER by v.id desc", Table)
+        f.Vehicles_DataGridViewSet("SELECT v.id, v.modelo, v.placas, d.nombre, v.numero, v.caracteristicas, v.id_gps FROM vehicles v, drivers d WHERE v.driver = d.id and modelo LIKE '%" + txt + "%' or v.driver = d.id and placas LIKE '%" + txt + "%' or v.driver = d.id and d.nombre LIKE '%" + txt + "%' or v.driver = d.id and numero LIKE '%" + txt + "' or v.driver = d.id and caracteristicas LIKE '%" + txt + "%' ORDER by v.id desc", Table)
         TabControl1.SelectedIndex = 0
         functions.Vehicle_id = 0
         functions.Driver_id = 0

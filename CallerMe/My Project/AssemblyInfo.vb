@@ -9,12 +9,12 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("CallerMe Enterprise")>
+<Assembly: AssemblyTitle("CallerMe Bussines")>
 <Assembly: AssemblyDescription("ESTE SISTEMA ES IMPLEMENTADO Y DESARROLLADO POR CLTA PARA %name_enterprise%,  CON DIRECCION : %direccion%, RFC: %rfc%. - PROHIBIDA SU DISTRIBUCION O INSTALACION SIN AUTORIZACION DE CLTA - DESARROLLO DE SOFTWARE. CONSULTE TERMINOS, CONDICIONES Y LICENCIAS ORIGINALES EN WWW.CYBERCHOAPAS.COM")>
 <Assembly: AssemblyCompany("CLTA - DESARROLLO DE SOFTWARE")>
 <Assembly: AssemblyProduct("CallerMe Enterprise")>
-<Assembly: AssemblyCopyright("Copyright ©  2017 - WWW.CYBERCHOAPAS.COM")>
-<Assembly: AssemblyTrademark("CLTA - DESARROLLO DE SOFTWARE")>
+<Assembly: AssemblyCopyright("Copyright ©  2019 - WWW.CYBERCHOAPAS.COM")>
+<Assembly: AssemblyTrademark("CLTA - DESARROLLO & DISTRIBUCION DE SOFTWARE")>
 
 <Assembly: ComVisible(False)>
 

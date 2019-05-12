@@ -220,8 +220,13 @@ Public Class control
 
     Private Sub BuscarToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem3.Click
         If f.ReturnPermission(f.Permission_Access_Clients) Then
-            Clients.SearchClientes(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Clients, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+            If String.IsNullOrEmpty(tmp) = False Then
+                Clients.SearchClientes(tmp)
+                f.AddForm_Desktop(Clients, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -247,8 +252,14 @@ Public Class control
 
     Private Sub BuscarToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem2.Click
         If f.ReturnPermission(f.Permission_Telephone_Access) Then
-            Number_telephone.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Number_telephone, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+
+            If String.IsNullOrEmpty(tmp) = False Then
+                Number_telephone.Search(tmp)
+                f.AddForm_Desktop(Number_telephone, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -275,8 +286,14 @@ Public Class control
 
     Private Sub BuscarToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem1.Click
         If f.ReturnPermission(f.Permission_Access_adress) Then
-            Adresses.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Adresses, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+
+            If String.IsNullOrEmpty(tmp) = False Then
+                Adresses.Search(tmp)
+                f.AddForm_Desktop(Adresses, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -321,8 +338,13 @@ Public Class control
 
     Private Sub BuscarToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles BuscarToolStripMenuItem.Click
         If f.ReturnPermission(f.Permission_Access_drivers) Then
-            Drivers.SearchDrivers(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Drivers, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+            If String.IsNullOrEmpty(tmp) = False Then
+                Drivers.SearchDrivers(tmp)
+                f.AddForm_Desktop(Drivers, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -369,8 +391,13 @@ Public Class control
 
     Private Sub ConsultarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConsultarToolStripMenuItem.Click
         If f.ReturnPermission(f.Permission_Access_vehicle) Then
-            Vehicles.Search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Vehicles, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+            If String.IsNullOrEmpty(tmp) = False Then
+                Vehicles.Search(tmp)
+                f.AddForm_Desktop(Vehicles, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -420,8 +447,13 @@ Public Class control
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
         If f.ReturnPermission(f.Permission_Access_LOGS) Then
-            Logs.search(InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO"))
-            f.AddForm_Desktop(Logs, Desktop)
+
+            Dim tmp As String = InputBox("Ingrese algun dato para realizar el filtro de busqueda", "NOMBRE DE LA EMPRESA - USUARIO")
+            If String.IsNullOrEmpty(tmp) = False Then
+                Logs.search(tmp)
+                f.AddForm_Desktop(Logs, Desktop)
+            End If
+
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
