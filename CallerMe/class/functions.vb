@@ -210,9 +210,28 @@ Public Class functions
     End Function
 
     Public Sub Alert(ByVal txt As String, ByVal style As Integer)
-        AlertContainer.Show()
-        AlertContainer.style(style)
-        AlertContainer.TextBoxMensaje.Text = txt.ToUpper()
+        If (style = Alert_NumberInformacion) Then
+            MessageBox.Show(txt,
+            Empresa_Nombre,
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information,
+            MessageBoxDefaultButton.Button1)
+        ElseIf (style = Alert_NumberCritical) Then
+            MessageBox.Show(txt,
+            Empresa_Nombre,
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error,
+            MessageBoxDefaultButton.Button1)
+        ElseIf (style = Alert_NumberExclamacion) Then
+            MessageBox.Show(txt,
+            Empresa_Nombre,
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning,
+            MessageBoxDefaultButton.Button1)
+        End If
+        'AlertContainer.Show()
+        'AlertContainer.style(style)
+        'AlertContainer.TextBoxMensaje.Text = txt.ToUpper()
     End Sub
 
     Public Sub OpenConfig()

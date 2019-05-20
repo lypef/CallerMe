@@ -112,9 +112,14 @@
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient.CheckedChanged
         If CbAddClient.Checked Then
-            TxtAddClient.Enabled = True
-            TxtAddClient.Text = "CLIENTE SIN NOMBRE"
-            TxtAddClient.Focus()
+            If client_id = 1 Then
+                TxtAddClient.Enabled = True
+                TxtAddClient.Text = "CLIENTE SIN NOMBRE"
+                TxtAddClient.Focus()
+            Else
+                CbAddClient.Checked = False
+                f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
+            End If
         Else
             TxtAddClient.Text = ""
             TxtAddClient.Enabled = False
