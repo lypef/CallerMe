@@ -972,8 +972,8 @@ Public Class functions
 
     Public Sub ComboBox_SetDireccion_Client(ByVal c As ComboBox)
         c.Items.Clear()
-        Dim dato = Db.Consult("SELECT * FROM adresses where client = " + Client + " ")
-        c.Items.Add("Direcciones")
+        Dim dato = Db.Consult("SELECT * FROM adresses where client = " + Client + " order by id desc ")
+        c.Items.Add("DIRECCIONES")
         ListDireccion.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
@@ -981,7 +981,10 @@ Public Class functions
                 ListDireccion.Add(dato.GetString(0))
             Loop
         End If
-        c.SelectedIndex = 0
+        If c.Items.Count > 1 Then
+            c.SelectedIndex = 1
+        End If
+
     End Sub
 
     Public Sub ComboBox_SetDrivers(ByVal c As ComboBox)
@@ -1016,7 +1019,7 @@ Public Class functions
     Public Sub ComboBox_SetUsers(ByVal c As ComboBox)
         c.Items.Clear()
         Dim dato = Db.Consult("SELECT id, name FROM users")
-        c.Items.Add("Usuarios")
+        c.Items.Add("USUARIOS")
         ListUsuarios.Add(0)
         If dato.HasRows Then
             Do While dato.Read()
@@ -1075,9 +1078,9 @@ Public Class functions
         p.SizeMode = PictureBoxSizeMode.Zoom
     End Sub
 
-    Public Function save_registroMANUAL(ByVal telefono As ComboBox, ByVal usuario As ComboBox, ByVal direccion As ComboBox, ByVal vehiculo As ComboBox, ByVal driver As ComboBox, ByVal fecha As DateTimePicker)
+    Public Function save_registroMANUAL(ByVal usuario As ComboBox, ByVal direccion As ComboBox, ByVal vehiculo As ComboBox, ByVal driver As ComboBox, ByVal fecha As DateTimePicker)
         Dim cliente = Client
-        Dim numero = ListNumeros.Item(telefono.SelectedIndex).ToString
+        Dim numero = Number_id
         Dim _usuario = ListUsuarios.Item(usuario.SelectedIndex).ToString
         Dim _direccion = ListDireccion.Item(direccion.SelectedIndex).ToString
         Dim _vehiculo = ListVehiculos.Item(vehiculo.SelectedIndex).ToString
@@ -1532,6 +1535,30 @@ Public Class functions
         Else
             result = "Desconocido"
         End If
+        Return result
+    End Function
+
+    Public Function LoadNumber_Manual(ByRef number As String, ByVal foto As PictureBox, ByVal nombre_cliente As Label) As String
+        Dim result = False
+        Dim r = Db.Consult("SELECT c.nombre, c.foto, c.id, t.id FROM telephone_numbers t, clients c where t.client = c.id and  numero = " + number + " ")
+
+        If r.Read() Then
+
+            nombre_cliente.Text = r.GetString(0)
+
+            foto.SizeMode = PictureBoxSizeMode.Zoom
+            If My.Computer.FileSystem.FileExists(My.Settings.data_url + Data_clients + r.GetString(1)) Then
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + r.GetString(1))
+            Else
+                foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
+            End If
+
+            result = True
+
+            Client = r.GetString(2)
+            Number_id = r.GetString(3)
+        End If
+
         Return result
     End Function
 
