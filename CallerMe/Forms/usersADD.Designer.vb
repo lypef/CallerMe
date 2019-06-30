@@ -62,6 +62,8 @@ Partial Class usersADD
         Me.acces_numbersTelephone = New System.Windows.Forms.CheckBox()
         Me.acces_clients = New System.Windows.Forms.CheckBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Delete_omitido = New System.Windows.Forms.CheckBox()
+        Me.Close_software = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,7 +72,7 @@ Partial Class usersADD
         Me.TxtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUsername.Location = New System.Drawing.Point(12, 139)
         Me.TxtUsername.Name = "TxtUsername"
-        Me.TxtUsername.Size = New System.Drawing.Size(317, 29)
+        Me.TxtUsername.Size = New System.Drawing.Size(317, 32)
         Me.TxtUsername.TabIndex = 2
         '
         'Label1
@@ -79,7 +81,7 @@ Partial Class usersADD
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 112)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 20)
+        Me.Label1.Size = New System.Drawing.Size(97, 24)
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Username"
         '
@@ -88,7 +90,7 @@ Partial Class usersADD
         Me.TxtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPassword.Location = New System.Drawing.Point(12, 202)
         Me.TxtPassword.Name = "TxtPassword"
-        Me.TxtPassword.Size = New System.Drawing.Size(317, 29)
+        Me.TxtPassword.Size = New System.Drawing.Size(317, 32)
         Me.TxtPassword.TabIndex = 3
         Me.TxtPassword.UseSystemPasswordChar = True
         '
@@ -98,7 +100,7 @@ Partial Class usersADD
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 175)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 20)
+        Me.Label2.Size = New System.Drawing.Size(106, 24)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Contraseña"
         '
@@ -107,7 +109,7 @@ Partial Class usersADD
         Me.TxtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtName.Location = New System.Drawing.Point(12, 76)
         Me.TxtName.Name = "TxtName"
-        Me.TxtName.Size = New System.Drawing.Size(317, 29)
+        Me.TxtName.Size = New System.Drawing.Size(317, 32)
         Me.TxtName.TabIndex = 1
         '
         'Label3
@@ -116,12 +118,14 @@ Partial Class usersADD
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(12, 49)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(143, 20)
+        Me.Label3.Size = New System.Drawing.Size(173, 24)
         Me.Label3.TabIndex = 18
         Me.Label3.Text = "Nombre de usuario"
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Close_software)
+        Me.Panel1.Controls.Add(Me.Delete_omitido)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.user_edit)
@@ -487,6 +491,26 @@ Partial Class usersADD
         Me.Button1.Text = "Agregar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Delete_omitido
+        '
+        Me.Delete_omitido.AutoSize = True
+        Me.Delete_omitido.Location = New System.Drawing.Point(441, 227)
+        Me.Delete_omitido.Name = "Delete_omitido"
+        Me.Delete_omitido.Size = New System.Drawing.Size(105, 17)
+        Me.Delete_omitido.TabIndex = 30
+        Me.Delete_omitido.Text = "Eliminar Omitidos"
+        Me.Delete_omitido.UseVisualStyleBackColor = True
+        '
+        'Close_software
+        '
+        Me.Close_software.AutoSize = True
+        Me.Close_software.Location = New System.Drawing.Point(441, 250)
+        Me.Close_software.Name = "Close_software"
+        Me.Close_software.Size = New System.Drawing.Size(94, 17)
+        Me.Close_software.TabIndex = 31
+        Me.Close_software.Text = "Cerrar Sistema"
+        Me.Close_software.UseVisualStyleBackColor = True
+        '
         'usersADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -549,4 +573,6 @@ Partial Class usersADD
     Friend WithEvents acces_clients As CheckBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Close_software As CheckBox
+    Friend WithEvents Delete_omitido As CheckBox
 End Class

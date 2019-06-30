@@ -74,6 +74,8 @@ Partial Class users
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Close_software = New System.Windows.Forms.CheckBox()
+        Me.Delete_omitido = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -206,6 +208,8 @@ Partial Class users
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Close_software)
+        Me.Panel1.Controls.Add(Me.Delete_omitido)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.user_edit)
@@ -567,7 +571,7 @@ Partial Class users
         Me.TxtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtName.Location = New System.Drawing.Point(8, 76)
         Me.TxtName.Name = "TxtName"
-        Me.TxtName.Size = New System.Drawing.Size(304, 29)
+        Me.TxtName.Size = New System.Drawing.Size(304, 32)
         Me.TxtName.TabIndex = 101
         '
         'Label3
@@ -576,7 +580,7 @@ Partial Class users
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(8, 49)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(143, 20)
+        Me.Label3.Size = New System.Drawing.Size(173, 24)
         Me.Label3.TabIndex = 107
         Me.Label3.Text = "Nombre de usuario"
         '
@@ -585,7 +589,7 @@ Partial Class users
         Me.TxtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPassword.Location = New System.Drawing.Point(8, 202)
         Me.TxtPassword.Name = "TxtPassword"
-        Me.TxtPassword.Size = New System.Drawing.Size(304, 29)
+        Me.TxtPassword.Size = New System.Drawing.Size(304, 32)
         Me.TxtPassword.TabIndex = 103
         Me.TxtPassword.UseSystemPasswordChar = True
         '
@@ -595,7 +599,7 @@ Partial Class users
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(8, 175)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 20)
+        Me.Label2.Size = New System.Drawing.Size(106, 24)
         Me.Label2.TabIndex = 106
         Me.Label2.Text = "Contraseña"
         '
@@ -604,7 +608,7 @@ Partial Class users
         Me.TxtUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtUsername.Location = New System.Drawing.Point(8, 139)
         Me.TxtUsername.Name = "TxtUsername"
-        Me.TxtUsername.Size = New System.Drawing.Size(304, 29)
+        Me.TxtUsername.Size = New System.Drawing.Size(304, 32)
         Me.TxtUsername.TabIndex = 102
         '
         'Label1
@@ -613,29 +617,50 @@ Partial Class users
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(8, 112)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 20)
+        Me.Label1.Size = New System.Drawing.Size(97, 24)
         Me.Label1.TabIndex = 105
         Me.Label1.Text = "Username"
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(18, 18)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(118, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(129, 52)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(128, 24)
         Me.EditarToolStripMenuItem.Text = "Editar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(128, 24)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'Close_software
+        '
+        Me.Close_software.AutoSize = True
+        Me.Close_software.Location = New System.Drawing.Point(441, 247)
+        Me.Close_software.Name = "Close_software"
+        Me.Close_software.Size = New System.Drawing.Size(94, 17)
+        Me.Close_software.TabIndex = 33
+        Me.Close_software.Text = "Cerrar Sistema"
+        Me.Close_software.UseVisualStyleBackColor = True
+        '
+        'Delete_omitido
+        '
+        Me.Delete_omitido.AutoSize = True
+        Me.Delete_omitido.Location = New System.Drawing.Point(441, 224)
+        Me.Delete_omitido.Name = "Delete_omitido"
+        Me.Delete_omitido.Size = New System.Drawing.Size(105, 17)
+        Me.Delete_omitido.TabIndex = 32
+        Me.Delete_omitido.Text = "Eliminar Omitidos"
+        Me.Delete_omitido.UseVisualStyleBackColor = True
         '
         'users
         '
@@ -709,4 +734,6 @@ Partial Class users
     Friend WithEvents Btn_add As Button
     Friend WithEvents btn_delete As Button
     Friend WithEvents btn_editar As Button
+    Friend WithEvents Close_software As CheckBox
+    Friend WithEvents Delete_omitido As CheckBox
 End Class

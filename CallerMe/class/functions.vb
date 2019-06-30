@@ -114,6 +114,8 @@ Public Class functions
     Public ReadOnly Permission_users_EDIT As String = "user_edit"
     Public ReadOnly Permission_users_DELETE As String = "user_delete"
     Public ReadOnly Permission_users_PERMISOS As String = "user_permisos"
+    Public ReadOnly Permission_omitos_delete As String = "delete_omitido"
+    Public ReadOnly Permission_close_software As String = "close_software"
 
 
     'Variables permisos de usuario
@@ -1141,8 +1143,10 @@ Public Class functions
         ByVal user_add As CheckBox,
         ByVal user_edit As CheckBox,
         ByVal User_delete As CheckBox,
-        ByVal user_permisos As CheckBox)
-        Return Db_shared.Ejecutar("INSERT INTO `permissions` (`user_id`, `acces_clients`, `acces_numbersTelephone`, `acces_adresses`, `acces_drivers`, `acces_vehicles`, `acces_logs`, `clients_add`, `clients_edit`, `clients_delete`, `adresses_add`, `adresses_edit`, `adresses_delete`, `telephone_add`, `telephone_edit`, `telephone_delete`, `drivers_add`, `drivers_edit`, `drivers_delete`, `vehicles_add`, `vehicles_edit`, `vehicles_delete`, `properties`, `logs_add`, `logs_delete`, `logs_clean`, `user_access`, `user_add`, `user_edit`, `user_delete`, `user_permisos`) VALUES (" + user + ", " + CheckBox_RETURNSTATUS(acces_clients) + ", " + CheckBox_RETURNSTATUS(acces_numbersTelephone) + ", " + CheckBox_RETURNSTATUS(acces_adresses) + ", " + CheckBox_RETURNSTATUS(acces_drivers) + ", " + CheckBox_RETURNSTATUS(acces_vehicles) + ", " + CheckBox_RETURNSTATUS(acces_logs) + ", " + CheckBox_RETURNSTATUS(Clients_add) + ", " + CheckBox_RETURNSTATUS(clients_edit) + ", " + CheckBox_RETURNSTATUS(Clients_DELETE) + ", " + CheckBox_RETURNSTATUS(adresses_add) + ", " + CheckBox_RETURNSTATUS(adresses_edit) + ", " + CheckBox_RETURNSTATUS(adresses_delete) + ", " + CheckBox_RETURNSTATUS(telephone_add) + ", " + CheckBox_RETURNSTATUS(telephone_edit) + ", " + CheckBox_RETURNSTATUS(telephone_delete) + ", " + CheckBox_RETURNSTATUS(Drivers_add) + ", " + CheckBox_RETURNSTATUS(drivers_edit) + ", " + CheckBox_RETURNSTATUS(drivers_delete) + ", " + CheckBox_RETURNSTATUS(vehicles_add) + ", " + CheckBox_RETURNSTATUS(vehicles_edit) + ", " + CheckBox_RETURNSTATUS(vehicles_delete) + ", " + CheckBox_RETURNSTATUS(Properties) + ", " + CheckBox_RETURNSTATUS(logs_add) + ", " + CheckBox_RETURNSTATUS(Logs_delete) + ", " + CheckBox_RETURNSTATUS(Logs_clean) + ", " + CheckBox_RETURNSTATUS(user_access) + ", " + CheckBox_RETURNSTATUS(user_add) + ", " + CheckBox_RETURNSTATUS(user_edit) + ", " + CheckBox_RETURNSTATUS(User_delete) + ", " + CheckBox_RETURNSTATUS(user_permisos) + ")")
+        ByVal user_permisos As CheckBox,
+        ByVal delete_oimitido As CheckBox,
+        ByVal close_software As CheckBox)
+        Return Db_shared.Ejecutar("INSERT INTO `permissions` (`user_id`, `acces_clients`, `acces_numbersTelephone`, `acces_adresses`, `acces_drivers`, `acces_vehicles`, `acces_logs`, `clients_add`, `clients_edit`, `clients_delete`, `adresses_add`, `adresses_edit`, `adresses_delete`, `telephone_add`, `telephone_edit`, `telephone_delete`, `drivers_add`, `drivers_edit`, `drivers_delete`, `vehicles_add`, `vehicles_edit`, `vehicles_delete`, `properties`, `logs_add`, `logs_delete`, `logs_clean`, `user_access`, `user_add`, `user_edit`, `user_delete`, `user_permisos`, `delete_omitido`, `close_software`) VALUES (" + user + ", " + CheckBox_RETURNSTATUS(acces_clients) + ", " + CheckBox_RETURNSTATUS(acces_numbersTelephone) + ", " + CheckBox_RETURNSTATUS(acces_adresses) + ", " + CheckBox_RETURNSTATUS(acces_drivers) + ", " + CheckBox_RETURNSTATUS(acces_vehicles) + ", " + CheckBox_RETURNSTATUS(acces_logs) + ", " + CheckBox_RETURNSTATUS(Clients_add) + ", " + CheckBox_RETURNSTATUS(clients_edit) + ", " + CheckBox_RETURNSTATUS(Clients_DELETE) + ", " + CheckBox_RETURNSTATUS(adresses_add) + ", " + CheckBox_RETURNSTATUS(adresses_edit) + ", " + CheckBox_RETURNSTATUS(adresses_delete) + ", " + CheckBox_RETURNSTATUS(telephone_add) + ", " + CheckBox_RETURNSTATUS(telephone_edit) + ", " + CheckBox_RETURNSTATUS(telephone_delete) + ", " + CheckBox_RETURNSTATUS(Drivers_add) + ", " + CheckBox_RETURNSTATUS(drivers_edit) + ", " + CheckBox_RETURNSTATUS(drivers_delete) + ", " + CheckBox_RETURNSTATUS(vehicles_add) + ", " + CheckBox_RETURNSTATUS(vehicles_edit) + ", " + CheckBox_RETURNSTATUS(vehicles_delete) + ", " + CheckBox_RETURNSTATUS(Properties) + ", " + CheckBox_RETURNSTATUS(logs_add) + ", " + CheckBox_RETURNSTATUS(Logs_delete) + ", " + CheckBox_RETURNSTATUS(Logs_clean) + ", " + CheckBox_RETURNSTATUS(user_access) + ", " + CheckBox_RETURNSTATUS(user_add) + ", " + CheckBox_RETURNSTATUS(user_edit) + ", " + CheckBox_RETURNSTATUS(User_delete) + ", " + CheckBox_RETURNSTATUS(user_permisos) + ", " + CheckBox_RETURNSTATUS(delete_oimitido) + ", " + CheckBox_RETURNSTATUS(close_software) + ")")
     End Function
 
     Private Function CheckBox_RETURNSTATUS(ByVal c As CheckBox)
@@ -1197,7 +1201,9 @@ Public Class functions
         ByVal user_add As CheckBox,
         ByVal user_edit As CheckBox,
         ByVal User_delete As CheckBox,
-        ByVal user_permisos As CheckBox)
+        ByVal user_permisos As CheckBox,
+        ByVal delete_omitidos As CheckBox,
+        ByVal close_software As CheckBox)
 
         Dim d = Db.Consult("SELECT * FROM users where id = " + user_select + " ")
         If d.Read() Then
@@ -1238,6 +1244,8 @@ Public Class functions
             user_edit.Checked = p.GetBoolean(28)
             User_delete.Checked = p.GetBoolean(29)
             user_permisos.Checked = p.GetBoolean(30)
+            delete_omitidos.Checked = p.GetBoolean(31)
+            close_software.Checked = p.GetBoolean(32)
         End If
     End Sub
 
@@ -1281,8 +1289,10 @@ Public Class functions
         ByVal user_add As CheckBox,
         ByVal user_edit As CheckBox,
         ByVal User_delete As CheckBox,
-        ByVal user_permisos As CheckBox)
-        Return Db_shared.Ejecutar("UPDATE permissions SET acces_clients = '" + CheckBox_RETURNSTATUS(acces_clients) + "', acces_numbersTelephone = '" + CheckBox_RETURNSTATUS(acces_numbersTelephone) + "', acces_adresses = '" + CheckBox_RETURNSTATUS(acces_adresses) + "', acces_drivers = '" + CheckBox_RETURNSTATUS(acces_drivers) + "', acces_vehicles = '" + CheckBox_RETURNSTATUS(acces_vehicles) + "', acces_logs = '" + CheckBox_RETURNSTATUS(acces_logs) + "', clients_add = '" + CheckBox_RETURNSTATUS(Clients_add) + "', clients_edit = '" + CheckBox_RETURNSTATUS(clients_edit) + "', clients_delete = '" + CheckBox_RETURNSTATUS(Clients_DELETE) + "', adresses_add = '" + CheckBox_RETURNSTATUS(adresses_add) + "', adresses_edit = '" + CheckBox_RETURNSTATUS(adresses_edit) + "', adresses_delete = '" + CheckBox_RETURNSTATUS(adresses_delete) + "', telephone_add = '" + CheckBox_RETURNSTATUS(telephone_add) + "', telephone_edit = '" + CheckBox_RETURNSTATUS(telephone_edit) + "', telephone_delete = '" + CheckBox_RETURNSTATUS(telephone_delete) + "', drivers_add = '" + CheckBox_RETURNSTATUS(Drivers_add) + "', drivers_edit = '" + CheckBox_RETURNSTATUS(drivers_edit) + "', drivers_delete = '" + CheckBox_RETURNSTATUS(drivers_delete) + "', vehicles_add = '" + CheckBox_RETURNSTATUS(vehicles_add) + "', vehicles_edit = '" + CheckBox_RETURNSTATUS(vehicles_edit) + "', vehicles_delete = '" + CheckBox_RETURNSTATUS(vehicles_delete) + "', properties = '" + CheckBox_RETURNSTATUS(Properties) + "', logs_add = '" + CheckBox_RETURNSTATUS(logs_add) + "', logs_delete = '" + CheckBox_RETURNSTATUS(Logs_delete) + "', logs_clean = '" + CheckBox_RETURNSTATUS(Logs_clean) + "', user_access = '" + CheckBox_RETURNSTATUS(user_access) + "', user_add = '" + CheckBox_RETURNSTATUS(user_add) + "', user_edit = '" + CheckBox_RETURNSTATUS(user_edit) + "', user_delete = '" + CheckBox_RETURNSTATUS(User_delete) + "', user_permisos = '" + CheckBox_RETURNSTATUS(user_permisos) + "' WHERE user_id = " + user_select + " ")
+        ByVal user_permisos As CheckBox,
+        ByVal delete_omitidas As CheckBox,
+        ByVal close_software As CheckBox)
+        Return Db_shared.Ejecutar("UPDATE permissions SET acces_clients = '" + CheckBox_RETURNSTATUS(acces_clients) + "', acces_numbersTelephone = '" + CheckBox_RETURNSTATUS(acces_numbersTelephone) + "', acces_adresses = '" + CheckBox_RETURNSTATUS(acces_adresses) + "', acces_drivers = '" + CheckBox_RETURNSTATUS(acces_drivers) + "', acces_vehicles = '" + CheckBox_RETURNSTATUS(acces_vehicles) + "', acces_logs = '" + CheckBox_RETURNSTATUS(acces_logs) + "', clients_add = '" + CheckBox_RETURNSTATUS(Clients_add) + "', clients_edit = '" + CheckBox_RETURNSTATUS(clients_edit) + "', clients_delete = '" + CheckBox_RETURNSTATUS(Clients_DELETE) + "', adresses_add = '" + CheckBox_RETURNSTATUS(adresses_add) + "', adresses_edit = '" + CheckBox_RETURNSTATUS(adresses_edit) + "', adresses_delete = '" + CheckBox_RETURNSTATUS(adresses_delete) + "', telephone_add = '" + CheckBox_RETURNSTATUS(telephone_add) + "', telephone_edit = '" + CheckBox_RETURNSTATUS(telephone_edit) + "', telephone_delete = '" + CheckBox_RETURNSTATUS(telephone_delete) + "', drivers_add = '" + CheckBox_RETURNSTATUS(Drivers_add) + "', drivers_edit = '" + CheckBox_RETURNSTATUS(drivers_edit) + "', drivers_delete = '" + CheckBox_RETURNSTATUS(drivers_delete) + "', vehicles_add = '" + CheckBox_RETURNSTATUS(vehicles_add) + "', vehicles_edit = '" + CheckBox_RETURNSTATUS(vehicles_edit) + "', vehicles_delete = '" + CheckBox_RETURNSTATUS(vehicles_delete) + "', properties = '" + CheckBox_RETURNSTATUS(Properties) + "', logs_add = '" + CheckBox_RETURNSTATUS(logs_add) + "', logs_delete = '" + CheckBox_RETURNSTATUS(Logs_delete) + "', logs_clean = '" + CheckBox_RETURNSTATUS(Logs_clean) + "', user_access = '" + CheckBox_RETURNSTATUS(user_access) + "', user_add = '" + CheckBox_RETURNSTATUS(user_add) + "', user_edit = '" + CheckBox_RETURNSTATUS(user_edit) + "', user_delete = '" + CheckBox_RETURNSTATUS(User_delete) + "', user_permisos = '" + CheckBox_RETURNSTATUS(user_permisos) + "', delete_omitido = '" + CheckBox_RETURNSTATUS(delete_omitidas) + "', close_software = '" + CheckBox_RETURNSTATUS(close_software) + "' WHERE user_id = " + user_select + " ")
     End Function
 
     'Caller id

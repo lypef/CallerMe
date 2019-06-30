@@ -42,6 +42,8 @@
         user_edit.Checked = v
         user_delete.Checked = v
         user_permisos.Checked = v
+        Delete_omitido.Checked = v
+        Close_software.Checked = v
     End Sub
 
     Private Sub Checketfont(v As Font)
@@ -75,6 +77,8 @@
         user_edit.Font = v
         user_delete.Font = v
         user_permisos.Font = v
+        Delete_omitido.Font = v
+        Close_software.Font = v
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -114,7 +118,9 @@
                 user_add,
                 user_edit,
                 user_delete,
-                user_permisos) Then
+                user_permisos,
+                Delete_omitido,
+                Close_software) Then
                 ChecketAll(False)
                 TxtName.Text = ""
                 TxtUsername.Text = ""

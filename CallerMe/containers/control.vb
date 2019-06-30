@@ -715,4 +715,15 @@ Public Class control
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
     End Sub
+
+    Private Sub control_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+        If f.ReturnPermission(f.Permission_close_software) Then
+            End
+        Else
+            e.Cancel = True
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+
+    End Sub
 End Class

@@ -49,7 +49,7 @@
     End Sub
 
     Private Sub btn_delete_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
-        If f.ReturnPermission(f.Permission_Logs_DELETE) And functions.log_id_omitidas > 0 Then
+        If f.ReturnPermission(f.Permission_omitos_delete) And functions.log_id_omitidas > 0 Then
             If (MsgBox("¿Esta seguro de eliminar el regristro # " + functions.log_id_omitidas + "?", f.Alert_NumberExclamacion + vbYesNo) = vbYes) Then
                 If functions.Logs_delete_omitidas() Then
                     LoadIni()

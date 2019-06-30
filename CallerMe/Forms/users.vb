@@ -60,7 +60,9 @@
                 user_add,
                 user_edit,
                 user_delete,
-                user_permisos)
+                user_permisos,
+                Delete_omitido,
+                Close_software)
                 If f.ReturnPermission(f.Permission_users_PERMISOS) = False Then
                     f.Alert("No puede editar los permisos", f.Alert_NumberExclamacion)
                 End If
@@ -102,6 +104,8 @@
         user_edit.Checked = v
         user_delete.Checked = v
         user_permisos.Checked = v
+        Delete_omitido.Checked = v
+        Close_software.Checked = v
     End Sub
 
     Private Sub Table_users_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Table_users.CellDoubleClick
@@ -203,7 +207,9 @@
                         user_add,
                         user_edit,
                         user_delete,
-                        user_permisos) Then
+                        user_permisos,
+                        Delete_omitido,
+                        Close_software) Then
                         f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
                         TabControl1.SelectedIndex = 0
                     Else
