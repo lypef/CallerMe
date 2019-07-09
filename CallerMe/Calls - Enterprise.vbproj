@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>106</ApplicationRevision>
+    <ApplicationRevision>107</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -246,6 +246,12 @@
     <Compile Include="Forms\LogsOmitidas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\logs_login.Designer.vb">
+      <DependentUpon>logs_login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\logs_login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\select_fecha.Designer.vb">
       <DependentUpon>select_fecha.vb</DependentUpon>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogsOmitidas.resx">
       <DependentUpon>LogsOmitidas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\logs_login.resx">
+      <DependentUpon>logs_login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Number_telephone.resx">
       <DependentUpon>Number_telephone.vb</DependentUpon>

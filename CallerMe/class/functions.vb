@@ -468,6 +468,26 @@ Public Class functions
 
     End Sub
 
+    Public Sub LogsLogin_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("user", " USUARIO")
+        t.Columns.Add("fecha", "FECHA")
+        t.Columns.Add("login", "LOGIN")
+
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub LogsOmitidos_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -594,6 +614,10 @@ Public Class functions
 
     Public Shared Function Logs_delete() As Boolean
         Return Db_shared.Ejecutar("delete from registros where id = " + log_id + " ")
+    End Function
+
+    Public Shared Function Logslogin_delete() As Boolean
+        Return Db_shared.Ejecutar("delete from logs_login where id = " + log_id + " ")
     End Function
 
     Public Shared Function Logs_delete_omitidas() As Boolean
@@ -787,6 +811,12 @@ Public Class functions
         Else
             Return Db_shared.Ejecutar("INSERT INTO telephone_numbers (client, numero, compañia, fijo, movil, ref_note) VALUES (" + Client + ", '" + TxtNumero.Text.Replace(" ", "") + "', '" + TxtCompañia.Text.ToUpper + "', '1', '0', '" + TxtRef.Text.ToUpper + "' )")
         End If
+    End Function
+
+    Public Function loginAdd(ByVal login As String) As Boolean
+        Dim fecha As Date
+        fecha = Date.Now
+        Return Db.Ejecutar("INSERT INTO `logs_login` (`user_id`, `fecha`, `login`) VALUES ('" + userID + "', '" + ReturnDateFormatString(fecha) + "', '" + login + "');")
     End Function
 
     Public Shared Function Drivers_ADD(ByVal Txtmodelo As TextBox, ByVal TxtPlaca As TextBox, ByVal TxtNumero As TextBox, ByVal TxtCaracteristicas As TextBox, ByVal TxtGps As TextBox) As Boolean

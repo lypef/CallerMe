@@ -93,6 +93,7 @@ Public Class control
         f.AddForm_Desktop(Drivers, Desktop)
         f.AddForm_Desktop(DriversADD, Desktop)
         f.AddForm_Desktop(Logs, Desktop)
+        f.AddForm_Desktop(logs_login, Desktop)
         f.AddForm_Desktop(LogsOmitidas, Desktop)
         f.AddForm_Desktop(LogsADD, Desktop)
         f.AddForm_Desktop(Number_telephone, Desktop)
@@ -717,13 +718,38 @@ Public Class control
     End Sub
 
     Private Sub control_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-
         If f.ReturnPermission(f.Permission_close_software) Then
+            f.loginAdd(0)
             End
         Else
             e.Cancel = True
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
 
+    End Sub
+
+    Private Sub CambiarDeUsuarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambiarDeUsuarioToolStripMenuItem.Click
+        Me.Visible = False
+        f.loginAdd(0)
+        Login.Show()
+    End Sub
+
+    Private Sub IniciosYCierresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IniciosYCierresToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            logs_login.LoadIni()
+            f.AddForm_Desktop(logs_login, Desktop)
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+    End Sub
+
+    Private Sub PorFechaToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles PorFechaToolStripMenuItem1.Click
+        If f.ReturnPermission(f.Permission_Access_LOGS) Then
+            select_fecha.ini()
+            select_fecha._Logs_login = True
+            select_fecha.Show()
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

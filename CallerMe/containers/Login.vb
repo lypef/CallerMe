@@ -54,7 +54,7 @@ Public Class Login
     Private Sub login_action()
         If (My.Settings.valid) Then
             If (f.Login(TxtUsername, TxtPassword)) Then
-
+                f.loginAdd(1)
                 If CheckBoxCred.Checked Then
                     My.Settings.login_username = TxtUsername.Text
                     My.Settings.login_password = TxtPassword.Text
