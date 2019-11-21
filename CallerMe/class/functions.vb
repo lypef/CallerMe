@@ -240,6 +240,10 @@ Public Class functions
         Parametros.Show()
     End Sub
 
+    Public Sub LogError(ByVal log As String)
+        Db.Ejecutar("INSERT INTO `errors` (`1`, `log`) VALUES (NULL, '" + log + "');")
+    End Sub
+
     Public Function IsFormOpen(ByVal frm As Form) As Boolean
         If Application.OpenForms.OfType(Of Form).Contains(frm) Then
             Return True
@@ -463,6 +467,24 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6), dato.GetString(7), dato.GetString(8), dato.GetString(9))
+            Loop
+        End If
+
+    End Sub
+
+    Public Sub Table_LogsError(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("registro", "Registro")
+        t.Columns.Add("fecha", "Fecha")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2))
             Loop
         End If
 
@@ -1478,36 +1500,41 @@ Public Class functions
     Public Function ComprobarLlamada(ByVal Device As Integer) As String
         Dim r As String = ""
 
-        Dim szCallerID As New StringBuilder(128)
-        Dim szName As New StringBuilder(128)
-        Dim szTime As New StringBuilder(128)
-        AD101_GetCallerID(Device, szCallerID, szName, szTime)
+        Try
 
-        If Device = 0 Then
-            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
-                If szCallerID.ToString <> LastNumber0 Then
-                    r = szCallerID.ToString
+            Dim szCallerID As New StringBuilder(128)
+            Dim szName As New StringBuilder(128)
+            Dim szTime As New StringBuilder(128)
+            AD101_GetCallerID(Device, szCallerID, szName, szTime)
+
+            If Device = 0 Then
+                If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                    If szCallerID.ToString <> LastNumber0 Then
+                        r = szCallerID.ToString
+                    End If
+                End If
+            ElseIf Device = 1 Then
+                If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                    If szCallerID.ToString <> LastNumber1 Then
+                        r = szCallerID.ToString
+                    End If
+                End If
+            ElseIf Device = 2 Then
+                If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                    If szCallerID.ToString <> LastNumber2 Then
+                        r = szCallerID.ToString
+                    End If
+                End If
+            ElseIf Device = 3 Then
+                If String.IsNullOrEmpty(szCallerID.ToString) = False Then
+                    If szCallerID.ToString <> LastNumber3 Then
+                        r = szCallerID.ToString
+                    End If
                 End If
             End If
-        ElseIf Device = 1 Then
-            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
-                If szCallerID.ToString <> LastNumber1 Then
-                    r = szCallerID.ToString
-                End If
-            End If
-        ElseIf Device = 2 Then
-            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
-                If szCallerID.ToString <> LastNumber2 Then
-                    r = szCallerID.ToString
-                End If
-            End If
-        ElseIf Device = 3 Then
-            If String.IsNullOrEmpty(szCallerID.ToString) = False Then
-                If szCallerID.ToString <> LastNumber3 Then
-                    r = szCallerID.ToString
-                End If
-            End If
-        End If
+        Catch ex As Exception
+            LogError(ex.Message + " Comprobar llamada en la raiz")
+        End Try
 
         Return r
     End Function
@@ -1617,14 +1644,14 @@ Public Class functions
             Else
                 foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
             End If
-            Dim p = Db.Consult("SELECT id, direccion, kms FROM adresses WHERE client = '" + r.GetString(0) + "' ")
+            Dim p = Db.Consult("SELECT id, direccion, kms FROM adresses WHERE client = '" + r.GetString(0) + "' order by id desc limit 12 ")
             direcciones.Items.Add("Direcciones")
             If p.HasRows Then
                 Do While p.Read()
                     direcciones.Items.Add(p.GetString(1) + " - kms: (" + p.GetString(2) + ") ID: [" + p.GetString(0) + "]")
                 Loop
             End If
-            direcciones.SelectedIndex = 0
+            direcciones.SelectedIndex = direcciones.Items.Count - 1
         Else
             'Publico en general
             Dim p_g = Db.Consult("SELECT c.id, c.nombre, c.foto, t.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + My.Settings.pg_id + "' ")
@@ -1640,18 +1667,19 @@ Public Class functions
                     foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
                 End If
 
-                Dim p_d = Db.Consult("SELECT c.id, a.id, c.nombre, a.direccion, a.kms FROM adresses a, clients c where a.client = c.id and c.id = '" + client_id.ToString + "'")
+                Dim p_d = Db.Consult("SELECT c.id, a.id, c.nombre, a.direccion, a.kms FROM adresses a, clients c where a.client = c.id and c.id = '" + client_id.ToString + "'  order by a.id desc limit 12")
                 direcciones.Items.Add("Direcciones")
                 If p_d.HasRows Then
                     Do While p_d.Read()
                         direcciones.Items.Add(p_d.GetString(3) + " - kms: (" + p_d.GetString(4) + ") ID: [" + p_d.GetString(1) + "]")
                     Loop
                 End If
-                direcciones.SelectedIndex = 0
+                If direcciones.Items.Count > 0 Then
+                    direcciones.SelectedIndex = 1
+                End If
+
             End If
         End If
-
-        direcciones.SelectedIndex = direcciones.Items.Count - 1
 
         Return result
     End Function

@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>107</ApplicationRevision>
+    <ApplicationRevision>114</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -192,10 +192,28 @@
     <Compile Include="containers\Asistir_llamada.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="containers\LlamadaEntrante.Designer.vb">
-      <DependentUpon>LlamadaEntrante.vb</DependentUpon>
+    <Compile Include="containers\LlamadaEntrante0.Designer.vb">
+      <DependentUpon>LlamadaEntrante0.vb</DependentUpon>
     </Compile>
-    <Compile Include="containers\LlamadaEntrante.vb">
+    <Compile Include="containers\LlamadaEntrante0.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante1.designer.vb">
+      <DependentUpon>LlamadaEntrante1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante2.designer.vb">
+      <DependentUpon>LlamadaEntrante2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante3.designer.vb">
+      <DependentUpon>LlamadaEntrante3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\LlamadaEntrante3.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="containers\validate.Designer.vb">
@@ -364,8 +382,8 @@
     <EmbeddedResource Include="containers\Control.resx">
       <DependentUpon>Control.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="containers\LlamadaEntrante.resx">
-      <DependentUpon>LlamadaEntrante.vb</DependentUpon>
+    <EmbeddedResource Include="containers\LlamadaEntrante0.resx">
+      <DependentUpon>LlamadaEntrante0.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\About.resx">
       <DependentUpon>About.vb</DependentUpon>

@@ -161,45 +161,49 @@
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Btn_GuardarDb.Click
-        If Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
-            direccion_id = Combo_direcciones.SelectedItem.ToString.Substring(Combo_direcciones.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-            vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-            driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+        Try
+            If Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
+                direccion_id = Combo_direcciones.SelectedItem.ToString.Substring(Combo_direcciones.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-            If f.save_registroAutomatic(client_id, number_id, f_llamada, Asitir_llamada, DateTime.Now, direccion_id, vehiculo_id, driver_id) Then
-                If caller = 0 Then
-                    f.finalizarLlamada(caller)
-                    control.TimerCero.Start()
-                    Me.Dispose()
-                    'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-                ElseIf caller = 1 Then
-                    f.finalizarLlamada(caller)
-                    control.TimerUno.Start()
-                    Me.Dispose()
-                    'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-                ElseIf caller = 2 Then
-                    f.finalizarLlamada(caller)
-                    control.TimerDOS.Start()
-                    Me.Dispose()
-                    'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-                ElseIf caller = 3 Then
-                    f.finalizarLlamada(caller)
-                    control.TimerTres.Start()
-                    Me.Dispose()
-                    'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                If f.save_registroAutomatic(client_id, number_id, f_llamada, Asitir_llamada, DateTime.Now, direccion_id, vehiculo_id, driver_id) Then
+                    If caller = 0 Then
+                        f.finalizarLlamada(caller)
+                        control.TimerCero.Start()
+                        Me.Dispose()
+                        'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                    ElseIf caller = 1 Then
+                        f.finalizarLlamada(caller)
+                        control.TimerUno.Start()
+                        Me.Dispose()
+                        'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                    ElseIf caller = 2 Then
+                        f.finalizarLlamada(caller)
+                        control.TimerDOS.Start()
+                        Me.Dispose()
+                        'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                    ElseIf caller = 3 Then
+                        f.finalizarLlamada(caller)
+                        control.TimerTres.Start()
+                        Me.Dispose()
+                        'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                    End If
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
                 End If
+
+                'Se actualiza form logs, hoy
+                If f.ReturnPermission(f.Permission_Access_LOGS) Then
+                    Logs.LoadIni()
+                End If
+
             Else
-                f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                f.Alert("Verifique sus opciones seleccionadas", f.Alert_NumberExclamacion)
             End If
-
-            'Se actualiza form logs, hoy
-            If f.ReturnPermission(f.Permission_Access_LOGS) Then
-                Logs.LoadIni()
-            End If
-
-        Else
-            f.Alert("Verifique sus opciones seleccionadas", f.Alert_NumberExclamacion)
-        End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ", En Asistir llamada")
+        End Try
     End Sub
 
     Private Sub Btn_GuardarDb_MouseEnter(sender As Object, e As EventArgs) Handles Btn_GuardarDb.MouseEnter

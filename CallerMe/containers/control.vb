@@ -513,17 +513,21 @@ Public Class control
     End Sub
 
     Private Sub TimerDevice0_Tick(sender As Object, e As EventArgs) Handles TimerCero.Tick
-        Dim Device0 = f.ComprobarLlamada(0).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
-            TimerCero.Stop()
-            functions.LastNumber0 = Device0
-            Dim form As New LlamadaEntrante
-            form.Static_numero = Device0
-            form.caller = 0
-            form.f_llamada = DateTime.Now
-            form.LoadNumber()
-            form.Show()
-        End If
+        Try
+            Dim Device0 = f.ComprobarLlamada(0).ToString
+            If (String.IsNullOrEmpty(Device0) = False) Then
+                TimerCero.Stop()
+                functions.LastNumber0 = Device0
+                Dim form As New LlamadaEntrante0
+                form.Static_numero = Device0
+                form.caller = 0
+                form.f_llamada = DateTime.Now
+                form.LoadNumber()
+                form.Show()
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 529")
+        End Try
     End Sub
 
     Private Sub OcupadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OcupadaToolStripMenuItem.Click
@@ -563,48 +567,60 @@ Public Class control
     End Sub
 
     Private Sub TimerUno_Tick(sender As Object, e As EventArgs) Handles TimerUno.Tick
-        Dim Caller = 1
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
-            TimerUno.Stop()
-            functions.LastNumber1 = Device0
-            Dim form As New LlamadaEntrante
-            form.Static_numero = Device0
-            form.caller = Caller
-            form.f_llamada = DateTime.Now
-            form.LoadNumber()
-            form.Show()
-        End If
+        Try
+            Dim Caller = 1
+            Dim Device0 = f.ComprobarLlamada(Caller).ToString
+            If (String.IsNullOrEmpty(Device0) = False) Then
+                TimerUno.Stop()
+                functions.LastNumber1 = Device0
+                Dim form As New LlamadaEntrante1
+                form.Static_numero = Device0
+                form.caller = Caller
+                form.f_llamada = DateTime.Now
+                form.LoadNumber()
+                form.Show()
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 584")
+        End Try
     End Sub
 
     Private Sub TimerDOS_Tick(sender As Object, e As EventArgs) Handles TimerDOS.Tick
-        Dim Caller = 2
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
-            TimerDOS.Stop()
-            functions.LastNumber2 = Device0
-            Dim form As New LlamadaEntrante
-            form.Static_numero = Device0
-            form.caller = Caller
-            form.f_llamada = DateTime.Now
-            form.LoadNumber()
-            form.Show()
-        End If
+        Try
+            Dim Caller = 2
+            Dim Device0 = f.ComprobarLlamada(Caller).ToString
+            If (String.IsNullOrEmpty(Device0) = False) Then
+                TimerDOS.Stop()
+                functions.LastNumber2 = Device0
+                Dim form As New LlamadaEntrante2
+                form.Static_numero = Device0
+                form.caller = Caller
+                form.f_llamada = DateTime.Now
+                form.LoadNumber()
+                form.Show()
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 603")
+        End Try
     End Sub
 
     Private Sub TimerTres_Tick(sender As Object, e As EventArgs) Handles TimerTres.Tick
-        Dim Caller = 3
-        Dim Device0 = f.ComprobarLlamada(Caller).ToString
-        If (String.IsNullOrEmpty(Device0) = False) Then
-            TimerTres.Stop()
-            functions.LastNumber3 = Device0
-            Dim form As New LlamadaEntrante
-            form.Static_numero = Device0
-            form.caller = Caller
-            form.f_llamada = DateTime.Now
-            form.LoadNumber()
-            form.Show()
-        End If
+        Try
+            Dim Caller = 3
+            Dim Device0 = f.ComprobarLlamada(Caller).ToString
+            If (String.IsNullOrEmpty(Device0) = False) Then
+                TimerTres.Stop()
+                functions.LastNumber3 = Device0
+                Dim form As New LlamadaEntrante3
+                form.Static_numero = Device0
+                form.caller = Caller
+                form.f_llamada = DateTime.Now
+                form.LoadNumber()
+                form.Show()
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 622")
+        End Try
     End Sub
 
     Private Sub GestionarToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles GestionarToolStripMenuItem7.Click
@@ -751,5 +767,12 @@ Public Class control
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        Dim Table As New DataGridView
+        f.DataGridView_Model(Table)
+        f.Table_LogsError("SELECT * FROM `errors` ORDER BY id DESC LIMIT 400", Table)
+        f.GenReport(Table, "Ultimos 400 Errores", True)
     End Sub
 End Class

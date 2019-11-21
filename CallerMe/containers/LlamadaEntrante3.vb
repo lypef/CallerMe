@@ -1,4 +1,4 @@
-﻿Public Class LlamadaEntrante
+﻿Public Class LlamadaEntrante3
     Public caller As Integer
     Public f_llamada As Date
     Public Static_numero As String
@@ -73,24 +73,28 @@
     End Sub
 
     Private Sub Btn_add_Click(sender As Object, e As EventArgs) Handles btn_asistir.Click
-        If caller = 0 Then
-            control.TimerCero.Stop()
-        ElseIf caller = 1 Then
-            control.TimerUno.Stop()
-        ElseIf caller = 2 Then
-            control.TimerDOS.Stop()
-        ElseIf caller = 3 Then
-            control.TimerTres.Stop()
-        End If
+        Try
+            If caller = 0 Then
+                control.TimerCero.Stop()
+            ElseIf caller = 1 Then
+                control.TimerUno.Stop()
+            ElseIf caller = 2 Then
+                control.TimerDOS.Stop()
+            ElseIf caller = 3 Then
+                control.TimerTres.Stop()
+            End If
 
-        Dim a As New Asistir_llamada
-        a.caller = caller
-        a.number = Numero.Text
-        a.f_llamada = f_llamada
-        a.Asitir_llamada = DateTime.Now
-        a.loadvalues()
-        a.Show()
-        Me.Dispose()
+            Dim a As New Asistir_llamada
+            a.Show()
+            a.caller = caller
+            a.number = Numero.Text
+            a.f_llamada = f_llamada
+            a.Asitir_llamada = DateTime.Now
+            a.loadvalues()
+            Me.Dispose()
+        Catch ex As Exception
+            f.LogError(ex.Message + ", En llamada entrante")
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_omitir.Click
