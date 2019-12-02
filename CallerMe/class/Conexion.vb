@@ -3,7 +3,7 @@
 Public Class Conexion
 
     Dim Conexion = New MySqlConnection()
-    Dim Conectar = "server=" + My.Settings.db_servidor + "; user id=" + My.Settings.db_username + "; password=" + My.Settings.db_password + "; database=" + My.Settings.db_nameDB + "; Port=" + My.Settings.db_puerto + ";"
+    Dim Conectar = "server=" + My.Settings.db_servidor + "; user id=" + My.Settings.db_username + "; password=" + My.Settings.db_password + "; database=" + My.Settings.db_nameDB + "; Port=" + My.Settings.db_puerto + ";Max Pool Size=1000000;"
 
     Public Function Consult(ByVal sql As String)
         Dim dato As MySqlDataReader
@@ -20,7 +20,7 @@ Public Class Conexion
             dato = commando.ExecuteReader()
         Catch ex As Exception
             dato = Nothing
-            MsgBox("Imposible conectar a la base de datos", MsgBoxStyle.Critical, "Error")
+            MsgBox("Imposible conectar a la base de datos, " + ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
 
         Return dato

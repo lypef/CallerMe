@@ -395,6 +395,7 @@ Public Class functions
     End Sub
 
     Public Sub DataGridView_Model(ByVal d As DataGridView)
+        d.AllowUserToAddRows = False
         d.RowHeadersVisible = False
         d.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         d.AlternatingRowsDefaultCellStyle.BackColor = My.Settings.datagridview_color
@@ -1990,5 +1991,14 @@ Public Class functions
         End If
 
     End Sub
+
+    Public Function ReturnLogsTotal(ByVal sql As String) As Integer
+        Dim dato = Db.Consult(sql)
+        If dato.Read() Then
+            Return dato.GetString(0)
+        Else
+            Return 0
+        End If
+    End Function
 
 End Class
