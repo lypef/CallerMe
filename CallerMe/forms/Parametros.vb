@@ -30,7 +30,6 @@ Public Class Parametros
         tipo_font_alert = My.Settings.font_alertas
         colorselect = My.Settings.datagridview_selectrow
         TxtLogoReport.Text = My.Settings.report_image
-        ComboBoxLEd.SelectedIndex = My.Settings.caller_luz
         TimerInterval.Minimum = 250
         TimerInterval.Maximum = 2000
         TimerInterval.Value = My.Settings.timer_intervalo
@@ -39,23 +38,18 @@ Public Class Parametros
         caller_2.Checked = My.Settings.caller_2
         caller_3.Checked = My.Settings.caller_3
 
-        Caler0_number.Text = My.Settings.caller_0_number
-        Caler1_number.Text = My.Settings.caller_1_number
-        Caler2_number.Text = My.Settings.caller_2_number
-        Caler3_number.Text = My.Settings.caller_3_number
+
         P_generalID.Text = My.Settings.pg_id
         UrlApi.Text = My.Settings.ws_gps
         CheckGps.Checked = My.Settings.use_gps
-
-        id_device_0.Text = My.Settings.id_device0.ToString
-        id_device_1.Text = My.Settings.id_device1.ToString
-        id_device_2.Text = My.Settings.id_device2.ToString
-        id_device_3.Text = My.Settings.id_device3.ToString
 
         If f.IsFormOpen(control) Then
             TxtSalir.Enabled = False
         End If
         Omitir.Value = My.Settings.omitir_llamada
+        Use_Device.Checked = My.Settings.use_device
+        Use_Conmutador.Checked = My.Settings.use_conmutador
+        use_4_windows.Checked = My.Settings.use_4_windows
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles TxtSalir.Click
@@ -76,26 +70,18 @@ Public Class Parametros
         My.Settings.font_alertas = tipo_font_alert
         My.Settings.datagridview_selectrow = colorselect
         My.Settings.report_image = TxtLogoReport.Text
-        My.Settings.caller_luz = ComboBoxLEd.SelectedIndex
         My.Settings.timer_intervalo = CInt(TimerInterval.Value)
         My.Settings.caller_0 = Caller_0.Checked
         My.Settings.caller_1 = Caller_1.Checked
         My.Settings.caller_2 = caller_2.Checked
         My.Settings.caller_3 = caller_3.Checked
-
-        My.Settings.caller_0_number = Caler0_number.Text
-        My.Settings.caller_1_number = Caler1_number.Text
-        My.Settings.caller_2_number = Caler2_number.Text
-        My.Settings.caller_3_number = Caler3_number.Text
         My.Settings.pg_id = P_generalID.Text
         My.Settings.ws_gps = UrlApi.Text
         My.Settings.use_gps = CheckGps.Checked
         My.Settings.omitir_llamada = Omitir.Value
-
-        My.Settings.id_device0 = CType(Integer.Parse(id_device_0.Text), String)
-        My.Settings.id_device1 = CType(Integer.Parse(id_device_1.Text), String)
-        My.Settings.id_device2 = CType(Integer.Parse(id_device_2.Text), String)
-        My.Settings.id_device3 = CType(Integer.Parse(id_device_3.Text), String)
+        My.Settings.use_device = Use_Device.Checked
+        My.Settings.use_conmutador = Use_Conmutador.Checked
+        My.Settings.use_4_windows = use_4_windows.Checked
 
         My.Settings.Save()
 
@@ -173,6 +159,18 @@ Public Class Parametros
         If FontDialog2.ShowDialog() = DialogResult.OK Then
             tipo_font_alert = FontDialog2.Font
             Button8.Font = FontDialog2.Font
+        End If
+    End Sub
+
+    Private Sub Use_Device_CheckedChanged(sender As Object, e As EventArgs) Handles Use_Device.CheckedChanged
+        If Use_Device.Checked Then
+            Use_Conmutador.Checked = False
+        End If
+    End Sub
+
+    Private Sub Use_Conmutador_CheckedChanged(sender As Object, e As EventArgs) Handles Use_Conmutador.CheckedChanged
+        If Use_Conmutador.Checked Then
+            Use_Device.Checked = False
         End If
     End Sub
 End Class

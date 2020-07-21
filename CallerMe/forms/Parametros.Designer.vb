@@ -53,19 +53,10 @@ Partial Class Parametros
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Caler3_number = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Caler2_number = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Caler1_number = New System.Windows.Forms.TextBox()
         Me.caller_3 = New System.Windows.Forms.CheckBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.caller_2 = New System.Windows.Forms.CheckBox()
-        Me.Caler0_number = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Caller_1 = New System.Windows.Forms.CheckBox()
-        Me.ComboBoxLEd = New System.Windows.Forms.ComboBox()
         Me.TimerInterval = New System.Windows.Forms.NumericUpDown()
         Me.Caller_0 = New System.Windows.Forms.CheckBox()
         Me.Button8 = New System.Windows.Forms.Button()
@@ -78,14 +69,14 @@ Partial Class Parametros
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Omitir = New System.Windows.Forms.NumericUpDown()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.id_device_3 = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.id_device_2 = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.id_device_1 = New System.Windows.Forms.TextBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.id_device_0 = New System.Windows.Forms.TextBox()
+        Me.Use_Device = New System.Windows.Forms.CheckBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Use_Conmutador = New System.Windows.Forms.CheckBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.use_4_windows = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -94,6 +85,7 @@ Partial Class Parametros
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.Omitir, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -213,7 +205,7 @@ Partial Class Parametros
         '
         'TxtGuardar
         '
-        Me.TxtGuardar.Location = New System.Drawing.Point(812, 334)
+        Me.TxtGuardar.Location = New System.Drawing.Point(496, 30)
         Me.TxtGuardar.Name = "TxtGuardar"
         Me.TxtGuardar.Size = New System.Drawing.Size(93, 33)
         Me.TxtGuardar.TabIndex = 100
@@ -222,7 +214,7 @@ Partial Class Parametros
         '
         'TxtSalir
         '
-        Me.TxtSalir.Location = New System.Drawing.Point(729, 334)
+        Me.TxtSalir.Location = New System.Drawing.Point(413, 30)
         Me.TxtSalir.Name = "TxtSalir"
         Me.TxtSalir.Size = New System.Drawing.Size(77, 33)
         Me.TxtSalir.TabIndex = 99
@@ -231,7 +223,7 @@ Partial Class Parametros
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(729, 373)
+        Me.Button2.Location = New System.Drawing.Point(413, 69)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(176, 33)
         Me.Button2.TabIndex = 101
@@ -251,7 +243,7 @@ Partial Class Parametros
         Me.GroupBox2.Size = New System.Drawing.Size(253, 263)
         Me.GroupBox2.TabIndex = 9
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Data"
+        Me.GroupBox2.Text = "DATA"
         '
         'Button7
         '
@@ -314,10 +306,10 @@ Partial Class Parametros
         Me.GroupBox3.Controls.Add(Me.Tablas_Height)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 281)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(292, 100)
+        Me.GroupBox3.Size = New System.Drawing.Size(292, 125)
         Me.GroupBox3.TabIndex = 10
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Tablas"
+        Me.GroupBox3.Text = "TABLAS"
         '
         'Button6
         '
@@ -365,128 +357,47 @@ Partial Class Parametros
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.Label17)
-        Me.GroupBox4.Controls.Add(Me.id_device_3)
-        Me.GroupBox4.Controls.Add(Me.Label18)
-        Me.GroupBox4.Controls.Add(Me.id_device_2)
-        Me.GroupBox4.Controls.Add(Me.Label19)
-        Me.GroupBox4.Controls.Add(Me.id_device_1)
-        Me.GroupBox4.Controls.Add(Me.Label20)
-        Me.GroupBox4.Controls.Add(Me.id_device_0)
-        Me.GroupBox4.Controls.Add(Me.Label13)
-        Me.GroupBox4.Controls.Add(Me.Caler3_number)
-        Me.GroupBox4.Controls.Add(Me.Label12)
-        Me.GroupBox4.Controls.Add(Me.Caler2_number)
-        Me.GroupBox4.Controls.Add(Me.Label11)
-        Me.GroupBox4.Controls.Add(Me.Caler1_number)
+        Me.GroupBox4.Controls.Add(Me.use_4_windows)
+        Me.GroupBox4.Controls.Add(Me.Use_Device)
+        Me.GroupBox4.Controls.Add(Me.Label16)
         Me.GroupBox4.Controls.Add(Me.caller_3)
-        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.Omitir)
         Me.GroupBox4.Controls.Add(Me.caller_2)
-        Me.GroupBox4.Controls.Add(Me.Caler0_number)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.Controls.Add(Me.Caller_1)
-        Me.GroupBox4.Controls.Add(Me.ComboBoxLEd)
         Me.GroupBox4.Controls.Add(Me.TimerInterval)
         Me.GroupBox4.Controls.Add(Me.Caller_0)
         Me.GroupBox4.Location = New System.Drawing.Point(460, 12)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(445, 263)
+        Me.GroupBox4.Size = New System.Drawing.Size(445, 125)
         Me.GroupBox4.TabIndex = 10
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Identificador de llamadas"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(7, 201)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(59, 13)
-        Me.Label13.TabIndex = 16
-        Me.Label13.Text = "Numero L4"
-        '
-        'Caler3_number
-        '
-        Me.Caler3_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler3_number.Location = New System.Drawing.Point(71, 196)
-        Me.Caler3_number.Name = "Caler3_number"
-        Me.Caler3_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler3_number.TabIndex = 17
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(7, 173)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 13)
-        Me.Label12.TabIndex = 14
-        Me.Label12.Text = "Numero L3"
-        '
-        'Caler2_number
-        '
-        Me.Caler2_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler2_number.Location = New System.Drawing.Point(71, 168)
-        Me.Caler2_number.Name = "Caler2_number"
-        Me.Caler2_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler2_number.TabIndex = 15
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(7, 145)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(59, 13)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Numero L2"
-        '
-        'Caler1_number
-        '
-        Me.Caler1_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler1_number.Location = New System.Drawing.Point(71, 140)
-        Me.Caler1_number.Name = "Caler1_number"
-        Me.Caler1_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler1_number.TabIndex = 13
+        Me.GroupBox4.Text = "CALLER ID"
         '
         'caller_3
         '
         Me.caller_3.AutoSize = True
-        Me.caller_3.Location = New System.Drawing.Point(185, 234)
+        Me.caller_3.Location = New System.Drawing.Point(369, 43)
         Me.caller_3.Name = "caller_3"
         Me.caller_3.Size = New System.Drawing.Size(61, 17)
         Me.caller_3.TabIndex = 11
         Me.caller_3.Text = "Caller 4"
         Me.caller_3.UseVisualStyleBackColor = True
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 117)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(59, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "Numero L1"
-        '
         'caller_2
         '
         Me.caller_2.AutoSize = True
-        Me.caller_2.Location = New System.Drawing.Point(124, 234)
+        Me.caller_2.Location = New System.Drawing.Point(297, 43)
         Me.caller_2.Name = "caller_2"
         Me.caller_2.Size = New System.Drawing.Size(61, 17)
         Me.caller_2.TabIndex = 10
         Me.caller_2.Text = "Caller 3"
         Me.caller_2.UseVisualStyleBackColor = True
         '
-        'Caler0_number
-        '
-        Me.Caler0_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Caler0_number.Location = New System.Drawing.Point(71, 112)
-        Me.Caler0_number.Name = "Caler0_number"
-        Me.Caler0_number.Size = New System.Drawing.Size(176, 22)
-        Me.Caler0_number.TabIndex = 10
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 70)
+        Me.Label8.Location = New System.Drawing.Point(153, 19)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(187, 13)
         Me.Label8.TabIndex = 7
@@ -495,37 +406,26 @@ Partial Class Parametros
         'Caller_1
         '
         Me.Caller_1.AutoSize = True
-        Me.Caller_1.Location = New System.Drawing.Point(64, 234)
+        Me.Caller_1.Location = New System.Drawing.Point(225, 43)
         Me.Caller_1.Name = "Caller_1"
         Me.Caller_1.Size = New System.Drawing.Size(61, 17)
         Me.Caller_1.TabIndex = 9
         Me.Caller_1.Text = "Caller 2"
         Me.Caller_1.UseVisualStyleBackColor = True
         '
-        'ComboBoxLEd
-        '
-        Me.ComboBoxLEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxLEd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.ComboBoxLEd.FormattingEnabled = True
-        Me.ComboBoxLEd.Items.AddRange(New Object() {"MODO LUZ LED", "LED APAGADO", "ROJA SIEMPRE", "VERDE SIEMPRE", "AMARILLA SIEMPRE", "ROJA INTERMITENTE DESPACIO", "VERDE INTERMITENTE DESPACIO", "AMARILLA INTERMITENTE DESPACIO", "ROJA INTERMITENTE RAPIDO", "VERDE INTERMITENTE RAPIDO", "AMARILLA INTERMITENTE RAPIDO"})
-        Me.ComboBoxLEd.Location = New System.Drawing.Point(10, 35)
-        Me.ComboBoxLEd.Name = "ComboBoxLEd"
-        Me.ComboBoxLEd.Size = New System.Drawing.Size(238, 28)
-        Me.ComboBoxLEd.TabIndex = 4
-        '
         'TimerInterval
         '
-        Me.TimerInterval.Location = New System.Drawing.Point(10, 88)
+        Me.TimerInterval.Location = New System.Drawing.Point(346, 17)
         Me.TimerInterval.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         Me.TimerInterval.Name = "TimerInterval"
-        Me.TimerInterval.Size = New System.Drawing.Size(238, 20)
+        Me.TimerInterval.Size = New System.Drawing.Size(84, 20)
         Me.TimerInterval.TabIndex = 6
         Me.TimerInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Caller_0
         '
         Me.Caller_0.AutoSize = True
-        Me.Caller_0.Location = New System.Drawing.Point(6, 234)
+        Me.Caller_0.Location = New System.Drawing.Point(153, 43)
         Me.Caller_0.Name = "Caller_0"
         Me.Caller_0.Size = New System.Drawing.Size(61, 17)
         Me.Caller_0.TabIndex = 8
@@ -534,7 +434,7 @@ Partial Class Parametros
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(286, 19)
+        Me.Button8.Location = New System.Drawing.Point(286, 29)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(110, 34)
         Me.Button8.TabIndex = 6
@@ -547,19 +447,22 @@ Partial Class Parametros
         Me.GroupBox5.Controls.Add(Me.UrlApi)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.P_generalID)
+        Me.GroupBox5.Controls.Add(Me.Button2)
+        Me.GroupBox5.Controls.Add(Me.TxtSalir)
         Me.GroupBox5.Controls.Add(Me.Label14)
         Me.GroupBox5.Controls.Add(Me.Button8)
+        Me.GroupBox5.Controls.Add(Me.TxtGuardar)
         Me.GroupBox5.Location = New System.Drawing.Point(310, 281)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(403, 125)
+        Me.GroupBox5.Size = New System.Drawing.Size(595, 125)
         Me.GroupBox5.TabIndex = 102
         Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Otros"
+        Me.GroupBox5.Text = "WEB SERVICE & OTROS"
         '
         'CheckGps
         '
         Me.CheckGps.AutoSize = True
-        Me.CheckGps.Location = New System.Drawing.Point(316, 83)
+        Me.CheckGps.Location = New System.Drawing.Point(315, 78)
         Me.CheckGps.Name = "CheckGps"
         Me.CheckGps.Size = New System.Drawing.Size(81, 17)
         Me.CheckGps.TabIndex = 18
@@ -569,15 +472,15 @@ Partial Class Parametros
         'UrlApi
         '
         Me.UrlApi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UrlApi.Location = New System.Drawing.Point(51, 56)
+        Me.UrlApi.Location = New System.Drawing.Point(51, 74)
         Me.UrlApi.Name = "UrlApi"
-        Me.UrlApi.Size = New System.Drawing.Size(345, 22)
+        Me.UrlApi.Size = New System.Drawing.Size(254, 22)
         Me.UrlApi.TabIndex = 20
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 61)
+        Me.Label15.Location = New System.Drawing.Point(6, 78)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(39, 13)
         Me.Label15.TabIndex = 19
@@ -586,7 +489,7 @@ Partial Class Parametros
         'P_generalID
         '
         Me.P_generalID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.P_generalID.Location = New System.Drawing.Point(104, 17)
+        Me.P_generalID.Location = New System.Drawing.Point(104, 36)
         Me.P_generalID.Name = "P_generalID"
         Me.P_generalID.Size = New System.Drawing.Size(176, 22)
         Me.P_generalID.TabIndex = 18
@@ -594,7 +497,7 @@ Partial Class Parametros
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 22)
+        Me.Label14.Location = New System.Drawing.Point(6, 40)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(95, 13)
         Me.Label14.TabIndex = 7
@@ -603,7 +506,7 @@ Partial Class Parametros
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(726, 281)
+        Me.Label16.Location = New System.Drawing.Point(153, 69)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(148, 13)
         Me.Label16.TabIndex = 7
@@ -611,95 +514,102 @@ Partial Class Parametros
         '
         'Omitir
         '
-        Me.Omitir.Location = New System.Drawing.Point(729, 303)
+        Me.Omitir.Location = New System.Drawing.Point(307, 67)
         Me.Omitir.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
         Me.Omitir.Name = "Omitir"
-        Me.Omitir.Size = New System.Drawing.Size(176, 20)
+        Me.Omitir.Size = New System.Drawing.Size(123, 20)
         Me.Omitir.TabIndex = 6
         Me.Omitir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Label17
+        'Use_Device
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(258, 200)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(75, 13)
-        Me.Label17.TabIndex = 24
-        Me.Label17.Text = "ID DEVICE L4"
+        Me.Use_Device.AutoSize = True
+        Me.Use_Device.Location = New System.Drawing.Point(34, 55)
+        Me.Use_Device.Name = "Use_Device"
+        Me.Use_Device.Size = New System.Drawing.Size(56, 17)
+        Me.Use_Device.TabIndex = 12
+        Me.Use_Device.Text = "USAR"
+        Me.Use_Device.UseVisualStyleBackColor = True
         '
-        'id_device_3
+        'GroupBox6
         '
-        Me.id_device_3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_device_3.Location = New System.Drawing.Point(261, 216)
-        Me.id_device_3.Name = "id_device_3"
-        Me.id_device_3.Size = New System.Drawing.Size(172, 22)
-        Me.id_device_3.TabIndex = 25
+        Me.GroupBox6.Controls.Add(Me.Label9)
+        Me.GroupBox6.Controls.Add(Me.Use_Conmutador)
+        Me.GroupBox6.Controls.Add(Me.TextBox1)
+        Me.GroupBox6.Controls.Add(Me.Label11)
+        Me.GroupBox6.Controls.Add(Me.TextBox2)
+        Me.GroupBox6.Location = New System.Drawing.Point(460, 150)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(445, 125)
+        Me.GroupBox6.TabIndex = 13
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "CONMUTADOR"
         '
-        'Label18
+        'Use_Conmutador
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(258, 146)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(75, 13)
-        Me.Label18.TabIndex = 22
-        Me.Label18.Text = "ID DEVICE L3"
+        Me.Use_Conmutador.AutoSize = True
+        Me.Use_Conmutador.Location = New System.Drawing.Point(34, 58)
+        Me.Use_Conmutador.Name = "Use_Conmutador"
+        Me.Use_Conmutador.Size = New System.Drawing.Size(56, 17)
+        Me.Use_Conmutador.TabIndex = 12
+        Me.Use_Conmutador.Text = "USAR"
+        Me.Use_Conmutador.UseVisualStyleBackColor = True
         '
-        'id_device_2
+        'Label9
         '
-        Me.id_device_2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_device_2.Location = New System.Drawing.Point(258, 162)
-        Me.id_device_2.Name = "id_device_2"
-        Me.id_device_2.Size = New System.Drawing.Size(175, 22)
-        Me.id_device_2.TabIndex = 23
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(156, 65)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(61, 13)
+        Me.Label9.TabIndex = 12
+        Me.Label9.Text = "Contraseña"
         '
-        'Label19
+        'TextBox1
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(258, 92)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(75, 13)
-        Me.Label19.TabIndex = 20
-        Me.Label19.Text = "ID DEVICE L2"
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.TextBox1.Location = New System.Drawing.Point(156, 80)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox1.Size = New System.Drawing.Size(274, 22)
+        Me.TextBox1.TabIndex = 11
         '
-        'id_device_1
+        'Label11
         '
-        Me.id_device_1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_device_1.Location = New System.Drawing.Point(258, 108)
-        Me.id_device_1.Name = "id_device_1"
-        Me.id_device_1.Size = New System.Drawing.Size(175, 22)
-        Me.id_device_1.TabIndex = 21
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(156, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(43, 13)
+        Me.Label11.TabIndex = 9
+        Me.Label11.Text = "Usuario"
         '
-        'Label20
+        'TextBox2
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(258, 44)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(75, 13)
-        Me.Label20.TabIndex = 18
-        Me.Label20.Text = "ID DEVICE L1"
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.TextBox2.Location = New System.Drawing.Point(156, 41)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(274, 22)
+        Me.TextBox2.TabIndex = 10
         '
-        'id_device_0
+        'use_4_windows
         '
-        Me.id_device_0.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.id_device_0.Location = New System.Drawing.Point(258, 60)
-        Me.id_device_0.Name = "id_device_0"
-        Me.id_device_0.Size = New System.Drawing.Size(175, 22)
-        Me.id_device_0.TabIndex = 19
+        Me.use_4_windows.AutoSize = True
+        Me.use_4_windows.Location = New System.Drawing.Point(156, 92)
+        Me.use_4_windows.Name = "use_4_windows"
+        Me.use_4_windows.Size = New System.Drawing.Size(178, 17)
+        Me.use_4_windows.TabIndex = 13
+        Me.use_4_windows.Text = "Una ventana para 4 dispositivos"
+        Me.use_4_windows.UseVisualStyleBackColor = True
         '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 457)
-        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
-        Me.Controls.Add(Me.Omitir)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TxtSalir)
-        Me.Controls.Add(Me.TxtGuardar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Parametros"
         Me.Text = "config"
@@ -716,8 +626,9 @@ Partial Class Parametros
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.Omitir, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -752,7 +663,6 @@ Partial Class Parametros
     Friend WithEvents Label7 As Label
     Friend WithEvents TxtLogoReport As TextBox
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents ComboBoxLEd As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents TimerInterval As NumericUpDown
     Friend WithEvents Button8 As Button
@@ -762,14 +672,6 @@ Partial Class Parametros
     Friend WithEvents caller_2 As CheckBox
     Friend WithEvents Caller_1 As CheckBox
     Friend WithEvents Caller_0 As CheckBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Caler3_number As TextBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Caler2_number As TextBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Caler1_number As TextBox
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Caler0_number As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents P_generalID As TextBox
     Friend WithEvents UrlApi As TextBox
@@ -777,12 +679,12 @@ Partial Class Parametros
     Friend WithEvents CheckGps As CheckBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Omitir As NumericUpDown
-    Friend WithEvents Label17 As Label
-    Friend WithEvents id_device_3 As TextBox
-    Friend WithEvents Label18 As Label
-    Friend WithEvents id_device_2 As TextBox
-    Friend WithEvents Label19 As Label
-    Friend WithEvents id_device_1 As TextBox
-    Friend WithEvents Label20 As Label
-    Friend WithEvents id_device_0 As TextBox
+    Friend WithEvents Use_Device As CheckBox
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Use_Conmutador As CheckBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents use_4_windows As CheckBox
 End Class

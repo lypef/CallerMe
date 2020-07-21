@@ -212,18 +212,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property caller_luz() As Integer
-            Get
-                Return CType(Me("caller_luz"),Integer)
-            End Get
-            Set
-                Me("caller_luz") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("750")>  _
         Public Property timer_intervalo() As Integer
             Get
@@ -243,102 +231,6 @@ Namespace My
             End Get
             Set
                 Me("font_alertas") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property caller_0() As Boolean
-            Get
-                Return CType(Me("caller_0"),Boolean)
-            End Get
-            Set
-                Me("caller_0") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property caller_1() As Boolean
-            Get
-                Return CType(Me("caller_1"),Boolean)
-            End Get
-            Set
-                Me("caller_1") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property caller_2() As Boolean
-            Get
-                Return CType(Me("caller_2"),Boolean)
-            End Get
-            Set
-                Me("caller_2") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property caller_3() As Boolean
-            Get
-                Return CType(Me("caller_3"),Boolean)
-            End Get
-            Set
-                Me("caller_3") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Caller 1")>  _
-        Public Property caller_0_number() As String
-            Get
-                Return CType(Me("caller_0_number"),String)
-            End Get
-            Set
-                Me("caller_0_number") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Caller 2")>  _
-        Public Property caller_1_number() As String
-            Get
-                Return CType(Me("caller_1_number"),String)
-            End Get
-            Set
-                Me("caller_1_number") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Caller 3")>  _
-        Public Property caller_2_number() As String
-            Get
-                Return CType(Me("caller_2_number"),String)
-            End Get
-            Set
-                Me("caller_2_number") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Caller 4")>  _
-        Public Property caller_3_number() As String
-            Get
-                Return CType(Me("caller_3_number"),String)
-            End Get
-            Set
-                Me("caller_3_number") = value
             End Set
         End Property
         
@@ -406,49 +298,85 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property id_device0() As Integer
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_0() As Boolean
             Get
-                Return CType(Me("id_device0"),Integer)
+                Return CType(Me("caller_0"),Boolean)
             End Get
             Set
-                Me("id_device0") = value
+                Me("caller_0") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property id_device1() As Integer
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_1() As Boolean
             Get
-                Return CType(Me("id_device1"),Integer)
+                Return CType(Me("caller_1"),Boolean)
             End Get
             Set
-                Me("id_device1") = value
+                Me("caller_1") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property id_device2() As Integer
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_2() As Boolean
             Get
-                Return CType(Me("id_device2"),Integer)
+                Return CType(Me("caller_2"),Boolean)
             End Get
             Set
-                Me("id_device2") = value
+                Me("caller_2") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
-        Public Property id_device3() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property caller_3() As Boolean
             Get
-                Return CType(Me("id_device3"),String)
+                Return CType(Me("caller_3"),Boolean)
             End Get
             Set
-                Me("id_device3") = value
+                Me("caller_3") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property use_device() As Boolean
+            Get
+                Return CType(Me("use_device"),Boolean)
+            End Get
+            Set
+                Me("use_device") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property use_conmutador() As Boolean
+            Get
+                Return CType(Me("use_conmutador"),Boolean)
+            End Get
+            Set
+                Me("use_conmutador") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property use_4_windows() As Boolean
+            Get
+                Return CType(Me("use_4_windows"),Boolean)
+            End Get
+            Set
+                Me("use_4_windows") = value
             End Set
         End Property
     End Class

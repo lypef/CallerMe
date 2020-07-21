@@ -17,45 +17,52 @@ Public Class control
         f.Button_SetModel(Button_Vehiculo, My.Resources.Btn_vehiculos)
         f.Button_SetModel(Button_Ajustes, My.Resources.Btn_ajustes)
 
-        f.AD101_GetDevice()
-        Try
-            If f.AD101_InitDevice(Handle.ToInt32()) = 0 Then
-                Return
+        If My.Settings.use_device Then
+
+            If My.Settings.use_4_windows = False Then
+
+                f.AD101_GetDevice()
+                Try
+                    If f.AD101_InitDevice(Handle.ToInt32()) = 0 Then
+                        Return
+                    End If
+                Catch ex As Exception
+                    f.Alert(ex.Message, f.Alert_NumberExclamacion)
+                End Try
+
+                If (My.Settings.caller_0 = False) Then
+                    MenuLine0.Enabled = False
+                Else
+                    f.AD101_SetBusy(0, 1)
+                End If
+
+                If (My.Settings.caller_1 = False) Then
+                    MenuLine1.Enabled = False
+                Else
+                    f.AD101_SetBusy(1, 1)
+                End If
+
+                If (My.Settings.caller_2 = False) Then
+                    MenuLine2.Enabled = False
+                Else
+                    f.AD101_SetBusy(2, 1)
+                End If
+
+                If (My.Settings.caller_3 = False) Then
+                    MenuLine3.Enabled = False
+                Else
+                    f.AD101_SetBusy(3, 1)
+                End If
+
+                loadTimer()
+            Else
+                ' Usar disposito con modulo 4 ventanas
+                Dim f = New use_4_windows
+                f.Show()
             End If
-        Catch ex As Exception
-            f.Alert(ex.Message, f.Alert_NumberExclamacion)
-        End Try
-
-        f.AD101_SetLED(0, My.Settings.caller_luz)
-        f.AD101_SetLED(1, My.Settings.caller_luz)
-        f.AD101_SetLED(2, My.Settings.caller_luz)
-        f.AD101_SetLED(3, My.Settings.caller_luz)
-
-        If (My.Settings.caller_0 = False) Then
-            MenuLine0.Enabled = False
         Else
-            f.AD101_SetBusy(0, 1)
+            ' Inicia modulo conmutador
         End If
-
-        If (My.Settings.caller_1 = False) Then
-            MenuLine1.Enabled = False
-        Else
-            f.AD101_SetBusy(1, 1)
-        End If
-
-        If (My.Settings.caller_2 = False) Then
-            MenuLine2.Enabled = False
-        Else
-            f.AD101_SetBusy(2, 1)
-        End If
-
-        If (My.Settings.caller_3 = False) Then
-            MenuLine3.Enabled = False
-        Else
-            f.AD101_SetBusy(3, 1)
-        End If
-
-        loadTimer()
     End Sub
 
     Private Sub loadTimer()

@@ -162,6 +162,10 @@ Public Class functions
         panel.BackColor = Color.FromArgb(26, 67, 129)
     End Sub
 
+    Public Sub BotonesBackGroundBlueForm(ByVal form As Form)
+        form.BackColor = Color.FromArgb(26, 67, 129)
+    End Sub
+
     Public Sub FormBackColor(ByVal f As Form)
         f.BackColor = Color.FromArgb(26, 67, 129)
     End Sub
@@ -1543,18 +1547,6 @@ Public Class functions
     Private Function AsignarNumeroDeviceID(ByVal Device As Integer, ByVal szCPUID As String)
         Dim name_line = ""
 
-        If szCPUID = My.Settings.id_device0.ToString Then
-            name_line = My.Settings.caller_0_number
-        ElseIf szCPUID = My.Settings.id_device1.ToString Then
-            name_line = My.Settings.caller_1_number
-        ElseIf szCPUID = My.Settings.id_device2.ToString Then
-            name_line = My.Settings.caller_2_number
-        ElseIf szCPUID = My.Settings.id_device3.ToString Then
-            name_line = My.Settings.caller_3_number
-        Else
-            name_line = szCPUID
-        End If
-
         If Device = 0 Then
             control.MenuLine0.Text = name_line
         ElseIf Device = 1 Then
@@ -1667,6 +1659,53 @@ Public Class functions
                 Else
                     foto.Image = Image.FromFile(My.Settings.data_url + Data_clients + Clients_ImgDefault)
                 End If
+
+                Dim p_d = Db.Consult("SELECT c.id, a.id, c.nombre, a.direccion, a.kms FROM adresses a, clients c where a.client = c.id and c.id = '" + client_id.ToString + "'  order by a.id desc limit 12")
+                direcciones.Items.Add("Direcciones")
+                If p_d.HasRows Then
+                    Do While p_d.Read()
+                        direcciones.Items.Add(p_d.GetString(3) + " - kms: (" + p_d.GetString(4) + ") ID: [" + p_d.GetString(1) + "]")
+                    Loop
+                End If
+                If direcciones.Items.Count > 0 Then
+                    direcciones.SelectedIndex = 1
+                End If
+
+            End If
+        End If
+
+        Return result
+    End Function
+
+    Public Function LoadNumberAsistencia4Windows(ByVal number As String, ByVal direcciones As ComboBox, ByRef number_id As String, ByRef client_id As Integer) As String
+        direcciones.Items.Clear()
+        Dim result = ""
+        Dim r = Db.Consult("SELECT c.id, c.nombre, c.foto, t.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + number + "' ")
+
+        If r.Read() Then
+            client_id = r.GetString(0)
+            number_id = r.GetString(3)
+            result = r.GetString(1)
+
+
+            Dim p = Db.Consult("SELECT id, direccion, kms FROM adresses WHERE client = '" + r.GetString(0) + "' order by id desc limit 12 ")
+            direcciones.Items.Add("Direcciones")
+            If p.HasRows Then
+                Do While p.Read()
+                    direcciones.Items.Add(p.GetString(1) + " - kms: (" + p.GetString(2) + ") ID: [" + p.GetString(0) + "]")
+                Loop
+            End If
+
+            If direcciones.Items.Count > 0 Then
+                direcciones.SelectedIndex = 1
+            End If
+        Else
+            'Publico en general
+            Dim p_g = Db.Consult("SELECT c.id, c.nombre, c.foto, t.id FROM telephone_numbers t, clients c where t.client = c.id and  t.numero = '" + My.Settings.pg_id + "' ")
+            If p_g.Read() Then
+                client_id = p_g.GetString(0)
+                number_id = p_g.GetString(3)
+                result = p_g.GetString(1)
 
                 Dim p_d = Db.Consult("SELECT c.id, a.id, c.nombre, a.direccion, a.kms FROM adresses a, clients c where a.client = c.id and c.id = '" + client_id.ToString + "'  order by a.id desc limit 12")
                 direcciones.Items.Add("Direcciones")
@@ -1962,6 +2001,18 @@ Public Class functions
         Dim r As Integer
 
         Dim dato = Db.Consult("SELECT (MAX(id)+1) AS id FROM clients")
+
+        If dato.Read() Then
+            r = dato.GetString(0)
+        End If
+
+        Return r
+    End Function
+
+    Public Function LastIDClients() As Integer
+        Dim r As Integer
+
+        Dim dato = Db.Consult("SELECT MAX(id) AS id FROM clients")
 
         If dato.Read() Then
             r = dato.GetString(0)

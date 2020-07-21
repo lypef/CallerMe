@@ -41,38 +41,11 @@
     <Setting Name="report_image" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Caller Enterprise Data\logo.jpg</Value>
     </Setting>
-    <Setting Name="caller_luz" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="timer_intervalo" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">750</Value>
     </Setting>
     <Setting Name="font_alertas" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Microsoft Sans Serif, 9.75pt, style=Bold</Value>
-    </Setting>
-    <Setting Name="caller_0" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="caller_1" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="caller_2" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="caller_3" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="caller_0_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Caller 1</Value>
-    </Setting>
-    <Setting Name="caller_1_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Caller 2</Value>
-    </Setting>
-    <Setting Name="caller_2_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Caller 3</Value>
-    </Setting>
-    <Setting Name="caller_3_number" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Caller 4</Value>
     </Setting>
     <Setting Name="pg_id" Type="System.String" Scope="User">
       <Value Profile="(Default)">01800</Value>
@@ -89,17 +62,26 @@
     <Setting Name="omitir_llamada" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">10000</Value>
     </Setting>
-    <Setting Name="id_device0" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="caller_0" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="id_device1" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="caller_1" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="id_device2" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="caller_2" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="id_device3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="caller_3" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="use_device" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="use_conmutador" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="use_4_windows" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

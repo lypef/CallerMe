@@ -344,6 +344,12 @@
     <Compile Include="Forms\usersADD.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\use_4_windows.Designer.vb">
+      <DependentUpon>use_4_windows.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\use_4_windows.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\VehicleADD.Designer.vb">
       <DependentUpon>VehicleADD.vb</DependentUpon>
     </Compile>
@@ -444,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\usersADD.resx">
       <DependentUpon>usersADD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\use_4_windows.resx">
+      <DependentUpon>use_4_windows.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehicleADD.resx">
       <DependentUpon>VehicleADD.vb</DependentUpon>
