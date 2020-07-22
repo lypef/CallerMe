@@ -24,6 +24,7 @@ Partial Class use_4_windows
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.WindowsDevice_0 = New System.Windows.Forms.GroupBox()
+        Me.Button18 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_0 = New System.Windows.Forms.ComboBox()
@@ -40,6 +41,7 @@ Partial Class use_4_windows
         Me.TimerDos = New System.Windows.Forms.Timer(Me.components)
         Me.Timertres = New System.Windows.Forms.Timer(Me.components)
         Me.WindowsDevice_1 = New System.Windows.Forms.GroupBox()
+        Me.Button19 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_1 = New System.Windows.Forms.ComboBox()
@@ -52,6 +54,7 @@ Partial Class use_4_windows
         Me.TxtAddClient_1 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_1 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_2 = New System.Windows.Forms.GroupBox()
+        Me.Button20 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_2 = New System.Windows.Forms.ComboBox()
@@ -64,6 +67,7 @@ Partial Class use_4_windows
         Me.TxtAddClient_2 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_2 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_3 = New System.Windows.Forms.GroupBox()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_3 = New System.Windows.Forms.ComboBox()
@@ -83,6 +87,7 @@ Partial Class use_4_windows
         '
         'WindowsDevice_0
         '
+        Me.WindowsDevice_0.Controls.Add(Me.Button18)
         Me.WindowsDevice_0.Controls.Add(Me.Button5)
         Me.WindowsDevice_0.Controls.Add(Me.Button4)
         Me.WindowsDevice_0.Controls.Add(Me.Combo_direcciones_0)
@@ -102,6 +107,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_0.TabIndex = 34
         Me.WindowsDevice_0.TabStop = False
         Me.WindowsDevice_0.Text = "No disponible"
+        '
+        'Button18
+        '
+        Me.Button18.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button18.ForeColor = System.Drawing.Color.Black
+        Me.Button18.Location = New System.Drawing.Point(130, 279)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(79, 33)
+        Me.Button18.TabIndex = 27
+        Me.Button18.Text = "FINALIZAR"
+        Me.Button18.UseVisualStyleBackColor = False
         '
         'Button5
         '
@@ -141,9 +158,9 @@ Partial Class use_4_windows
         Me.Button1.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(130, 279)
+        Me.Button1.Location = New System.Drawing.Point(215, 279)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(189, 33)
+        Me.Button1.Size = New System.Drawing.Size(104, 33)
         Me.Button1.TabIndex = 19
         Me.Button1.Text = "SOLICITAR"
         Me.Button1.UseVisualStyleBackColor = False
@@ -232,6 +249,7 @@ Partial Class use_4_windows
         '
         'WindowsDevice_1
         '
+        Me.WindowsDevice_1.Controls.Add(Me.Button19)
         Me.WindowsDevice_1.Controls.Add(Me.Button3)
         Me.WindowsDevice_1.Controls.Add(Me.Button6)
         Me.WindowsDevice_1.Controls.Add(Me.Combo_direcciones_1)
@@ -251,6 +269,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_1.TabIndex = 35
         Me.WindowsDevice_1.TabStop = False
         Me.WindowsDevice_1.Text = "No disponible"
+        '
+        'Button19
+        '
+        Me.Button19.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button19.ForeColor = System.Drawing.Color.Black
+        Me.Button19.Location = New System.Drawing.Point(130, 279)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(79, 33)
+        Me.Button19.TabIndex = 28
+        Me.Button19.Text = "FINALIZAR"
+        Me.Button19.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -290,9 +320,9 @@ Partial Class use_4_windows
         Me.Button7.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.Color.Black
-        Me.Button7.Location = New System.Drawing.Point(130, 279)
+        Me.Button7.Location = New System.Drawing.Point(215, 279)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(189, 33)
+        Me.Button7.Size = New System.Drawing.Size(104, 33)
         Me.Button7.TabIndex = 19
         Me.Button7.Text = "SOLICITAR"
         Me.Button7.UseVisualStyleBackColor = False
@@ -369,6 +399,7 @@ Partial Class use_4_windows
         '
         'WindowsDevice_2
         '
+        Me.WindowsDevice_2.Controls.Add(Me.Button20)
         Me.WindowsDevice_2.Controls.Add(Me.Button9)
         Me.WindowsDevice_2.Controls.Add(Me.Button10)
         Me.WindowsDevice_2.Controls.Add(Me.Combo_direcciones_2)
@@ -388,6 +419,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_2.TabIndex = 35
         Me.WindowsDevice_2.TabStop = False
         Me.WindowsDevice_2.Text = "No disponible"
+        '
+        'Button20
+        '
+        Me.Button20.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button20.ForeColor = System.Drawing.Color.Black
+        Me.Button20.Location = New System.Drawing.Point(130, 279)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(79, 33)
+        Me.Button20.TabIndex = 29
+        Me.Button20.Text = "FINALIZAR"
+        Me.Button20.UseVisualStyleBackColor = False
         '
         'Button9
         '
@@ -427,9 +470,9 @@ Partial Class use_4_windows
         Me.Button11.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.ForeColor = System.Drawing.Color.Black
-        Me.Button11.Location = New System.Drawing.Point(130, 279)
+        Me.Button11.Location = New System.Drawing.Point(215, 279)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(189, 33)
+        Me.Button11.Size = New System.Drawing.Size(104, 33)
         Me.Button11.TabIndex = 19
         Me.Button11.Text = "SOLICITAR"
         Me.Button11.UseVisualStyleBackColor = False
@@ -506,6 +549,7 @@ Partial Class use_4_windows
         '
         'WindowsDevice_3
         '
+        Me.WindowsDevice_3.Controls.Add(Me.Button21)
         Me.WindowsDevice_3.Controls.Add(Me.Button13)
         Me.WindowsDevice_3.Controls.Add(Me.Button14)
         Me.WindowsDevice_3.Controls.Add(Me.Combo_direcciones_3)
@@ -525,6 +569,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_3.TabIndex = 36
         Me.WindowsDevice_3.TabStop = False
         Me.WindowsDevice_3.Text = "No disponible"
+        '
+        'Button21
+        '
+        Me.Button21.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button21.ForeColor = System.Drawing.Color.Black
+        Me.Button21.Location = New System.Drawing.Point(130, 279)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(79, 33)
+        Me.Button21.TabIndex = 30
+        Me.Button21.Text = "FINALIZAR"
+        Me.Button21.UseVisualStyleBackColor = False
         '
         'Button13
         '
@@ -564,9 +620,9 @@ Partial Class use_4_windows
         Me.Button15.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button15.ForeColor = System.Drawing.Color.Black
-        Me.Button15.Location = New System.Drawing.Point(130, 279)
+        Me.Button15.Location = New System.Drawing.Point(215, 279)
         Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(189, 33)
+        Me.Button15.Size = New System.Drawing.Size(104, 33)
         Me.Button15.TabIndex = 19
         Me.Button15.Text = "SOLICITAR"
         Me.Button15.UseVisualStyleBackColor = False
@@ -646,7 +702,7 @@ Partial Class use_4_windows
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Blue
-        Me.ClientSize = New System.Drawing.Size(680, 684)
+        Me.ClientSize = New System.Drawing.Size(681, 684)
         Me.Controls.Add(Me.WindowsDevice_3)
         Me.Controls.Add(Me.WindowsDevice_2)
         Me.Controls.Add(Me.WindowsDevice_1)
@@ -718,4 +774,8 @@ Partial Class use_4_windows
     Friend WithEvents CbDireccionAdd_3 As CheckBox
     Friend WithEvents TxtAddClient_3 As TextBox
     Friend WithEvents CbAddClient_3 As CheckBox
+    Friend WithEvents Button18 As Button
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents Button21 As Button
 End Class

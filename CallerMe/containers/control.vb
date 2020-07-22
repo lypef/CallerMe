@@ -7,6 +7,7 @@ Public Class control
     Public Shared Device1 As String = ""
     Public Shared Device2 As String = ""
     Public Shared Device3 As String = ""
+    Public Shared use_4_windows As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.BotonesBackGroundBlue(MenuPanel)
@@ -57,6 +58,7 @@ Public Class control
                 loadTimer()
             Else
                 ' Usar disposito con modulo 4 ventanas
+                use_4_windows = True
                 Dim f = New use_4_windows
                 f.Show()
             End If
@@ -781,5 +783,15 @@ Public Class control
         f.DataGridView_Model(Table)
         f.Table_LogsError("SELECT * FROM `errors` ORDER BY id DESC LIMIT 400", Table)
         f.GenReport(Table, "Ultimos 400 Errores", True)
+    End Sub
+
+    Private Sub VisualizarVentana4ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarVentana4ToolStripMenuItem.Click
+        If use_4_windows = False Then
+            use_4_windows = True
+            Dim f = New use_4_windows
+            f.Show()
+        Else
+            f.Alert("Ya existe una ventana abierta", f.Alert_NumberExclamacion)
+        End If
     End Sub
 End Class

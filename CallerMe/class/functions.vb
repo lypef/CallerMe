@@ -1155,6 +1155,10 @@ Public Class functions
         Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '" + vehiculo.ToString + "', '" + driver.ToString + "')")
     End Function
 
+    Public Function save_registroAutomaticOne(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer)
+        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, asistido) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '0')")
+    End Function
+
     Private Function ReturnDateFormatString(ByVal fecha As Date) As String
         Return fecha.Year.ToString + "-" + fecha.Month.ToString + "-" + fecha.Day.ToString + " " + fecha.Hour.ToString + ":" + fecha.Minute.ToString + ":" + fecha.Second.ToString
     End Function
