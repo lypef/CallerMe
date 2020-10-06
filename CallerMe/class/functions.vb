@@ -477,6 +477,29 @@ Public Class functions
 
     End Sub
 
+    Public Sub Asistir_DataGridViewSet(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("client", "Cliente")
+        t.Columns.Add("numero", "Numero")
+        t.Columns.Add("direccion", "Direccion")
+        t.Columns.Add("observacion", "Observacion")
+        t.Columns.Add("atendio", "Atendio")
+        t.Columns.Add("hour_llamada", "Fecha llamada")
+
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5), dato.GetString(6))
+            Loop
+        End If
+
+    End Sub
+
     Public Sub Table_LogsError(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -640,6 +663,18 @@ Public Class functions
     End Function
 
     Public Shared Function Logs_delete() As Boolean
+
+        Dim dato = Db_shared.Consult("SELECT r.client, t.numero, r.hora_llamada FROM registros r, telephone_numbers t where r.id = '" + log_id + "' and r.telefono = t.id")
+
+        If dato.Read() Then
+            Dim d As DateTime
+            d = DateTime.Parse(dato.GetString(2))
+
+            Dim fecha = d.Year.ToString + "-" + d.Month.ToString + "-" + d.Day.ToString + " " + d.Hour.ToString + ":" + d.Minute.ToString + ":" + d.Second.ToString
+
+            Db_shared.Ejecutar("INSERT INTO `registros_omitidos` (`cliente`, `numero`, `f_llamada`, `usuario`) VALUES ('" + dato.GetString(0) + "', '" + dato.GetString(1) + "', '" + fecha + "', '" + userID + "');")
+        End If
+
         Return Db_shared.Ejecutar("delete from registros where id = " + log_id + " ")
     End Function
 
@@ -1151,12 +1186,22 @@ Public Class functions
 
     End Function
 
-    Public Function save_registroAutomatic(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal vehiculo As Integer, ByVal driver As Integer)
-        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '" + vehiculo.ToString + "', '" + driver.ToString + "')")
+    Public Function save_registroAutomatic(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal vehiculo As TextBox, ByVal driver As TextBox)
+        Console.WriteLine("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '" + vehiculo.Text.ToString + "', '" + driver.Text.ToString + "')")
+        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, vehicle, driver) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '" + vehiculo.Text.ToString + "', '" + driver.Text.ToString + "')")
     End Function
 
-    Public Function save_registroAutomaticOne(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer)
-        Return Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, asistido) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '0')")
+    Public Function save_registroAutomaticOne(ByVal client As Integer, ByVal telefono As String, ByVal hora_llamada As Date, ByVal atencion_llamada As Date, ByVal finaliza_llamada As Date, ByVal direccion As Integer, ByVal observacion As String, ByVal vehiculos_number As Int32)
+
+        Dim r = False
+
+        For index As Integer = 1 To vehiculos_number
+            Db_shared.Ejecutar("INSERT INTO registros (client, telefono, hora_llamada, atencion_llamada, finaliza_llamada, usuario, direccion, asistido, observacion) VALUES ('" + client.ToString + "', '" + telefono.ToString + "', '" + ReturnDateFormatString(hora_llamada) + "', '" + ReturnDateFormatString(atencion_llamada) + "', '" + ReturnDateFormatString(finaliza_llamada) + "', '" + userID.ToString + "', '" + direccion.ToString + "', '0', '" + observacion + "')")
+            r = True
+        Next
+
+        Return r
+
     End Function
 
     Private Function ReturnDateFormatString(ByVal fecha As Date) As String
@@ -2054,6 +2099,68 @@ Public Class functions
         Else
             Return 0
         End If
+    End Function
+
+    Public Sub LoadValuesAsistirSecond(ByVal TxtCliente As Label, ByVal TxtTelefono As Label, ByVal TxtObservacion As TextBox, ByVal id As String, ByVal CombDirecciones As ComboBox, ByRef id_client As String, ByRef id_direccion As String)
+
+        CombDirecciones.Items.Clear()
+
+        Dim dato = Db.Consult("SELECT c.nombre, t.numero, r.observacion, d.id, c.id FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 0 and r.id = '" + id + "'  ")
+
+        If dato.Read() Then
+            TxtCliente.Text = dato.GetString(0)
+            TxtTelefono.Text = dato.GetString(1)
+            TxtObservacion.Text = dato.GetString(2)
+            id_direccion = dato.GetString(3)
+            id_client = dato.GetString(4)
+        End If
+
+        Dim cont = 0
+        Dim select_index = 0
+        Dim p = Db.Consult("SELECT id, direccion, kms FROM adresses WHERE client = '" + id_client + "' ")
+
+        If p.HasRows Then
+            Do While p.Read()
+                CombDirecciones.Items.Add(p.GetString(1) + " - kms: (" + p.GetString(2) + ") ID: [" + p.GetString(0) + "]")
+                If (p.GetString(0) = id_direccion) Then
+                    select_index = cont
+                End If
+                cont += 1
+            Loop
+        End If
+
+        CombDirecciones.SelectedIndex = select_index
+
+    End Sub
+
+    Public Function log_second_update(ByVal direccion_id As String, ByVal vehiculo_id As TextBox, ByVal driver_id As TextBox, ByVal id As String, ByVal observacion As String) As Boolean
+        Return Db.Ejecutar("UPDATE `registros` SET `asistido` = '1', `direccion` = '" + direccion_id + "', `vehicle` = '" + vehiculo_id.Text.ToString + "', `driver` = '" + driver_id.Text.ToString + "', `observacion` = '" + observacion + "' WHERE `registros`.`id` = " + id + "  ")
+    End Function
+
+    Public Function LogsPendientes() As Integer
+        Dim dato = Db.Consult("SELECT count(r.id) as items  FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 0 ")
+
+        If dato.Read() Then
+            Return dato.GetString(0)
+        Else
+            Return 0
+        End If
+    End Function
+
+    Public Function LogsPendientesAsistido(ByVal id As String) As Boolean
+        Dim r = False
+
+        Dim dato = Db.Consult("SELECT id FROM `registros` WHERE asistido = 0 and id = '" + id + "' ")
+
+        If dato.Read() Then
+            r = True
+        End If
+
+        Return r
+    End Function
+
+    Public Shared Function Update_log(ByVal Vehiculo As TextBox, ByVal Conductor As TextBox, ByVal id As Integer) As Boolean
+        Return Db_shared.Ejecutar("UPDATE `registros` SET `vehicle` = '" + Vehiculo.Text + "', `driver` = '" + Conductor.Text + "' WHERE id = " + id.ToString + "; ")
     End Function
 
 End Class

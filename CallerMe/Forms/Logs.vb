@@ -25,8 +25,8 @@
         Dim _hasta = hasta.Value.Year & "-" & hasta.Value.Month & "-" & hasta.Value.Day & " 23:59:59"
 
         pagina = 0
-        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY id desc "
-        pagina_total = CInt(f.ReturnLogsTotal("SELECT  count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY id desc") / 30)
+        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
+        pagina_total = CInt(f.ReturnLogsTotal("SELECT  count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
         title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString
     End Sub
@@ -42,8 +42,8 @@
         Dim _desde = desde.Value.Year & "-" & desde.Value.Month & "-" & desde.Value.Day & " 00:00:00"
         Dim _hasta = hasta.Value.Year & "-" & hasta.Value.Month & "-" & hasta.Value.Day & " 23:59:59"
 
-        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
-        pagina_total = CInt(f.ReturnLogsTotal("SELECT count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
+        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
+        pagina_total = CInt(f.ReturnLogsTotal("SELECT count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
         title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString
     End Sub
@@ -180,7 +180,7 @@
     Private Sub btn_editar_Click(sender As Object, e As EventArgs) Handles btn_editar.Click
         If f.ReturnPermission(f.Permission_Access_LOGS) And functions.log_id > 0 Then
             Dim d As New DataGridView
-            f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, v.modelo, dri.nombre, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and r.id = " + functions.log_id + " ORDER BY r.id desc", d)
+            f.Logs_DataGridViewSet("SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.id =" + functions.log_id + " ORDER BY r.id desc", d)
             f.GenReport(d, "REPORTE, registro folio: " + functions.log_id, True)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
@@ -195,5 +195,24 @@
     Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
         pagina = pagina - 1
         LoadLogs_ChangPag()
+    End Sub
+
+    Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarToolStripMenuItem.Click
+        If f.ReturnPermission(f.Permission_Logs_DELETE) Then
+
+            Dim id = Table.SelectedCells(0).Value
+            Dim vehiculo = Table.SelectedCells(5).Value
+            Dim conductor = Table.SelectedCells(6).Value
+
+            Dim form = update_log
+            form.id = id
+            form.TxtConductor.Text = conductor.ToString
+            form.TxtVehiculos.Text = vehiculo.ToString
+            form.Show()
+
+        Else
+            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        End If
+        functions.log_id = 0
     End Sub
 End Class

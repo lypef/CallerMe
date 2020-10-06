@@ -26,8 +26,6 @@ Partial Class Asistir_llamada
         Me.Table_Logs = New System.Windows.Forms.DataGridView()
         Me.Btn_GuardarDb = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.ComboVehiculos = New System.Windows.Forms.ComboBox()
-        Me.Combo_Driver = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -41,6 +39,10 @@ Partial Class Asistir_llamada
         Me.Combo_direcciones = New System.Windows.Forms.ComboBox()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.Wb = New System.Windows.Forms.WebBrowser()
+        Me.ComboVehiculos = New System.Windows.Forms.TextBox()
+        Me.Combo_Driver = New System.Windows.Forms.TextBox()
+        Me.label_vehi = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -89,36 +91,18 @@ Partial Class Asistir_llamada
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.ComboVehiculos)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.label_vehi)
         Me.GroupBox3.Controls.Add(Me.Combo_Driver)
+        Me.GroupBox3.Controls.Add(Me.ComboVehiculos)
         Me.GroupBox3.Font = New System.Drawing.Font("Segoe UI Black", 11.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 229)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 226)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(743, 69)
+        Me.GroupBox3.Size = New System.Drawing.Size(743, 72)
         Me.GroupBox3.TabIndex = 32
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "SELECCIONAR VEHICULO Y CONDUCTOR"
-        '
-        'ComboVehiculos
-        '
-        Me.ComboVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboVehiculos.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.ComboVehiculos.FormattingEnabled = True
-        Me.ComboVehiculos.Location = New System.Drawing.Point(6, 27)
-        Me.ComboVehiculos.Name = "ComboVehiculos"
-        Me.ComboVehiculos.Size = New System.Drawing.Size(367, 28)
-        Me.ComboVehiculos.TabIndex = 25
-        '
-        'Combo_Driver
-        '
-        Me.Combo_Driver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Combo_Driver.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.Combo_Driver.FormattingEnabled = True
-        Me.Combo_Driver.Location = New System.Drawing.Point(386, 27)
-        Me.Combo_Driver.Name = "Combo_Driver"
-        Me.Combo_Driver.Size = New System.Drawing.Size(351, 28)
-        Me.Combo_Driver.TabIndex = 27
         '
         'GroupBox2
         '
@@ -268,6 +252,42 @@ Partial Class Asistir_llamada
         Me.Wb.Size = New System.Drawing.Size(767, 195)
         Me.Wb.TabIndex = 3
         '
+        'ComboVehiculos
+        '
+        Me.ComboVehiculos.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboVehiculos.Location = New System.Drawing.Point(101, 36)
+        Me.ComboVehiculos.Name = "ComboVehiculos"
+        Me.ComboVehiculos.Size = New System.Drawing.Size(263, 25)
+        Me.ComboVehiculos.TabIndex = 28
+        '
+        'Combo_Driver
+        '
+        Me.Combo_Driver.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Combo_Driver.Location = New System.Drawing.Point(494, 36)
+        Me.Combo_Driver.Name = "Combo_Driver"
+        Me.Combo_Driver.Size = New System.Drawing.Size(243, 25)
+        Me.Combo_Driver.TabIndex = 29
+        '
+        'label_vehi
+        '
+        Me.label_vehi.AutoSize = True
+        Me.label_vehi.Location = New System.Drawing.Point(6, 37)
+        Me.label_vehi.Name = "label_vehi"
+        Me.label_vehi.Size = New System.Drawing.Size(89, 20)
+        Me.label_vehi.TabIndex = 30
+        Me.label_vehi.Text = "VEHICULO:"
+        Me.label_vehi.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(380, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(108, 20)
+        Me.Label1.TabIndex = 31
+        Me.Label1.Text = "CONDUCTOR:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'Asistir_llamada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -283,6 +303,7 @@ Partial Class Asistir_llamada
         Me.Panel1.ResumeLayout(False)
         CType(Me.Table_Logs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -294,8 +315,6 @@ Partial Class Asistir_llamada
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Combo_direcciones As ComboBox
-    Friend WithEvents Combo_Driver As ComboBox
-    Friend WithEvents ComboVehiculos As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BtnRecargar As Button
     Friend WithEvents Wb As WebBrowser
@@ -310,4 +329,8 @@ Partial Class Asistir_llamada
     Friend WithEvents btn_ADD_INFO As Button
     Friend WithEvents Btn_GuardarDb As Button
     Friend WithEvents Table_Logs As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents label_vehi As Label
+    Friend WithEvents Combo_Driver As TextBox
+    Friend WithEvents ComboVehiculos As TextBox
 End Class

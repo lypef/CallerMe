@@ -28,13 +28,14 @@ Partial Class Logs
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprobanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btn_Back = New System.Windows.Forms.Button()
         Me.Btn_add = New System.Windows.Forms.Button()
         Me.btn_delete = New System.Windows.Forms.Button()
         Me.btn_numeros = New System.Windows.Forms.Button()
         Me.btn_editar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.BtnNext = New System.Windows.Forms.Button()
-        Me.Btn_Back = New System.Windows.Forms.Button()
+        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -53,22 +54,22 @@ Partial Class Logs
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(18, 18)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarToolStripMenuItem, Me.ComprobanteToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarToolStripMenuItem, Me.ActualizarToolStripMenuItem, Me.ComprobanteToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(166, 52)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(155, 98)
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.delete_24
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(165, 24)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'ComprobanteToolStripMenuItem
         '
         Me.ComprobanteToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.ticket_16
         Me.ComprobanteToolStripMenuItem.Name = "ComprobanteToolStripMenuItem"
-        Me.ComprobanteToolStripMenuItem.Size = New System.Drawing.Size(165, 24)
+        Me.ComprobanteToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
         Me.ComprobanteToolStripMenuItem.Text = "Comprobante"
         '
         'Panel1
@@ -84,6 +85,38 @@ Partial Class Logs
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(927, 54)
         Me.Panel1.TabIndex = 5
+        '
+        'BtnNext
+        '
+        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
+        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnNext.FlatAppearance.BorderSize = 0
+        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
+        Me.BtnNext.Location = New System.Drawing.Point(862, 1)
+        Me.BtnNext.Name = "BtnNext"
+        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
+        Me.BtnNext.TabIndex = 8
+        Me.BtnNext.UseVisualStyleBackColor = False
+        '
+        'Btn_Back
+        '
+        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
+        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.Btn_Back.FlatAppearance.BorderSize = 0
+        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
+        Me.Btn_Back.Location = New System.Drawing.Point(805, 1)
+        Me.Btn_Back.Name = "Btn_Back"
+        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
+        Me.Btn_Back.TabIndex = 7
+        Me.Btn_Back.UseVisualStyleBackColor = False
         '
         'Btn_add
         '
@@ -163,37 +196,12 @@ Partial Class Logs
         Me.Panel2.Size = New System.Drawing.Size(927, 433)
         Me.Panel2.TabIndex = 6
         '
-        'BtnNext
+        'ActualizarToolStripMenuItem
         '
-        Me.BtnNext.BackColor = System.Drawing.Color.Transparent
-        Me.BtnNext.BackgroundImage = Global.Calls.My.Resources.Resources.btn_next
-        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnNext.FlatAppearance.BorderSize = 0
-        Me.BtnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BtnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNext.ForeColor = System.Drawing.Color.Maroon
-        Me.BtnNext.Location = New System.Drawing.Point(862, 1)
-        Me.BtnNext.Name = "BtnNext"
-        Me.BtnNext.Size = New System.Drawing.Size(51, 49)
-        Me.BtnNext.TabIndex = 8
-        Me.BtnNext.UseVisualStyleBackColor = False
-        '
-        'Btn_Back
-        '
-        Me.Btn_Back.BackColor = System.Drawing.Color.Transparent
-        Me.Btn_Back.BackgroundImage = Global.Calls.My.Resources.Resources.btn_back
-        Me.Btn_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.Btn_Back.FlatAppearance.BorderSize = 0
-        Me.Btn_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.Btn_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.Btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Back.ForeColor = System.Drawing.Color.Maroon
-        Me.Btn_Back.Location = New System.Drawing.Point(805, 1)
-        Me.Btn_Back.Name = "Btn_Back"
-        Me.Btn_Back.Size = New System.Drawing.Size(51, 49)
-        Me.Btn_Back.TabIndex = 7
-        Me.Btn_Back.UseVisualStyleBackColor = False
+        Me.ActualizarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
+        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
+        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
+        Me.ActualizarToolStripMenuItem.Text = "Actualizar"
         '
         'Logs
         '
@@ -222,4 +230,5 @@ Partial Class Logs
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnNext As Button
     Friend WithEvents Btn_Back As Button
+    Friend WithEvents ActualizarToolStripMenuItem As ToolStripMenuItem
 End Class

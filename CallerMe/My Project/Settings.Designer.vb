@@ -379,6 +379,18 @@ Namespace My
                 Me("use_4_windows") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property use_4_windows_second() As Boolean
+            Get
+                Return CType(Me("use_4_windows_second"),Boolean)
+            End Get
+            Set
+                Me("use_4_windows_second") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

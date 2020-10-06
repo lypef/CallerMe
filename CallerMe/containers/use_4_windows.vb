@@ -35,7 +35,7 @@
     Dim Asitir_llamada_3 As Date
 
     Private Sub use_4_windows_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        f.forms_setmodel(Me)
         f.BotonesBackGroundBlueForm(Me)
         f.AD101_GetDevice()
         Try
@@ -62,7 +62,7 @@
             f.AD101_SetBusy(3, 1)
         End If
 
-        'loadTimer()
+        loadTimer()
 
         WindowsDevice_0.Enabled = False
         WindowsDevice_0.Text = "No disponible"
@@ -75,6 +75,7 @@
 
         WindowsDevice_3.Enabled = False
         WindowsDevice_3.Text = "No disponible"
+
     End Sub
 
     Private Sub loadTimer()
@@ -162,6 +163,7 @@
         WindowsDevice_0.Text = "No disponible"
         TxtClient_0.Text = "NOMBRE:"
         Combo_direcciones_0.Items.Clear()
+        Vehiculos_0.Value = 1
     End Sub
 
     Private Sub LoadValues_1()
@@ -202,6 +204,7 @@
         WindowsDevice_1.Text = "No disponible"
         TxtClient_1.Text = "NOMBRE:"
         Combo_direcciones_1.Items.Clear()
+        Vehiculos_1.Value = 1
     End Sub
 
     Private Sub LoadValues_2()
@@ -242,6 +245,7 @@
         WindowsDevice_2.Text = "No disponible"
         TxtClient_2.Text = "NOMBRE:"
         Combo_direcciones_2.Items.Clear()
+        Vehiculos_2.Value = 1
     End Sub
 
     Private Sub LoadValues_3()
@@ -282,6 +286,7 @@
         WindowsDevice_3.Text = "No disponible"
         TxtClient_3.Text = "NOMBRE:"
         Combo_direcciones_3.Items.Clear()
+        Vehiculos_3.Value = 1
     End Sub
 
     Private Sub CbAddClient_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient_0.CheckedChanged
@@ -474,7 +479,8 @@
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+        f.OmitirLlamadaDb(DateTime.Now, number_0)
         Clean_0()
     End Sub
 
@@ -511,7 +517,8 @@
         End If
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs)
+        f.OmitirLlamadaDb(DateTime.Now, number_1)
         Clean_1()
     End Sub
 
@@ -527,7 +534,8 @@
         End If
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+    Private Sub Button12_Click(sender As Object, e As EventArgs)
+        f.OmitirLlamadaDb(DateTime.Now, number_2)
         Clean_2()
     End Sub
 
@@ -551,7 +559,8 @@
         End If
     End Sub
 
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+    Private Sub Button16_Click(sender As Object, e As EventArgs)
+        f.OmitirLlamadaDb(DateTime.Now, number_3)
         Clean_3()
     End Sub
 
@@ -702,7 +711,7 @@
 
                 Dim direccion_id = Combo_direcciones_0.SelectedItem.ToString.Substring(Combo_direcciones_0.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-                If f.save_registroAutomaticOne(client_id_0, number_id_0, f_llamada_0, Asitir_llamada_0, DateTime.Now, direccion_id) Then
+                If f.save_registroAutomaticOne(client_id_0, number_id_0, f_llamada_0, Asitir_llamada_0, DateTime.Now, direccion_id, observacion_0, Vehiculos_0.Value) Then
 
                     Dim r As DialogResult = MessageBox.Show("Solicitud enviada. Desea finaliza la llamada ?", "Proceso correcto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -727,7 +736,7 @@
 
                 Dim direccion_id = Combo_direcciones_1.SelectedItem.ToString.Substring(Combo_direcciones_1.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-                If f.save_registroAutomaticOne(client_id_1, number_id_1, f_llamada_1, Asitir_llamada_1, DateTime.Now, direccion_id) Then
+                If f.save_registroAutomaticOne(client_id_1, number_id_1, f_llamada_1, Asitir_llamada_1, DateTime.Now, direccion_id, observacion_1, Vehiculos_1.Value) Then
 
                     Dim r As DialogResult = MessageBox.Show("Solicitud enviada. Desea finaliza la llamada ?", "Proceso correcto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -752,7 +761,7 @@
 
                 Dim direccion_id = Combo_direcciones_2.SelectedItem.ToString.Substring(Combo_direcciones_2.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-                If f.save_registroAutomaticOne(client_id_2, number_id_2, f_llamada_2, Asitir_llamada_2, DateTime.Now, direccion_id) Then
+                If f.save_registroAutomaticOne(client_id_2, number_id_2, f_llamada_2, Asitir_llamada_2, DateTime.Now, direccion_id, observacion_2, Vehiculos_2.Value) Then
 
                     Dim r As DialogResult = MessageBox.Show("Solicitud enviada. Desea finaliza la llamada ?", "Proceso correcto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -777,7 +786,7 @@
 
                 Dim direccion_id = Combo_direcciones_3.SelectedItem.ToString.Substring(Combo_direcciones_3.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-                If f.save_registroAutomaticOne(client_id_3, number_id_3, f_llamada_3, Asitir_llamada_3, DateTime.Now, direccion_id) Then
+                If f.save_registroAutomaticOne(client_id_3, number_id_3, f_llamada_3, Asitir_llamada_3, DateTime.Now, direccion_id, observacion_3, Vehiculos_3.Value) Then
 
                     Dim r As DialogResult = MessageBox.Show("Solicitud enviada. Desea finaliza la llamada ?", "Proceso correcto", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
@@ -796,25 +805,25 @@
         End Try
     End Sub
 
-    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+    Private Sub Button18_Click(sender As Object, e As EventArgs)
         f.finalizarLlamada(0)
         Clean_0()
         TimerCero.Start()
     End Sub
 
-    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+    Private Sub Button19_Click(sender As Object, e As EventArgs)
         f.finalizarLlamada(1)
         Clean_1()
         TimerUno.Start()
     End Sub
 
-    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+    Private Sub Button20_Click(sender As Object, e As EventArgs)
         f.finalizarLlamada(2)
         Clean_2()
         TimerDos.Start()
     End Sub
 
-    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+    Private Sub Button21_Click(sender As Object, e As EventArgs)
         f.finalizarLlamada(3)
         Clean_3()
         Timertres.Start()
@@ -849,5 +858,138 @@
         Catch ex As Exception
             f.LogError(ex.Message + ". Control.vb linea 115")
         End Try
+    End Sub
+
+    Private Sub Button17_Click_2(sender As Object, e As EventArgs)
+        Try
+            CbAddClient_0.Checked = False
+            CbDireccionAdd_0.Checked = False
+            TxtAddClient_0.Text = ""
+            TxtAddDireccion_0.Text = ""
+
+            Dim Device = "01800"
+
+            If (String.IsNullOrEmpty(Device) = False) Then
+
+                TimerCero.Stop()
+                functions.LastNumber0 = Device
+                number_0 = Device
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+
+                f_llamada_0 = DateTime.Now
+                Asitir_llamada_0 = DateTime.Now
+
+                WindowsDevice_0.Text = "NUMERO: " + number_0
+                WindowsDevice_0.Enabled = True
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 115")
+        End Try
+    End Sub
+
+    Private Sub Button17_Click_3(sender As Object, e As EventArgs)
+        Try
+            CbAddClient_0.Checked = False
+            CbDireccionAdd_0.Checked = False
+            TxtAddClient_0.Text = ""
+            TxtAddDireccion_0.Text = ""
+
+            Dim Device = "01800"
+
+            If (String.IsNullOrEmpty(Device) = False) Then
+
+                TimerCero.Stop()
+                functions.LastNumber0 = Device
+                number_0 = Device
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+
+                f_llamada_0 = DateTime.Now
+                Asitir_llamada_0 = DateTime.Now
+
+                WindowsDevice_0.Text = "NUMERO: " + number_0
+                WindowsDevice_0.Enabled = True
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 115")
+        End Try
+    End Sub
+
+    Private Sub Button17_Click_4(sender As Object, e As EventArgs)
+        Try
+            CbAddClient_0.Checked = False
+            CbDireccionAdd_0.Checked = False
+            TxtAddClient_0.Text = ""
+            TxtAddDireccion_0.Text = ""
+
+            Dim Device = "01800"
+
+            If (String.IsNullOrEmpty(Device) = False) Then
+
+                TimerCero.Stop()
+                functions.LastNumber0 = Device
+                number_0 = Device
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+
+                f_llamada_0 = DateTime.Now
+                Asitir_llamada_0 = DateTime.Now
+
+                WindowsDevice_0.Text = "NUMERO: " + number_0
+                WindowsDevice_0.Enabled = True
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 115")
+        End Try
+    End Sub
+
+    Private Sub Button1_MouseDown(sender As Object, e As MouseEventArgs) Handles Button1.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim r As DialogResult = MessageBox.Show("Desea omitir esta llamada ?", "Omitir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If r = 6 Then
+                f.OmitirLlamadaDb(DateTime.Now, number_0)
+                f.finalizarLlamada(0)
+                Clean_0()
+                TimerCero.Start()
+            End If
+
+        End If
+    End Sub
+
+    Private Sub Button7_MouseDown(sender As Object, e As MouseEventArgs) Handles Button7.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim r As DialogResult = MessageBox.Show("Desea omitir esta llamada ?", "Omitir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If r = 6 Then
+                f.OmitirLlamadaDb(DateTime.Now, number_1)
+                f.finalizarLlamada(1)
+                Clean_1()
+                TimerUno.Start()
+            End If
+
+        End If
+    End Sub
+
+    Private Sub Button11_MouseDown(sender As Object, e As MouseEventArgs) Handles Button11.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim r As DialogResult = MessageBox.Show("Desea omitir esta llamada ?", "Omitir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If r = 6 Then
+                f.OmitirLlamadaDb(DateTime.Now, number_2)
+                f.finalizarLlamada(2)
+                Clean_2()
+                TimerDos.Start()
+            End If
+
+        End If
+    End Sub
+
+    Private Sub Button15_MouseDown(sender As Object, e As MouseEventArgs) Handles Button15.MouseDown
+        If e.Button = MouseButtons.Right Then
+            Dim r As DialogResult = MessageBox.Show("Desea omitir esta llamada ?", "Omitir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If r = 6 Then
+                f.OmitirLlamadaDb(DateTime.Now, number_3)
+                f.finalizarLlamada(3)
+                Clean_3()
+                Timertres.Start()
+            End If
+
+        End If
     End Sub
 End Class

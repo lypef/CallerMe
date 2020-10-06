@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>116</ApplicationRevision>
+    <ApplicationRevision>123</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -186,6 +186,12 @@
     <Compile Include="containers\AlertContainer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="containers\AsistirLlamadaSecond.Designer.vb">
+      <DependentUpon>AsistirLlamadaSecond.vb</DependentUpon>
+    </Compile>
+    <Compile Include="containers\AsistirLlamadaSecond.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="containers\Asistir_llamada.Designer.vb">
       <DependentUpon>Asistir_llamada.vb</DependentUpon>
     </Compile>
@@ -332,6 +338,18 @@
     <Compile Include="Forms\Properties.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\update_log.Designer.vb">
+      <DependentUpon>update_log.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\update_log.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Use4WindowsSecond.Designer.vb">
+      <DependentUpon>Use4WindowsSecond.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Use4WindowsSecond.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\users.Designer.vb">
       <DependentUpon>users.vb</DependentUpon>
     </Compile>
@@ -344,10 +362,10 @@
     <Compile Include="Forms\usersADD.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\use_4_windows.Designer.vb">
+    <Compile Include="containers\use_4_windows.Designer.vb">
       <DependentUpon>use_4_windows.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\use_4_windows.vb">
+    <Compile Include="containers\use_4_windows.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\VehicleADD.Designer.vb">
@@ -381,6 +399,9 @@
   <ItemGroup>
     <EmbeddedResource Include="containers\AlertContainer.resx">
       <DependentUpon>AlertContainer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="containers\AsistirLlamadaSecond.resx">
+      <DependentUpon>AsistirLlamadaSecond.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="containers\Asistir_llamada.resx">
       <DependentUpon>Asistir_llamada.vb</DependentUpon>
@@ -445,13 +466,19 @@
     <EmbeddedResource Include="Forms\select_fecha.resx">
       <DependentUpon>select_fecha.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\update_log.resx">
+      <DependentUpon>update_log.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Use4WindowsSecond.resx">
+      <DependentUpon>Use4WindowsSecond.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\users.resx">
       <DependentUpon>users.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\usersADD.resx">
       <DependentUpon>usersADD.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\use_4_windows.resx">
+    <EmbeddedResource Include="containers\use_4_windows.resx">
       <DependentUpon>use_4_windows.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehicleADD.resx">

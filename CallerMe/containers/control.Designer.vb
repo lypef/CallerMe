@@ -147,7 +147,7 @@ Partial Class control
         Me.Btn_ajustes.ImageScalingSize = New System.Drawing.Size(18, 18)
         Me.Btn_ajustes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6, Me.UsuariosToolStripMenuItem, Me.LimpiarToolStripMenuItem, Me.ToolStripMenuItem4, Me.LimpiarEscritorioToolStripMenuItem, Me.ToolStripSeparator6, Me.VisualizarVentanaAsistenciasToolStripMenuItem, Me.VisualizarVentana4ToolStripMenuItem, Me.ToolStripSeparator3, Me.MenuLine0, Me.MenuLine1, Me.MenuLine2, Me.MenuLine3, Me.ToolStripSeparator2, Me.CambiarDeUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem, Me.ToolStripSeparator1, Me.AcercaDeToolStripMenuItem})
         Me.Btn_ajustes.Name = "ContextMenuStrip1"
-        Me.Btn_ajustes.Size = New System.Drawing.Size(230, 364)
+        Me.Btn_ajustes.Size = New System.Drawing.Size(230, 386)
         '
         'ToolStripMenuItem6
         '

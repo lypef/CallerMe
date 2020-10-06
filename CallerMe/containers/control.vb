@@ -56,15 +56,25 @@ Public Class control
                 End If
 
                 loadTimer()
-            Else
-                ' Usar disposito con modulo 4 ventanas
+            End If
+
+            ' Usar disposito con modulo 4 ventanas
+            If My.Settings.use_4_windows = True Then
                 use_4_windows = True
                 Dim f = New use_4_windows
                 f.Show()
             End If
+
+            ' Usar ventana de asistencia
+            If My.Settings.use_4_windows_second = True Then
+                Use4WindowsSecond.load()
+                f.AddForm_Desktop(Use4WindowsSecond, Desktop)
+            End If
+
         Else
             ' Inicia modulo conmutador
         End If
+
     End Sub
 
     Private Sub loadTimer()
@@ -113,6 +123,7 @@ Public Class control
         f.AddForm_Desktop(usersADD, Desktop)
         f.AddForm_Desktop(VehicleADD, Desktop)
         f.AddForm_Desktop(Vehicles, Desktop)
+        f.AddForm_Desktop(Use4WindowsSecond, Desktop)
         Desktop.Controls.Clear()
     End Sub
 
@@ -157,7 +168,7 @@ Public Class control
         'a.loadvalues()
         'a.Show()
 
-        'Dim form As New LlamadaEntrante
+        'Dim form As New LlamadaEntrante0
         'Form.Static_numero = "9231200505"
         'Form.caller = 0
         'Form.f_llamada = DateTime.Now
@@ -793,5 +804,10 @@ Public Class control
         Else
             f.Alert("Ya existe una ventana abierta", f.Alert_NumberExclamacion)
         End If
+    End Sub
+
+    Private Sub VisualizarVentanaAsistenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarVentanaAsistenciasToolStripMenuItem.Click
+        Use4WindowsSecond.load()
+        f.AddForm_Desktop(Use4WindowsSecond, Desktop)
     End Sub
 End Class

@@ -24,12 +24,12 @@ Partial Class use_4_windows
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.WindowsDevice_0 = New System.Windows.Forms.GroupBox()
-        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Vehiculos_0 = New System.Windows.Forms.NumericUpDown()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_0 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtClient_0 = New System.Windows.Forms.Label()
         Me.TxtAddDireccion_0 = New System.Windows.Forms.TextBox()
@@ -41,12 +41,12 @@ Partial Class use_4_windows
         Me.TimerDos = New System.Windows.Forms.Timer(Me.components)
         Me.Timertres = New System.Windows.Forms.Timer(Me.components)
         Me.WindowsDevice_1 = New System.Windows.Forms.GroupBox()
-        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Vehiculos_1 = New System.Windows.Forms.NumericUpDown()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_1 = New System.Windows.Forms.ComboBox()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtClient_1 = New System.Windows.Forms.Label()
         Me.TxtAddDireccion_1 = New System.Windows.Forms.TextBox()
@@ -54,12 +54,12 @@ Partial Class use_4_windows
         Me.TxtAddClient_1 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_1 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_2 = New System.Windows.Forms.GroupBox()
-        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Vehiculos_2 = New System.Windows.Forms.NumericUpDown()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_2 = New System.Windows.Forms.ComboBox()
         Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TxtClient_2 = New System.Windows.Forms.Label()
         Me.TxtAddDireccion_2 = New System.Windows.Forms.TextBox()
@@ -67,12 +67,12 @@ Partial Class use_4_windows
         Me.TxtAddClient_2 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_2 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_3 = New System.Windows.Forms.GroupBox()
-        Me.Button21 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Vehiculos_3 = New System.Windows.Forms.NumericUpDown()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Combo_direcciones_3 = New System.Windows.Forms.ComboBox()
         Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button16 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtClient_3 = New System.Windows.Forms.Label()
         Me.TxtAddDireccion_3 = New System.Windows.Forms.TextBox()
@@ -80,25 +80,30 @@ Partial Class use_4_windows
         Me.TxtAddClient_3 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_3 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_0.SuspendLayout()
+        CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_1.SuspendLayout()
+        CType(Me.Vehiculos_1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_2.SuspendLayout()
+        CType(Me.Vehiculos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_3.SuspendLayout()
+        CType(Me.Vehiculos_3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'WindowsDevice_0
         '
-        Me.WindowsDevice_0.Controls.Add(Me.Button18)
+        Me.WindowsDevice_0.Controls.Add(Me.Label5)
+        Me.WindowsDevice_0.Controls.Add(Me.Vehiculos_0)
         Me.WindowsDevice_0.Controls.Add(Me.Button5)
         Me.WindowsDevice_0.Controls.Add(Me.Button4)
         Me.WindowsDevice_0.Controls.Add(Me.Combo_direcciones_0)
         Me.WindowsDevice_0.Controls.Add(Me.Button1)
-        Me.WindowsDevice_0.Controls.Add(Me.Button2)
         Me.WindowsDevice_0.Controls.Add(Me.Label2)
         Me.WindowsDevice_0.Controls.Add(Me.TxtClient_0)
         Me.WindowsDevice_0.Controls.Add(Me.TxtAddDireccion_0)
         Me.WindowsDevice_0.Controls.Add(Me.CbDireccionAdd_0)
         Me.WindowsDevice_0.Controls.Add(Me.TxtAddClient_0)
         Me.WindowsDevice_0.Controls.Add(Me.CbAddClient_0)
+        Me.WindowsDevice_0.Enabled = False
         Me.WindowsDevice_0.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
         Me.WindowsDevice_0.ForeColor = System.Drawing.Color.White
         Me.WindowsDevice_0.Location = New System.Drawing.Point(12, 12)
@@ -108,17 +113,25 @@ Partial Class use_4_windows
         Me.WindowsDevice_0.TabStop = False
         Me.WindowsDevice_0.Text = "No disponible"
         '
-        'Button18
+        'Label5
         '
-        Me.Button18.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button18.ForeColor = System.Drawing.Color.Black
-        Me.Button18.Location = New System.Drawing.Point(130, 279)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(79, 33)
-        Me.Button18.TabIndex = 27
-        Me.Button18.Text = "FINALIZAR"
-        Me.Button18.UseVisualStyleBackColor = False
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(185, 179)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(76, 19)
+        Me.Label5.TabIndex = 33
+        Me.Label5.Text = "Vehiculos"
+        '
+        'Vehiculos_0
+        '
+        Me.Vehiculos_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_0.Location = New System.Drawing.Point(267, 177)
+        Me.Vehiculos_0.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_0.Name = "Vehiculos_0"
+        Me.Vehiculos_0.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_0.TabIndex = 32
+        Me.Vehiculos_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_0.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Button5
         '
@@ -158,24 +171,12 @@ Partial Class use_4_windows
         Me.Button1.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(215, 279)
+        Me.Button1.Location = New System.Drawing.Point(10, 279)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(104, 33)
+        Me.Button1.Size = New System.Drawing.Size(309, 33)
         Me.Button1.TabIndex = 19
         Me.Button1.Text = "SOLICITAR"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(10, 279)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(114, 33)
-        Me.Button2.TabIndex = 23
-        Me.Button2.Text = "CANCELAR"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -249,18 +250,19 @@ Partial Class use_4_windows
         '
         'WindowsDevice_1
         '
-        Me.WindowsDevice_1.Controls.Add(Me.Button19)
+        Me.WindowsDevice_1.Controls.Add(Me.Label7)
+        Me.WindowsDevice_1.Controls.Add(Me.Vehiculos_1)
         Me.WindowsDevice_1.Controls.Add(Me.Button3)
         Me.WindowsDevice_1.Controls.Add(Me.Button6)
         Me.WindowsDevice_1.Controls.Add(Me.Combo_direcciones_1)
         Me.WindowsDevice_1.Controls.Add(Me.Button7)
-        Me.WindowsDevice_1.Controls.Add(Me.Button8)
         Me.WindowsDevice_1.Controls.Add(Me.Label1)
         Me.WindowsDevice_1.Controls.Add(Me.TxtClient_1)
         Me.WindowsDevice_1.Controls.Add(Me.TxtAddDireccion_1)
         Me.WindowsDevice_1.Controls.Add(Me.CbDireccionAdd_1)
         Me.WindowsDevice_1.Controls.Add(Me.TxtAddClient_1)
         Me.WindowsDevice_1.Controls.Add(Me.CbAddClient_1)
+        Me.WindowsDevice_1.Enabled = False
         Me.WindowsDevice_1.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
         Me.WindowsDevice_1.ForeColor = System.Drawing.Color.White
         Me.WindowsDevice_1.Location = New System.Drawing.Point(343, 12)
@@ -270,17 +272,25 @@ Partial Class use_4_windows
         Me.WindowsDevice_1.TabStop = False
         Me.WindowsDevice_1.Text = "No disponible"
         '
-        'Button19
+        'Label7
         '
-        Me.Button19.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button19.ForeColor = System.Drawing.Color.Black
-        Me.Button19.Location = New System.Drawing.Point(130, 279)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(79, 33)
-        Me.Button19.TabIndex = 28
-        Me.Button19.Text = "FINALIZAR"
-        Me.Button19.UseVisualStyleBackColor = False
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(185, 184)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(76, 19)
+        Me.Label7.TabIndex = 35
+        Me.Label7.Text = "Vehiculos"
+        '
+        'Vehiculos_1
+        '
+        Me.Vehiculos_1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_1.Location = New System.Drawing.Point(267, 177)
+        Me.Vehiculos_1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_1.Name = "Vehiculos_1"
+        Me.Vehiculos_1.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_1.TabIndex = 34
+        Me.Vehiculos_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_1.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Button3
         '
@@ -320,24 +330,12 @@ Partial Class use_4_windows
         Me.Button7.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.Color.Black
-        Me.Button7.Location = New System.Drawing.Point(215, 279)
+        Me.Button7.Location = New System.Drawing.Point(10, 279)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(104, 33)
+        Me.Button7.Size = New System.Drawing.Size(309, 33)
         Me.Button7.TabIndex = 19
         Me.Button7.Text = "SOLICITAR"
         Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.ForeColor = System.Drawing.Color.Black
-        Me.Button8.Location = New System.Drawing.Point(10, 279)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(114, 33)
-        Me.Button8.TabIndex = 23
-        Me.Button8.Text = "CANCELAR"
-        Me.Button8.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -399,18 +397,19 @@ Partial Class use_4_windows
         '
         'WindowsDevice_2
         '
-        Me.WindowsDevice_2.Controls.Add(Me.Button20)
+        Me.WindowsDevice_2.Controls.Add(Me.Label3)
+        Me.WindowsDevice_2.Controls.Add(Me.Vehiculos_2)
         Me.WindowsDevice_2.Controls.Add(Me.Button9)
         Me.WindowsDevice_2.Controls.Add(Me.Button10)
         Me.WindowsDevice_2.Controls.Add(Me.Combo_direcciones_2)
         Me.WindowsDevice_2.Controls.Add(Me.Button11)
-        Me.WindowsDevice_2.Controls.Add(Me.Button12)
         Me.WindowsDevice_2.Controls.Add(Me.Label4)
         Me.WindowsDevice_2.Controls.Add(Me.TxtClient_2)
         Me.WindowsDevice_2.Controls.Add(Me.TxtAddDireccion_2)
         Me.WindowsDevice_2.Controls.Add(Me.CbDireccionAdd_2)
         Me.WindowsDevice_2.Controls.Add(Me.TxtAddClient_2)
         Me.WindowsDevice_2.Controls.Add(Me.CbAddClient_2)
+        Me.WindowsDevice_2.Enabled = False
         Me.WindowsDevice_2.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
         Me.WindowsDevice_2.ForeColor = System.Drawing.Color.White
         Me.WindowsDevice_2.Location = New System.Drawing.Point(12, 346)
@@ -420,17 +419,25 @@ Partial Class use_4_windows
         Me.WindowsDevice_2.TabStop = False
         Me.WindowsDevice_2.Text = "No disponible"
         '
-        'Button20
+        'Label3
         '
-        Me.Button20.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button20.ForeColor = System.Drawing.Color.Black
-        Me.Button20.Location = New System.Drawing.Point(130, 279)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(79, 33)
-        Me.Button20.TabIndex = 29
-        Me.Button20.Text = "FINALIZAR"
-        Me.Button20.UseVisualStyleBackColor = False
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(185, 183)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(76, 19)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "Vehiculos"
+        '
+        'Vehiculos_2
+        '
+        Me.Vehiculos_2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_2.Location = New System.Drawing.Point(267, 181)
+        Me.Vehiculos_2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_2.Name = "Vehiculos_2"
+        Me.Vehiculos_2.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_2.TabIndex = 30
+        Me.Vehiculos_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_2.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Button9
         '
@@ -470,24 +477,12 @@ Partial Class use_4_windows
         Me.Button11.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button11.ForeColor = System.Drawing.Color.Black
-        Me.Button11.Location = New System.Drawing.Point(215, 279)
+        Me.Button11.Location = New System.Drawing.Point(10, 279)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(104, 33)
+        Me.Button11.Size = New System.Drawing.Size(309, 33)
         Me.Button11.TabIndex = 19
         Me.Button11.Text = "SOLICITAR"
         Me.Button11.UseVisualStyleBackColor = False
-        '
-        'Button12
-        '
-        Me.Button12.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.ForeColor = System.Drawing.Color.Black
-        Me.Button12.Location = New System.Drawing.Point(10, 279)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(114, 33)
-        Me.Button12.TabIndex = 23
-        Me.Button12.Text = "CANCELAR"
-        Me.Button12.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -549,18 +544,19 @@ Partial Class use_4_windows
         '
         'WindowsDevice_3
         '
-        Me.WindowsDevice_3.Controls.Add(Me.Button21)
+        Me.WindowsDevice_3.Controls.Add(Me.Label8)
+        Me.WindowsDevice_3.Controls.Add(Me.Vehiculos_3)
         Me.WindowsDevice_3.Controls.Add(Me.Button13)
         Me.WindowsDevice_3.Controls.Add(Me.Button14)
         Me.WindowsDevice_3.Controls.Add(Me.Combo_direcciones_3)
         Me.WindowsDevice_3.Controls.Add(Me.Button15)
-        Me.WindowsDevice_3.Controls.Add(Me.Button16)
         Me.WindowsDevice_3.Controls.Add(Me.Label6)
         Me.WindowsDevice_3.Controls.Add(Me.TxtClient_3)
         Me.WindowsDevice_3.Controls.Add(Me.TxtAddDireccion_3)
         Me.WindowsDevice_3.Controls.Add(Me.CbDireccionAdd_3)
         Me.WindowsDevice_3.Controls.Add(Me.TxtAddClient_3)
         Me.WindowsDevice_3.Controls.Add(Me.CbAddClient_3)
+        Me.WindowsDevice_3.Enabled = False
         Me.WindowsDevice_3.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
         Me.WindowsDevice_3.ForeColor = System.Drawing.Color.White
         Me.WindowsDevice_3.Location = New System.Drawing.Point(343, 346)
@@ -570,17 +566,25 @@ Partial Class use_4_windows
         Me.WindowsDevice_3.TabStop = False
         Me.WindowsDevice_3.Text = "No disponible"
         '
-        'Button21
+        'Label8
         '
-        Me.Button21.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button21.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button21.ForeColor = System.Drawing.Color.Black
-        Me.Button21.Location = New System.Drawing.Point(130, 279)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(79, 33)
-        Me.Button21.TabIndex = 30
-        Me.Button21.Text = "FINALIZAR"
-        Me.Button21.UseVisualStyleBackColor = False
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(185, 183)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(76, 19)
+        Me.Label8.TabIndex = 37
+        Me.Label8.Text = "Vehiculos"
+        '
+        'Vehiculos_3
+        '
+        Me.Vehiculos_3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_3.Location = New System.Drawing.Point(267, 181)
+        Me.Vehiculos_3.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_3.Name = "Vehiculos_3"
+        Me.Vehiculos_3.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_3.TabIndex = 36
+        Me.Vehiculos_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_3.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Button13
         '
@@ -620,24 +624,12 @@ Partial Class use_4_windows
         Me.Button15.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Button15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button15.ForeColor = System.Drawing.Color.Black
-        Me.Button15.Location = New System.Drawing.Point(215, 279)
+        Me.Button15.Location = New System.Drawing.Point(10, 279)
         Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(104, 33)
+        Me.Button15.Size = New System.Drawing.Size(309, 33)
         Me.Button15.TabIndex = 19
         Me.Button15.Text = "SOLICITAR"
         Me.Button15.UseVisualStyleBackColor = False
-        '
-        'Button16
-        '
-        Me.Button16.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button16.ForeColor = System.Drawing.Color.Black
-        Me.Button16.Location = New System.Drawing.Point(10, 279)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(114, 33)
-        Me.Button16.TabIndex = 23
-        Me.Button16.Text = "CANCELAR"
-        Me.Button16.UseVisualStyleBackColor = False
         '
         'Label6
         '
@@ -702,7 +694,7 @@ Partial Class use_4_windows
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Blue
-        Me.ClientSize = New System.Drawing.Size(681, 684)
+        Me.ClientSize = New System.Drawing.Size(678, 684)
         Me.Controls.Add(Me.WindowsDevice_3)
         Me.Controls.Add(Me.WindowsDevice_2)
         Me.Controls.Add(Me.WindowsDevice_1)
@@ -713,12 +705,16 @@ Partial Class use_4_windows
         Me.Text = "RECEPTOR DE LLAMADAS"
         Me.WindowsDevice_0.ResumeLayout(False)
         Me.WindowsDevice_0.PerformLayout()
+        CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WindowsDevice_1.ResumeLayout(False)
         Me.WindowsDevice_1.PerformLayout()
+        CType(Me.Vehiculos_1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WindowsDevice_2.ResumeLayout(False)
         Me.WindowsDevice_2.PerformLayout()
+        CType(Me.Vehiculos_2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WindowsDevice_3.ResumeLayout(False)
         Me.WindowsDevice_3.PerformLayout()
+        CType(Me.Vehiculos_3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -730,7 +726,6 @@ Partial Class use_4_windows
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtClient_0 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents TimerCero As Timer
     Friend WithEvents TimerUno As Timer
     Friend WithEvents TimerDos As Timer
@@ -743,7 +738,6 @@ Partial Class use_4_windows
     Friend WithEvents Button6 As Button
     Friend WithEvents Combo_direcciones_1 As ComboBox
     Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents TxtClient_1 As Label
     Friend WithEvents TxtAddDireccion_1 As TextBox
@@ -755,7 +749,6 @@ Partial Class use_4_windows
     Friend WithEvents Button10 As Button
     Friend WithEvents Combo_direcciones_2 As ComboBox
     Friend WithEvents Button11 As Button
-    Friend WithEvents Button12 As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents TxtClient_2 As Label
     Friend WithEvents TxtAddDireccion_2 As TextBox
@@ -767,15 +760,18 @@ Partial Class use_4_windows
     Friend WithEvents Button14 As Button
     Friend WithEvents Combo_direcciones_3 As ComboBox
     Friend WithEvents Button15 As Button
-    Friend WithEvents Button16 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents TxtClient_3 As Label
     Friend WithEvents TxtAddDireccion_3 As TextBox
     Friend WithEvents CbDireccionAdd_3 As CheckBox
     Friend WithEvents TxtAddClient_3 As TextBox
     Friend WithEvents CbAddClient_3 As CheckBox
-    Friend WithEvents Button18 As Button
-    Friend WithEvents Button19 As Button
-    Friend WithEvents Button20 As Button
-    Friend WithEvents Button21 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Vehiculos_0 As NumericUpDown
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Vehiculos_1 As NumericUpDown
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Vehiculos_2 As NumericUpDown
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Vehiculos_3 As NumericUpDown
 End Class

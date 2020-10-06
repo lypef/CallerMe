@@ -32,10 +32,10 @@
         CbAddClient.Checked = False
         CbDireccionAdd.Checked = False
 
-        f.ComboBox_SetVehiculosConID(ComboVehiculos)
-        Combo_Driver.Items.Add("Conductores")
-        f.ComboBox_SetDriversConID(Combo_Driver)
-        Combo_Driver.SelectedIndex = 0
+        'f.ComboBox_SetVehiculosConID(ComboVehiculos)
+        'Combo_Driver.Items.Add("Conductores")
+        'f.ComboBox_SetDriversConID(Combo_Driver)
+        'Combo_Driver.SelectedIndex = 0
         GB_EXISTENTE.Text = f.LoadNumberAsistencia(number, PictureBox1, Combo_direcciones, number_id, client_id) + " | " + number
         f.LastLogs_DataGridViewSet(Table_Logs)
         ubicar = True
@@ -89,21 +89,21 @@
         loadvalues()
     End Sub
 
-    Private Sub Combo_Driver_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_Driver.SelectedIndexChanged
+    Private Sub Combo_Driver_SelectedIndexChanged(sender As Object, e As EventArgs)
         If ubicar Then
             If My.Settings.use_gps Then
-                Dim id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-                If f.Vehicle_GetGPS(Convert.ToInt32(id), Wb) = False Then
-                    f.Alert("Error no definido", f.Alert_NumberExclamacion)
-                End If
+                'Dim id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                'If f.Vehicle_GetGPS(Convert.ToInt32(id), Wb) = False Then
+                'f.Alert("Error no definido", f.Alert_NumberExclamacion)
+                'End If
             End If
         End If
     End Sub
 
-    Private Sub ComboVehiculos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboVehiculos.SelectedIndexChanged
-        If ComboVehiculos.SelectedIndex > 0 Then
-            f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
-        End If
+    Private Sub ComboVehiculos_SelectedIndexChanged(sender As Object, e As EventArgs)
+        'If ComboVehiculos.SelectedIndex > 0 Then
+        'f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
+        'End If
     End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
@@ -162,12 +162,12 @@
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Btn_GuardarDb.Click
         Try
-            If Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
+            If Combo_direcciones.SelectedIndex > 0 Then
                 direccion_id = Combo_direcciones.SelectedItem.ToString.Substring(Combo_direcciones.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-                vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
-                driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                'vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+                'driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-                If f.save_registroAutomatic(client_id, number_id, f_llamada, Asitir_llamada, DateTime.Now, direccion_id, vehiculo_id, driver_id) Then
+                If f.save_registroAutomatic(client_id, number_id, f_llamada, Asitir_llamada, DateTime.Now, direccion_id, ComboVehiculos, Combo_Driver) Then
                     If caller = 0 Then
                         f.finalizarLlamada(caller)
                         control.TimerCero.Start()

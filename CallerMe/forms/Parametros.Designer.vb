@@ -53,7 +53,12 @@ Partial Class Parametros
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.use_4_windows_second = New System.Windows.Forms.CheckBox()
+        Me.use_4_windows = New System.Windows.Forms.CheckBox()
+        Me.Use_Device = New System.Windows.Forms.CheckBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.caller_3 = New System.Windows.Forms.CheckBox()
+        Me.Omitir = New System.Windows.Forms.NumericUpDown()
         Me.caller_2 = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Caller_1 = New System.Windows.Forms.CheckBox()
@@ -67,24 +72,20 @@ Partial Class Parametros
         Me.Label15 = New System.Windows.Forms.Label()
         Me.P_generalID = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Omitir = New System.Windows.Forms.NumericUpDown()
-        Me.Use_Device = New System.Windows.Forms.CheckBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.Use_Conmutador = New System.Windows.Forms.CheckBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Use_Conmutador = New System.Windows.Forms.CheckBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.use_4_windows = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
+        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -357,6 +358,7 @@ Partial Class Parametros
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.use_4_windows_second)
         Me.GroupBox4.Controls.Add(Me.use_4_windows)
         Me.GroupBox4.Controls.Add(Me.Use_Device)
         Me.GroupBox4.Controls.Add(Me.Label16)
@@ -374,6 +376,45 @@ Partial Class Parametros
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "CALLER ID"
         '
+        'use_4_windows_second
+        '
+        Me.use_4_windows_second.AutoSize = True
+        Me.use_4_windows_second.Location = New System.Drawing.Point(299, 92)
+        Me.use_4_windows_second.Name = "use_4_windows_second"
+        Me.use_4_windows_second.Size = New System.Drawing.Size(131, 17)
+        Me.use_4_windows_second.TabIndex = 14
+        Me.use_4_windows_second.Text = "Ventana de asistencia"
+        Me.use_4_windows_second.UseVisualStyleBackColor = True
+        '
+        'use_4_windows
+        '
+        Me.use_4_windows.AutoSize = True
+        Me.use_4_windows.Location = New System.Drawing.Point(145, 92)
+        Me.use_4_windows.Name = "use_4_windows"
+        Me.use_4_windows.Size = New System.Drawing.Size(156, 17)
+        Me.use_4_windows.TabIndex = 13
+        Me.use_4_windows.Text = "Ventana para 4 dispositivos"
+        Me.use_4_windows.UseVisualStyleBackColor = True
+        '
+        'Use_Device
+        '
+        Me.Use_Device.AutoSize = True
+        Me.Use_Device.Location = New System.Drawing.Point(34, 55)
+        Me.Use_Device.Name = "Use_Device"
+        Me.Use_Device.Size = New System.Drawing.Size(56, 17)
+        Me.Use_Device.TabIndex = 12
+        Me.Use_Device.Text = "USAR"
+        Me.Use_Device.UseVisualStyleBackColor = True
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(142, 69)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(148, 13)
+        Me.Label16.TabIndex = 7
+        Me.Label16.Text = "Omitir llamada des pues de  ..."
+        '
         'caller_3
         '
         Me.caller_3.AutoSize = True
@@ -384,10 +425,19 @@ Partial Class Parametros
         Me.caller_3.Text = "Caller 4"
         Me.caller_3.UseVisualStyleBackColor = True
         '
+        'Omitir
+        '
+        Me.Omitir.Location = New System.Drawing.Point(307, 67)
+        Me.Omitir.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
+        Me.Omitir.Name = "Omitir"
+        Me.Omitir.Size = New System.Drawing.Size(123, 20)
+        Me.Omitir.TabIndex = 6
+        Me.Omitir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'caller_2
         '
         Me.caller_2.AutoSize = True
-        Me.caller_2.Location = New System.Drawing.Point(297, 43)
+        Me.caller_2.Location = New System.Drawing.Point(290, 43)
         Me.caller_2.Name = "caller_2"
         Me.caller_2.Size = New System.Drawing.Size(61, 17)
         Me.caller_2.TabIndex = 10
@@ -397,7 +447,7 @@ Partial Class Parametros
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(153, 19)
+        Me.Label8.Location = New System.Drawing.Point(142, 20)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(187, 13)
         Me.Label8.TabIndex = 7
@@ -406,7 +456,7 @@ Partial Class Parametros
         'Caller_1
         '
         Me.Caller_1.AutoSize = True
-        Me.Caller_1.Location = New System.Drawing.Point(225, 43)
+        Me.Caller_1.Location = New System.Drawing.Point(216, 43)
         Me.Caller_1.Name = "Caller_1"
         Me.Caller_1.Size = New System.Drawing.Size(61, 17)
         Me.Caller_1.TabIndex = 9
@@ -415,17 +465,17 @@ Partial Class Parametros
         '
         'TimerInterval
         '
-        Me.TimerInterval.Location = New System.Drawing.Point(346, 17)
+        Me.TimerInterval.Location = New System.Drawing.Point(335, 17)
         Me.TimerInterval.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         Me.TimerInterval.Name = "TimerInterval"
-        Me.TimerInterval.Size = New System.Drawing.Size(84, 20)
+        Me.TimerInterval.Size = New System.Drawing.Size(95, 20)
         Me.TimerInterval.TabIndex = 6
         Me.TimerInterval.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Caller_0
         '
         Me.Caller_0.AutoSize = True
-        Me.Caller_0.Location = New System.Drawing.Point(153, 43)
+        Me.Caller_0.Location = New System.Drawing.Point(145, 43)
         Me.Caller_0.Name = "Caller_0"
         Me.Caller_0.Size = New System.Drawing.Size(61, 17)
         Me.Caller_0.TabIndex = 8
@@ -503,34 +553,6 @@ Partial Class Parametros
         Me.Label14.TabIndex = 7
         Me.Label14.Text = "Publico en general"
         '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(153, 69)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(148, 13)
-        Me.Label16.TabIndex = 7
-        Me.Label16.Text = "Omitir llamada des pues de  ..."
-        '
-        'Omitir
-        '
-        Me.Omitir.Location = New System.Drawing.Point(307, 67)
-        Me.Omitir.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
-        Me.Omitir.Name = "Omitir"
-        Me.Omitir.Size = New System.Drawing.Size(123, 20)
-        Me.Omitir.TabIndex = 6
-        Me.Omitir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Use_Device
-        '
-        Me.Use_Device.AutoSize = True
-        Me.Use_Device.Location = New System.Drawing.Point(34, 55)
-        Me.Use_Device.Name = "Use_Device"
-        Me.Use_Device.Size = New System.Drawing.Size(56, 17)
-        Me.Use_Device.TabIndex = 12
-        Me.Use_Device.Text = "USAR"
-        Me.Use_Device.UseVisualStyleBackColor = True
-        '
         'GroupBox6
         '
         Me.GroupBox6.Controls.Add(Me.Label9)
@@ -545,6 +567,15 @@ Partial Class Parametros
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "CONMUTADOR"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(156, 65)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(61, 13)
+        Me.Label9.TabIndex = 12
+        Me.Label9.Text = "Contraseña"
+        '
         'Use_Conmutador
         '
         Me.Use_Conmutador.AutoSize = True
@@ -554,15 +585,6 @@ Partial Class Parametros
         Me.Use_Conmutador.TabIndex = 12
         Me.Use_Conmutador.Text = "USAR"
         Me.Use_Conmutador.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(156, 65)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(61, 13)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "Contraseña"
         '
         'TextBox1
         '
@@ -590,16 +612,6 @@ Partial Class Parametros
         Me.TextBox2.Size = New System.Drawing.Size(274, 22)
         Me.TextBox2.TabIndex = 10
         '
-        'use_4_windows
-        '
-        Me.use_4_windows.AutoSize = True
-        Me.use_4_windows.Location = New System.Drawing.Point(156, 92)
-        Me.use_4_windows.Name = "use_4_windows"
-        Me.use_4_windows.Size = New System.Drawing.Size(178, 17)
-        Me.use_4_windows.TabIndex = 13
-        Me.use_4_windows.Text = "Una ventana para 4 dispositivos"
-        Me.use_4_windows.UseVisualStyleBackColor = True
-        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -622,10 +634,10 @@ Partial Class Parametros
         CType(Me.Tablas_Height, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TimerInterval, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.Omitir, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
@@ -687,4 +699,5 @@ Partial Class Parametros
     Friend WithEvents Label11 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents use_4_windows As CheckBox
+    Friend WithEvents use_4_windows_second As CheckBox
 End Class

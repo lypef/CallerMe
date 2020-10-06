@@ -50,6 +50,7 @@ Public Class Parametros
         Use_Device.Checked = My.Settings.use_device
         Use_Conmutador.Checked = My.Settings.use_conmutador
         use_4_windows.Checked = My.Settings.use_4_windows
+        use_4_windows_second.Checked = My.Settings.use_4_windows_second
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles TxtSalir.Click
@@ -82,6 +83,7 @@ Public Class Parametros
         My.Settings.use_device = Use_Device.Checked
         My.Settings.use_conmutador = Use_Conmutador.Checked
         My.Settings.use_4_windows = use_4_windows.Checked
+        My.Settings.use_4_windows_second = use_4_windows_second.Checked
 
         My.Settings.Save()
 
@@ -171,6 +173,22 @@ Public Class Parametros
     Private Sub Use_Conmutador_CheckedChanged(sender As Object, e As EventArgs) Handles Use_Conmutador.CheckedChanged
         If Use_Conmutador.Checked Then
             Use_Device.Checked = False
+        End If
+    End Sub
+
+    Private Sub use_4_windows_second_CheckedChanged(sender As Object, e As EventArgs) Handles use_4_windows_second.CheckedChanged
+        If use_4_windows_second.Checked Then
+            Caller_0.Checked = False
+            Caller_1.Checked = False
+            caller_2.Checked = False
+            caller_3.Checked = False
+            use_4_windows.Checked = False
+        End If
+    End Sub
+
+    Private Sub use_4_windows_CheckedChanged(sender As Object, e As EventArgs) Handles use_4_windows.CheckedChanged
+        If use_4_windows.Checked Then
+            use_4_windows_second.Checked = False
         End If
     End Sub
 End Class
