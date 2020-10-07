@@ -13,7 +13,7 @@
 
     Public Sub loader_values(id As String)
         id_log = id
-        f.LoadValuesAsistirSecond(TxtCliente, TxtTelefono, TxtObservacion, id_log.ToString, CombDirecciones, id_client, id_direccion)
+        f.LoadValuesAsistirSecond(TxtCliente, TxtTelefono, TxtObservacion, id_log.ToString, CombDirecciones, id_client, id_direccion, TxtVehiculo, TxtConductor)
 
         'f.ComboBox_SetVehiculosConID(ComboVehiculos)
         'Combo_Driver.Items.Add("Conductores")
@@ -39,7 +39,7 @@
             Button1.Enabled = False
             CbDireccionAdd_0.Checked = False
 
-            f.LoadValuesAsistirSecond(TxtCliente, TxtTelefono, TxtObservacion, id_log.ToString, CombDirecciones, id_client, id_direccion)
+            f.LoadValuesAsistirSecond(TxtCliente, TxtTelefono, TxtObservacion, id_log.ToString, CombDirecciones, id_client, id_direccion, TxtVehiculo, TxtConductor)
             f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
         End If
     End Sub
@@ -61,8 +61,9 @@
         'Dim vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
         'Dim driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-        If f.log_second_update(direccion_id, vehiculo_id, driver_id, id_log.ToString, TxtObservacion.Text) Then
+        If f.log_second_update(direccion_id, TxtVehiculo, TxtConductor, id_log.ToString, TxtObservacion.Text) Then
             Use4WindowsSecond.LoadIni()
+            Logs.LoadIni()
             Me.Dispose()
         End If
     End Sub

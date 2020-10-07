@@ -31,14 +31,14 @@ Partial Class AsistirLlamadaSecond
         Me.Label4 = New System.Windows.Forms.Label()
         Me.CbDireccionAdd_0 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TxtConductor = New System.Windows.Forms.TextBox()
+        Me.TxtVehiculo = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CombDirecciones = New System.Windows.Forms.ComboBox()
         Me.TxtAddDireccion = New System.Windows.Forms.TextBox()
-        Me.vehiculo_id = New System.Windows.Forms.TextBox()
-        Me.driver_id = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -132,8 +132,8 @@ Partial Class AsistirLlamadaSecond
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.driver_id)
-        Me.GroupBox1.Controls.Add(Me.vehiculo_id)
+        Me.GroupBox1.Controls.Add(Me.TxtConductor)
+        Me.GroupBox1.Controls.Add(Me.TxtVehiculo)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -149,6 +149,22 @@ Partial Class AsistirLlamadaSecond
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asistir llamada"
+        '
+        'TxtConductor
+        '
+        Me.TxtConductor.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtConductor.Location = New System.Drawing.Point(6, 203)
+        Me.TxtConductor.Name = "TxtConductor"
+        Me.TxtConductor.Size = New System.Drawing.Size(369, 25)
+        Me.TxtConductor.TabIndex = 36
+        '
+        'TxtVehiculo
+        '
+        Me.TxtVehiculo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtVehiculo.Location = New System.Drawing.Point(6, 154)
+        Me.TxtVehiculo.Name = "TxtVehiculo"
+        Me.TxtVehiculo.Size = New System.Drawing.Size(369, 25)
+        Me.TxtVehiculo.TabIndex = 35
         '
         'Button2
         '
@@ -213,22 +229,6 @@ Partial Class AsistirLlamadaSecond
         Me.TxtAddDireccion.Size = New System.Drawing.Size(369, 25)
         Me.TxtAddDireccion.TabIndex = 34
         '
-        'vehiculo_id
-        '
-        Me.vehiculo_id.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.vehiculo_id.Location = New System.Drawing.Point(6, 154)
-        Me.vehiculo_id.Name = "vehiculo_id"
-        Me.vehiculo_id.Size = New System.Drawing.Size(369, 25)
-        Me.vehiculo_id.TabIndex = 35
-        '
-        'driver_id
-        '
-        Me.driver_id.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.driver_id.Location = New System.Drawing.Point(6, 203)
-        Me.driver_id.Name = "driver_id"
-        Me.driver_id.Size = New System.Drawing.Size(369, 25)
-        Me.driver_id.TabIndex = 36
-        '
         'AsistirLlamadaSecond
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -267,6 +267,6 @@ Partial Class AsistirLlamadaSecond
     Friend WithEvents CombDirecciones As ComboBox
     Friend WithEvents TxtAddDireccion As TextBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents driver_id As TextBox
-    Friend WithEvents vehiculo_id As TextBox
+    Friend WithEvents TxtConductor As TextBox
+    Friend WithEvents TxtVehiculo As TextBox
 End Class

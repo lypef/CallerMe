@@ -1,114 +1,170 @@
 ﻿Public Class LogsADD
     Dim f As New functions
 
-    Public Sub LoadIni()
-        f.ComboBox_SetUsers(Combo_Users)
-        f.ComboBox_SetVehiculos(ComboVehiculos)
-        f.ComboBox_SetDrivers(Combo_Driver)
-        Combo_direcciones.Items.Add("DIRECCIONES")
-        Combo_Driver.Items.Add("CONDUCTORES")
-        Combo_direcciones.SelectedIndex = 0
-        Combo_Driver.SelectedIndex = 0
-        foto.Image = Nothing
+    Dim number_id_0 As String
+    Dim client_id_0 As Integer
+    Dim number_0 As String
+    Dim observacion_0 As String
+    Dim f_llamada_0 As Date
+    Dim Asitir_llamada_0 As Date
 
-        Combo_direcciones.Enabled = False
-        Combo_Users.Enabled = False
-        ComboVehiculos.Enabled = False
-        Combo_Driver.Enabled = False
-        Fecha.Enabled = False
-        btn_save.Enabled = False
+    Private Sub LogsADD_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        f.forms_setmodel(Me)
+        f.BotonesBackGroundBlueForm(Me)
+    End Sub
 
-        foto.SizeMode = PictureBoxSizeMode.Zoom
-        foto.Image = Image.FromFile(My.Settings.data_url + functions.Data_clients + functions.Clients_ImgDefault)
+    Public Sub LoadValues_0(Number As String)
+        Try
+            CbAddClient_0.Checked = False
+            CbDireccionAdd_0.Checked = False
+            TxtAddClient_0.Text = ""
+            TxtAddDireccion_0.Text = ""
 
-        cliente_name.Text = ""
-        Fecha.Value = DateTime.Now
+            'Dim Device = f.ComprobarLlamada(0).ToString
+            Dim Device = Number
+
+            If (String.IsNullOrEmpty(Device) = False) Then
+
+                functions.LastNumber0 = Device
+                number_0 = Device
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+
+                f_llamada_0 = DateTime.Now
+                Asitir_llamada_0 = DateTime.Now
+
+                WindowsDevice_0.Text = "NUMERO: " + number_0
+                WindowsDevice_0.Enabled = True
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 115")
+        End Try
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        add_ciente_direccion_0()
+    End Sub
+
+    Private Sub CbAddClient_0_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient_0.CheckedChanged
+        If CbAddClient_0.Checked Then
+            If client_id_0 = 1 Then
+                TxtAddClient_0.Enabled = True
+                TxtAddClient_0.Text = "CLIENTE SIN NOMBRE"
+                TxtAddClient_0.Focus()
+
+                CbDireccionAdd_0.Checked = True
+                TxtAddDireccion_0.Enabled = True
+                TxtAddDireccion_0.Text = "ESCRIBA UNA DIRECCION"
+            Else
+                CbAddClient_0.Checked = False
+                f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
+            End If
+        Else
+            TxtAddClient_0.Text = ""
+            TxtAddClient_0.Enabled = False
+        End If
+    End Sub
+
+    Private Sub TxtAddClient_0_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddClient_0.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            add_ciente_direccion_0()
+        End If
+    End Sub
+
+    Private Sub CbDireccionAdd_0_CheckedChanged(sender As Object, e As EventArgs) Handles CbDireccionAdd_0.CheckedChanged
+        If CbDireccionAdd_0.Checked Then
+            TxtAddDireccion_0.Enabled = True
+            TxtAddDireccion_0.Focus()
+        Else
+            TxtAddDireccion_0.Text = ""
+            TxtAddDireccion_0.Enabled = False
+        End If
+    End Sub
+
+    Private Sub TxtAddDireccion_0_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtAddDireccion_0.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            add_ciente_direccion_0()
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim myValue As String = InputBox("Ingrese comentario", "Observacion")
+
+        If String.IsNullOrEmpty(myValue) = False Then
+            observacion_0 = myValue
+        End If
+    End Sub
+
+    Private Sub Clean_0()
+        observacion_0 = ""
+        CbAddClient_0.Checked = False
+        CbDireccionAdd_0.Checked = False
+        TxtAddClient_0.Text = ""
+        TxtAddDireccion_0.Text = ""
+        WindowsDevice_0.Enabled = False
+        WindowsDevice_0.Text = "No disponible"
+        TxtClient_0.Text = "NOMBRE:"
+        Combo_direcciones_0.Items.Clear()
+        Vehiculos_0.Value = 1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Search()
-    End Sub
+        Try
+            If Combo_direcciones_0.SelectedIndex > 0 Then
 
-    Private Sub Search()
-        TxtSearch.Text = TxtSearch.Text.Replace(" ", "")
-        If f.IsDecimal(TxtSearch) Then
+                Dim direccion_id = Combo_direcciones_0.SelectedItem.ToString.Substring(Combo_direcciones_0.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
 
-            'Buscar numero
-            If f.LoadNumber_Manual(TxtSearch.Text, foto, cliente_name) Then
-                Combo_direcciones.Enabled = True
-                Combo_Users.Enabled = True
-                ComboVehiculos.Enabled = True
-                Combo_Driver.Enabled = True
-                Fecha.Enabled = True
-                btn_save.Enabled = True
-                f.ComboBox_SetDireccion_Client(Combo_direcciones)
-            Else
-                Combo_direcciones.Enabled = False
-                Combo_Users.Enabled = False
-                ComboVehiculos.Enabled = False
-                Combo_Driver.Enabled = False
-                Fecha.Enabled = False
-                btn_save.Enabled = False
-                f.Alert("El numero no esta registrado", f.Alert_NumberExclamacion)
+                If f.save_registroAutomaticOne(client_id_0, number_id_0, f_llamada_0, Asitir_llamada_0, DateTime.Now, direccion_id, observacion_0, Vehiculos_0.Value) Then
+
+                    Dim r As DialogResult = MessageBox.Show("Solicitud enviada.", "Proceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                    Clean_0()
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberInformacion)
+                End If
             End If
-
-        Else
-            Combo_direcciones.Enabled = False
-            Combo_Users.Enabled = False
-            ComboVehiculos.Enabled = False
-            Combo_Driver.Enabled = False
-            Fecha.Enabled = False
-            btn_save.Enabled = False
-            f.Alert("Numero no valido", f.Alert_NumberExclamacion)
-        End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ", En Asistir llamada")
+        End Try
     End Sub
 
-    Private Sub Table_Clients_CellClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub Table_Clients_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btn_save.Click
-        If Combo_direcciones.SelectedIndex > 0 And Combo_Users.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
-            If f.save_registroMANUAL(Combo_Users, Combo_direcciones, ComboVehiculos, Combo_Driver, Fecha) Then
-                functions.Client = 0
+    Private Sub add_ciente_direccion_0()
+        If CbAddClient_0.Checked And CbDireccionAdd_0.Checked = False Then
+            'Se agrega solo el cliente
+            If f.AddClientXpress(TxtAddClient_0, number_0) Then
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+                CbAddClient_0.Checked = False
+                CbDireccionAdd_0.Checked = False
+                TxtAddClient_0.Text = ""
+                TxtAddDireccion_0.Text = ""
                 f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-                LoadIni()
             Else
-                f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
+                f.Alert("El cliente ya existe", f.Alert_NumberExclamacion)
             End If
-        Else
-            f.Alert("Verifique su informacion", f.Alert_NumberCritical)
-        End If
-        'If Combo_Telefonos.SelectedIndex > 0 And Combo_Users.SelectedIndex > 0 And Combo_direcciones.SelectedIndex > 0 And ComboVehiculos.SelectedIndex > 0 And Combo_Driver.SelectedIndex > 0 Then
-        'If f.save_registroMANUAL(Combo_Telefonos, Combo_Users, Combo_direcciones, ComboVehiculos, Combo_Driver, Fecha) Then
-        'functions.Client = 0
-        'f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
-        'LoadIni()
-        'Else
-        'f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberCritical)
-        'End If
-        'Else
-        'f.Alert("Verifique su informacion", f.Alert_NumberCritical)
-        'End If
-    End Sub
-
-    Private Sub Table_Clients_KeyPress(sender As Object, e As KeyPressEventArgs)
-
-    End Sub
-
-    Private Sub ComboVehiculos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboVehiculos.SelectedIndexChanged
-        If ComboVehiculos.SelectedIndex > 0 Then
-            f.SelectConductor(f.ReturnDriver_Vehicle(f.ListVehiculos.Item(ComboVehiculos.SelectedIndex)), Combo_Driver)
-        End If
-    End Sub
-
-    Private Sub TxtSearch_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtSearch.KeyPress
-        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Enter) Then
-            Search()
+        ElseIf CbAddClient_0.Checked = False And CbDireccionAdd_0.Checked Then
+            'Se agrega solo la direccion
+            If f.AddDireccionXpress(TxtAddDireccion_0, client_id_0) Then
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+                CbAddClient_0.Checked = False
+                CbDireccionAdd_0.Checked = False
+                TxtAddClient_0.Text = ""
+                TxtAddDireccion_0.Text = ""
+                f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+            End If
+        ElseIf CbAddClient_0.Checked And CbDireccionAdd_0.Checked Then
+            'Se agrega direccion y cliente
+            If f.AddClientXpress(TxtAddClient_0, number_0) Then
+                If f.AddDireccionXpress(TxtAddDireccion_0, f.LastIDClients()) Then
+                    TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+                    CbAddClient_0.Checked = False
+                    CbDireccionAdd_0.Checked = False
+                    TxtAddClient_0.Text = ""
+                    TxtAddDireccion_0.Text = ""
+                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                End If
+            Else
+                f.Alert("El cliente ya existe", f.Alert_NumberExclamacion)
+            End If
         End If
     End Sub
+
 End Class

@@ -449,9 +449,13 @@ Public Class control
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         If f.ReturnPermission(f.Permission_Logs_ADD) Then
-            Dim form = New LogsADD
-            form.LoadIni()
-            f.AddForm_Desktop(form, Desktop)
+            Dim Number As String = InputBox("Ingrese un numero telefonico", "Numero telefonico")
+
+            If String.IsNullOrEmpty(Number) = False Then
+                Dim form = New LogsADD
+                form.LoadValues_0(Number)
+                f.AddForm_Desktop(form, Desktop)
+            End If
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If
@@ -726,9 +730,13 @@ Public Class control
 
     Private Sub ToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         If f.ReturnPermission(f.Permission_Logs_ADD) Then
-            Dim form = New LogsADD
-            form.LoadIni()
-            f.AddForm_Desktop(form, Desktop)
+            Dim Number As String = InputBox("Ingrese un numero telefonico", "Numero telefonico")
+
+            If String.IsNullOrEmpty(Number) = False Then
+                Dim form = New LogsADD
+                form.LoadValues_0(Number)
+                f.AddForm_Desktop(form, Desktop)
+            End If
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
         End If

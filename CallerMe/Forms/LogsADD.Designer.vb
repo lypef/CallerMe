@@ -22,225 +22,208 @@ Partial Class LogsADD
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Combo_Users = New System.Windows.Forms.ComboBox()
-        Me.Combo_direcciones = New System.Windows.Forms.ComboBox()
-        Me.ComboVehiculos = New System.Windows.Forms.ComboBox()
-        Me.Fecha = New System.Windows.Forms.DateTimePicker()
-        Me.Combo_Driver = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.foto = New System.Windows.Forms.PictureBox()
-        Me.btn_save = New System.Windows.Forms.Button()
+        Me.WindowsDevice_0 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Vehiculos_0 = New System.Windows.Forms.NumericUpDown()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Combo_direcciones_0 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TxtSearch = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cliente_name = New System.Windows.Forms.Label()
+        Me.TxtClient_0 = New System.Windows.Forms.Label()
+        Me.TxtAddDireccion_0 = New System.Windows.Forms.TextBox()
+        Me.CbDireccionAdd_0 = New System.Windows.Forms.CheckBox()
+        Me.TxtAddClient_0 = New System.Windows.Forms.TextBox()
+        Me.CbAddClient_0 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.foto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WindowsDevice_0.SuspendLayout()
+        CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Combo_Users
-        '
-        Me.Combo_Users.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Combo_Users.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.12727!)
-        Me.Combo_Users.FormattingEnabled = True
-        Me.Combo_Users.Location = New System.Drawing.Point(542, 108)
-        Me.Combo_Users.Name = "Combo_Users"
-        Me.Combo_Users.Size = New System.Drawing.Size(372, 28)
-        Me.Combo_Users.TabIndex = 2
-        '
-        'Combo_direcciones
-        '
-        Me.Combo_direcciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Combo_direcciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Combo_direcciones.FormattingEnabled = True
-        Me.Combo_direcciones.Location = New System.Drawing.Point(587, 68)
-        Me.Combo_direcciones.Name = "Combo_direcciones"
-        Me.Combo_direcciones.Size = New System.Drawing.Size(327, 28)
-        Me.Combo_direcciones.TabIndex = 3
-        '
-        'ComboVehiculos
-        '
-        Me.ComboVehiculos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboVehiculos.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboVehiculos.FormattingEnabled = True
-        Me.ComboVehiculos.Location = New System.Drawing.Point(566, 148)
-        Me.ComboVehiculos.Name = "ComboVehiculos"
-        Me.ComboVehiculos.Size = New System.Drawing.Size(348, 28)
-        Me.ComboVehiculos.TabIndex = 4
-        '
-        'Fecha
-        '
-        Me.Fecha.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.12727!)
-        Me.Fecha.Location = New System.Drawing.Point(642, 228)
-        Me.Fecha.Name = "Fecha"
-        Me.Fecha.Size = New System.Drawing.Size(272, 27)
-        Me.Fecha.TabIndex = 5
-        Me.Fecha.Value = New Date(2017, 12, 3, 22, 52, 56, 0)
-        '
-        'Combo_Driver
-        '
-        Me.Combo_Driver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Combo_Driver.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.12727!)
-        Me.Combo_Driver.FormattingEnabled = True
-        Me.Combo_Driver.Location = New System.Drawing.Point(599, 188)
-        Me.Combo_Driver.Name = "Combo_Driver"
-        Me.Combo_Driver.Size = New System.Drawing.Size(315, 28)
-        Me.Combo_Driver.TabIndex = 8
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(444, 232)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(192, 20)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "FECHA DE LLAMADA:"
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.cliente_name)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.foto)
-        Me.Panel1.Controls.Add(Me.btn_save)
-        Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.TxtSearch)
-        Me.Panel1.Controls.Add(Me.Combo_direcciones)
-        Me.Panel1.Controls.Add(Me.Combo_Users)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Fecha)
-        Me.Panel1.Controls.Add(Me.Combo_Driver)
-        Me.Panel1.Controls.Add(Me.ComboVehiculos)
+        Me.Panel1.Controls.Add(Me.WindowsDevice_0)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(926, 436)
+        Me.Panel1.Size = New System.Drawing.Size(327, 319)
         Me.Panel1.TabIndex = 17
         '
-        'foto
+        'WindowsDevice_0
         '
-        Me.foto.Location = New System.Drawing.Point(12, 12)
-        Me.foto.Name = "foto"
-        Me.foto.Size = New System.Drawing.Size(418, 297)
-        Me.foto.TabIndex = 18
-        Me.foto.TabStop = False
+        Me.WindowsDevice_0.Controls.Add(Me.Label5)
+        Me.WindowsDevice_0.Controls.Add(Me.Vehiculos_0)
+        Me.WindowsDevice_0.Controls.Add(Me.Button5)
+        Me.WindowsDevice_0.Controls.Add(Me.Button4)
+        Me.WindowsDevice_0.Controls.Add(Me.Combo_direcciones_0)
+        Me.WindowsDevice_0.Controls.Add(Me.Button1)
+        Me.WindowsDevice_0.Controls.Add(Me.Label2)
+        Me.WindowsDevice_0.Controls.Add(Me.TxtClient_0)
+        Me.WindowsDevice_0.Controls.Add(Me.TxtAddDireccion_0)
+        Me.WindowsDevice_0.Controls.Add(Me.CbDireccionAdd_0)
+        Me.WindowsDevice_0.Controls.Add(Me.TxtAddClient_0)
+        Me.WindowsDevice_0.Controls.Add(Me.CbAddClient_0)
+        Me.WindowsDevice_0.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WindowsDevice_0.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
+        Me.WindowsDevice_0.ForeColor = System.Drawing.Color.White
+        Me.WindowsDevice_0.Location = New System.Drawing.Point(0, 0)
+        Me.WindowsDevice_0.Name = "WindowsDevice_0"
+        Me.WindowsDevice_0.Size = New System.Drawing.Size(327, 319)
+        Me.WindowsDevice_0.TabIndex = 35
+        Me.WindowsDevice_0.TabStop = False
+        Me.WindowsDevice_0.Text = "No disponible"
         '
-        'btn_save
+        'Label5
         '
-        Me.btn_save.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_save.Location = New System.Drawing.Point(448, 273)
-        Me.btn_save.Name = "btn_save"
-        Me.btn_save.Size = New System.Drawing.Size(466, 36)
-        Me.btn_save.TabIndex = 21
-        Me.btn_save.Text = "GUARDAR"
-        Me.btn_save.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(185, 179)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(76, 19)
+        Me.Label5.TabIndex = 33
+        Me.Label5.Text = "Vehiculos"
+        '
+        'Vehiculos_0
+        '
+        Me.Vehiculos_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_0.Location = New System.Drawing.Point(267, 177)
+        Me.Vehiculos_0.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_0.Name = "Vehiculos_0"
+        Me.Vehiculos_0.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_0.TabIndex = 32
+        Me.Vehiculos_0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_0.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.Black
+        Me.Button5.Location = New System.Drawing.Point(215, 240)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(104, 33)
+        Me.Button5.TabIndex = 26
+        Me.Button5.Text = "Observacion"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.Black
+        Me.Button4.Location = New System.Drawing.Point(10, 240)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(199, 33)
+        Me.Button4.TabIndex = 25
+        Me.Button4.Text = "Agregar"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Combo_direcciones_0
+        '
+        Me.Combo_direcciones_0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Combo_direcciones_0.FormattingEnabled = True
+        Me.Combo_direcciones_0.Location = New System.Drawing.Point(10, 74)
+        Me.Combo_direcciones_0.Name = "Combo_direcciones_0"
+        Me.Combo_direcciones_0.Size = New System.Drawing.Size(309, 27)
+        Me.Combo_direcciones_0.TabIndex = 24
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(777, 16)
+        Me.Button1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.Black
+        Me.Button1.Location = New System.Drawing.Point(10, 279)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(137, 28)
-        Me.Button1.TabIndex = 20
-        Me.Button1.Text = "CONSULTAR"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TxtSearch
-        '
-        Me.TxtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSearch.Location = New System.Drawing.Point(448, 16)
-        Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(320, 28)
-        Me.TxtSearch.TabIndex = 19
-        Me.TxtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(444, 72)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 20)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "DIRECCIONES:"
+        Me.Button1.Size = New System.Drawing.Size(309, 33)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "SOLICITAR"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(444, 112)
+        Me.Label2.Location = New System.Drawing.Point(6, 51)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 20)
-        Me.Label2.TabIndex = 23
-        Me.Label2.Text = "USUARIO:"
+        Me.Label2.Size = New System.Drawing.Size(92, 19)
+        Me.Label2.TabIndex = 21
+        Me.Label2.Text = "DIRECCION:"
         '
-        'Label3
+        'TxtClient_0
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(444, 152)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 20)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "VEHICULOS:"
+        Me.TxtClient_0.AutoSize = True
+        Me.TxtClient_0.Location = New System.Drawing.Point(6, 26)
+        Me.TxtClient_0.Name = "TxtClient_0"
+        Me.TxtClient_0.Size = New System.Drawing.Size(77, 19)
+        Me.TxtClient_0.TabIndex = 20
+        Me.TxtClient_0.Text = "NOMBRE:"
         '
-        'Label4
+        'TxtAddDireccion_0
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(444, 192)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(149, 20)
-        Me.Label4.TabIndex = 25
-        Me.Label4.Text = "CONDUCTORES:"
+        Me.TxtAddDireccion_0.Enabled = False
+        Me.TxtAddDireccion_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAddDireccion_0.Location = New System.Drawing.Point(10, 210)
+        Me.TxtAddDireccion_0.Name = "TxtAddDireccion_0"
+        Me.TxtAddDireccion_0.Size = New System.Drawing.Size(309, 25)
+        Me.TxtAddDireccion_0.TabIndex = 18
         '
-        'cliente_name
+        'CbDireccionAdd_0
         '
-        Me.cliente_name.AutoSize = True
-        Me.cliente_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.21818!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cliente_name.Location = New System.Drawing.Point(5, 367)
-        Me.cliente_name.Name = "cliente_name"
-        Me.cliente_name.Size = New System.Drawing.Size(911, 42)
-        Me.cliente_name.TabIndex = 26
-        Me.cliente_name.Text = "FRANCISCO EDUARDO ASCENCIO DOMINGUEZ"
-        Me.cliente_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CbDireccionAdd_0.AutoSize = True
+        Me.CbDireccionAdd_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbDireccionAdd_0.Location = New System.Drawing.Point(10, 183)
+        Me.CbDireccionAdd_0.Name = "CbDireccionAdd_0"
+        Me.CbDireccionAdd_0.Size = New System.Drawing.Size(99, 21)
+        Me.CbDireccionAdd_0.TabIndex = 17
+        Me.CbDireccionAdd_0.Text = "DIRECCION "
+        Me.CbDireccionAdd_0.UseVisualStyleBackColor = True
+        '
+        'TxtAddClient_0
+        '
+        Me.TxtAddClient_0.Enabled = False
+        Me.TxtAddClient_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAddClient_0.Location = New System.Drawing.Point(10, 146)
+        Me.TxtAddClient_0.Name = "TxtAddClient_0"
+        Me.TxtAddClient_0.Size = New System.Drawing.Size(309, 25)
+        Me.TxtAddClient_0.TabIndex = 16
+        '
+        'CbAddClient_0
+        '
+        Me.CbAddClient_0.AutoSize = True
+        Me.CbAddClient_0.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbAddClient_0.Location = New System.Drawing.Point(10, 119)
+        Me.CbAddClient_0.Name = "CbAddClient_0"
+        Me.CbAddClient_0.Size = New System.Drawing.Size(143, 21)
+        Me.CbAddClient_0.TabIndex = 15
+        Me.CbAddClient_0.Text = "CLIENTE | NOMBRE"
+        Me.CbAddClient_0.UseVisualStyleBackColor = True
         '
         'LogsADD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(926, 436)
+        Me.ClientSize = New System.Drawing.Size(327, 319)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "LogsADD"
         Me.Text = "LogsADD"
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        CType(Me.foto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.WindowsDevice_0.ResumeLayout(False)
+        Me.WindowsDevice_0.PerformLayout()
+        CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Combo_Users As ComboBox
-    Friend WithEvents Combo_direcciones As ComboBox
-    Friend WithEvents ComboVehiculos As ComboBox
-    Friend WithEvents Fecha As DateTimePicker
-    Friend WithEvents Combo_Driver As ComboBox
-    Friend WithEvents Label6 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents foto As PictureBox
-    Friend WithEvents TxtSearch As TextBox
+    Friend WithEvents WindowsDevice_0 As GroupBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Vehiculos_0 As NumericUpDown
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents Combo_direcciones_0 As ComboBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents btn_save As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents cliente_name As Label
+    Friend WithEvents TxtClient_0 As Label
+    Friend WithEvents TxtAddDireccion_0 As TextBox
+    Friend WithEvents CbDireccionAdd_0 As CheckBox
+    Friend WithEvents TxtAddClient_0 As TextBox
+    Friend WithEvents CbAddClient_0 As CheckBox
 End Class

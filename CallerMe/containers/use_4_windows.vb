@@ -295,6 +295,10 @@
                 TxtAddClient_0.Enabled = True
                 TxtAddClient_0.Text = "CLIENTE SIN NOMBRE"
                 TxtAddClient_0.Focus()
+
+                CbDireccionAdd_0.Checked = True
+                TxtAddDireccion_0.Enabled = True
+                TxtAddDireccion_0.Text = "ESCRIBA UNA DIRECCION"
             Else
                 CbAddClient_0.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -567,8 +571,15 @@
     Private Sub CbAddClient_1_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient_1.CheckedChanged
         If CbAddClient_1.Checked Then
             If client_id_1 = 1 Then
+
                 TxtAddClient_1.Enabled = True
                 TxtAddClient_1.Text = "CLIENTE SIN NOMBRE"
+
+                CbDireccionAdd_1.Checked = True
+                TxtAddDireccion_1.Enabled = True
+                TxtAddDireccion_1.Text = "ESCRIBA UNA DIRECCION"
+
+
                 TxtAddClient_1.Focus()
             Else
                 CbAddClient_1.Checked = False
@@ -586,6 +597,10 @@
                 TxtAddClient_2.Enabled = True
                 TxtAddClient_2.Text = "CLIENTE SIN NOMBRE"
                 TxtAddClient_2.Focus()
+
+                CbDireccionAdd_2.Checked = True
+                TxtAddDireccion_2.Enabled = True
+                TxtAddDireccion_2.Text = "ESCRIBA UNA DIRECCION"
             Else
                 CbAddClient_2.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -602,6 +617,10 @@
                 TxtAddClient_3.Enabled = True
                 TxtAddClient_3.Text = "CLIENTE SIN NOMBRE"
                 TxtAddClient_3.Focus()
+
+                CbDireccionAdd_2.Checked = True
+                TxtAddDireccion_2.Enabled = True
+                TxtAddDireccion_2.Text = "ESCRIBA UNA DIRECCION"
             Else
                 CbAddClient_3.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -992,4 +1011,5 @@
 
         End If
     End Sub
+
 End Class

@@ -2101,11 +2101,11 @@ Public Class functions
         End If
     End Function
 
-    Public Sub LoadValuesAsistirSecond(ByVal TxtCliente As Label, ByVal TxtTelefono As Label, ByVal TxtObservacion As TextBox, ByVal id As String, ByVal CombDirecciones As ComboBox, ByRef id_client As String, ByRef id_direccion As String)
+    Public Sub LoadValuesAsistirSecond(ByVal TxtCliente As Label, ByVal TxtTelefono As Label, ByVal TxtObservacion As TextBox, ByVal id As String, ByVal CombDirecciones As ComboBox, ByRef id_client As String, ByRef id_direccion As String, ByVal TxtVehiculo As TextBox, ByVal TxtConductor As TextBox)
 
         CombDirecciones.Items.Clear()
 
-        Dim dato = Db.Consult("SELECT c.nombre, t.numero, r.observacion, d.id, c.id FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 0 and r.id = '" + id + "'  ")
+        Dim dato = Db.Consult("SELECT c.nombre, t.numero, r.observacion, d.id, c.id, r.vehicle, r.driver FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.id = '" + id + "'  ")
 
         If dato.Read() Then
             TxtCliente.Text = dato.GetString(0)
@@ -2113,6 +2113,8 @@ Public Class functions
             TxtObservacion.Text = dato.GetString(2)
             id_direccion = dato.GetString(3)
             id_client = dato.GetString(4)
+            TxtVehiculo.Text = dato.GetString(5)
+            TxtConductor.Text = dato.GetString(6)
         End If
 
         Dim cont = 0
@@ -2162,5 +2164,14 @@ Public Class functions
     Public Shared Function Update_log(ByVal Vehiculo As TextBox, ByVal Conductor As TextBox, ByVal id As Integer) As Boolean
         Return Db_shared.Ejecutar("UPDATE `registros` SET `vehicle` = '" + Vehiculo.Text + "', `driver` = '" + Conductor.Text + "' WHERE id = " + id.ToString + "; ")
     End Function
+
+    Public Sub GetLogClientDireccion(ByRef cliente As String, ByRef direccion As String, ByVal id As String)
+        Dim dato = Db.Consult("SELECT client, direccion FROM registros WHERE id = " + id + ";")
+
+        If dato.Read() Then
+            cliente = dato.GetString(0)
+            direccion = dato.GetString(1)
+        End If
+    End Sub
 
 End Class

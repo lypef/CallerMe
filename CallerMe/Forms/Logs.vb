@@ -124,7 +124,7 @@
     Private Sub Btn_add_Click(sender As Object, e As EventArgs) Handles Btn_add.Click
         If f.ReturnPermission(f.Permission_Logs_ADD) Then
             Dim form = New LogsADD
-            form.LoadIni()
+            'form.LoadIni()
             f.AddForm_Desktop(form, control.Desktop)
         Else
             f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
@@ -198,21 +198,35 @@
     End Sub
 
     Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarToolStripMenuItem.Click
-        If f.ReturnPermission(f.Permission_Logs_DELETE) Then
+        'If f.ReturnPermission(f.Permission_Logs_DELETE) Then
 
-            Dim id = Table.SelectedCells(0).Value
-            Dim vehiculo = Table.SelectedCells(5).Value
-            Dim conductor = Table.SelectedCells(6).Value
+        'Dim id = Table.SelectedCells(0).Value
+        'Dim vehiculo = Table.SelectedCells(5).Value
+        'Dim conductor = Table.SelectedCells(6).Value
+        '
+        'Dim form = update_log
+        'Form.id = id
+        'Form.TxtConductor.Text = conductor.ToString
+        'Form.TxtVehiculos.Text = vehiculo.ToString
+        'Form.Show()
 
-            Dim form = update_log
-            form.id = id
-            form.TxtConductor.Text = conductor.ToString
-            form.TxtVehiculos.Text = vehiculo.ToString
-            form.Show()
+        'Else
+        'f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+        'End If
+        'functions.log_id = 0
 
+        If String.IsNullOrEmpty(Table.SelectedCells(0).Value) = False Then
+            functions.log_id = Table.SelectedCells(0).Value
+
+            Dim d = New AsistirLlamadaSecond
+
+            f.GetLogClientDireccion(d.id_client, d.id_direccion, functions.log_id)
+
+            d.loader_values(functions.log_id)
+            d.Show()
         Else
-            f.Alert(f.Alert_NoPermitido, f.Alert_NumberExclamacion)
+            f.Alert(f.Alert_Verifique_proceso, f.Alert_NumberCritical)
         End If
-        functions.log_id = 0
+
     End Sub
 End Class

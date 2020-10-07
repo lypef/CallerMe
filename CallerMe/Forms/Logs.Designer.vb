@@ -26,6 +26,7 @@ Partial Class Logs
         Me.Table = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ComprobanteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtnNext = New System.Windows.Forms.Button()
@@ -35,7 +36,6 @@ Partial Class Logs
         Me.btn_numeros = New System.Windows.Forms.Button()
         Me.btn_editar = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ActualizarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -64,6 +64,13 @@ Partial Class Logs
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'ActualizarToolStripMenuItem
+        '
+        Me.ActualizarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
+        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
+        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
+        Me.ActualizarToolStripMenuItem.Text = "Reasignar"
         '
         'ComprobanteToolStripMenuItem
         '
@@ -195,13 +202,6 @@ Partial Class Logs
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(927, 433)
         Me.Panel2.TabIndex = 6
-        '
-        'ActualizarToolStripMenuItem
-        '
-        Me.ActualizarToolStripMenuItem.Image = Global.Calls.My.Resources.Resources.edit_24
-        Me.ActualizarToolStripMenuItem.Name = "ActualizarToolStripMenuItem"
-        Me.ActualizarToolStripMenuItem.Size = New System.Drawing.Size(154, 24)
-        Me.ActualizarToolStripMenuItem.Text = "Actualizar"
         '
         'Logs
         '

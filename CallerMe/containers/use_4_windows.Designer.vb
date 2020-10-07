@@ -694,7 +694,7 @@ Partial Class use_4_windows
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Blue
-        Me.ClientSize = New System.Drawing.Size(678, 684)
+        Me.ClientSize = New System.Drawing.Size(676, 684)
         Me.Controls.Add(Me.WindowsDevice_3)
         Me.Controls.Add(Me.WindowsDevice_2)
         Me.Controls.Add(Me.WindowsDevice_1)
