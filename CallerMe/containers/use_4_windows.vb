@@ -34,6 +34,13 @@
     Dim f_llamada_3 As Date
     Dim Asitir_llamada_3 As Date
 
+    Dim number_id_5 As String
+    Dim client_id_5 As Integer
+    Dim number_5 As String
+    Dim observacion_5 As String
+    Dim f_llamada_5 As Date
+    Dim Asitir_llamada_5 As Date
+
     Private Sub use_4_windows_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.forms_setmodel(Me)
         f.BotonesBackGroundBlueForm(Me)
@@ -205,6 +212,20 @@
         TxtClient_1.Text = "NOMBRE:"
         Combo_direcciones_1.Items.Clear()
         Vehiculos_1.Value = 1
+    End Sub
+
+    Private Sub Clean_5()
+        observacion_5 = ""
+        CbAddClient_5.Checked = False
+        CbDireccionAdd_5.Checked = False
+        TxtAddClient_5.Text = ""
+        TxtAddDireccion_5.Text = ""
+        WindowsDevice_51.Enabled = False
+        WindowsDevice_51.Text = "Asignar Servicio Manual"
+        TxtClient_1.Text = "NOMBRE:"
+        Combo_direcciones_5.Items.Clear()
+        Vehiculos_5.Value = 1
+        WindowsDevice_51.SendToBack()
     End Sub
 
     Private Sub LoadValues_2()
@@ -475,6 +496,46 @@
                     CbDireccionAdd_3.Checked = False
                     TxtAddClient_3.Text = ""
                     TxtAddDireccion_3.Text = ""
+                    f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+                End If
+            Else
+                f.Alert("El cliente ya existe", f.Alert_NumberExclamacion)
+            End If
+        End If
+    End Sub
+
+    Private Sub add_ciente_direccion_5()
+        If CbAddClient_5.Checked And CbDireccionAdd_5.Checked = False Then
+            'Se agrega solo el cliente
+            If f.AddClientXpress(TxtAddClient_5, number_5) Then
+                TxtClient_5.Text = f.LoadNumberAsistencia4Windows(number_5, Combo_direcciones_5, number_id_5, client_id_5)
+                CbAddClient_5.Checked = False
+                CbDireccionAdd_5.Checked = False
+                TxtAddClient_5.Text = ""
+                TxtAddDireccion_5.Text = ""
+                f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+            Else
+                f.Alert("El cliente ya existe", f.Alert_NumberExclamacion)
+            End If
+        ElseIf CbAddClient_5.Checked = False And CbDireccionAdd_5.Checked Then
+            'Se agrega solo la direccion
+            If f.AddDireccionXpress(TxtAddDireccion_5, client_id_3) Then
+                TxtClient_5.Text = f.LoadNumberAsistencia4Windows(number_5, Combo_direcciones_5, number_id_5, client_id_5)
+                CbAddClient_5.Checked = False
+                CbDireccionAdd_5.Checked = False
+                TxtAddClient_5.Text = ""
+                TxtAddDireccion_5.Text = ""
+                f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
+            End If
+        ElseIf CbAddClient_5.Checked And CbDireccionAdd_5.Checked Then
+            'Se agrega direccion y cliente
+            If f.AddClientXpress(TxtAddClient_5, number_5) Then
+                If f.AddDireccionXpress(TxtAddDireccion_5, f.LastIDClients()) Then
+                    TxtClient_5.Text = f.LoadNumberAsistencia4Windows(number_5, Combo_direcciones_5, number_id_5, client_id_5)
+                    CbAddClient_5.Checked = False
+                    CbDireccionAdd_5.Checked = False
+                    TxtAddClient_5.Text = ""
+                    TxtAddDireccion_5.Text = ""
                     f.Alert(f.Alert_ProcesoFinalizadoOK, f.Alert_NumberInformacion)
                 End If
             Else
@@ -1012,4 +1073,101 @@
         End If
     End Sub
 
+    Private Sub Button16_Click_1(sender As Object, e As EventArgs) Handles Button16.Click
+        Dim Number As String = InputBox("Ingrese un numero telefonico", "Numero telefonico")
+
+        If String.IsNullOrEmpty(Number) = False Then
+            Try
+                CbAddClient_5.Checked = False
+                CbDireccionAdd_5.Checked = False
+                TxtAddClient_5.Text = ""
+                TxtAddDireccion_5.Text = ""
+
+                Dim Device = Number
+
+                If (String.IsNullOrEmpty(Device) = False) Then
+
+                    number_5 = Device
+                    TxtClient_5.Text = f.LoadNumberAsistencia4Windows(number_5, Combo_direcciones_5, number_id_5, client_id_5)
+
+                    f_llamada_5 = DateTime.Now
+                    Asitir_llamada_5 = DateTime.Now
+
+                    WindowsDevice_51.Text = "NUMERO: " + number_3
+                    WindowsDevice_51.Enabled = True
+                    WindowsDevice_50.SendToBack()
+                End If
+            Catch ex As Exception
+                f.LogError(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub CbAddClient_5_CheckedChanged(sender As Object, e As EventArgs) Handles CbAddClient_5.CheckedChanged
+        If CbAddClient_5.Checked Then
+            If client_id_5 = 1 Then
+
+                TxtAddClient_5.Enabled = True
+                TxtAddClient_5.Text = "CLIENTE SIN NOMBRE"
+
+                CbDireccionAdd_5.Checked = True
+                TxtAddDireccion_5.Enabled = True
+                TxtAddDireccion_5.Text = "ESCRIBA UNA DIRECCION"
+
+
+                TxtAddClient_5.Focus()
+            Else
+                CbAddClient_5.Checked = False
+                f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
+            End If
+        Else
+            TxtAddClient_5.Text = ""
+            TxtAddClient_5.Enabled = False
+        End If
+    End Sub
+
+    Private Sub CbDireccionAdd_5_CheckedChanged(sender As Object, e As EventArgs) Handles CbDireccionAdd_5.CheckedChanged
+        If CbDireccionAdd_5.Checked Then
+            TxtAddDireccion_5.Enabled = True
+            TxtAddDireccion_5.Focus()
+        Else
+            TxtAddDireccion_5.Text = ""
+            TxtAddDireccion_5.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Button8_Click_1(sender As Object, e As EventArgs) Handles Button8.Click
+        add_ciente_direccion_5()
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim myValue As String = InputBox("Ingrese comentario", "Observacion")
+
+        If String.IsNullOrEmpty(myValue) = False Then
+            observacion_5 = myValue
+        End If
+    End Sub
+
+    Private Sub Button12_Click_1(sender As Object, e As EventArgs) Handles Button12.Click
+        Try
+            If Combo_direcciones_5.SelectedIndex > 0 Then
+
+                Dim direccion_id = Combo_direcciones_5.SelectedItem.ToString.Substring(Combo_direcciones_5.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
+
+                If f.save_registroAutomaticOne(client_id_5, number_id_5, f_llamada_5, Asitir_llamada_5, DateTime.Now, direccion_id, observacion_5, Vehiculos_5.Value) Then
+
+                    Dim r As DialogResult = MessageBox.Show("Solicitud enviada.", "Proceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Clean_5()
+                Else
+                    f.Alert(f.Alert_ProcesoFinalizadoNO, f.Alert_NumberInformacion)
+                End If
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ", En Asistir llamada")
+        End Try
+    End Sub
+
+    Private Sub Button17_Click_5(sender As Object, e As EventArgs) Handles Button17.Click
+        Clean_5()
+    End Sub
 End Class

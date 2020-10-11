@@ -79,6 +79,22 @@ Partial Class use_4_windows
         Me.CbDireccionAdd_3 = New System.Windows.Forms.CheckBox()
         Me.TxtAddClient_3 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_3 = New System.Windows.Forms.CheckBox()
+        Me.WindowsDevice_51 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Vehiculos_5 = New System.Windows.Forms.NumericUpDown()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Combo_direcciones_5 = New System.Windows.Forms.ComboBox()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TxtClient_5 = New System.Windows.Forms.Label()
+        Me.TxtAddDireccion_5 = New System.Windows.Forms.TextBox()
+        Me.CbDireccionAdd_5 = New System.Windows.Forms.CheckBox()
+        Me.TxtAddClient_5 = New System.Windows.Forms.TextBox()
+        Me.CbAddClient_5 = New System.Windows.Forms.CheckBox()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.WindowsDevice_50 = New System.Windows.Forms.GroupBox()
+        Me.Button17 = New System.Windows.Forms.Button()
         Me.WindowsDevice_0.SuspendLayout()
         CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_1.SuspendLayout()
@@ -87,6 +103,9 @@ Partial Class use_4_windows
         CType(Me.Vehiculos_2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_3.SuspendLayout()
         CType(Me.Vehiculos_3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WindowsDevice_51.SuspendLayout()
+        CType(Me.Vehiculos_5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WindowsDevice_50.SuspendLayout()
         Me.SuspendLayout()
         '
         'WindowsDevice_0
@@ -689,12 +708,198 @@ Partial Class use_4_windows
         Me.CbAddClient_3.Text = "CLIENTE | NOMBRE"
         Me.CbAddClient_3.UseVisualStyleBackColor = True
         '
+        'WindowsDevice_51
+        '
+        Me.WindowsDevice_51.Controls.Add(Me.Button17)
+        Me.WindowsDevice_51.Controls.Add(Me.Label9)
+        Me.WindowsDevice_51.Controls.Add(Me.Vehiculos_5)
+        Me.WindowsDevice_51.Controls.Add(Me.Button2)
+        Me.WindowsDevice_51.Controls.Add(Me.Button8)
+        Me.WindowsDevice_51.Controls.Add(Me.Combo_direcciones_5)
+        Me.WindowsDevice_51.Controls.Add(Me.Button12)
+        Me.WindowsDevice_51.Controls.Add(Me.Label10)
+        Me.WindowsDevice_51.Controls.Add(Me.TxtClient_5)
+        Me.WindowsDevice_51.Controls.Add(Me.TxtAddDireccion_5)
+        Me.WindowsDevice_51.Controls.Add(Me.CbDireccionAdd_5)
+        Me.WindowsDevice_51.Controls.Add(Me.TxtAddClient_5)
+        Me.WindowsDevice_51.Controls.Add(Me.CbAddClient_5)
+        Me.WindowsDevice_51.Enabled = False
+        Me.WindowsDevice_51.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
+        Me.WindowsDevice_51.ForeColor = System.Drawing.Color.White
+        Me.WindowsDevice_51.Location = New System.Drawing.Point(674, 12)
+        Me.WindowsDevice_51.Name = "WindowsDevice_51"
+        Me.WindowsDevice_51.Size = New System.Drawing.Size(325, 328)
+        Me.WindowsDevice_51.TabIndex = 36
+        Me.WindowsDevice_51.TabStop = False
+        Me.WindowsDevice_51.Text = "Asignar Servicio Manual"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(185, 184)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(76, 19)
+        Me.Label9.TabIndex = 35
+        Me.Label9.Text = "Vehiculos"
+        '
+        'Vehiculos_5
+        '
+        Me.Vehiculos_5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Vehiculos_5.Location = New System.Drawing.Point(267, 177)
+        Me.Vehiculos_5.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.Vehiculos_5.Name = "Vehiculos_5"
+        Me.Vehiculos_5.Size = New System.Drawing.Size(52, 25)
+        Me.Vehiculos_5.TabIndex = 34
+        Me.Vehiculos_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Vehiculos_5.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Black
+        Me.Button2.Location = New System.Drawing.Point(215, 240)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(104, 33)
+        Me.Button2.TabIndex = 26
+        Me.Button2.Text = "Observacion"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ForeColor = System.Drawing.Color.Black
+        Me.Button8.Location = New System.Drawing.Point(10, 240)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(88, 33)
+        Me.Button8.TabIndex = 25
+        Me.Button8.Text = "Agregar"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Combo_direcciones_5
+        '
+        Me.Combo_direcciones_5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Combo_direcciones_5.FormattingEnabled = True
+        Me.Combo_direcciones_5.Location = New System.Drawing.Point(10, 74)
+        Me.Combo_direcciones_5.Name = "Combo_direcciones_5"
+        Me.Combo_direcciones_5.Size = New System.Drawing.Size(309, 27)
+        Me.Combo_direcciones_5.TabIndex = 24
+        '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button12.ForeColor = System.Drawing.Color.Black
+        Me.Button12.Location = New System.Drawing.Point(10, 279)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(309, 33)
+        Me.Button12.TabIndex = 19
+        Me.Button12.Text = "SOLICITAR"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(6, 51)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(92, 19)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "DIRECCION:"
+        '
+        'TxtClient_5
+        '
+        Me.TxtClient_5.AutoSize = True
+        Me.TxtClient_5.Location = New System.Drawing.Point(6, 26)
+        Me.TxtClient_5.Name = "TxtClient_5"
+        Me.TxtClient_5.Size = New System.Drawing.Size(77, 19)
+        Me.TxtClient_5.TabIndex = 20
+        Me.TxtClient_5.Text = "NOMBRE:"
+        '
+        'TxtAddDireccion_5
+        '
+        Me.TxtAddDireccion_5.Enabled = False
+        Me.TxtAddDireccion_5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAddDireccion_5.Location = New System.Drawing.Point(10, 210)
+        Me.TxtAddDireccion_5.Name = "TxtAddDireccion_5"
+        Me.TxtAddDireccion_5.Size = New System.Drawing.Size(309, 25)
+        Me.TxtAddDireccion_5.TabIndex = 18
+        '
+        'CbDireccionAdd_5
+        '
+        Me.CbDireccionAdd_5.AutoSize = True
+        Me.CbDireccionAdd_5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbDireccionAdd_5.Location = New System.Drawing.Point(10, 183)
+        Me.CbDireccionAdd_5.Name = "CbDireccionAdd_5"
+        Me.CbDireccionAdd_5.Size = New System.Drawing.Size(99, 21)
+        Me.CbDireccionAdd_5.TabIndex = 17
+        Me.CbDireccionAdd_5.Text = "DIRECCION "
+        Me.CbDireccionAdd_5.UseVisualStyleBackColor = True
+        '
+        'TxtAddClient_5
+        '
+        Me.TxtAddClient_5.Enabled = False
+        Me.TxtAddClient_5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAddClient_5.Location = New System.Drawing.Point(10, 146)
+        Me.TxtAddClient_5.Name = "TxtAddClient_5"
+        Me.TxtAddClient_5.Size = New System.Drawing.Size(309, 25)
+        Me.TxtAddClient_5.TabIndex = 16
+        '
+        'CbAddClient_5
+        '
+        Me.CbAddClient_5.AutoSize = True
+        Me.CbAddClient_5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbAddClient_5.Location = New System.Drawing.Point(10, 119)
+        Me.CbAddClient_5.Name = "CbAddClient_5"
+        Me.CbAddClient_5.Size = New System.Drawing.Size(143, 21)
+        Me.CbAddClient_5.TabIndex = 15
+        Me.CbAddClient_5.Text = "CLIENTE | NOMBRE"
+        Me.CbAddClient_5.UseVisualStyleBackColor = True
+        '
+        'Button16
+        '
+        Me.Button16.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button16.ForeColor = System.Drawing.Color.Black
+        Me.Button16.Location = New System.Drawing.Point(87, 155)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(171, 33)
+        Me.Button16.TabIndex = 36
+        Me.Button16.Text = "SOLICITAR"
+        Me.Button16.UseVisualStyleBackColor = False
+        '
+        'WindowsDevice_50
+        '
+        Me.WindowsDevice_50.Controls.Add(Me.Button16)
+        Me.WindowsDevice_50.Font = New System.Drawing.Font("Segoe UI Black", 10.25!, System.Drawing.FontStyle.Bold)
+        Me.WindowsDevice_50.ForeColor = System.Drawing.Color.White
+        Me.WindowsDevice_50.Location = New System.Drawing.Point(674, 12)
+        Me.WindowsDevice_50.Name = "WindowsDevice_50"
+        Me.WindowsDevice_50.Size = New System.Drawing.Size(325, 328)
+        Me.WindowsDevice_50.TabIndex = 37
+        Me.WindowsDevice_50.TabStop = False
+        Me.WindowsDevice_50.Text = "Asignar Servicio Manual"
+        '
+        'Button17
+        '
+        Me.Button17.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button17.ForeColor = System.Drawing.Color.Black
+        Me.Button17.Location = New System.Drawing.Point(104, 240)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(105, 33)
+        Me.Button17.TabIndex = 36
+        Me.Button17.Text = "Cancelar"
+        Me.Button17.UseVisualStyleBackColor = False
+        '
         'use_4_windows
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Blue
-        Me.ClientSize = New System.Drawing.Size(676, 684)
+        Me.ClientSize = New System.Drawing.Size(1010, 348)
+        Me.Controls.Add(Me.WindowsDevice_50)
+        Me.Controls.Add(Me.WindowsDevice_51)
         Me.Controls.Add(Me.WindowsDevice_3)
         Me.Controls.Add(Me.WindowsDevice_2)
         Me.Controls.Add(Me.WindowsDevice_1)
@@ -715,6 +920,10 @@ Partial Class use_4_windows
         Me.WindowsDevice_3.ResumeLayout(False)
         Me.WindowsDevice_3.PerformLayout()
         CType(Me.Vehiculos_3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.WindowsDevice_51.ResumeLayout(False)
+        Me.WindowsDevice_51.PerformLayout()
+        CType(Me.Vehiculos_5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.WindowsDevice_50.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -774,4 +983,20 @@ Partial Class use_4_windows
     Friend WithEvents Vehiculos_2 As NumericUpDown
     Friend WithEvents Label8 As Label
     Friend WithEvents Vehiculos_3 As NumericUpDown
+    Friend WithEvents WindowsDevice_51 As GroupBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Vehiculos_5 As NumericUpDown
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Combo_direcciones_5 As ComboBox
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TxtClient_5 As Label
+    Friend WithEvents TxtAddDireccion_5 As TextBox
+    Friend WithEvents CbDireccionAdd_5 As CheckBox
+    Friend WithEvents TxtAddClient_5 As TextBox
+    Friend WithEvents CbAddClient_5 As CheckBox
+    Friend WithEvents Button16 As Button
+    Friend WithEvents WindowsDevice_50 As GroupBox
+    Friend WithEvents Button17 As Button
 End Class

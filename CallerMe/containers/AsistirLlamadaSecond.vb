@@ -15,6 +15,8 @@
         id_log = id
         f.LoadValuesAsistirSecond(TxtCliente, TxtTelefono, TxtObservacion, id_log.ToString, CombDirecciones, id_client, id_direccion, TxtVehiculo, TxtConductor)
 
+        TxtVehiculo.Select()
+
         'f.ComboBox_SetVehiculosConID(ComboVehiculos)
         'Combo_Driver.Items.Add("Conductores")
         'f.ComboBox_SetDriversConID(Combo_Driver)
@@ -57,6 +59,10 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        BotonFinalizar()
+    End Sub
+
+    Private Sub BotonFinalizar()
         Dim direccion_id = CombDirecciones.SelectedItem.ToString.Substring(CombDirecciones.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
         'Dim vehiculo_id = ComboVehiculos.SelectedItem.ToString.Substring(ComboVehiculos.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
         'Dim driver_id = Combo_Driver.SelectedItem.ToString.Substring(Combo_Driver.SelectedItem.ToString.IndexOf("[") + 1).Replace("]", "")
@@ -65,6 +71,12 @@
             Use4WindowsSecond.LoadIni()
             Logs.LoadIni()
             Me.Dispose()
+        End If
+    End Sub
+
+    Private Sub TxtVehiculo_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtVehiculo.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            BotonFinalizar()
         End If
     End Sub
 End Class
