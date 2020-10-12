@@ -198,10 +198,12 @@ Public Class control
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Use4WindowsSecond.Dispose()
         Application.Exit()
     End Sub
 
     Private Sub control_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Use4WindowsSecond.Dispose()
         Application.Exit()
     End Sub
 

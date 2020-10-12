@@ -25,7 +25,7 @@
         Dim _hasta = hasta.Value.Year & "-" & hasta.Value.Month & "-" & hasta.Value.Day & " 23:59:59"
 
         pagina = 0
-        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
+        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
         pagina_total = CInt(f.ReturnLogsTotal("SELECT  count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
         title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString
@@ -42,7 +42,8 @@
         Dim _desde = desde.Value.Year & "-" & desde.Value.Month & "-" & desde.Value.Day & " 00:00:00"
         Dim _hasta = hasta.Value.Year & "-" & hasta.Value.Month & "-" & hasta.Value.Day & " 23:59:59"
 
-        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
+        sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
+        Console.WriteLine(sql)
         pagina_total = CInt(f.ReturnLogsTotal("SELECT count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
         title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString

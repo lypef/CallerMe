@@ -319,7 +319,11 @@
 
                 CbDireccionAdd_0.Checked = True
                 TxtAddDireccion_0.Enabled = True
-                TxtAddDireccion_0.Text = "ESCRIBA UNA DIRECCION"
+
+                If TxtAddDireccion_0.TextLength <= 1 Then
+                    TxtAddDireccion_0.Text = "ESCRIBA UNA DIRECCION"
+                End If
+
             Else
                 CbAddClient_0.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -519,7 +523,7 @@
             End If
         ElseIf CbAddClient_5.Checked = False And CbDireccionAdd_5.Checked Then
             'Se agrega solo la direccion
-            If f.AddDireccionXpress(TxtAddDireccion_5, client_id_3) Then
+            If f.AddDireccionXpress(TxtAddDireccion_5, client_id_5) Then
                 TxtClient_5.Text = f.LoadNumberAsistencia4Windows(number_5, Combo_direcciones_5, number_id_5, client_id_5)
                 CbAddClient_5.Checked = False
                 CbDireccionAdd_5.Checked = False
@@ -638,7 +642,10 @@
 
                 CbDireccionAdd_1.Checked = True
                 TxtAddDireccion_1.Enabled = True
-                TxtAddDireccion_1.Text = "ESCRIBA UNA DIRECCION"
+
+                If TxtAddDireccion_1.TextLength <= 1 Then
+                    TxtAddDireccion_1.Text = "ESCRIBA UNA DIRECCION"
+                End If
 
 
                 TxtAddClient_1.Focus()
@@ -661,7 +668,10 @@
 
                 CbDireccionAdd_2.Checked = True
                 TxtAddDireccion_2.Enabled = True
-                TxtAddDireccion_2.Text = "ESCRIBA UNA DIRECCION"
+
+                If TxtAddDireccion_2.TextLength <= 1 Then
+                    TxtAddDireccion_2.Text = "ESCRIBA UNA DIRECCION"
+                End If
             Else
                 CbAddClient_2.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -679,9 +689,12 @@
                 TxtAddClient_3.Text = "CLIENTE SIN NOMBRE"
                 TxtAddClient_3.Focus()
 
-                CbDireccionAdd_2.Checked = True
-                TxtAddDireccion_2.Enabled = True
-                TxtAddDireccion_2.Text = "ESCRIBA UNA DIRECCION"
+                CbDireccionAdd_3.Checked = True
+                TxtAddDireccion_3.Enabled = True
+
+                If TxtAddDireccion_3.TextLength <= 1 Then
+                    TxtAddDireccion_3.Text = "ESCRIBA UNA DIRECCION"
+                End If
             Else
                 CbAddClient_3.Checked = False
                 f.Alert("Este numero ya tiene un cliente asignado, Solo podra ingresar una direccion.", f.Alert_NumberExclamacion)
@@ -1093,7 +1106,7 @@
                     f_llamada_5 = DateTime.Now
                     Asitir_llamada_5 = DateTime.Now
 
-                    WindowsDevice_51.Text = "NUMERO: " + number_3
+                    WindowsDevice_51.Text = "NUMERO: " + number_5
                     WindowsDevice_51.Enabled = True
                     WindowsDevice_50.SendToBack()
                 End If
@@ -1112,7 +1125,10 @@
 
                 CbDireccionAdd_5.Checked = True
                 TxtAddDireccion_5.Enabled = True
-                TxtAddDireccion_5.Text = "ESCRIBA UNA DIRECCION"
+
+                If TxtAddDireccion_5.TextLength <= 1 Then
+                    TxtAddDireccion_5.Text = "ESCRIBA UNA DIRECCION"
+                End If
 
 
                 TxtAddClient_5.Focus()
@@ -1169,5 +1185,32 @@
 
     Private Sub Button17_Click_5(sender As Object, e As EventArgs) Handles Button17.Click
         Clean_5()
+    End Sub
+
+    Private Sub Button18_Click_1(sender As Object, e As EventArgs)
+        Try
+            CbAddClient_0.Checked = False
+            CbDireccionAdd_0.Checked = False
+            TxtAddClient_0.Text = ""
+            TxtAddDireccion_0.Text = ""
+
+            Dim Device = "0180654654650"
+
+            If (String.IsNullOrEmpty(Device) = False) Then
+
+                TimerCero.Stop()
+                functions.LastNumber0 = Device
+                number_0 = Device
+                TxtClient_0.Text = f.LoadNumberAsistencia4Windows(number_0, Combo_direcciones_0, number_id_0, client_id_0)
+
+                f_llamada_0 = DateTime.Now
+                Asitir_llamada_0 = DateTime.Now
+
+                WindowsDevice_0.Text = "NUMERO: " + number_0
+                WindowsDevice_0.Enabled = True
+            End If
+        Catch ex As Exception
+            f.LogError(ex.Message + ". Control.vb linea 115")
+        End Try
     End Sub
 End Class

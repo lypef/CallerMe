@@ -80,6 +80,7 @@ Partial Class use_4_windows
         Me.TxtAddClient_3 = New System.Windows.Forms.TextBox()
         Me.CbAddClient_3 = New System.Windows.Forms.CheckBox()
         Me.WindowsDevice_51 = New System.Windows.Forms.GroupBox()
+        Me.Button17 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Vehiculos_5 = New System.Windows.Forms.NumericUpDown()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -94,7 +95,6 @@ Partial Class use_4_windows
         Me.CbAddClient_5 = New System.Windows.Forms.CheckBox()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.WindowsDevice_50 = New System.Windows.Forms.GroupBox()
-        Me.Button17 = New System.Windows.Forms.Button()
         Me.WindowsDevice_0.SuspendLayout()
         CType(Me.Vehiculos_0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WindowsDevice_1.SuspendLayout()
@@ -733,6 +733,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_51.TabStop = False
         Me.WindowsDevice_51.Text = "Asignar Servicio Manual"
         '
+        'Button17
+        '
+        Me.Button17.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button17.ForeColor = System.Drawing.Color.Black
+        Me.Button17.Location = New System.Drawing.Point(104, 240)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(105, 33)
+        Me.Button17.TabIndex = 36
+        Me.Button17.Text = "Cancelar"
+        Me.Button17.UseVisualStyleBackColor = False
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -880,30 +892,18 @@ Partial Class use_4_windows
         Me.WindowsDevice_50.TabStop = False
         Me.WindowsDevice_50.Text = "Asignar Servicio Manual"
         '
-        'Button17
-        '
-        Me.Button17.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Button17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button17.ForeColor = System.Drawing.Color.Black
-        Me.Button17.Location = New System.Drawing.Point(104, 240)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(105, 33)
-        Me.Button17.TabIndex = 36
-        Me.Button17.Text = "Cancelar"
-        Me.Button17.UseVisualStyleBackColor = False
-        '
         'use_4_windows
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Blue
-        Me.ClientSize = New System.Drawing.Size(1010, 348)
-        Me.Controls.Add(Me.WindowsDevice_50)
-        Me.Controls.Add(Me.WindowsDevice_51)
+        Me.ClientSize = New System.Drawing.Size(1010, 347)
         Me.Controls.Add(Me.WindowsDevice_3)
         Me.Controls.Add(Me.WindowsDevice_2)
         Me.Controls.Add(Me.WindowsDevice_1)
         Me.Controls.Add(Me.WindowsDevice_0)
+        Me.Controls.Add(Me.WindowsDevice_50)
+        Me.Controls.Add(Me.WindowsDevice_51)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "use_4_windows"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
