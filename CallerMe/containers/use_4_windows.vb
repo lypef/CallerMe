@@ -415,7 +415,7 @@
             'Se agrega direccion y cliente
             If f.AddClientXpress(TxtAddClient_1, number_1) Then
                 If f.AddDireccionXpress(TxtAddDireccion_1, f.LastIDClients()) Then
-                    TxtClient_1.Text = f.LoadNumberAsistencia4Windows(number_1, Combo_direcciones_1, number_id_0, client_id_1)
+                    TxtClient_1.Text = f.LoadNumberAsistencia4Windows(number_1, Combo_direcciones_1, number_id_1, client_id_1)
                     CbAddClient_1.Checked = False
                     CbDireccionAdd_1.Checked = False
                     TxtAddClient_1.Text = ""
@@ -1212,5 +1212,9 @@
         Catch ex As Exception
             f.LogError(ex.Message + ". Control.vb linea 115")
         End Try
+    End Sub
+
+    Private Sub Button18_Click_2(sender As Object, e As EventArgs)
+
     End Sub
 End Class
