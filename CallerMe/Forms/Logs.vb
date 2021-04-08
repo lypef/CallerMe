@@ -2,7 +2,10 @@
     Dim f As New functions
     Dim title_report As String
     Dim pagina As Integer = 0
-    Dim pagina_total As Integer = 0
+    'Dim pagina_total As Integer = 0
+    Dim desde = New DateTimePicker
+    Dim hasta = New DateTimePicker
+
     Dim sql As String
 
     Private Sub Logs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -26,15 +29,13 @@
 
         pagina = 0
         sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
-        pagina_total = CInt(f.ReturnLogsTotal("SELECT  count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
+        'pagina_total = CInt(f.ReturnLogsTotal("SELECT  count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.vehicle = v.id and r.driver = dri.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
-        title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString
+        title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString
     End Sub
 
     Public Sub LoadIni()
         pagina = 0
-        Dim desde = New DateTimePicker
-        Dim hasta = New DateTimePicker
 
         desde.Value = DateTime.Now
         hasta.Value = DateTime.Now
@@ -44,9 +45,9 @@
 
         sql = "SELECT r.id, c.nombre, t.numero, d.direccion, u.name, r.vehicle, r.driver, r.hora_llamada, r.atencion_llamada, r.finaliza_llamada  FROM registros r, telephone_numbers t, users u, adresses d, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and r.asistido = 1 and r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc "
         Console.WriteLine(sql)
-        pagina_total = CInt(f.ReturnLogsTotal("SELECT count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
+        'pagina_total = CInt(f.ReturnLogsTotal("SELECT count(r.id) FROM registros r, telephone_numbers t, users u, adresses d, vehicles v, drivers dri, clients c WHERE r.telefono = t.id and r.usuario = u.id and r.direccion = d.id and r.client = c.id and  r.hora_llamada >= '" + _desde + "' and r.hora_llamada <= '" + _hasta + "' ORDER BY r.id desc") / 30)
         f.Logs_DataGridViewSet(sql + "LIMIT 0, 30", Table)
-        title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString + "   DE: " + pagina_total.ToString
+        title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString
     End Sub
 
     Public Sub LoadLogs_ChangPag()
@@ -190,12 +191,17 @@
 
     Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
         pagina = pagina + 1
+        title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString
         LoadLogs_ChangPag()
     End Sub
 
     Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
-        pagina = pagina - 1
-        LoadLogs_ChangPag()
+        If (pagina > 0) Then
+            pagina = pagina - 1
+            title_report = "REPORTE registros. desde: " + desde.Value.ToShortDateString + ", hasta: " + hasta.Value.ToShortDateString + " | PAGINA: " + (pagina + 1).ToString
+            LoadLogs_ChangPag()
+        End If
+
     End Sub
 
     Private Sub ActualizarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ActualizarToolStripMenuItem.Click
